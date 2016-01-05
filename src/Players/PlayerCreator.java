@@ -26,7 +26,9 @@ public class PlayerCreator {
 		
 		for (int x = 0; x < playerAmount; x++){
 			String name = guiplayer.enteredName();
-			while ()
+			while(players[x].getName()=null ){
+				
+			}
 			players[x].setName(name);
 			
 		}
