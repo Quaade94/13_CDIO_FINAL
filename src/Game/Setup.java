@@ -3,6 +3,7 @@ package Game;
 import Boundary.GUIFieldPrice;
 import Boundary.GUIGameboard;
 import Boundary.GUIPlayer;
+import Boundary.GUIChanceCard;
 
 public class Setup {
 
@@ -15,6 +16,7 @@ public class Setup {
 		
 		GUIPlayer addplayer = new GUIPlayer();
 		
+		GUIChanceCard.card();
 		
 	}
 	
