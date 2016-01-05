@@ -1,8 +1,9 @@
-package Game;
+package Boundary;
 
 import desktop_resources.GUI;
+import Game.Language;
 
-public class GameBoardCreator {
+public class Boundary {
 
 	Language Language = new Language();
 

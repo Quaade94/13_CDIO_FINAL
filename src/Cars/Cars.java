@@ -1,7 +1,7 @@
 package Cars;
 
-import java.awt.Color;
-
+import Cars.CarCreator;
+import Game.Language;
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
 
@@ -9,13 +9,14 @@ public class Cars {
 
 	public void car(){
 		
-		Creator Creator = new Creator();
+		CarCreator CarCreator = new CarCreator();
 		
-		Car[] cars = Creator.getCar();
+		Car[] cars = CarCreator.getCar();
 		
 		GUI.addPlayer("hej", 30000, cars[0]);
 
-		
+	String navn = GUI.getUserString(Language.getLang("NAMEERROR"));
+
 
 		
 		

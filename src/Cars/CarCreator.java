@@ -4,9 +4,9 @@ import java.awt.Color;
 
 import desktop_codebehind.Car;
 
-public class Creator {
+public class CarCreator {
 	
-	public Car[] getCar(){
+	public static Car[] getCar(){
 		
 		Car car1 = new Car.Builder()
 				.typeCar()
