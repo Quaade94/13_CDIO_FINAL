@@ -15,7 +15,7 @@ public class GUIPlayer {
 	
 		
 	
-	GUI.addPlayer(Player.getName(), Player.getBalnce(), Player.getCar());
+//	GUI.addPlayer(Player.getName(), Player.getBalnce(), Player.getCar());
 	
 	}
 }

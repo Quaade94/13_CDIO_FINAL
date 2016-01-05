@@ -2,10 +2,9 @@ package Players;
 
 public class Account {
 
-	private int balance;
+	private int balance = 1500;
 	
-	public Account(int money){
-		balance = money;
+	public Account(){
 	}
 	
 	public void updateBalance(int exxxtra){
