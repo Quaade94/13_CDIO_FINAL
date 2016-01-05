@@ -1,9 +1,9 @@
 package Players;
 
+import Cars.Cars;
 import Fields.Fleet;
 import Fields.Laborcamp;
 import Fields.Territory;
-import desktop_codebehind.Car;
 
 public class Player {
 	
@@ -12,9 +12,9 @@ public class Player {
 	private Laborcamp LabOwned;
 	private String Name;
 	private int Balance;
-	private Car PlayerCar;
+	private Cars PlayerCar;
 	
-	public Player (int StartingCapitalC, String NameC, Car PlayerCarC, Territory TerrOwnedC, Fleet FleeOwnedC, Laborcamp LabOwnedC){
+	public Player (int StartingCapitalC, String NameC, Cars PlayerCarC, Territory TerrOwnedC, Fleet FleeOwnedC, Laborcamp LabOwnedC){
 		
 		TerrOwned = TerrOwnedC;
 		FleeOwned = FleeOwnedC;
@@ -24,6 +24,26 @@ public class Player {
 		PlayerCar = PlayerCarC;
 		
 	}
+	
+	
+	public Cars getCar(){
+		
+		return PlayerCar;
+		
+	}
+	public String getName(){
+		
+		return Name;
+		
+	}
+	public int getBalnce(){
+		
+		return Balance;
+		
+	}
+	
+	
+	
 	
 
 }
