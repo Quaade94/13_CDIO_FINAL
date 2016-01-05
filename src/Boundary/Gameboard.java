@@ -11,6 +11,8 @@ public class Gameboard {
 	
 	public void setGameBoard(){
 		
+		
+		
 		for (int ArrayNr = 0 ; ArrayNr <=5 ; ArrayNr++){
 		//Try your luck field
 			GUI.setSubText(TryLuckNr[ArrayNr],Language.getLang("LUCK") );
