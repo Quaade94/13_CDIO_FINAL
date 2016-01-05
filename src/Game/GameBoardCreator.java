@@ -43,5 +43,7 @@ public class GameBoardCreator {
 		GUI.setSubText(5, Language.getLang("TAX2S"));
 		GUI.setDescriptionText(5, Language.getLang("TAX2D"));
 		GUI.setTitleText(5, Language.getLang("TAX2T"));
+
+		
 	}
 }
