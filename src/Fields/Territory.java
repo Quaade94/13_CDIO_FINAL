@@ -4,10 +4,10 @@ import Players.Player;
 
 public class Territory {
 	
-	public Territory (int PriceC, int BaserentC, int FieldNumberC, String NameC){
+	public Territory (int PriceC, int RentT0, int RentT1, int RentT2, int RentT3, int RentT4, int RentT5, int HousePrice, int PledgingValue, int FieldNumberC, String NameC){
 		
 		Price = PriceC;
-		Baserent = BaserentC;
+		Baserent = RentT0;
 		FieldNumber = FieldNumberC;
 		
 		
