@@ -28,7 +28,9 @@ public class Territory {
 	private boolean AllOwned = false;
 	
 	
-	
+	public int getPrice(){
+		return 100;
+	}
 	
 	
 	

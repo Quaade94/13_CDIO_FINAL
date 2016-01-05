@@ -2,7 +2,7 @@ package Fields;
 
 public class Creator {
 	
-	public void createFields(){
+	public static void createFields(){
 		
 		createTerritory();
 		createFleet();
@@ -12,17 +12,24 @@ public class Creator {
 
 	}
 	
+	static Territory rødovrevej;
+	static Territory hvidovrevej;
+	static Territory valbylanggade;
+	static Territory roskildevej;
+	static Territory allegade;
+	static Territory frederiksbergalle;
+	static Territory glkongevej;
 	
-	@SuppressWarnings("unused")
+
 	private static void createTerritory(){
 		
-		Territory rødovrevej = new Territory(0, 0, 0, "Rødovrevej");
-		Territory hvidovrevej = new Territory(0, 0, 0, "Hvidovrevej");
-		Territory valbylanggade = new Territory(0, 0, 0, "Valbylanggade");
-		Territory roskildevej = new Territory(0, 0, 0, "Roskildevej");
-		Territory allegade = new Territory(0, 0, 0, "Allegade");
-		Territory frederiksbergalle = new Territory(0, 0, 0, "Frederiksbergalle");
-		Territory glkongevej = new Territory(0, 0, 0, "Gl. Kongevej");
+		rødovrevej = new Territory(0, 0, 0, "Rødovrevej");
+		hvidovrevej = new Territory(0, 0, 0, "Hvidovrevej");
+		valbylanggade = new Territory(0, 0, 0, "Valbylanggade");
+		roskildevej = new Territory(0, 0, 0, "Roskildevej");
+		allegade = new Territory(0, 0, 0, "Allegade");
+		frederiksbergalle = new Territory(0, 0, 0, "Frederiksbergalle");
+		glkongevej = new Territory(0, 0, 0, "Gl. Kongevej");
 		
 	}
 	@SuppressWarnings("unused")
@@ -42,6 +49,7 @@ public class Creator {
 		
 	}
 	
+
 	
 	
 	
