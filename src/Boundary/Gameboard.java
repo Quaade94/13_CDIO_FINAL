@@ -8,15 +8,14 @@ public class Gameboard {
 	Language Language = new Language();
 
 	private int[] TryLuckNr = {3,8,18,23,34,37};
-	private int ArrayNr = 0;
 	
 	public void setGameBoard(){
 		
-		while (ArrayNr<=5){
+		for (int ArrayNr = 0 ; ArrayNr <=5 ; ArrayNr++){
 		//Try your luck field
 			GUI.setSubText(TryLuckNr[ArrayNr],Language.getLang("LUCK") );
 			GUI.setDescriptionText(TryLuckNr[ArrayNr], Language.getLang("CARD"));
-			ArrayNr++;
+		
 		}
 		//Go to jail field
 		GUI.setSubText(31, Language.getLang("PRISONS"));

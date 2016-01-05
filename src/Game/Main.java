@@ -1,6 +1,6 @@
 package Game;
 
-import Boundary.GUITeritorryPrice;
+import Boundary.GUIFieldPrice;
 import Boundary.Gameboard;
 
 public class Main {
@@ -8,9 +8,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Gameboard Gameboard = new Gameboard();
-		GUITeritorryPrice GUITeritorryPrice = new GUITeritorryPrice();
+		GUIFieldPrice GUIFieldPrice = new GUIFieldPrice();
 		Gameboard.setGameBoard();
-		GUITeritorryPrice.setPrice();
+		GUIFieldPrice.setPrice();
 	
 		
 	}
