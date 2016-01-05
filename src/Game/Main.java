@@ -1,13 +1,14 @@
 package Game;
 
-import Boundary.Boundary;
+import Boundary.Gameboard;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Boundary Boundary = new Boundary();
-		Boundary.setGameBoard();
+		Gameboard Gameboard = new Gameboard();
+		Gameboard.setGameBoard();
 	
+		
 	}
 }

@@ -3,7 +3,7 @@ package Boundary;
 import desktop_resources.GUI;
 import Game.Language;
 
-public class Boundary {
+public class Gameboard {
 
 	Language Language = new Language();
 
