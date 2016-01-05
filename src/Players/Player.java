@@ -11,9 +11,9 @@ public class Player {
 	private Territory TerrOwned;
 	private Fleet FleeOwned;
 	private Laborcamp LabOwned;
-	private String Name;
-	private int Balance;
-	private Car PlayerCar;
+	private static String Name;
+	private static int Balance;
+	private static Car PlayerCar;
 	
 	public Player (int StartingCapitalC, String NameC, Car PlayerCarC, Territory TerrOwnedC, Fleet FleeOwnedC, Laborcamp LabOwnedC){
 		
@@ -27,17 +27,17 @@ public class Player {
 	}
 	
 	
-	public Car getCar(){
+	public static Car getCar(){
 		
 		return PlayerCar;
 		
 	}
-	public String getName(){
+	public static String getName(){
 		
 		return Name;
 		
 	}
-	public int getBalnce(){
+	public static int getBalnce(){
 		
 		return Balance;
 		
