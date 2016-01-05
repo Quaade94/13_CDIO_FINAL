@@ -8,9 +8,7 @@ import desktop_resources.GUI;
 public class Cars {
 
 	public void car(){
-		
-		CarCreator CarCreator = new CarCreator();
-		
+				
 		Car[] cars = CarCreator.getCar();
 		
 		GUI.addPlayer("hej", 30000, cars[0]);
