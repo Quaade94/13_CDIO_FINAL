@@ -12,7 +12,7 @@ public class Setup {
 		GUIGameboard GUIGameboard = new GUIGameboard();
 		GUIFieldPrice GUIFieldPrice = new GUIFieldPrice();
 		GUIGameboard.setGameBoard();
-		GUIFieldPrice.setPrice();
+		GUIFieldPrice.GUIOwnablePrice();
 		
 		GUIPlayer addplayer = new GUIPlayer();
 		
