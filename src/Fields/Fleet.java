@@ -4,10 +4,9 @@ import Players.Player;
 
 public class Fleet {
 	
-	public Fleet (int PriceC, int BaserentC, int FieldNumberC, String NameC){
+	public Fleet (int PriceC, int rentT0, int rentT1, int rentT2, int rentT3, int PledgingValue, int FieldNumberC, String NameC){
 		
 		Price = PriceC;
-		Baserent = BaserentC;
 		FieldNumber = FieldNumberC;
 		
 		

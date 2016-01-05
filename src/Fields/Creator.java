@@ -2,16 +2,6 @@ package Fields;
 
 public class Creator {
 	
-	public static void createFields(){
-		
-		createTerritory();
-		createFleet();
-		createLaborcamp();
-		
-		
-
-	}
-	
 	static Territory rødovrevej;
 	static Territory hvidovrevej;
 	static Territory valbylanggade;
@@ -35,8 +25,22 @@ public class Creator {
 	static Territory fredderiksbergade;
 	static Territory rådhuspladsen;
 	
+	static Fleet rødPut;
+	static Fleet helHel;
+	static Fleet gedRos;
+	static Fleet mols;
 	
+	static Laborcamp squash;
+	static Laborcamp cola;
 
+	public static void createFields(){
+		
+		createTerritory();
+		createFleet();
+		createLaborcamp();
+		
+	}
+	
 	private static void createTerritory(){
 		// Blue Fields
 		rødovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 600, 2, "Rødovrevej");
@@ -69,30 +73,20 @@ public class Creator {
 		fredderiksbergade = new Territory(7000, 700, 3500, 10000, 22000, 26000, 30000, 4000, 3500, 38, "Frederiksberggade");
 		rådhuspladsen = new Territory(8000, 1000, 4000, 12000, 28000, 34000, 40000, 4000, 4000, 40, "Rådhuspladsen");
 
-		
-		
 	}
-	@SuppressWarnings("unused")
+
 	private static void createFleet(){
 		
-		Fleet rederi1 = new Fleet(0, 0, 0, "Rederi1");
-		Fleet rederi2 = new Fleet(0, 0, 0, "Rederi2");
-		Fleet rederi3 = new Fleet(0, 0, 0, "Rederi3");
-		Fleet rederi4 = new Fleet(0, 0, 0, "Rederi4");
+		rødPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Rødby - Puttgarden");
+		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Helsingør - Helsingborg");
+		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Gedser - Rostock");
+		mols= new Fleet(4000, 500, 1000, 2000, 4000, 2000, 16, "Mols-Linjen");
 		
 	}
-	@SuppressWarnings("unused")
 	private static void createLaborcamp(){
 		
-		Laborcamp tuborg = new Laborcamp(0, 0, 0, "Tuborg");
-		Laborcamp cola = new Laborcamp(0, 0, 0, "CocaCola");
+		squash = new Laborcamp(3000, 100, 13, "Squash");
+		cola = new Laborcamp(3000, 100, 29, "CocaCola");
 		
 	}
-	
-
-	
-	
-	
-	
-
 }

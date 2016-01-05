@@ -29,7 +29,7 @@ public class Territory {
 	
 	
 	public int getPrice(){
-		return 100;
+		return Price;
 	}
 	
 	
