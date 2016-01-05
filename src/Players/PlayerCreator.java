@@ -1,19 +1,17 @@
 package Players;
 
 import desktop_codebehind.Car;
-import Cars.Cars;
-import java.awt.Color;
+
 
 import Cars.CarCreator;
-import Game.Language;
-import desktop_resources.GUI;
+
 
 public class PlayerCreator {
 		
 	
 	CarCreator CarCreator = new CarCreator();
 	
-	Car[] cars = CarCreator.getCar();
+	Car[] cars = Cars.CarCreator.getCar();
 		
 		int startingCapital = 30000;
 		
@@ -30,10 +28,7 @@ public class PlayerCreator {
 			
 			
 		}
-		
-		
-		
-		
+			
 		Player Player1 = new Player(startingCapital, null, car1, null, null, null);
 		Player Player2 = new Player(startingCapital, null, car2, null, null, null);
 		Player Player3 = new Player(startingCapital, null, car3, null, null, null);
