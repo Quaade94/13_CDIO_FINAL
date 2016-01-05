@@ -7,15 +7,12 @@ public class GUIPlayer {
 	
 	int amountPlayers = GUI.getUserInteger("How many players?", 2, 6);
 	
-	public int getAmountPlayers(){
+	public int getPlayerAmount(){
 		return amountPlayers;
 	}
 	
-	public void createPlayers(){
-	
-		
-	
-//	GUI.addPlayer(Player.getName(), Player.getBalnce(), Player.getCar());
-	
+	public String enteredName(){
+		String n = GUI.getUserString("Enter your name, bitch: ");
+		return n;
 	}
 }
