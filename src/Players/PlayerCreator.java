@@ -3,10 +3,10 @@ package Players;
 
 public class PlayerCreator {
 	
-	private int Players;
+	private int players;
 	
-	public playerCreator(){
-		
+	public playerCreator(int players){
+		this.players = players;
 		
 	}
 	
