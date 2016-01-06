@@ -5,7 +5,7 @@ import desktop_resources.GUI;
 public class GUIPlayer {
 	
 	
-	int amountPlayers = GUI.getUserInteger("How many players?", 2, 6);
+	private int amountPlayers = GUI.getUserInteger("How many players?", 3, 6);
 	
 	public int getPlayerAmount(){
 		return amountPlayers;

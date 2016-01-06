@@ -2,16 +2,17 @@ package Players;
 
 import Boundary.GUIPlayer;
 
-public class PlayerCreator {
+public class PlayerController {
 	
 	private int playerAmount;
 	private Player[] players;
+	private GUIPlayer guiplayer;
 	
 	/**
 	 * Opretter et spillerarray af spillerne
 	 * @param playerAmount Antallet af spillere
 	 */
-	public PlayerCreator(int playerAmount){
+	public PlayerController(int playerAmount){
 		this.playerAmount = playerAmount;
 		players = new Player[playerAmount];
 		
@@ -25,7 +26,7 @@ public class PlayerCreator {
 	public void createPlayers(){
 		
 		for (int x = 0; x < playerAmount; x++){
-			GUIPlayer guiplayer = new GUIPlayer();
+			
 			String name = guiplayer.enterName();
 			players[x].setName(name);
 				if (players[x].getName().equals(players[x].getName()) ){
