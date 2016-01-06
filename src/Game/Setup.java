@@ -1,6 +1,8 @@
 package Game;
 
-import Boundary.GUIPlayer;
+
+import Boundary.GUINonOwnable;
+import Boundary.GUIOwnable;
 import Players.PlayerCreator;
 
 public class Setup {
@@ -9,8 +11,12 @@ public class Setup {
 
 	public void runSetup(){
 		
+		GUINonOwnable GUINonOwnable = new GUINonOwnable();
+		GUIOwnable GUIOwnable = new GUIOwnable();
+		GUINonOwnable.setGameBoard();
 		//Skal ind når magnus er færdig med price arrays.
 //		GUIFieldPrice.GUIOwnablePrice();
+		
 		
 //		GUIPlayer addplayer = new GUIPlayer();
 //		players = addplayer.getPlayerAmount();
