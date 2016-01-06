@@ -23,7 +23,7 @@ public class Setup {
 		
 //		GUIPlayer addplayer = new GUIPlayer();
 //		players = addplayer.getPlayerAmount();
-		PlayerController createplayer = new PlayerController(5);
+		PlayerController createplayer = new PlayerController();
 		createplayer.createPlayers();
 		
 				
