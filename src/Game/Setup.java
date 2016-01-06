@@ -3,7 +3,8 @@ package Game;
 
 import Boundary.GUINonOwnable;
 import Boundary.GUIOwnable;
-import Players.PlayerController;
+import Players.PlayerCreator;
+import Fields.FieldController;
 
 public class Setup {
 	
@@ -13,14 +14,15 @@ public class Setup {
 		
 		GUINonOwnable GUINonOwnable = new GUINonOwnable();
 		GUIOwnable GUIOwnable = new GUIOwnable();
+		FieldController.initializeFieldCreator();
 		GUINonOwnable.setGameBoard();
-		//Skal ind når magnus er færdig med price arrays.
-//		GUIFieldPrice.GUIOwnablePrice();
+		GUIOwnable.GUIOwnablePrice();
+		
 		
 		
 //		GUIPlayer addplayer = new GUIPlayer();
 //		players = addplayer.getPlayerAmount();
-		PlayerController createplayer = new PlayerController(5);
+		PlayerCreator createplayer = new PlayerCreator(5);
 		createplayer.createPlayers();
 		
 				

@@ -1,22 +1,21 @@
 package Boundary;
 
 import Game.Language;
+import Fields.FieldController;
 import desktop_resources.GUI;
 
 public class GUIOwnable {
-	
-//	private int[] Fields = {2,4,6,7,9,10,12,13,14,15,16,17,19,20,22,24,25,26,27,28,29,30,32,33,35,36,38,40};
-	
-	public void GUIOwnablePrice(int Price[], int Fields[], String StrName[]){
+		
+	public void GUIOwnablePrice(){
 
-		for (int ArrayNr = 0 ; ArrayNr <=27 ; ArrayNr++){
+		for (int ArrayNr = 0 ; ArrayNr <=25 ; ArrayNr++){
 			
 			//Creates field price
-			GUI.setSubText(Fields[ArrayNr], Language.getLang("PRI")+Price[ArrayNr]);
+			GUI.setSubText(FieldController.getFieldNumber(ArrayNr), Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
 			
 			//Creates street name
-			GUI.setTitleText(Fields[ArrayNr], StrName[ArrayNr]);
-			GUI.setDescriptionText(Fields[ArrayNr], StrName[ArrayNr]);
+			GUI.setTitleText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
+			GUI.setDescriptionText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
 			
 		}
 	}

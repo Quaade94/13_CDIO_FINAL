@@ -5,7 +5,7 @@ import Players.Player;
 public class FieldController {
 	
 	static Field[] fields;
-	public void initializeFieldCreator(){
+	public static void initializeFieldCreator(){
 		fields = Creator.createFields();
 	}
 	
