@@ -40,7 +40,7 @@ public class Creator {
 		createLaborcamp();
 		
 		Field[] fields = new Field[]{rødovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, fredderiksbergade, bulowsvej, glkongevej, bernstoffsvej,
-				hellerupvej, strandvejern, østerbrogade, trianglen, grønningen, vimmelskaftet, amagertov, amagertov, nygade, fredderiksbergade, rådhuspladsen, 
+				hellerupvej, strandvejern, østerbrogade, trianglen, grønningen, bredgade, kgsNytov, østergade, vimmelskaftet, amagertov, amagertov, nygade, fredderiksbergade, rådhuspladsen, 
 				rødPut, helHel, gedRos, mols, squash, cola};
 		
 		return fields;
@@ -69,7 +69,7 @@ public class Creator {
 		// White Fields
 		bredgade = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 27, "Bredgade");
 		kgsNytov = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 28, "Kgs. Nytov");
-		østerbrogade = new Territory(5600, 500, 2400, 7200, 17000, 20500, 24000, 3000, 2800, 30, "Østergade");
+		østergade = new Territory(5600, 500, 2400, 7200, 17000, 20500, 24000, 3000, 2800, 30, "Østergade");
 		// Yellow Fields
 		vimmelskaftet = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 3000, 32, "Vimmelskaftet");
 		amagertov = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 3000, 33, "Amagertov");
