@@ -42,7 +42,7 @@ public class Territory  extends Ownable{
 		HouseAmount = 0;
 		
 	}
-	
+	@Override
 	public int getPrice(){
 		return Price;
 	}
@@ -94,41 +94,41 @@ public class Territory  extends Ownable{
 		return RentT5;
 	}
 	
-	
+	@Override
 	public int getHousePrice(){
 		return HousePrice;
 	}
+	@Override
 	public int getPledgingValue(){
 		return PledgingValue;
 	}
+	@Override
 	public int getFieldNumber(){
 		return FieldNumber;
 	}
+	@Override
 	public String getName(){
 		return Name;
 	}
 	
+	@Override
 	public void setOwner(Player OwnerM){
 		Owner = OwnerM;
 	}
+	@Override
 	public Player getOwner(){
 		return Owner;
 	}
+	@Override
 	public void resetOwner(){
 		Owner = null;
 	}
+	@Override
 	public void setHouseAmount(int HousesM){
 		HouseAmount = HousesM;
 	}
-	
-
+	@Override
 	public int getHouseAmount(){
 		return HouseAmount;
 	}
-
-	@Override
-	public void setHouseAmount() {
-		
-	}
-	
 }

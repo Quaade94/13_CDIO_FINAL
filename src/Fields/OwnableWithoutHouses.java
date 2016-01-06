@@ -11,5 +11,6 @@ public abstract class OwnableWithoutHouses extends Field {
 	public abstract void setOwner(Player Owner);
 	public abstract Player getOwner();
 	public abstract void resetOwner();
+	public abstract int getPrice();
 	
 }

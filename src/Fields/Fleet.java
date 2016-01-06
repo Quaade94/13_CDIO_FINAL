@@ -13,14 +13,12 @@ public class Fleet extends OwnableWithoutHouses{
 	private int RentT2;
 	private int RentT3;
 	
-	
-	
 	private int PledgingValue;
 	private int FieldNumber;
 	
 	private String Name;
 	
-	// Default values
+	// Other values
 	
 	private Player Owner;
 	private int AmountOwned;
@@ -43,20 +41,23 @@ public class Fleet extends OwnableWithoutHouses{
 		
 	}
 	
+	@Override
 	public void setOwner(Player OwnerM){
 		Owner = OwnerM;
 	}
+	@Override
 	public void resetOwner(){
 		Owner = null;
 	}
+	@Override
 	public Player getOwner(){
 		return Owner;
 	}
-	
+	@Override
 	public int getPrice(){
 		return Price;
 	}
-	
+	@Override
 	public int getRent(){
 		
 		int rent = 0;
@@ -81,12 +82,10 @@ public class Fleet extends OwnableWithoutHouses{
 	public int getFieldNumber(){
 		return FieldNumber;
 	}
-
 	@Override
 	public int getPledgingValue() {
 		return PledgingValue;
 	}
-
 	@Override
 	public String getName() {
 		return Name;

@@ -28,14 +28,12 @@ public class Laborcamp extends OwnableWithoutHouses{
 		Owner = null;
 		AllOwned = false;
 		
-		
 	}
 	
-	
+	@Override
 	public int getPrice(){
 		return Price;
 	}
-	
 
 	@Override
 	public int getRent(){
@@ -47,39 +45,32 @@ public class Laborcamp extends OwnableWithoutHouses{
 		if (AllOwned){
 			rent = Baserent * 2;
 		}
-		
 		return rent;
 	}
 	
-	
-	
+	@Override
 	public int getPledgingValue(){
 		return PledgingValue;
 	}
+	@Override
 	public int getFieldNumber(){
 		return FieldNumber;
 	}
+	@Override
 	public String getName(){
 		return Name;
 	}
-	
+	@Override
 	public void setOwner(Player OwnerM){
 		Owner = OwnerM;
 	}
+	@Override
 	public Player getOwner(){
 		return Owner;
 	}
+	@Override
 	public void resetOwner(){
 		Owner = null;
 	}
 
-
-
-
-	
 }
-	
-	
-	
-
-
