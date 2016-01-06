@@ -1,19 +1,19 @@
 package Fields;
 
-import Boundary.GUIChanceCard;
+import Boundary.GUINonOwnable;
 import Game.Language;
-import Game.getPlayerName;
 
 public class ChanceCard {
 
 	private static String card[] = {Language.getLang("CARD1"),Language.getLang("CARD2"),Language.getLang("CARD3"),Language.getLang("CARD4"),Language.getLang("CARD5"),Language.getLang("CARD6"),Language.getLang("CARD7"),Language.getLang("CARD8"),Language.getLang("CARD9"),Language.getLang("CARD10")};
 	
-	//ChanceCard.Luck(); selects a random card from the deck.
-	public void luck(){
+	//READ ME:
+	//ChanceCard.getLucky(); selects a random card from the deck.
+	public static void getLucky(){
 
 		int randomCard = (int) (Math.random() * 10);
 				
-		GUIChanceCard.setCard(card[randomCard]);
+		GUINonOwnable.setCard(card[randomCard]);
 		
 	}
 	

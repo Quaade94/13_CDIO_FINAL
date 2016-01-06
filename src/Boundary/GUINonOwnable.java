@@ -3,9 +3,7 @@ package Boundary;
 import desktop_resources.GUI;
 import Game.Language;
 
-public class GUIGameboard {
-
-	Language Language = new Language();
+public class GUINonOwnable {
 
 	private int[] TryLuckNr = {3,8,18,23,34,37};
 	
@@ -45,7 +43,12 @@ public class GUIGameboard {
 		GUI.setSubText(5, Language.getLang("TAX2S"));
 		GUI.setDescriptionText(5, Language.getLang("TAX2D"));
 		GUI.setTitleText(5, Language.getLang("TAX2T"));
-
 		
+	}
+		
+		public static void setCard(String card){
+			
+			GUI.displayChanceCard(Language.getLang("LUCK"));
+			GUI.setChanceCard(card);
 	}
 }
