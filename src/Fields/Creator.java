@@ -33,13 +33,27 @@ public class Creator {
 	static Laborcamp squash;
 	static Laborcamp cola;
 
-	public static void createFields(){
+	public static  Field[] createFields(){
 		
 		createTerritory();
 		createFleet();
 		createLaborcamp();
 		
+		
+		
+		Field[] fields = new Field[]{rødovrevej};
+		
+		
+		
+		return fields;
+		
+	
+		
+		
 	}
+	
+
+	
 	
 	private static void createTerritory(){
 		// Blue Fields

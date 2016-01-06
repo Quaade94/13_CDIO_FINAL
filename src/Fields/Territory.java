@@ -2,7 +2,7 @@ package Fields;
 
 import Players.Player;
 
-public class Territory {
+public class Territory  extends Ownable{
 	
 	// Created with the constructor
 	
@@ -47,7 +47,7 @@ public class Territory {
 		return Price;
 	}
 	
-	
+	@Override
 	public int getRent(){
 		
 		int rent = 0;
