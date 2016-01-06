@@ -1,6 +1,7 @@
 package Players;
 
 import Boundary.GUIPlayer;
+import desktop_resources.GUI;
 
 public class PlayerController {
 	
@@ -12,8 +13,8 @@ public class PlayerController {
 	 * Opretter et spillerarray af spillerne
 	 * @param playerAmount Antallet af spillere
 	 */
-	public PlayerController(int playerAmount){
-		this.playerAmount = playerAmount;
+	public PlayerController(){
+		playerAmount = GUI.getUserInteger("How many players?", 2, 6);
 		players = new Player[playerAmount];
 		
 		for (int i = 0; i < playerAmount; i++){
@@ -27,10 +28,10 @@ public class PlayerController {
 		
 		for (int x = 0; x < playerAmount; x++){
 			
-			String name = guiplayer.enterName();
+			String name = GUI.getUserString("Enter your name: ");
 			players[x].setName(name);
 				if (players[x].getName().equals(players[x].getName()) ){
-					name = guiplayer.enterName();
+					name = GUI.getUserString("Enter your name");
 			}
 			
 			

@@ -3,7 +3,8 @@ package Game;
 
 import Boundary.GUINonOwnable;
 import Boundary.GUIOwnable;
-import Players.PlayerCreator;
+import Players.PlayerController;
+
 import Fields.FieldController;
 
 public class Setup {
@@ -22,7 +23,7 @@ public class Setup {
 		
 //		GUIPlayer addplayer = new GUIPlayer();
 //		players = addplayer.getPlayerAmount();
-		PlayerCreator createplayer = new PlayerCreator(5);
+		PlayerController createplayer = new PlayerController(5);
 		createplayer.createPlayers();
 		
 				
