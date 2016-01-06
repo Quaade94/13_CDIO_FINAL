@@ -1,13 +1,12 @@
 package Players;
 
-import Boundary.GUIPlayer;
 import desktop_resources.GUI;
 
 public class PlayerController {
 	
 	private int playerAmount;
 	private Player[] players;
-	private GUIPlayer guiplayer;
+
 	
 	/**
 	 * Opretter et spillerarray af spillerne
