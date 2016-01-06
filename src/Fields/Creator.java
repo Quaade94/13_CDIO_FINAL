@@ -2,7 +2,7 @@ package Fields;
 
 public class Creator {
 	
-	static Territory rødovrevej;
+	static Territory roedovrevej;
 	static Territory hvidovrevej;
 	static Territory valbylanggade;
 	static Territory roskildevej;
@@ -13,19 +13,19 @@ public class Creator {
 	static Territory bernstoffsvej;
 	static Territory hellerupvej;
 	static Territory strandvejern;
-	static Territory østerbrogade;
+	static Territory oesterbrogade;
 	static Territory trianglen;
-	static Territory grønningen;
+	static Territory groenningen;
 	static Territory bredgade;
 	static Territory kgsNytov;
-	static Territory østergade;
+	static Territory oestergade;
 	static Territory vimmelskaftet;
 	static Territory amagertov;
 	static Territory nygade;
 	static Territory fredderiksbergade;
-	static Territory rådhuspladsen;
+	static Territory raadhuspladsen;
 	
-	static Fleet rødPut;
+	static Fleet roedPut;
 	static Fleet helHel;
 	static Fleet gedRos;
 	static Fleet mols;
@@ -39,16 +39,16 @@ public class Creator {
 		createFleet();
 		createLaborcamp();
 		
-		Field[] fields = new Field[]{rødovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, fredderiksbergade, bulowsvej, glkongevej, bernstoffsvej,
-				hellerupvej, strandvejern, østerbrogade, trianglen, grønningen, bredgade, kgsNytov, østergade, vimmelskaftet, amagertov, amagertov, nygade, fredderiksbergade, rådhuspladsen, 
-				rødPut, helHel, gedRos, mols, squash, cola};
+		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, fredderiksbergade, bulowsvej, glkongevej, bernstoffsvej,
+				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
+				roedPut, helHel, gedRos, mols, squash, cola};
 		
 		return fields;
 	}
 	
 	private static void createTerritory(){
 		// Blue Fields
-		rødovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 600, 2, "Rødovrevej");
+		roedovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 600, 2, "Rødovrevej");
 		hvidovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 600, 4, "Hvidovrevej");
 		// Orange Fields		
 		valbylanggade = new Territory(2000, 100, 600, 1800, 5400, 8000, 11000, 1000, 1000, 7, "Valbylanggade");
@@ -63,27 +63,27 @@ public class Creator {
 		hellerupvej = new Territory(3600, 300, 1400, 4000, 11000, 15000, 19000, 2000, 1800, 19, "Bernstoffsvej");
 		strandvejern = new Territory(4000, 350, 1600, 4400, 12000, 16000, 20000, 2000, 2000, 20, "Strandvejen");
 		// Red Fields
-		østerbrogade = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 2200, 22, "Østerbrogade");
+		oesterbrogade = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 2200, 22, "Østerbrogade");
 		trianglen = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 2200, 24, "Trianglen");
-		grønningen = new Territory(3800, 400, 2000, 6000, 15000, 18500, 2200, 3000, 2400, 25, "Grønningen");
+		groenningen = new Territory(3800, 400, 2000, 6000, 15000, 18500, 2200, 3000, 2400, 25, "Grønningen");
 		// White Fields
 		bredgade = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 27, "Bredgade");
 		kgsNytov = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 28, "Kgs. Nytov");
-		østergade = new Territory(5600, 500, 2400, 7200, 17000, 20500, 24000, 3000, 2800, 30, "Østergade");
+		oestergade = new Territory(5600, 500, 2400, 7200, 17000, 20500, 24000, 3000, 2800, 30, "Østergade");
 		// Yellow Fields
 		vimmelskaftet = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 3000, 32, "Vimmelskaftet");
 		amagertov = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 3000, 33, "Amagertov");
 		nygade = new Territory(6400, 600, 3000, 9000, 20000, 24000, 28000, 4000, 3200, 35, "Nygade");
 		// Purple Fields
 		fredderiksbergade = new Territory(7000, 700, 3500, 10000, 22000, 26000, 30000, 4000, 3500, 38, "Frederiksberggade");
-		rådhuspladsen = new Territory(8000, 1000, 4000, 12000, 28000, 34000, 40000, 4000, 4000, 40, "Rådhuspladsen");
+		raadhuspladsen = new Territory(8000, 1000, 4000, 12000, 28000, 34000, 40000, 4000, 4000, 40, "Rådhuspladsen");
 
 	}
 
 	private static void createFleet(){
 		
-		rødPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Rødby - Puttgarden");
-		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Helsingør - Helsingborg");
+		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Roedby - Puttgarden");
+		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Helsingoer - Helsingborg");
 		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Gedser - Rostock");
 		mols= new Fleet(4000, 500, 1000, 2000, 4000, 2000, 16, "Mols-Linjen");
 		
