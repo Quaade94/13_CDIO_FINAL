@@ -7,7 +7,7 @@ public class GUIController {
 
 	private int[] TryLuckNr = {3,8,18,23,34,37};
 	
-	public void GUINonoOwnable(){
+	public void GUINonOwnable(){
 		
 		for (int ArrayNr = 0 ; ArrayNr <=5 ; ArrayNr++){
 		//Try your luck field
