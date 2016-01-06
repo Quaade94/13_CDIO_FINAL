@@ -13,7 +13,7 @@ public class Setup {
 		
 		GUIController GUIController = new GUIController();
 		FieldController.initializeFieldCreator();
-		GUIController.GUINonOwnable();
+		GUIController.GUINonoOwnable();
 		GUIController.GUIOwnable();
 		
 //		GUIPlayer addplayer = new GUIPlayer();

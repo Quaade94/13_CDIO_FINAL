@@ -82,9 +82,9 @@ public class Creator {
 
 	private static void createFleet(){
 		
-		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Roedby - Puttgarden");
-		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Helsingoer - Helsingborg");
-		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 999, "Gedser - Rostock");
+		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 36, "Roedby - Puttgarden");
+		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 26, "Helsingoer - Helsingborg");
+		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 6, "Gedser - Rostock");
 		mols= new Fleet(4000, 500, 1000, 2000, 4000, 2000, 16, "Mols-Linjen");
 		
 	}

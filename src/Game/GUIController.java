@@ -7,7 +7,7 @@ public class GUIController {
 
 	private int[] TryLuckNr = {3,8,18,23,34,37};
 	
-	public void GUINonOwnable(){
+	public void GUINonoOwnable(){
 		
 		for (int ArrayNr = 0 ; ArrayNr <=5 ; ArrayNr++){
 		//Try your luck field
@@ -52,15 +52,34 @@ public class GUIController {
 		
 		public void GUIOwnable(){
 
-			for (int ArrayNr = 0 ; ArrayNr <=27 ; ArrayNr++){
-				
-				//Creates field price
-				GUI.setSubText(FieldController.getFieldNumber(ArrayNr), Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
-				
-				//Creates street name
-				GUI.setTitleText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
-				GUI.setDescriptionText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
-				
+			for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
+			
+			int number = FieldController.getFieldNumber(16);
+			
+			//Creates field price
+			GUI.setSubText(number, Language.getLang("PRI")+FieldController.getPrice(16));
+			
+			//Creates street name
+			GUI.setTitleText(number, FieldController.getName(16));
+			GUI.setDescriptionText(number, FieldController.getName(16));
+			
+		
+			
+		
+			
+			
+			
+			
+			
+//			for (int ArrayNr = 0 ; ArrayNr <=27 ; ArrayNr++){
+//				
+//				//Creates field price
+//				GUI.setSubText(FieldController.getFieldNumber(ArrayNr), Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
+//				
+//				//Creates street name
+//				GUI.setTitleText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
+//				GUI.setDescriptionText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
+//				
 			}
 		}
 }

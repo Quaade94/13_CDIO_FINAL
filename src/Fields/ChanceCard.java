@@ -2,6 +2,7 @@ package Fields;
 
 import Game.GUIController;
 import Game.Language;
+import desktop_resources.GUI;
 
 public class ChanceCard {
 
@@ -16,7 +17,4 @@ public class ChanceCard {
 		GUIController.getChanceCard(card[randomCard]);
 		
 	}
-	
-	
-
 }
