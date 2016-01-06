@@ -7,8 +7,6 @@ public class PlayerCreator {
 	private int playerAmount;
 	private Player[] players;
 	
-	GUIPlayer guiplayer = new GUIPlayer();
-	
 	/**
 	 * Opretter et spillerarray af spillerne
 	 * @param playerAmount Antallet af spillere
@@ -27,6 +25,7 @@ public class PlayerCreator {
 	public void createPlayers(){
 		
 		for (int x = 0; x < playerAmount; x++){
+			GUIPlayer guiplayer = new GUIPlayer();
 			String name = guiplayer.enterName();
 			players[x].setName(name);
 				if (players[x].getName().equals(players[x].getName()) ){
