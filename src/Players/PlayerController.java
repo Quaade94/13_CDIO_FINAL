@@ -6,6 +6,7 @@ public class PlayerController {
 	
 	private int playerAmount;
 	private Player[] players;
+	private boolean names;
 
 	
 	/**
@@ -29,12 +30,13 @@ public class PlayerController {
 			
 			String name = GUI.getUserString("Enter your name: ");
 			players[x].setName(name);
-				if (players[x].getName().equals(players[x].getName()) ){
-					name = GUI.getUserString("Enter your name");
-			}
+//				if (players[x].getName().equals(players[x].getName()) ){
+//					name = GUI.getUserString("Du kan ikke hedde det samme: ");
+//			}
 			
 			
 		}
 	}
+
 	
 }
