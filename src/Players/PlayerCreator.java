@@ -7,11 +7,14 @@ public class PlayerCreator {
 	private int playerAmount;
 	private Player[] players;
 	
+	GUIPlayer guiplayer = new GUIPlayer();
+	
 	/**
 	 * Opretter et spillerarray af spillerne
 	 * @param playerAmount Antallet af spillere
 	 */
 	public PlayerCreator(int playerAmount){
+		this.playerAmount = playerAmount;
 		players = new Player[playerAmount];
 		
 		for (int i = 0; i < playerAmount; i++){
@@ -22,20 +25,16 @@ public class PlayerCreator {
 
 	
 	public void createPlayers(){
-		GUIPlayer guiplayer = new GUIPlayer();
 		
 		for (int x = 0; x < playerAmount; x++){
-			String name = guiplayer.enteredName();
-			while(players[x].getName()=null ){
-				
-			}
+			String name = guiplayer.enterName();
 			players[x].setName(name);
+				if (players[x].getName().equals(players[x].getName()) ){
+					name = guiplayer.enterName();
+			}
+			
 			
 		}
 	}
 	
-
-	
-	
-
 }

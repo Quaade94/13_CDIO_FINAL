@@ -13,7 +13,7 @@ public class GUIPlayer {
 	}
 	
 	
-	public String enteredName(){
+	public String enterName(){
 		String n = GUI.getUserString("Enter your name, bitch: ");
 		return n;
 	}
