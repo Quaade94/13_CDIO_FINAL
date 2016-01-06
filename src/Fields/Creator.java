@@ -40,7 +40,7 @@ public class Creator {
 		createLaborcamp();
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, fredderiksbergade, bulowsvej, glkongevej, bernstoffsvej,
-				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
+				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
 				roedPut, helHel, gedRos, mols, squash, cola};
 		
 		return fields;

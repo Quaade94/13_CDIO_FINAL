@@ -52,34 +52,17 @@ public class GUIController {
 		
 		public void GUIOwnable(){
 
-			for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
+			for (int ArrayNr = 0 ; ArrayNr <22 ; ArrayNr++){
 			
-			int number = FieldController.getFieldNumber(16);
+			int number = FieldController.getFieldNumber(ArrayNr);
 			
 			//Creates field price
-			GUI.setSubText(number, Language.getLang("PRI")+FieldController.getPrice(16));
+			GUI.setSubText(number, Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
 			
 			//Creates street name
-			GUI.setTitleText(number, FieldController.getName(16));
-			GUI.setDescriptionText(number, FieldController.getName(16));
+			GUI.setTitleText(number, FieldController.getName(ArrayNr));
+			GUI.setDescriptionText(number, FieldController.getName(ArrayNr));
 			
-		
-			
-		
-			
-			
-			
-			
-			
-//			for (int ArrayNr = 0 ; ArrayNr <=27 ; ArrayNr++){
-//				
-//				//Creates field price
-//				GUI.setSubText(FieldController.getFieldNumber(ArrayNr), Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
-//				
-//				//Creates street name
-//				GUI.setTitleText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
-//				GUI.setDescriptionText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
-//				
 			}
 		}
 }
