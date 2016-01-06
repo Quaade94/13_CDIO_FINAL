@@ -12,12 +12,11 @@ public class Setup {
 		GUIGameboard GUIGameboard = new GUIGameboard();
 		GUIFieldPrice GUIFieldPrice = new GUIFieldPrice();
 		GUIGameboard.setGameBoard();
-		GUIFieldPrice.GUIOwnablePrice();
+		//Skal ind når magnus er færdig med price arrays.
+//		GUIFieldPrice.GUIOwnablePrice();
 		
 		GUIPlayer addplayer = new GUIPlayer();
-		
-		GUIChanceCard.card();
-		
+				
 	}
 	
 }

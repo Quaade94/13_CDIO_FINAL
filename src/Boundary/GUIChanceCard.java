@@ -1,15 +1,14 @@
 package Boundary;
 
-import Fields.ChanceCard;
 import desktop_resources.GUI;
 import Game.Language;
 
 public class GUIChanceCard {
 
-	public static void card(){
+	public static void setCard(String card){
 		
 		GUI.displayChanceCard(Language.getLang("LUCK"));
-		GUI.setChanceCard(ChanceCard.luck());
+		GUI.setChanceCard(card);
 		
 	}
 	
