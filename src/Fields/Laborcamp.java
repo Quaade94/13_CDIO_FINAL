@@ -2,30 +2,81 @@ package Fields;
 
 import Players.Player;
 
-public class Laborcamp {
+public class Laborcamp extends Ownable{
 	
-	public Laborcamp (int PriceC, int BaserentC, int FieldNumberC, String NameC){
+	// Created with the constructor
+	private int Price;
+	private int Baserent;
+	private int FieldNumber;
+	private int PledgingValue;
+	private String Name;
+	
+	// Other values
+	
+	private Player Owner;
+	private boolean AllOwned;
+	
+	
+	public Laborcamp (int PriceC, int BaserentC, int FieldNumberC, int PledgingValue, String NameC){
 		
 		Price = PriceC;
 		Baserent = BaserentC;
 		FieldNumber = FieldNumberC;
 		
+		Name = NameC;
+		
+		Owner = null;
+		AllOwned = false;
+		
 		
 	}
 	
-	// Created with the constructor
 	
-	private int Price;
-	private int Baserent;
-	private int FieldNumber;
+	public int getPrice(){
+		return Price;
+	}
 	
-	// Default values
+
+	@Override
+	public int getRent(){
+		
+		int rent = 0;
+		
+		rent = Baserent;
+		
+		if (AllOwned){
+			rent = Baserent * 2;
+		}
+		
+		return rent;
+	}
 	
-	private Player Owner = null;
-	private boolean AllOwned = false;
 	
+	
+	public int getPledgingValue(){
+		return PledgingValue;
+	}
+	public int getFieldNumber(){
+		return FieldNumber;
+	}
+	public String getName(){
+		return Name;
+	}
+	
+	public void setOwner(Player OwnerM){
+		Owner = OwnerM;
+	}
+	public Player getOwner(){
+		return Owner;
+	}
+	public void resetOwner(){
+		Owner = null;
+	}
+
+	
+}
 	
 	
 	
 
-}
+

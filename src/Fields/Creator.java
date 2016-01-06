@@ -39,21 +39,12 @@ public class Creator {
 		createFleet();
 		createLaborcamp();
 		
-		
-		
-		Field[] fields = new Field[]{rødovrevej};
-		
-		
+		Field[] fields = new Field[]{rødovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, fredderiksbergade, bulowsvej, glkongevej, bernstoffsvej,
+				hellerupvej, strandvejern, østerbrogade, trianglen, grønningen, vimmelskaftet, amagertov, amagertov, nygade, fredderiksbergade, rådhuspladsen, 
+				rødPut, helHel, gedRos, mols, squash, cola};
 		
 		return fields;
-		
-	
-		
-		
 	}
-	
-
-	
 	
 	private static void createTerritory(){
 		// Blue Fields
@@ -99,8 +90,8 @@ public class Creator {
 	}
 	private static void createLaborcamp(){
 		
-		squash = new Laborcamp(3000, 100, 13, "Squash");
-		cola = new Laborcamp(3000, 100, 29, "CocaCola");
+		squash = new Laborcamp(3000, 100, 13, 1500, "Squash");
+		cola = new Laborcamp(3000, 100, 29, 1500, "CocaCola");
 		
 	}
 }
