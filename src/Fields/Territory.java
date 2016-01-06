@@ -125,5 +125,10 @@ public class Territory  extends Ownable{
 	public int getHouseAmount(){
 		return HouseAmount;
 	}
+
+	@Override
+	public void setHouseAmount() {
+		
+	}
 	
 }

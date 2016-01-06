@@ -2,7 +2,7 @@ package Fields;
 
 import Players.Player;
 
-public class Fleet extends Ownable{
+public class Fleet extends OwnableWithoutHouses{
 	
 	
 	// Created with the constructor
@@ -13,10 +13,12 @@ public class Fleet extends Ownable{
 	private int RentT2;
 	private int RentT3;
 	
-	private int FieldNumber;
+	
 	
 	private int PledgingValue;
+	private int FieldNumber;
 	
+	private String Name;
 	
 	// Default values
 	
@@ -32,8 +34,9 @@ public class Fleet extends Ownable{
 		RentT3 = RentT3C;
 		
 		PledgingValue = PledgingValueC;
-		
 		FieldNumber = FieldNumberC;
+		
+		Name = NameC;
 		
 		Owner = null;
 		AmountOwned = 0;
@@ -74,6 +77,7 @@ public class Fleet extends Ownable{
 		return rent;
 	}
 	
+	@Override
 	public int getFieldNumber(){
 		return FieldNumber;
 	}
@@ -81,6 +85,11 @@ public class Fleet extends Ownable{
 	@Override
 	public int getPledgingValue() {
 		return PledgingValue;
+	}
+
+	@Override
+	public String getName() {
+		return Name;
 	}
 
 }

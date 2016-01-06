@@ -2,7 +2,7 @@ package Fields;
 
 import Players.Player;
 
-public class Laborcamp extends Ownable{
+public class Laborcamp extends OwnableWithoutHouses{
 	
 	// Created with the constructor
 	private int Price;
@@ -72,6 +72,9 @@ public class Laborcamp extends Ownable{
 	public void resetOwner(){
 		Owner = null;
 	}
+
+
+
 
 	
 }
