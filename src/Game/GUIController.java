@@ -1,15 +1,13 @@
-package Boundary;
+package Game;
 
 import desktop_resources.GUI;
-import Game.Language;
+import Fields.FieldController;
 
-public class GUINonOwnable {
+public class GUIController {
 
 	private int[] TryLuckNr = {3,8,18,23,34,37};
 	
-	public void setGameBoard(){
-		
-		
+	public void GUINonoOwnable(){
 		
 		for (int ArrayNr = 0 ; ArrayNr <=5 ; ArrayNr++){
 		//Try your luck field
@@ -46,9 +44,23 @@ public class GUINonOwnable {
 		
 	}
 		
-		public static void setCard(String card){
+		public static void getChanceCard(String card){
 			
 			GUI.displayChanceCard(Language.getLang("LUCK"));
 			GUI.setChanceCard(card);
 	}
+		
+		public void GUIOwnable(){
+
+			for (int ArrayNr = 0 ; ArrayNr <=27 ; ArrayNr++){
+				
+				//Creates field price
+				GUI.setSubText(FieldController.getFieldNumber(ArrayNr), Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
+				
+				//Creates street name
+				GUI.setTitleText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
+				GUI.setDescriptionText(FieldController.getFieldNumber(ArrayNr), FieldController.getName(ArrayNr));
+				
+			}
+		}
 }

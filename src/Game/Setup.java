@@ -1,8 +1,6 @@
 package Game;
 
 
-import Boundary.GUINonOwnable;
-import Boundary.GUIOwnable;
 import Players.PlayerController;
 
 import Fields.FieldController;
@@ -13,13 +11,9 @@ public class Setup {
 
 	public void runSetup(){
 		
-		GUINonOwnable GUINonOwnable = new GUINonOwnable();
-		GUIOwnable GUIOwnable = new GUIOwnable();
+		GUIController GUIController = new GUIController();
 		FieldController.initializeFieldCreator();
-		GUINonOwnable.setGameBoard();
-		GUIOwnable.GUIOwnablePrice();
-		
-		
+		GUIController.GUINonoOwnable();		
 		
 //		GUIPlayer addplayer = new GUIPlayer();
 //		players = addplayer.getPlayerAmount();

@@ -1,6 +1,6 @@
 package Fields;
 
-import Boundary.GUINonOwnable;
+import Game.GUIController;
 import Game.Language;
 
 public class ChanceCard {
@@ -13,7 +13,7 @@ public class ChanceCard {
 
 		int randomCard = (int) (Math.random() * 10);
 				
-		GUINonOwnable.setCard(card[randomCard]);
+		GUIController.getChanceCard(card[randomCard]);
 		
 	}
 	
