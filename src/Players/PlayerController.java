@@ -7,7 +7,7 @@ import desktop_resources.GUI;
 public class PlayerController {
 	
 	private int playerAmount;
-	private Player[] players;
+	private static Player[] players;
 	private boolean Bleh;
 
 	
@@ -52,7 +52,7 @@ public class PlayerController {
 		}
 	}
 	
-	public Player[] getPlayers(){
+	public static Player[] getPlayers(){
 		return players;
 	}
 	
