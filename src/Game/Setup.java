@@ -2,7 +2,7 @@ package Game;
 
 
 import Players.PlayerController;
-
+import desktop_resources.GUI;
 import Fields.FieldController;
 
 public class Setup {
@@ -21,7 +21,7 @@ public class Setup {
 		PlayerController createplayer = new PlayerController();
 		createplayer.createPlayers();
 		
-				
+		GUI.getUserButtonPressed("Start game?", "Start");		
 	}
 	
 }

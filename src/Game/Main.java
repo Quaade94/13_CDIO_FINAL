@@ -7,6 +7,7 @@ public class Main {
 		Setup Setup = new Setup();
 		Setup.runSetup();
 		
-		
+		GameController gameController = new GameController();
+		gameController.runGame();
 	}
 }
