@@ -44,10 +44,10 @@ public class GUIController {
 		
 	}
 		
-		public static void getChanceCard(String card){
+		public static void getChanceCard(){
 			
 			GUI.displayChanceCard(Language.getLang("LUCK"));
-			GUI.setChanceCard(card);
+			GUI.setChanceCard();
 	}
 		
 		public void GUIOwnable(){
