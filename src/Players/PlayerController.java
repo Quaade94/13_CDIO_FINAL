@@ -53,6 +53,8 @@ public class PlayerController {
 			System.out.println("spiller: "+players[x].getName());
 			System.out.println("penge: "+players[x].getAccount().getBalance());
 			GUI.addPlayer(players[x].getName(), players[x].getAccount().getBalance(), cars[x]);
+			System.out.println(players[x].getPlace());
+			GUI.setCar(players[x].getPlace()+1, players[x].getName());
  		}
 	}
 	
