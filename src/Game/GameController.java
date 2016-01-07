@@ -4,6 +4,7 @@ import desktop_resources.GUI;
 import Game.TurnSwitcher;
 import Players.PlayerController;
 import Players.Player;
+import Game.Language;
 
 public class GameController {
 
@@ -13,7 +14,7 @@ public class GameController {
 		while(PlayerController.getPlayers().length>1){
 			Player playerTurn = TurnSwitcher.getPlayerTurn();
 			if (playerTurn.getJailed()){
-				Boolean choice = GUI.getUserLeftButtonPressed("Roll or Pay?", "Roll", "Pay");
+				Boolean choice = GUI.getUserLeftButtonPressed(Language.getLang("ROLLPAY"), Language.getLang("ROLL"), Language.getLang("PAY"));
 				if(choice){
 					int chances = 3;
 					boolean gotLoose = false;
@@ -24,7 +25,7 @@ public class GameController {
 							chances = 0;
 						}else if(die.getDice1() != die.getDice2()){
 							chances--;
-							GUI.showMessage("You rolled " + die.getDiceSum());
+							GUI.showMessage(Language.getLang("ROLLED")+ " " + die.getDiceSum());
 						}
 					}
 					if(gotLoose){
@@ -34,7 +35,7 @@ public class GameController {
 						playerTurn.setPlace(newPosition);
 						GUI.removeCar(playerPosition+1, playerTurn.getName());
 						GUI.setCar(newPosition+1, playerTurn.getName());
-						GUI.showMessage("You rolled " + die.getDiceSum());
+						GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 						TurnSwitcher.endTurn();
 					}
 				}else if(!(choice)){
@@ -44,7 +45,7 @@ public class GameController {
 					TurnSwitcher.endTurn();
 				}
 			} else if (!(playerTurn.getJailed())){
-				String choice = GUI.getUserSelection(playerTurn.getName() + "'s turn", "Roll", "Buy houses", "Pledge");
+				String choice = GUI.getUserSelection(playerTurn.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("PLEDGE"));
 				if(choice == "Roll"){
 					//Player wants to roll the die
 					int playerPosition = playerTurn.getPlace();
@@ -56,12 +57,12 @@ public class GameController {
 					//Communicating with GUI
 					GUI.removeCar(playerPosition+1, playerTurn.getName());
 					GUI.setCar(newPosition+1, playerTurn.getName());
-					GUI.showMessage("You rolled " + die.getDiceSum());
+					GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 					//Ending turn
 					TurnSwitcher.endTurn();
 				} else if (choice == "Buy houses"){
 					//Player wants to buy houses
-					GUI.getUserSelection("Which properties do you want to build houses on?", "Your mom");
+					GUI.getUserSelection(Language.getLang("HOUSECHOICE"), "Your mom");
 					
 				} else if (choice == "Pledge"){
 					//Player wants to pledge properties

@@ -16,8 +16,7 @@ public class Setup {
 		
 		PlayerController createplayer = new PlayerController();
 		createplayer.createPlayers();
-		
-		PlayerController.getPlayers()[0].setJail(true);
+
 		GUI.getUserButtonPressed("Start game?", "Start");	
 	}
 	
