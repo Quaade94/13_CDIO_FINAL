@@ -3,6 +3,10 @@ package Players;
 import java.sql.Blob;
 
 import desktop_resources.GUI;
+import desktop_tests.CarTest;
+
+import java.awt.Color;
+import desktop_codebehind.Car;
 
 public class PlayerController {
 	
@@ -23,6 +27,7 @@ public class PlayerController {
 	
 	public void createPlayers(){
 		
+		Car[] cars = CarBuilder.getCar();
 		for (int x = 0; x < playerAmount; x++){
 			String name;
 			boolean nameExists = false;
@@ -47,14 +52,11 @@ public class PlayerController {
 			players[x] = player;
 			System.out.println("spiller: "+players[x].getName());
 			System.out.println("penge: "+players[x].getAccount().getBalance());
-			
-//			GUI.addPlayer(players[x].getName(), players[x].getAccount().getBalance(), CarBuilder.getCar());
-		}
+			GUI.addPlayer(players[x].getName(), players[x].getAccount().getBalance(), cars[x]);
+ 		}
 	}
 	
 	public static Player[] getPlayers(){
 		return players;
-	}
-	
-	
+	}	
 }

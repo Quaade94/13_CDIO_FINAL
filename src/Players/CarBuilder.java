@@ -13,21 +13,21 @@ public class CarBuilder {
 		Car car1 = new Car.Builder()
 				.typeCar()
 				.patternHorizontalDualColor()
-				.primaryColor(Color.CYAN)
+				.primaryColor(Color.BLUE)
 				.secondaryColor(Color.BLUE)
 				.build();	
 		
 		Car car2 = new Car.Builder()
 				.typeRacecar()
 				.patternHorizontalDualColor()
-				.primaryColor(Color.WHITE)
-				.secondaryColor(Color.BLACK)
+				.primaryColor(Color.YELLOW)
+				.secondaryColor(Color.YELLOW)
 				.build();
 		
 		Car car3 = new Car.Builder()
 				.typeTractor()
 				.patternHorizontalDualColor()
-				.primaryColor(Color.PINK)
+				.primaryColor(Color.RED)
 				.secondaryColor(Color.RED)
 				.build();
 		
@@ -41,15 +41,15 @@ public class CarBuilder {
 		Car car5 = new Car.Builder()
 				.typeCar()
 				.patternHorizontalDualColor()
-				.primaryColor(Color.PINK)
-				.secondaryColor(Color.RED)
+				.primaryColor(Color.darkGray)
+				.secondaryColor(Color.darkGray)
 				.build();
 		
 		Car car6 = new Car.Builder()
 				.typeRacecar()
 				.patternHorizontalDualColor()
-				.primaryColor(Color.YELLOW)
-				.secondaryColor(Color.RED)
+				.primaryColor(Color.MAGENTA)
+				.secondaryColor(Color.MAGENTA)
 				.build();
 		
 		Car[] cars = {car1,car2,car3,car4,car5,car6};
