@@ -39,6 +39,8 @@ public class Creator {
 	static TryLuck Luck4;
 	static TryLuck Luck5;
 	static TryLuck Luck6;
+	
+	static Jail jail;
 
 	public static  Field[] createFields(){
 		
@@ -46,10 +48,11 @@ public class Creator {
 		createFleet();
 		createLaborcamp();
 //		createChanceCard();
+		createJail();
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
 				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
-				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6};
+				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6, jail};
 		
 		return fields;
 	}
@@ -116,5 +119,8 @@ public class Creator {
 		
 		
 		
+	}
+	private static void createJail(){
+		jail = new Jail(31, "Jail");
 	}
 }
