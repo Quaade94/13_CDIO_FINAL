@@ -32,12 +32,20 @@ public class Creator {
 	
 	static Laborcamp squash;
 	static Laborcamp cola;
+	
+	static TryLuck Luck1;
+	static TryLuck Luck2;
+	static TryLuck Luck3;
+	static TryLuck Luck4;
+	static TryLuck Luck5;
+	static TryLuck Luck6;
 
 	public static  Field[] createFields(){
 		
 		createTerritory();
 		createFleet();
 		createLaborcamp();
+		createChanseCard();
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
 				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
@@ -92,6 +100,21 @@ public class Creator {
 		
 		squash = new Laborcamp(3000, 100, 13, 1500, "Squash");
 		cola = new Laborcamp(3000, 100, 29, 1500, "CocaCola");
+		
+	}
+	
+	private static void createChanseCard(){
+		
+		Luck1 = new TryLuck();
+		Luck2 = new TryLuck();
+		Luck3 = new TryLuck();
+		Luck4 = new TryLuck();
+		Luck5 = new TryLuck();
+		Luck6 = new TryLuck();
+
+		
+		
+		
 		
 	}
 }

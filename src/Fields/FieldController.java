@@ -9,6 +9,11 @@ public class FieldController {
 		fields = Creator.createFields();
 	}
 	
+	public static void landOnField(int fieldIndex){
+		if (fields[fieldIndex] instanceof Ownable){
+			((Field) fields[fieldIndex]).landOnField();
+		}
+	}
 	public static int getPrice(int fieldIndex){
 		int price = -1;
 		if (fields[fieldIndex] instanceof Ownable){
