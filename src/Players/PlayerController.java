@@ -21,8 +21,6 @@ public class PlayerController {
 		
 	}
 	
-
-	
 	public void createPlayers(){
 		
 		for (int x = 0; x < playerAmount; x++){
@@ -48,6 +46,11 @@ public class PlayerController {
 			player.setName(name);
 			players[x] = player;
 			System.out.println("spiller: "+players[x].getName());
+			System.out.println("penge: "+players[x].getAccount().getBalance());
 		}
+	}
+	
+	public Player[] getPlayers(Player[] players){
+		return players;
 	}
 }

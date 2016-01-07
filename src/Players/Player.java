@@ -16,6 +16,10 @@ public class Player {
 		isJailed = false;
 	}
 	
+	public Account getAccount(){
+		return account;
+	}
+	
 	/**
 	 * Sætter spillerens navn
 	 * @param name Spillerens ønskede navn
