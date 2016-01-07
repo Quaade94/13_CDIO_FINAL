@@ -39,7 +39,7 @@ public class Creator {
 		createFleet();
 		createLaborcamp();
 		
-		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, fredderiksbergade, bulowsvej, glkongevej, bernstoffsvej,
+		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
 				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
 				roedPut, helHel, gedRos, mols, squash, cola};
 		
@@ -55,7 +55,7 @@ public class Creator {
 		roskildevej = new Territory(2000, 100, 600, 1800, 5400, 8000, 11000, 1000, 1000, 9, "Roskildevej");
 		allegade = new Territory(2400, 150, 600, 1800, 5400, 8000, 11000, 1000, 1000, 10, "Allegade");
 		// Green Fields
-		frederiksbergalle = new Territory(2800, 200, 1000, 3000, 9000, 12500, 15000, 2000, 1400, 12, "Frederiksbergalle");
+		frederiksbergalle = new Territory(2800, 200, 1000, 3000, 9000, 12500, 15000, 2000, 1400, 12, "Frederiksberg Allé");
 		bulowsvej = new Territory(2800, 200, 1000, 3000, 9000, 12500, 15000, 2000, 1400, 14, "Bülowsvej");
 		glkongevej = new Territory(3200, 250, 1250, 3750, 10000, 14000, 18000, 2000, 1600, 15, "Gl. Kongevej");
 		// Gray Fields
@@ -82,9 +82,9 @@ public class Creator {
 
 	private static void createFleet(){
 		
-		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 36, "Roedby - Puttgarden");
-		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 26, "Helsingoer - Helsingborg");
-		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 6, "Gedser - Rostock");
+		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 36, "Rød - Putt");
+		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 26, "Hel - Hel");
+		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 6, "Ged - Ros");
 		mols= new Fleet(4000, 500, 1000, 2000, 4000, 2000, 16, "Mols-Linjen");
 		
 	}
