@@ -47,10 +47,14 @@ public class PlayerController {
 			players[x] = player;
 			System.out.println("spiller: "+players[x].getName());
 			System.out.println("penge: "+players[x].getAccount().getBalance());
+			
+//			GUI.addPlayer(players[x].getName(), players[x].getAccount().getBalance(), CarBuilder.getCar());
 		}
 	}
 	
-	public Player[] getPlayers(Player[] players){
+	public Player[] getPlayers(){
 		return players;
 	}
+	
+	
 }
