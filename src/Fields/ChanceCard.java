@@ -12,7 +12,7 @@ public class ChanceCard {
 	//ChanceCard.getLucky(); selects a random card from the deck.
 	public static void getLucky(){
 
-		int randomCard = (int) (Math.random() * 10);
+		int randomCard = (int) (Math.random() * 8);
 				
 		GUIController.getChanceCard(card[randomCard]);
 		
