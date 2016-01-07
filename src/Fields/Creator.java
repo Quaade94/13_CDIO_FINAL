@@ -1,5 +1,7 @@
 package Fields;
 
+import Game.Language;
+
 public class Creator {
 	
 	static Territory roedovrevej;
@@ -47,7 +49,7 @@ public class Creator {
 		createTerritory();
 		createFleet();
 		createLaborcamp();
-//		createChanceCard();
+		createChanceCard();
 		createJail();
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
@@ -108,12 +110,12 @@ public class Creator {
 	
 	private static void createChanceCard(){
 		
-		Luck1 = new TryLuck(3, "ChanceCard1");
-		Luck2 = new TryLuck(8, "ChanceCard2");
-		Luck3 = new TryLuck(18, "ChanceCard3");
-		Luck4 = new TryLuck(23, "ChanceCard4");
-		Luck5 = new TryLuck(34, "ChanceCard5");
-		Luck6 = new TryLuck(37, "ChanceCard6");
+		Luck1 = new TryLuck(3, Language.getLang("LUCK"),Language.getLang("CARD"));
+		Luck2 = new TryLuck(8, Language.getLang("LUCK"),Language.getLang("CARD"));
+		Luck3 = new TryLuck(18, Language.getLang("LUCK"),Language.getLang("CARD"));
+		Luck4 = new TryLuck(23, Language.getLang("LUCK"),Language.getLang("CARD"));
+		Luck5 = new TryLuck(34, Language.getLang("LUCK"),Language.getLang("CARD"));
+		Luck6 = new TryLuck(37, Language.getLang("LUCK"),Language.getLang("CARD"));
 
 		
 		

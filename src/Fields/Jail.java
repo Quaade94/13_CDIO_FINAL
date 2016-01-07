@@ -16,7 +16,6 @@ public class Jail extends Field{
 		Player jailedPlayer = TurnSwitcher.getPlayerTurn();
 		jailedPlayer.setJail(true);
 	}
-	@Override
 	public String getName(){
 		return name;
 	}

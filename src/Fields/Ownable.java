@@ -6,7 +6,7 @@ public abstract class Ownable  extends Field{
 	
 	
 	// Created when the constructor is called
-	
+	protected String Name;
 	protected int Price;
 	protected int PledgingValue;
 	
@@ -15,7 +15,11 @@ public abstract class Ownable  extends Field{
 	protected Player Owner;
 	
 	
-
+	/**
+	 * This method will return the Name of the object
+	 * @return the Name of the object
+	 */
+	public abstract String getName();
 	/**
 	 * This method will return the Rent of the object
 	 * @return the Rent of the object

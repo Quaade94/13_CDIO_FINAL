@@ -4,29 +4,32 @@ import desktop_resources.GUI;
 import Fields.FieldController;
 
 public class GUIController {
-
-	private int[] TryLuckNr = {3,8,18,23,34,37};
+	
+	public void GUIOwnable(){
+		
+		for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
+			
+			int number = FieldController.getFieldNumber(ArrayNr);
+			
+			//Creates field price
+			GUI.setSubText(number, Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
+			
+			//Creates street name
+			GUI.setTitleText(number, FieldController.getName(ArrayNr));
+			GUI.setDescriptionText(number, FieldController.getName(ArrayNr));
+			
+		}
+	}
 	
 	public void GUINonoOwnable(){
-		
-		for (int ArrayNr = 0 ; ArrayNr <=5 ; ArrayNr++){
-		//Try your luck field
-			GUI.setSubText(TryLuckNr[ArrayNr],Language.getLang("LUCK") );
-			GUI.setDescriptionText(TryLuckNr[ArrayNr], Language.getLang("CARD"));
 			
 			
 //			for (int ArrayNr = 28 ; ArrayNr <=34 ; ArrayNr++){
-//				//Try your luck field
-//					
 //					int number = FieldController.getFieldNumber(ArrayNr);
-//					
-//					GUI.setSubText(TryLuckNr[number],Language.getLang("LUCK") );
-//					GUI.setDescriptionText(TryLuckNr[number], Language.getLang("CARD"));
-//				
+//					//Try your luck field
+//					GUI.setSubText(number,FieldController.getSubText(ArrayNr) );
+//					GUI.setDescriptionText(number,FieldController.getDesText(ArrayNr));
 //				}
-			
-			
-		
 		
 		//Go to jail field
 		GUI.setSubText(31, Language.getLang("PRISONS"));
@@ -54,28 +57,5 @@ public class GUIController {
 		GUI.setSubText(5, Language.getLang("TAX2S"));
 		GUI.setDescriptionText(5, Language.getLang("TAX2D"));
 		GUI.setTitleText(5, Language.getLang("TAX2T"));
-		}
-	}
-		
-		public static void getChanceCard(){
-			
-//			GUI.displayChanceCard(Language.getLang("LUCK"));
-//			GUI.setChanceCard(ChanceCard.getLucky(((int)(Math.random()*8)+1)));
-	}
-		
-		public void GUIOwnable(){
-
-			for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
-			
-			int number = FieldController.getFieldNumber(ArrayNr);
-			
-			//Creates field price
-			GUI.setSubText(number, Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
-			
-			//Creates street name
-			GUI.setTitleText(number, FieldController.getName(ArrayNr));
-			GUI.setDescriptionText(number, FieldController.getName(ArrayNr));
-			
-			}
 		}
 }

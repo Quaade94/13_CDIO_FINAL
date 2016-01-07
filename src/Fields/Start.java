@@ -13,7 +13,6 @@ public class Start extends Field{
 		
 	}
 
-	@Override
 	public String getName() {
 		
 	return name;

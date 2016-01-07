@@ -51,8 +51,8 @@ public class FieldController {
 	}
 	public static String getName(int fieldIndex){
 		String name = null;
-		if (fields[fieldIndex] instanceof Field){
-			name = ((Field) fields[fieldIndex]).getName();
+		if (fields[fieldIndex] instanceof Ownable){
+			name = ((Ownable) fields[fieldIndex]).getName();
 		}
 		return name;	
 	}
@@ -92,4 +92,25 @@ public class FieldController {
 		}
 		return Message;
 	}
+	
+	// For ChanceCards
+	public static String getSubText(int fieldIndex){
+		String SubText = null;
+		
+		if (fields[fieldIndex] instanceof TryLuck){
+			SubText = ((TryLuck) fields[fieldIndex]).getSubText();
+		}
+		return SubText;
+	}
+	public static String getDesText(int fieldIndex){
+		String DesText = null;
+		if (fields[fieldIndex] instanceof TryLuck){
+			DesText = ((TryLuck) fields[fieldIndex]).getDesText();
+		}
+		return DesText;
+	}
+	
+	
+
+	
 }
