@@ -1,5 +1,5 @@
 package Fields;
 
-public class Field {
-
+public abstract class Field {
+	public abstract void landOnField();
 }

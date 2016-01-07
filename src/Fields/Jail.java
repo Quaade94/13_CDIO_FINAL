@@ -1,13 +1,16 @@
 package Fields;
 
-import Players.PlayerController;
+import Players.Player;
+import Game.TurnSwitcher;
 
 public class Jail extends Field{
 
 	public Jail(){
 		boolean jailed = true;
 	}
-	private boolean setJail(boolean jailed){
-		return jailed;
+
+	@Override
+	public void landOnField(){
+		Player jailedPlayer = TurnSwitcher.getPlayerTurn();
 	}
 }

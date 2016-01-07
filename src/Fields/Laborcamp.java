@@ -24,6 +24,10 @@ public class Laborcamp extends Ownable{
 		AllOwned = false;
 		
 	}
+	@Override
+	public void landOnField(){
+		
+	}
 	
 	@Override
 	public int getPrice(){

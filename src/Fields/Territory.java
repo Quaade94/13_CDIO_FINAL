@@ -23,6 +23,10 @@ public class Territory  extends WithHouses{
 		
 	}
 	@Override
+	public void landOnField(){
+		
+	}
+	@Override
 	public int getPrice(){
 		return Price;
 	}

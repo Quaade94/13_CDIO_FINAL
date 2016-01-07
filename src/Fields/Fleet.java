@@ -34,6 +34,10 @@ public class Fleet extends Ownable{
 		AmountOwned = 0;
 		
 	}
+	@Override
+	public void landOnField(){
+		
+	}
 	
 	@Override
 	public void setOwner(Player OwnerM){
