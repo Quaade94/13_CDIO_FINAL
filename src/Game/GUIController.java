@@ -24,12 +24,12 @@ public class GUIController {
 	public void GUINonoOwnable(){
 			
 			
-//			for (int ArrayNr = 28 ; ArrayNr <=34 ; ArrayNr++){
-//					int number = FieldController.getFieldNumber(ArrayNr);
-//					//Try your luck field
-//					GUI.setSubText(number,FieldController.getSubText(ArrayNr) );
-//					GUI.setDescriptionText(number,FieldController.getDesText(ArrayNr));
-//				}
+			for (int ArrayNr = 29 ; ArrayNr <=33 ; ArrayNr++){
+					int number = FieldController.getFieldNumber(ArrayNr);
+					//Try your luck field
+					GUI.setSubText(number,FieldController.getSubText(ArrayNr) );
+					GUI.setDescriptionText(number,FieldController.getDesText(ArrayNr));
+				}
 		
 		//Go to jail field
 		GUI.setSubText(31, Language.getLang("PRISONS"));

@@ -10,14 +10,13 @@ public class TryLuck extends Field {
 	// Messages
 	private String Sub, Des;
 	
-	
-	
-	
-	public TryLuck(int FieldNumberC, String Sub, String Des){
+	public TryLuck(int FieldNumberC, String SubC, String DesC){
 		
 		FieldNumber = FieldNumberC;
-	
 		
+		Sub = SubC;
+		Des = DesC;
+	
 	}
 
 	@Override
