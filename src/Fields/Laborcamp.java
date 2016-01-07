@@ -5,15 +5,10 @@ import Players.Player;
 public class Laborcamp extends Ownable{
 	
 	// Created with the constructor
-	private int Price;
 	private int Baserent;
-	private int FieldNumber;
-	private int PledgingValue;
-	private String Name;
 	
 	// Other values
-	
-	private Player Owner;
+
 	private boolean AllOwned;
 	
 	

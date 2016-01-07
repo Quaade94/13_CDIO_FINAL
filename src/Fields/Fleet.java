@@ -7,20 +7,14 @@ public class Fleet extends Ownable{
 	
 	// Created with the constructor
 	
-	private int Price;
+
 	private int RentT0;
 	private int RentT1;
 	private int RentT2;
 	private int RentT3;
 	
-	private int PledgingValue;
-	private int FieldNumber;
-	
-	private String Name;
-	
 	// Other values
 	
-	private Player Owner;
 	private int AmountOwned;
 	
 	public Fleet (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int PledgingValueC, int FieldNumberC, String NameC){

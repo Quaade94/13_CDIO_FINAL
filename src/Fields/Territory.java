@@ -3,27 +3,7 @@ package Fields;
 import Players.Player;
 
 public class Territory  extends WithHouses{
-	
-	// Created with the constructor
-	
-	private int Price;
-	private int RentT0;
-	private int RentT1;
-	private int RentT2;
-	private int RentT3;
-	private int RentT4;
-	private int RentT5;
-	private int HousePrice;
-	private int PledgingValue;
-	private int FieldNumber;
-	private String Name;
-	
-	// Other values
-	
-	private Player Owner;
-	private int HouseAmount;
-	
-	
+		
 	public Territory (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int RentT4C, int RentT5C, int HousePriceC, int PledgingValueC, int FieldNumberC, String NameC){
 		
 		Price = PriceC;
