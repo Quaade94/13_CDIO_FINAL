@@ -12,13 +12,17 @@ public class GameController {
 	public void runGame(){
 		while(PlayerController.getPlayers().length>1){
 			//GUI.getUserLeftButtonPressed(TurnSwitcher.getPlayerTurn() + "'s turn", "Roll", "Buy");
-			String choice = GUI.getUserSelection(TurnSwitcher.getPlayerTurn() + "'s turn", "Roll", "Buy houses", "Pledge");
+			String choice = GUI.getUserSelection(TurnSwitcher.getPlayerTurn().getName() + "'s turn", "Roll", "Buy houses", "Pledge");
 			if(choice == "Roll"){
 				//Player wants to roll the die
 				Player playerTurn = TurnSwitcher.getPlayerTurn();
 				int playerPosition = playerTurn.getPlace();
 				die.roll();
-				playerTurn.setPlace(playerPosition + die.getDiceSum());
+				int newPosition = playerPosition + die.getDiceSum();
+				playerTurn.setPlace(newPosition);
+				GUI.removeCar(playerPosition+1, playerTurn.toString());
+				GUI.setCar(newPosition+1, playerTurn.toString());
+				TurnSwitcher.endTurn();
 			} else if (choice == "Buy houses"){
 				//Player wants to buy houses
 			} else if (choice == "Pledge"){

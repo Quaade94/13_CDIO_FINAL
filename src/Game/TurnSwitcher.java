@@ -5,10 +5,10 @@ import Players.Player;
 
 public class TurnSwitcher {
 	static Player[] players = PlayerController.getPlayers();
-	int playerSize = players.length;
+	static int playerSize = players.length;
 	private static int playerTurn =1;
 	
-	public void endTurn(){
+	public static void endTurn(){
 		
 		if(playerTurn<=playerSize){			
 			playerTurn++;			
@@ -18,7 +18,8 @@ public class TurnSwitcher {
 			playerTurn = 1;
 		}
 	}
-	public static Player getPlayerTurn(){	
+	public static Player getPlayerTurn(){
+		System.out.println(players[0].getName());
 		return players[playerTurn-1];
 	}
 }

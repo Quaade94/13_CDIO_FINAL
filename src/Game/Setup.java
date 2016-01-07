@@ -21,7 +21,7 @@ public class Setup {
 		PlayerController createplayer = new PlayerController();
 		createplayer.createPlayers();
 		
-		GUI.getUserButtonPressed("Start game?", "Start");		
+		GUI.getUserButtonPressed("Start game?", "Start");	
 	}
 	
 }
