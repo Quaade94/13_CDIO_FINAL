@@ -1,11 +1,7 @@
 package Players;
 
-import java.sql.Blob;
-
 import desktop_resources.GUI;
-import desktop_tests.CarTest;
 
-import java.awt.Color;
 import desktop_codebehind.Car;
 
 import Game.Language;
@@ -14,8 +10,6 @@ public class PlayerController {
 	
 	private int playerAmount;
 	private static Player[] players;
-	private boolean Bleh;
-
 	
 	/**
 	 * Opretter et spillerarray af spillerne
