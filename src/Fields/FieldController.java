@@ -26,7 +26,7 @@ public class FieldController {
 	public static int getHousePrice(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof Ownable){
-			rent = ((Ownable) fields[fieldIndex]).getHousePrice();
+			rent = ((WithHouses) fields[fieldIndex]).getHousePrice();
 		}
 		return rent;	
 	}
@@ -70,13 +70,13 @@ public class FieldController {
 	}
 	public static void setHouseAmount(int fieldIndex, int AmountOfHouses){
 		if (fields[fieldIndex] instanceof Ownable){
-			((Ownable) fields[fieldIndex]).setHouseAmount(AmountOfHouses);
+			((WithHouses) fields[fieldIndex]).setHouseAmount(AmountOfHouses);
 		}
 	}
 	public static int getHouseAmount(int fieldIndex){
 		int AmountOfHouses = -1;
 		if (fields[fieldIndex] instanceof Ownable){
-			AmountOfHouses = ((Ownable) fields[fieldIndex]).getHouseAmount();
+			AmountOfHouses = ((WithHouses) fields[fieldIndex]).getHouseAmount();
 		}
 		return AmountOfHouses;	
 	}
