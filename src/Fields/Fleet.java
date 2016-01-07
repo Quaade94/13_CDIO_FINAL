@@ -2,7 +2,7 @@ package Fields;
 
 import Players.Player;
 
-public class Fleet extends OwnableWithoutHouses{
+public class Fleet extends Ownable{
 	
 	
 	// Created with the constructor

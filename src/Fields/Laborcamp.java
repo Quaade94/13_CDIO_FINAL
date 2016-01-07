@@ -2,7 +2,7 @@ package Fields;
 
 import Players.Player;
 
-public class Laborcamp extends OwnableWithoutHouses{
+public class Laborcamp extends Ownable{
 	
 	// Created with the constructor
 	private int Price;

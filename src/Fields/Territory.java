@@ -2,7 +2,7 @@ package Fields;
 
 import Players.Player;
 
-public class Territory  extends Ownable{
+public class Territory  extends WithHouses{
 	
 	// Created with the constructor
 	
