@@ -47,8 +47,8 @@ public class GUIController {
 		
 		public static void getChanceCard(){
 			
-			GUI.displayChanceCard(Language.getLang("LUCK"));
-			GUI.setChanceCard(ChanceCard.getLucky(((int)(Math.random()*8)+1)));
+//			GUI.displayChanceCard(Language.getLang("LUCK"));
+//			GUI.setChanceCard(ChanceCard.getLucky(((int)(Math.random()*8)+1)));
 	}
 		
 		public void GUIOwnable(){
