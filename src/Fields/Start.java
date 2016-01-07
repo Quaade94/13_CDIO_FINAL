@@ -1,35 +1,34 @@
 package Fields;
 
-import Fields.Field;
 
-public class Start extends Field{
+public class Start extends NonOwnable{
 
-	private String name;
-	private int FieldNumber;
+	private int StartingMoney;
 
-	public Start (int Fieldnumber, String name){
+	public Start (int FieldnumberC, int StartingMoneyC, String NameC){
 		
-		this.name = name;
-		this.FieldNumber = FieldNumber;
+		Name = NameC;
+		FieldNumber = FieldnumberC;
+		StartingMoney = StartingMoneyC;
 	}
-
 
 	@Override
 	public void landOnField() {
 
-
 	}
-
-	@Override
-	public String getName() {
-
-		return name;
-	}
-
+	
 	@Override
 	public int getFieldNumber() {
 
 		return FieldNumber;
+	}
+	@Override
+	public String getName() {
+		return Name;
+	}
+	
+	public int getStartMoney(){
+		return StartingMoney;
 	}
 
 }

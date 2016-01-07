@@ -43,6 +43,9 @@ public class Creator {
 	static TryLuck Luck6;
 	
 	static Jail jail;
+	
+	static Start start;
+	
 
 	public static  Field[] createFields(){
 		
@@ -51,10 +54,11 @@ public class Creator {
 		createLaborcamp();
 		createChanceCard();
 		createJail();
+		createStart();
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
 				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
-				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6, jail};
+				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6, jail, start};
 		
 		return fields;
 	}
@@ -116,13 +120,13 @@ public class Creator {
 		Luck4 = new TryLuck(23, Language.getLang("LUCK"),Language.getLang("CARD"));
 		Luck5 = new TryLuck(34, Language.getLang("LUCK"),Language.getLang("CARD"));
 		Luck6 = new TryLuck(37, Language.getLang("LUCK"),Language.getLang("CARD"));
-
-		
-		
-		
 		
 	}
 	private static void createJail(){
 		jail = new Jail(31, "Jail");
+	}
+	
+	private static void createStart(){
+		start = new Start(1, 4000, "Start");
 	}
 }

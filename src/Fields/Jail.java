@@ -3,25 +3,24 @@ package Fields;
 import Players.Player;
 import Game.TurnSwitcher;
 
-public class Jail extends Field{
-	private String name;
-	private int id;
-
-	public Jail(int fieldNumber, String fieldName){
-		name = fieldName;
-		id = fieldNumber;
+public class Jail extends NonOwnable{
+	
+	public Jail(int FieldNumberC, String fieldName){
+		Name = fieldName;
+		FieldNumber = FieldNumberC;
 	}
+	
 	@Override
 	public void landOnField(){
 		Player jailedPlayer = TurnSwitcher.getPlayerTurn();
 		jailedPlayer.setJail(true);
 	}
+	@Override
 	public String getName(){
-		return name;
+		return Name;
 	}
-	
 	@Override
 	public int getFieldNumber(){
-		return id;
+		return FieldNumber;
 	}
 }
