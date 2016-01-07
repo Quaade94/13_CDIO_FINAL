@@ -30,8 +30,7 @@ public class TryLuck extends Field {
 	}
 	
 	public String getChanceMessage(){	
-		int randomCard = (int) (Math.random() * 8);
-		return card[randomCard];
+		return card[((int) (Math.random() * card.length))];
 	}
 	
 }

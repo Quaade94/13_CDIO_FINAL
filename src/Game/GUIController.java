@@ -2,7 +2,6 @@ package Game;
 
 import desktop_resources.GUI;
 import Fields.FieldController;
-import Fields.ChanceCard;
 
 public class GUIController {
 
@@ -14,8 +13,21 @@ public class GUIController {
 		//Try your luck field
 			GUI.setSubText(TryLuckNr[ArrayNr],Language.getLang("LUCK") );
 			GUI.setDescriptionText(TryLuckNr[ArrayNr], Language.getLang("CARD"));
+			
+			
+//			for (int ArrayNr = 28 ; ArrayNr <=34 ; ArrayNr++){
+//				//Try your luck field
+//					
+//					int number = FieldController.getFieldNumber(ArrayNr);
+//					
+//					GUI.setSubText(TryLuckNr[number],Language.getLang("LUCK") );
+//					GUI.setDescriptionText(TryLuckNr[number], Language.getLang("CARD"));
+//				
+//				}
+			
+			
 		
-		}
+		
 		//Go to jail field
 		GUI.setSubText(31, Language.getLang("PRISONS"));
 		GUI.setDescriptionText(31, Language.getLang("PRISOND"));
@@ -42,7 +54,7 @@ public class GUIController {
 		GUI.setSubText(5, Language.getLang("TAX2S"));
 		GUI.setDescriptionText(5, Language.getLang("TAX2D"));
 		GUI.setTitleText(5, Language.getLang("TAX2T"));
-		
+		}
 	}
 		
 		public static void getChanceCard(){
@@ -53,7 +65,7 @@ public class GUIController {
 		
 		public void GUIOwnable(){
 
-			for (int ArrayNr = 0 ; ArrayNr <34 ; ArrayNr++){
+			for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
 			
 			int number = FieldController.getFieldNumber(ArrayNr);
 			

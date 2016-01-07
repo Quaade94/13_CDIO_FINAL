@@ -45,7 +45,7 @@ public class Creator {
 		createTerritory();
 		createFleet();
 		createLaborcamp();
-		createChanseCard();
+//		createChanceCard();
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
 				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
@@ -103,7 +103,7 @@ public class Creator {
 		
 	}
 	
-	private static void createChanseCard(){
+	private static void createChanceCard(){
 		
 		Luck1 = new TryLuck(3, "ChanceCard1");
 		Luck2 = new TryLuck(8, "ChanceCard2");
