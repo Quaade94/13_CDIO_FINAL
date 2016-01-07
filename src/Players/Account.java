@@ -12,7 +12,7 @@ public class Account {
 	
 	/**
 	 * Opdaterer en spillers penge
-	 * @param exxxtra Mængden den skal opdateres med (bemærk det gøres ved +=
+	 * @param exxxtra Mï¿½ngden den skal opdateres med (bemï¿½rk det gï¿½res ved +=
 	 */
 	public void updateBalance(int exxxtra){
 		this.balance += exxxtra;
@@ -20,7 +20,7 @@ public class Account {
 	
 	/**
 	 * Giver en kontos balance
-	 * @return Balancen på kontoen
+	 * @return Balancen pï¿½ kontoen
 	 */
 	public int getBalance(){
 		return this.balance;
