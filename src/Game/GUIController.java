@@ -53,7 +53,7 @@ public class GUIController {
 		
 		public void GUIOwnable(){
 
-			for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
+			for (int ArrayNr = 0 ; ArrayNr <34 ; ArrayNr++){
 			
 			int number = FieldController.getFieldNumber(ArrayNr);
 			

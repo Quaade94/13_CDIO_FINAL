@@ -49,7 +49,7 @@ public class Creator {
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
 				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
-				roedPut, helHel, gedRos, mols, squash, cola};
+				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6};
 		
 		return fields;
 	}
@@ -105,12 +105,12 @@ public class Creator {
 	
 	private static void createChanseCard(){
 		
-		Luck1 = new TryLuck();
-		Luck2 = new TryLuck();
-		Luck3 = new TryLuck();
-		Luck4 = new TryLuck();
-		Luck5 = new TryLuck();
-		Luck6 = new TryLuck();
+		Luck1 = new TryLuck(3, "ChanceCard1");
+		Luck2 = new TryLuck(8, "ChanceCard2");
+		Luck3 = new TryLuck(18, "ChanceCard3");
+		Luck4 = new TryLuck(23, "ChanceCard4");
+		Luck5 = new TryLuck(34, "ChanceCard5");
+		Luck6 = new TryLuck(37, "ChanceCard6");
 
 		
 		

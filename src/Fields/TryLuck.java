@@ -1,13 +1,11 @@
 package Fields;
 
 public class TryLuck extends Field {
-
 	
-	private int fieldNumber;
-	
-	public TryLuck(int FieldNumberC){
+	public TryLuck(int FieldNumberC, String NameC){
 		
-		fieldNumber = FieldNumberC;
+		FieldNumber = FieldNumberC;
+		Name = NameC;
 		
 	}
 
@@ -15,8 +13,13 @@ public class TryLuck extends Field {
 	public void landOnField() {
 		
 	}
-	
-	
-	
+	@Override
+	public int getFieldNumber(){
+		return FieldNumber;
+	}
+	@Override
+	public String getName(){
+		return Name;
+	}
 	
 }
