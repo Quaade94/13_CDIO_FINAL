@@ -6,8 +6,6 @@ import desktop_resources.GUI;
 import Fields.FieldController;
 
 public class Setup {
-	
-	private int players = 0;
 
 	public void runSetup(){
 		
@@ -16,11 +14,10 @@ public class Setup {
 		GUIController.GUINonoOwnable();
 		GUIController.GUIOwnable();
 		
-//		GUIPlayer addplayer = new GUIPlayer();
-//		players = addplayer.getPlayerAmount();
 		PlayerController createplayer = new PlayerController();
 		createplayer.createPlayers();
 		
+		PlayerController.getPlayers()[0].setJail(true);
 		GUI.getUserButtonPressed("Start game?", "Start");	
 	}
 	

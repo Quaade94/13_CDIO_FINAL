@@ -2,7 +2,7 @@ package Players;
 
 public class Account {
 
-	private int balance = 1500;
+	private int balance = 30000;
 	
 	/**
 	 * opretter en konto for spilleren
@@ -14,8 +14,8 @@ public class Account {
 	 * Opdaterer en spillers penge
 	 * @param exxxtra M�ngden den skal opdateres med (bem�rk det g�res ved +=
 	 */
-	public void updateBalance(int exxxtra){
-		this.balance += exxxtra;
+	public void updateBalance(int eXxxtra){
+		this.balance += eXxxtra;
 	}
 	
 	/**
