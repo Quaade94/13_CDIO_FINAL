@@ -65,7 +65,7 @@ public class Player {
 	 * @param nextPlace
 	 */
 	public void setPlace(int nextPlace){
-		place = place + nextPlace;
+		place = nextPlace;
 	}
 	
 	/**

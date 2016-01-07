@@ -19,8 +19,8 @@ public class GameController {
 				String choice = GUI.getUserSelection(playerTurn.getName() + "'s turn", "Roll", "Buy houses", "Pledge");
 				if(choice == "Roll"){
 					//Player wants to roll the die
-					System.out.println("Spiller tur" + playerTurn);
 					int playerPosition = playerTurn.getPlace();
+					System.out.println(playerTurn.getName() + " placering " + playerTurn.getPlace());
 					die.roll();
 					GUI.showMessage("You rolled " + die.getDiceSum());
 					int newPosition = playerPosition + die.getDiceSum();
