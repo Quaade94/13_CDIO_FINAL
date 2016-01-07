@@ -1,6 +1,13 @@
 package Fields;
 
+import Game.Language;
+
 public class TryLuck extends Field {
+	
+	
+	private static String card[] = {Language.getLang("CARD1"),Language.getLang("CARD2"),Language.getLang("CARD3"),Language.getLang("CARD4"),Language.getLang("CARD5"),Language.getLang("CARD6"),Language.getLang("CARD7"),Language.getLang("CARD8"),Language.getLang("CARD9"),Language.getLang("CARD10")};
+
+	
 	
 	public TryLuck(int FieldNumberC, String NameC){
 		
@@ -20,6 +27,11 @@ public class TryLuck extends Field {
 	@Override
 	public String getName(){
 		return Name;
+	}
+	
+	public String getChanceMessage(){	
+		int randomCard = (int) (Math.random() * 8);
+		return card[randomCard];
 	}
 	
 }

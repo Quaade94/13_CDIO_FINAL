@@ -85,4 +85,11 @@ public class FieldController {
 		}
 		return AmountOfHouses;	
 	}
+	public static String getChanseMessage(int fieldIndex){
+		String Message = null;
+		if (fields[fieldIndex] instanceof TryLuck){
+			Message = ((TryLuck) fields[fieldIndex]).getChanceMessage();
+		}
+		return Message;
+	}
 }
