@@ -42,9 +42,15 @@ public class Creator {
 	static TryLuck Luck5;
 	static TryLuck Luck6;
 	
+	static Prison prison;
 	static Jail jail;
 	
 	static Start start;
+	
+	static Park park;
+	
+	static TaxA taxA;
+	static TaxB taxB;
 	
 
 	public static  Field[] createFields(){
@@ -55,10 +61,12 @@ public class Creator {
 		createChanceCard();
 		createJail();
 		createStart();
+		createPark();
+		createTax();
 		
 		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
 				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
-				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6, jail, start};
+				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6, prison, jail, start, park, taxA, taxB};
 		
 		return fields;
 	}
@@ -123,10 +131,27 @@ public class Creator {
 		
 	}
 	private static void createJail(){
-		jail = new Jail(31, "Jail");
+		prison = new Prison(31, "Jail", "PrisonSubText");
+		jail = new Jail(11, "Jail", "JailSubText");
+		
 	}
 	
 	private static void createStart(){
-		start = new Start(1, 4000, "Start");
+		start = new Start(1, 4000, "Start", "StartSubText");
 	}
+	
+	private static void createPark(){
+		park = new Park(21, "ParkName", "ParkSubText", "ParkDescription");
+	}
+	
+	private static void createTax(){
+		
+		taxA = new TaxA(4, 4000, "Tax After Start", "TaxA SubText", "TaxA Description");
+		taxB = new TaxB(4, 4000, "Tax After Before", "TaxB SubText", "TaxB Description");
+		
+	}
+	
+	
+	
+	
 }

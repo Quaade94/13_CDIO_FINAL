@@ -28,7 +28,7 @@ public class Fleet extends Ownable{
 		PledgingValue = PledgingValueC;
 		FieldNumber = FieldNumberC;
 		
-		Name = NameC;
+		FieldName = NameC;
 		
 		Owner = null;
 		AmountOwned = 0;
@@ -86,7 +86,7 @@ public class Fleet extends Ownable{
 	}
 	@Override
 	public String getName() {
-		return Name;
+		return FieldName;
 	}
 
 }

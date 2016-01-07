@@ -18,7 +18,7 @@ public class Laborcamp extends Ownable{
 		Baserent = BaserentC;
 		FieldNumber = FieldNumberC;
 		
-		Name = NameC;
+		FieldName = NameC;
 		
 		Owner = null;
 		AllOwned = false;
@@ -57,7 +57,7 @@ public class Laborcamp extends Ownable{
 	}
 	@Override
 	public String getName(){
-		return Name;
+		return FieldName;
 	}
 	@Override
 	public void setOwner(Player OwnerM){

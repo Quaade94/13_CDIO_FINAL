@@ -30,11 +30,8 @@ public class FieldController {
 	
 	public static String getName(int fieldIndex){
 		String name = null;
-		if (fields[fieldIndex] instanceof Ownable){
-			name = ((Ownable) fields[fieldIndex]).getName();
-		}
-		if (fields[fieldIndex] instanceof NonOwnable){
-			name = ((NonOwnable) fields[fieldIndex]).getName();
+		if (fields[fieldIndex] instanceof Field){
+			name = ((Field) fields[fieldIndex]).getName();
 		}
 		return name;	
 	}
@@ -112,7 +109,7 @@ public class FieldController {
 	}
 	
 	
-	//  ChanceCards
+	//  ChanceCards / Jails
 
 	
 	public static String getChanceMessage(int fieldIndex){
@@ -124,19 +121,22 @@ public class FieldController {
 	}
 	public static String getSubText(int fieldIndex){
 		String SubText = null;
-		
-		if (fields[fieldIndex] instanceof TryLuck){
-			SubText = ((TryLuck) fields[fieldIndex]).getSubText();
+		if (fields[fieldIndex] instanceof NonOwnable){
+			SubText = ((NonOwnable) fields[fieldIndex]).getSubText();
+		}
+		if (fields[fieldIndex] instanceof Jail){
+			SubText = ((Jail) fields[fieldIndex]).getSubText();
 		}
 		return SubText;
 	}
 	public static String getDesText(int fieldIndex){
 		String DesText = null;
-		if (fields[fieldIndex] instanceof TryLuck){
-			DesText = ((TryLuck) fields[fieldIndex]).getDesText();
+		if (fields[fieldIndex] instanceof Park_Chance){
+			DesText = ((Park_Chance) fields[fieldIndex]).getDescription();
 		}
 		return DesText;
 	}
+	
 	
 	
 //	Start
@@ -149,6 +149,26 @@ public class FieldController {
 		}
 		return StartMoney;
 	}
+	
+	
+//	Tax
+	
+	
+	public static int pay(int fieldIndex){
+		int Tax = -1;
+		if (fields[fieldIndex] instanceof Tax){
+			Tax = ((Tax) fields[fieldIndex]).payTax();
+		}
+		return Tax;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 	

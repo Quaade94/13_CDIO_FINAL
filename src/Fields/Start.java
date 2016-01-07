@@ -1,15 +1,16 @@
 package Fields;
 
 
-public class Start extends NonOwnable{
+public class Start extends Jail_Prison_Start{
 
 	private int StartingMoney;
 
-	public Start (int FieldnumberC, int StartingMoneyC, String NameC){
+	public Start (int FieldnumberC, int StartingMoneyC, String FieldNameC, String SubTextC){
 		
-		Name = NameC;
+		FieldName = FieldNameC;
 		FieldNumber = FieldnumberC;
 		StartingMoney = StartingMoneyC;
+		SubText = SubTextC;
 	}
 
 	@Override
@@ -22,13 +23,19 @@ public class Start extends NonOwnable{
 
 		return FieldNumber;
 	}
+	
 	@Override
 	public String getName() {
-		return Name;
+		return FieldName;
 	}
 	
 	public int getStartMoney(){
 		return StartingMoney;
+	}
+
+	@Override
+	public String getSubText() {
+		return SubText;
 	}
 
 }

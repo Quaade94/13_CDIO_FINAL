@@ -16,7 +16,7 @@ public class Territory  extends WithHouses{
 		HousePrice = HousePriceC;
 		PledgingValue = PledgingValueC;
 		FieldNumber = FieldNumberC;
-		Name = NameC;
+		FieldName = NameC;
 		
 		Owner = null;
 		HouseAmount = 0;
@@ -92,7 +92,7 @@ public class Territory  extends WithHouses{
 	}
 	@Override
 	public String getName(){
-		return Name;
+		return FieldName;
 	}
 	
 	@Override
