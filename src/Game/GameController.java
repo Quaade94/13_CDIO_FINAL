@@ -11,24 +11,32 @@ public class GameController {
 	
 	public void runGame(){
 		while(PlayerController.getPlayers().length>1){
+			Player playerTurn = TurnSwitcher.getPlayerTurn();
 			//GUI.getUserLeftButtonPressed(TurnSwitcher.getPlayerTurn() + "'s turn", "Roll", "Buy");
-			String choice = GUI.getUserSelection(TurnSwitcher.getPlayerTurn().getName() + "'s turn", "Roll", "Buy houses", "Pledge");
-			if(choice == "Roll"){
-				//Player wants to roll the die
-				Player playerTurn = TurnSwitcher.getPlayerTurn();
-				int playerPosition = playerTurn.getPlace();
-				die.roll();
-				int newPosition = playerPosition + die.getDiceSum();
-				playerTurn.setPlace(newPosition);
-				GUI.removeCar(playerPosition+1, playerTurn.toString());
-				GUI.setCar(newPosition+1, playerTurn.toString());
-				TurnSwitcher.endTurn();
-			} else if (choice == "Buy houses"){
-				//Player wants to buy houses
-			} else if (choice == "Pledge"){
-				//Player wants to pledge properties
-			} else {
-				System.out.println("Fejl i player choice!");
+			if (playerTurn.getJailed()){
+				
+			} else if (!(playerTurn.getJailed())){
+				String choice = GUI.getUserSelection(playerTurn.getName() + "'s turn", "Roll", "Buy houses", "Pledge");
+				if(choice == "Roll"){
+					//Player wants to roll the die
+					System.out.println("Spiller tur" + playerTurn);
+					int playerPosition = playerTurn.getPlace();
+					die.roll();
+					GUI.showMessage("You rolled " + die.getDiceSum());
+					int newPosition = playerPosition + die.getDiceSum();
+					playerTurn.setPlace(newPosition);
+					GUI.removeCar(playerPosition+1, playerTurn.getName());
+					GUI.setCar(newPosition+1, playerTurn.getName());
+					TurnSwitcher.endTurn();
+				} else if (choice == "Buy houses"){
+					//Player wants to buy houses
+				} else if (choice == "Pledge"){
+					//Player wants to pledge properties
+				} else {
+					System.out.println("Fejl i player choice!");
+				}
+			} else{
+				System.out.println("Fejl i jailcheck!");
 			}
 			
 		}

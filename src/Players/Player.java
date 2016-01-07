@@ -8,7 +8,7 @@ public class Player {
 	private String name;
 	
 	/**
-	 * Opretter en spiller, med konto, placering og fængselsstatus
+	 * Opretter en spiller, med konto, placering og fï¿½ngselsstatus
 	 */
 	public Player(){
 		account = new Account();
@@ -21,8 +21,8 @@ public class Player {
 	}
 	
 	/**
-	 * Sætter spillerens navn
-	 * @param name Spillerens ønskede navn
+	 * Sï¿½tter spillerens navn
+	 * @param name Spillerens ï¿½nskede navn
 	 */
 	public void setName(String name){
 		this.name=name;
@@ -37,23 +37,23 @@ public class Player {
 	}
 	
 	/**
-	 * Returnerer hvorvidt spilleren er i fængsel (true = ja)
-	 * @return spillerens fængselsstatus
+	 * Returnerer hvorvidt spilleren er i fï¿½ngsel (true = ja)
+	 * @return spillerens fï¿½ngselsstatus
 	 */
 	public boolean getJailed(){
 		return isJailed;
 	}
 	
 	/**
-	 * Sætter spillerens fængselsstatus
-	 * @param jail True = i fængsel
+	 * Sï¿½tter spillerens fï¿½ngselsstatus
+	 * @param jail True = i fï¿½ngsel
 	 */
 	public void setJail(boolean jail){
 		isJailed=jail;
 	}
 	
 	/**
-	 * Får spillerens position på spillepladen
+	 * Fï¿½r spillerens position pï¿½ spillepladen
 	 * @return spillerens position
 	 */
 	public int getPlace(){
@@ -61,11 +61,11 @@ public class Player {
 	}
 	
 	/**
-	 * Sætter spillerens position
+	 * Sï¿½tter spillerens position
 	 * @param nextPlace
 	 */
 	public void setPlace(int nextPlace){
-		
+		place = place + nextPlace;
 	}
 	
 	/**

@@ -19,7 +19,6 @@ public class TurnSwitcher {
 		}
 	}
 	public static Player getPlayerTurn(){
-		System.out.println(players[0].getName());
 		return players[playerTurn-1];
 	}
 }
