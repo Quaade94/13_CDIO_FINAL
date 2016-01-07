@@ -4,7 +4,6 @@ import desktop_resources.GUI;
 import Game.TurnSwitcher;
 import Players.PlayerController;
 import Players.Player;
-import Players.Account;
 
 public class GameController {
 
@@ -62,6 +61,7 @@ public class GameController {
 					TurnSwitcher.endTurn();
 				} else if (choice == "Buy houses"){
 					//Player wants to buy houses
+					GUI.getUserSelection("Which properties do you want to build houses on?", "Your mom");
 					
 				} else if (choice == "Pledge"){
 					//Player wants to pledge properties
