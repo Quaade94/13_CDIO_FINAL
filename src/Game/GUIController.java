@@ -2,6 +2,7 @@ package Game;
 
 import desktop_resources.GUI;
 import Fields.FieldController;
+import Fields.ChanceCard;
 
 public class GUIController {
 
@@ -47,7 +48,7 @@ public class GUIController {
 		public static void getChanceCard(){
 			
 			GUI.displayChanceCard(Language.getLang("LUCK"));
-			GUI.setChanceCard();
+			GUI.setChanceCard(ChanceCard.getLucky(((int)(Math.random()*8)+1)));
 	}
 		
 		public void GUIOwnable(){
