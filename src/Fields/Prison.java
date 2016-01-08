@@ -4,7 +4,6 @@ import Players.Player;
 import Players.PlayerController;
 
 public class Prison extends Jail_Prison_Start{
-	private PlayerController playerController;
 		
 	public Prison(int FieldNumberC, String fieldName, String SubTextC){
 		FieldName = fieldName;
@@ -14,8 +13,7 @@ public class Prison extends Jail_Prison_Start{
 	}
 	
 	@Override
-	public void landOnField(){
-		playerController = new PlayerController();
+	public void landOnField(PlayerController playerController){
 		Player jailedPlayer = playerController.getNextPlayer();
 		jailedPlayer.setJail(true);
 	}

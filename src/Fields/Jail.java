@@ -1,5 +1,7 @@
 package Fields;
 
+import Players.PlayerController;
+
 public class Jail extends Jail_Prison_Start{
 
 	public Jail(int FieldNumberC, String fieldName, String SubTextC){
@@ -10,7 +12,7 @@ public class Jail extends Jail_Prison_Start{
 	
 	
 	@Override
-	public void landOnField() {
+	public void landOnField(PlayerController playerController) {
 		
 	}
 	@Override

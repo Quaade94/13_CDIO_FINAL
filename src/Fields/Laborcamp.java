@@ -1,6 +1,7 @@
 package Fields;
 
 import Players.Player;
+import Players.PlayerController;
 
 public class Laborcamp extends Ownable{
 	
@@ -25,7 +26,7 @@ public class Laborcamp extends Ownable{
 		
 	}
 	@Override
-	public void landOnField(){
+	public void landOnField(PlayerController playerController){
 		
 	}
 	

@@ -1,6 +1,7 @@
 package Fields;
 
 import Players.Player;
+import Players.PlayerController;
 
 public class FieldController {
 	
@@ -25,9 +26,9 @@ public class FieldController {
 		return rent;	
 	}
 	
-	public void landOnField(int fieldIndex){
+	public void landOnField(int fieldIndex, PlayerController playerController){
 		if (fields[fieldIndex] instanceof Field){
-			((Field) fields[fieldIndex]).landOnField();
+			((Field) fields[fieldIndex]).landOnField(playerController);
 		}
 	}
 	
@@ -94,21 +95,21 @@ public class FieldController {
 	
 	
 	public   void setHouseAmount(int fieldIndex, int AmountOfHouses){
-		if (fields[fieldIndex] instanceof WithHouses){
-			((WithHouses) fields[fieldIndex]).setHouseAmount(AmountOfHouses);
+		if (fields[fieldIndex] instanceof Territory){
+			((Territory) fields[fieldIndex]).setHouseAmount(AmountOfHouses);
 		}
 	}
 	public   int getHouseAmount(int fieldIndex){
 		int AmountOfHouses = -1;
-		if (fields[fieldIndex] instanceof WithHouses){
-			AmountOfHouses = ((WithHouses) fields[fieldIndex]).getHouseAmount();
+		if (fields[fieldIndex] instanceof Territory){
+			AmountOfHouses = ((Territory) fields[fieldIndex]).getHouseAmount();
 		}
 		return AmountOfHouses;	
 	}
 	public   int getHousePrice(int fieldIndex){
 		int rent = -1;
-		if (fields[fieldIndex] instanceof WithHouses){
-			rent = ((WithHouses) fields[fieldIndex]).getHousePrice();
+		if (fields[fieldIndex] instanceof Territory){
+			rent = ((Territory) fields[fieldIndex]).getHousePrice();
 		}
 		return rent;	
 	}

@@ -1,9 +1,24 @@
 package Fields;
 
 import Players.Player;
+import Players.PlayerController;
 
-public class Territory  extends WithHouses{
-		
+public class Territory  extends Ownable{
+
+	// Created with the constructor
+	private int RentT0;
+	private int RentT1;
+	private int RentT2;
+	private int RentT3;
+	private int RentT4;
+	private int RentT5;
+	
+	private int HousePrice;
+	
+	
+	// Other values
+	private int HouseAmount;
+	
 	public Territory (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int RentT4C, int RentT5C, int HousePriceC, int PledgingValueC, int FieldNumberC, String NameC){
 		
 		Price = PriceC;
@@ -23,7 +38,7 @@ public class Territory  extends WithHouses{
 		
 	}
 	@Override
-	public void landOnField(){
+	public void landOnField(PlayerController playerController){
 		
 	}
 	@Override
@@ -78,7 +93,10 @@ public class Territory  extends WithHouses{
 		return RentT5;
 	}
 	
-	@Override
+	/**
+	 *  This method will return the cost of a house for the desired object
+	 * @return An integer with the cost of a house
+	 */
 	public int getHousePrice(){
 		return HousePrice;
 	}
@@ -107,11 +125,17 @@ public class Territory  extends WithHouses{
 	public void resetOwner(){
 		Owner = null;
 	}
-	@Override
+	/**
+	 *  This method will set the amount of houses in the object
+	 * @param HousesM : The amount of houses that you want to be set in the object
+	 */
 	public void setHouseAmount(int HousesM){
 		HouseAmount = HousesM;
 	}
-	@Override
+	/**
+	 *  This method will return the amount of houses that is in the desired object
+	 * @return An integer with the amount of houses in the object
+	 */
 	public int getHouseAmount(){
 		return HouseAmount;
 	}

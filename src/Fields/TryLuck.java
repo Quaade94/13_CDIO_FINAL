@@ -1,6 +1,7 @@
 package Fields;
 
 import Game.Language;
+import Players.PlayerController;
 
 public class TryLuck extends Park_Chance {
 	
@@ -18,10 +19,6 @@ public class TryLuck extends Park_Chance {
 	
 	}
 
-	@Override
-	public void landOnField() {
-		
-	}
 	@Override
 	public int getFieldNumber(){
 		return FieldNumber;
@@ -45,6 +42,12 @@ public class TryLuck extends Park_Chance {
 	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void landOnField(PlayerController playerController) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

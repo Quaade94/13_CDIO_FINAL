@@ -45,7 +45,7 @@ public class GameController {
 
 	private void standardTurn() {
 		choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("PLEDGE"));
-		if(choice == "Roll"){
+		if(choice == Language.getLang("ROLL")){
 			//Player wants to roll the die
 			playerPosition = currentPlayer.getPlace();
 			die.roll();
@@ -58,11 +58,11 @@ public class GameController {
 			GUI.setCar(newPosition+1, currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			playerController.endTurn();
-		} else if (choice == "Buy houses"){
+		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Player wants to buy houses
 			GUI.getUserSelection(Language.getLang("HOUSECHOICE"), "y0uR muM!?!");
 			
-		} else if (choice == "Pledge"){
+		} else if (choice == Language.getLang("PLEDGE")){
 			//Player wants to pledge properties
 		} else {
 			System.out.println("Fejl i player choice!");

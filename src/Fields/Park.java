@@ -1,5 +1,7 @@
 package Fields;
 
+import Players.PlayerController;
+
 public class Park extends Park_Chance{
 
 	private int Money;
@@ -13,7 +15,7 @@ public class Park extends Park_Chance{
 		
 	}
 	@Override
-	public void landOnField() {
+	public void landOnField(PlayerController playerController) {
 		
 	}
 

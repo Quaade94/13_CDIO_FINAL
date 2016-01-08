@@ -1,5 +1,7 @@
 package Fields;
 
+import Players.PlayerController;
+
 public class TaxB extends Tax{
 
 	public TaxB(int FieldNumberC, int TaxC, String NameC, String SubTextC, String DescriptioC){
@@ -21,10 +23,7 @@ public class TaxB extends Tax{
 		return Description;
 	}
 
-	@Override
-	public void landOnField() {
-		
-	}
+
 
 	@Override
 	public int getFieldNumber() {
@@ -39,6 +38,12 @@ public class TaxB extends Tax{
 	@Override
 	public String getSubText() {
 		return SubText;
+	}
+
+	@Override
+	public void landOnField(PlayerController playerController) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -1,5 +1,7 @@
 package Fields;
 
+import Players.PlayerController;
+
 public abstract class Field {
 	
 	protected int FieldNumber;
@@ -8,7 +10,7 @@ public abstract class Field {
 	
 	
 	
-	public abstract void landOnField();
+	public abstract void landOnField(PlayerController playerController);
 	
 	/**
 	 * This method will return the Field Number of the object

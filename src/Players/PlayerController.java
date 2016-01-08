@@ -78,6 +78,6 @@ public class PlayerController {
 	}
 
 	public Player getNextPlayer() {
-		return players[currentPlayer-1];
+		return players[currentPlayer];
 	}	
 }
