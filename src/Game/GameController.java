@@ -1,7 +1,6 @@
 package Game;
 
 import desktop_resources.GUI;
-import Game.TurnSwitcher;
 import Players.PlayerController;
 import Players.Player;
 import Fields.FieldController;
@@ -60,7 +59,7 @@ public class GameController {
 			GUI.setCar(newPosition+1, currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			//Ending turn FIXME Static access
-			TurnSwitcher.endTurn();
+			playerController.endTurn();
 		} else if (choice == "Buy houses"){
 			//Player wants to buy houses
 			GUI.getUserSelection(Language.getLang("HOUSECHOICE"), "y0uR muM!?!");
@@ -96,13 +95,13 @@ public class GameController {
 				GUI.removeCar(playerPosition+1, currentPlayer.getName());
 				GUI.setCar(newPosition+1, currentPlayer.getName());
 				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
-				TurnSwitcher.endTurn();
+				playerController.endTurn();
 			}
 		}else if(!(choiceJail)){
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 			currentPlayer.setJail(false);
-			TurnSwitcher.endTurn();
+			playerController.endTurn();
 		}
 	}
 }

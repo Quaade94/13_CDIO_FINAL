@@ -10,6 +10,7 @@ public class PlayerController {
 	
 	private int playerAmount;
 	private Player[] players;
+	private int currentPlayer;
 	
 	/**
 	 * Opretter et spillerarray af spillerne
@@ -65,9 +66,18 @@ public class PlayerController {
 	public Player[] getPlayers(){
 		return players;
 	}
+	public void endTurn(){
+		if(currentPlayer <= players.length){			
+			currentPlayer++;			
+		}else if(currentPlayer > players.length){	
+			currentPlayer = 1;
+		} else{
+			System.out.println("Fejl i endTurn metode");
+		}
+	}
 
 	public Player getNextPlayer() {
 		// TODO Determine next player move code from turnswticher
-		return null;
+		return players[currentPlayer-1];
 	}	
 }
