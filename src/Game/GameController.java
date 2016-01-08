@@ -30,7 +30,6 @@ public class GameController {
 		playerController = new PlayerController();
 		//GameLoop
 		while(playerController.getPlayers().length>1){
-			//TODO Fix static access
 			currentPlayer = playerController.getNextPlayer();
 			//JailTurn
 			if (currentPlayer.getJailed()){
@@ -58,7 +57,6 @@ public class GameController {
 			GUI.removeCar(playerPosition+1, currentPlayer.getName());
 			GUI.setCar(newPosition+1, currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
-			//Ending turn FIXME Static access
 			playerController.endTurn();
 		} else if (choice == "Buy houses"){
 			//Player wants to buy houses
@@ -72,7 +70,6 @@ public class GameController {
 	}
 
 	private void jailTurn() {
-		//TODO fix static
 		choiceJail = GUI.getUserLeftButtonPressed(Language.getLang("ROLLPAY"), Language.getLang("ROLL"), Language.getLang("PAY"));
 		if(choiceJail){
 			chances = 3;
@@ -97,7 +94,7 @@ public class GameController {
 				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 				playerController.endTurn();
 			}
-		}else if(!(choiceJail)){
+		}else {
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 			currentPlayer.setJail(false);
