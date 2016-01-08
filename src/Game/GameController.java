@@ -4,6 +4,7 @@ import desktop_resources.GUI;
 import Game.TurnSwitcher;
 import Players.PlayerController;
 import Players.Player;
+import Fields.FieldController;
 import Game.Language;
 
 public class GameController {
@@ -16,14 +17,19 @@ public class GameController {
 	private int newPosition;
 	private Player currentPlayer;
 	Die die = new Die();
-	private GUISetupManager guiManager;
 	private PlayerController playerController;
+	private FieldController fieldController;
 	
 	
 	public void runGame(){
 		//TODO add comments
-		guiManager = new GUISetupManager();
+		//Setup Fields
+		fieldController = new FieldController();
+		//Setup GUI - use nice setup delegate
+		new GUISetupManager(fieldController);
+		//Tell playercontroller to setup
 		playerController = new PlayerController();
+		//GameLoop
 		while(playerController.getPlayers().length>1){
 			//TODO Fix static access
 			currentPlayer = playerController.getNextPlayer();

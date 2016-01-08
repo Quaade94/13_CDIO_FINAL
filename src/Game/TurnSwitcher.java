@@ -5,21 +5,25 @@ import Players.Player;
 
 public class TurnSwitcher {
 	//FIXME static
-	static Player[] players = PlayerController.getPlayers();
-	static int playerSize = players.length;
-	private static int playerTurn = 1;
+	Player[] players;
+	private int currentPlayer;
 	
-	public static void endTurn(){
+	public TurnSwitcher(Player[] players) {
+		super();
+		this.players = players;
+	}
+	//TODO merge endTurn and getGextPlayer
+	public void endTurn(){
 		
-		if(playerTurn <= playerSize){			
-			playerTurn++;			
-		}else if(playerTurn > playerSize){	
-			playerTurn = 1;
+		if(currentPlayer <= players.length){			
+			currentPlayer++;			
+		}else if(currentPlayer > players.length){	
+			currentPlayer = 1;
 		} else{
 			System.out.println("Fejl i endTurn metode");
 		}
 	}
-	public static Player getNextPlayer(){
-		return players[playerTurn-1];
+	public Player getNextPlayer(){
+		return players[currentPlayer-1];
 	}
 }

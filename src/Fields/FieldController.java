@@ -4,15 +4,20 @@ import Players.Player;
 
 public class FieldController {
 	
-	static Field[] fields;
-	public static void initializeFieldCreator(){
-		fields = Creator.createFields();
+	private Field[] fields;
+	
+	public FieldController(){
+		initializeFieldCreator();
+	}
+	public void initializeFieldCreator(){
+		Creator factory = new Creator();
+		fields = factory.createFields();
 	}
 	
 
-//	Commen
+//	Comments
 	
-	public static int getFieldNumber(int fieldIndex){
+	public int getFieldNumber(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof Field){
 			rent = ((Field) fields[fieldIndex]).getFieldNumber();
@@ -20,7 +25,7 @@ public class FieldController {
 		return rent;	
 	}
 	
-	public static void landOnField(int fieldIndex){
+	public void landOnField(int fieldIndex){
 		if (fields[fieldIndex] instanceof Field){
 			((Field) fields[fieldIndex]).landOnField();
 		}
@@ -28,7 +33,7 @@ public class FieldController {
 	
 //	Nearly Commen
 	
-	public static String getName(int fieldIndex){
+	public String getName(int fieldIndex){
 		String name = null;
 		if (fields[fieldIndex] instanceof Field){
 			name = ((Field) fields[fieldIndex]).getName();
@@ -40,21 +45,21 @@ public class FieldController {
 //	Price / Rent / PledgingValue
 	
 	
-	public static int getPrice(int fieldIndex){
+	public   int getPrice(int fieldIndex){
 		int price = -1;
 		if (fields[fieldIndex] instanceof Ownable){
 			price = ((Ownable) fields[fieldIndex]).getPrice();
 		}
 		return price;	
 	}
-	public static int getRent(int fieldIndex){
+	public   int getRent(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof Ownable){
 			rent = ((Ownable) fields[fieldIndex]).getRent();
 		}
 		return rent;	
 	}
-	public static int getPledgingValue(int fieldIndex){
+	public   int getPledgingValue(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof Ownable){
 			rent = ((Ownable) fields[fieldIndex]).getPledgingValue();
@@ -66,19 +71,19 @@ public class FieldController {
 //	Owners
 	
 	
-	public static void setOwner(int fieldIndex, Player Owner){
+	public   void setOwner(int fieldIndex, Player Owner){
 		if (fields[fieldIndex] instanceof Ownable){
 			((Ownable) fields[fieldIndex]).setOwner(Owner);
 		}
 	}
-	public static Player getOwner(int fieldIndex){
+	public   Player getOwner(int fieldIndex){
 		Player Owner = null;
 		if (fields[fieldIndex] instanceof Ownable){
 			Owner = ((Ownable) fields[fieldIndex]).getOwner();
 		}
 		return Owner;	
 	}
-	public static void resetOwner(int fieldIndex){
+	public   void resetOwner(int fieldIndex){
 		if (fields[fieldIndex] instanceof Ownable){
 			((Ownable) fields[fieldIndex]).resetOwner();
 		}
@@ -88,19 +93,19 @@ public class FieldController {
 //	Houses
 	
 	
-	public static void setHouseAmount(int fieldIndex, int AmountOfHouses){
+	public   void setHouseAmount(int fieldIndex, int AmountOfHouses){
 		if (fields[fieldIndex] instanceof WithHouses){
 			((WithHouses) fields[fieldIndex]).setHouseAmount(AmountOfHouses);
 		}
 	}
-	public static int getHouseAmount(int fieldIndex){
+	public   int getHouseAmount(int fieldIndex){
 		int AmountOfHouses = -1;
 		if (fields[fieldIndex] instanceof WithHouses){
 			AmountOfHouses = ((WithHouses) fields[fieldIndex]).getHouseAmount();
 		}
 		return AmountOfHouses;	
 	}
-	public static int getHousePrice(int fieldIndex){
+	public   int getHousePrice(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof WithHouses){
 			rent = ((WithHouses) fields[fieldIndex]).getHousePrice();
@@ -112,14 +117,14 @@ public class FieldController {
 	//  ChanceCards / Jails
 
 	
-	public static String getChanceMessage(int fieldIndex){
+	public   String getChanceMessage(int fieldIndex){
 		String Message = null;
 		if (fields[fieldIndex] instanceof TryLuck){
 			Message = ((TryLuck) fields[fieldIndex]).getChanceMessage();
 		}
 		return Message;
 	}
-	public static String getSubText(int fieldIndex){
+	public   String getSubText(int fieldIndex){
 		String SubText = null;
 		if (fields[fieldIndex] instanceof NonOwnable){
 			SubText = ((NonOwnable) fields[fieldIndex]).getSubText();
@@ -129,7 +134,7 @@ public class FieldController {
 		}
 		return SubText;
 	}
-	public static String getDesText(int fieldIndex){
+	public   String getDesText(int fieldIndex){
 		String DesText = null;
 		if (fields[fieldIndex] instanceof Park_Chance){
 			DesText = ((Park_Chance) fields[fieldIndex]).getDescription();
@@ -142,7 +147,7 @@ public class FieldController {
 //	Start
 	
 	
-	public static int getStartMoney(int fieldIndex){
+	public   int getStartMoney(int fieldIndex){
 		int StartMoney = -1;
 		if (fields[fieldIndex] instanceof Start){
 			StartMoney = ((Start) fields[fieldIndex]).getStartMoney();
@@ -154,7 +159,7 @@ public class FieldController {
 //	Tax
 	
 	
-	public static int pay(int fieldIndex){
+	public   int pay(int fieldIndex){
 		int Tax = -1;
 		if (fields[fieldIndex] instanceof Tax){
 			Tax = ((Tax) fields[fieldIndex]).payTax();

@@ -52,8 +52,8 @@ public class Creator {
 	static TaxA taxA;
 	static TaxB taxB;
 	
-
-	public static  Field[] createFields(){
+	//Factory method for board
+	public Field[] createFields(){
 		
 		createTerritory();
 		createFleet();

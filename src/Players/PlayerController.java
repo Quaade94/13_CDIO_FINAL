@@ -9,7 +9,7 @@ import Game.Language;
 public class PlayerController {
 	
 	private int playerAmount;
-	private static Player[] players;
+	private Player[] players;
 	
 	/**
 	 * Opretter et spillerarray af spillerne
@@ -18,6 +18,7 @@ public class PlayerController {
 	public PlayerController(){
 		playerAmount = GUI.getUserInteger(Language.getLang("PLAYERNO"), 2, 6);
 		players = new Player[playerAmount];
+		createPlayers();
 		
 	}
 	
@@ -61,7 +62,12 @@ public class PlayerController {
 	 * A method to get the playerarray for use in other classes
 	 * @return An array of players
 	 */
-	public static Player[] getPlayers(){
+	public Player[] getPlayers(){
 		return players;
+	}
+
+	public Player getNextPlayer() {
+		// TODO Determine next player move code from turnswticher
+		return null;
 	}	
 }

@@ -5,30 +5,34 @@ import Fields.FieldController;
 
 public class GUISetupManager {
 
-	public void createFields(){
+	public GUISetupManager(FieldController fieldController) {
+		createFields(fieldController);
+	}
+
+	public void createFields(FieldController fieldController){
 
 		//OWNABLE
 		
 		for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
 
-			int number = FieldController.getFieldNumber(ArrayNr);
+			int number = fieldController.getFieldNumber(ArrayNr);
 
 			//Creates field price
-			GUI.setSubText(number, Language.getLang("PRI")+FieldController.getPrice(ArrayNr));
+			GUI.setSubText(number, Language.getLang("PRI")+fieldController.getPrice(ArrayNr));
 
 			//Creates street name
-			GUI.setTitleText(number, FieldController.getName(ArrayNr));
-			GUI.setDescriptionText(number, FieldController.getName(ArrayNr));
+			GUI.setTitleText(number, fieldController.getName(ArrayNr));
+			GUI.setDescriptionText(number, fieldController.getName(ArrayNr));
 
 		}
 		
 		//NON-OWNABLE
 		
 		for (int ArrayNr = 29 ; ArrayNr <=33 ; ArrayNr++){
-			int number = FieldController.getFieldNumber(ArrayNr);
+			int number = fieldController.getFieldNumber(ArrayNr);
 			//Try your luck field
-			GUI.setSubText(number,FieldController.getSubText(ArrayNr) );
-			GUI.setDescriptionText(number,FieldController.getDesText(ArrayNr));
+			GUI.setSubText(number,fieldController.getSubText(ArrayNr) );
+			GUI.setDescriptionText(number,fieldController.getDesText(ArrayNr));
 		}
 
 		//Go to jail field
