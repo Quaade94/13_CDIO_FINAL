@@ -64,9 +64,8 @@ public class Creator {
 		createPark();
 		createTax();
 		
-		Field[] fields = new Field[]{roedovrevej, hvidovrevej, valbylanggade, roskildevej, allegade, frederiksbergalle, bulowsvej, glkongevej, bernstoffsvej,
-				hellerupvej, strandvejern, oesterbrogade, trianglen, groenningen, bredgade, kgsNytov, oestergade, vimmelskaftet, amagertov, nygade, fredderiksbergade, raadhuspladsen, 
-				roedPut, helHel, gedRos, mols, squash, cola, Luck1, Luck2, Luck3, Luck4, Luck5, Luck6, prison, jail, start, park, taxA, taxB};
+		Field[] fields = new Field[]{start, roedovrevej, Luck1, hvidovrevej, taxA, gedRos, valbylanggade, Luck2, roskildevej, allegade, jail, frederiksbergalle, squash, bulowsvej, glkongevej, mols, bernstoffsvej,
+				Luck3, hellerupvej, strandvejern, park, oesterbrogade, Luck4, trianglen, groenningen, helHel, bredgade, kgsNytov, cola, oestergade, prison, vimmelskaftet, amagertov, Luck5, nygade, roedPut, Luck6, fredderiksbergade, taxB, raadhuspladsen};
 		
 		return fields;
 	}
@@ -146,8 +145,8 @@ public class Creator {
 	
 	private static void createTax(){
 		
-		taxA = new TaxA(4, 4000, "Tax After Start", "TaxA SubText", "TaxA Description");
-		taxB = new TaxB(4, 4000, "Tax After Before", "TaxB SubText", "TaxB Description");
+		taxA = new TaxA(5, 4000, "Tax After Start", "TaxA SubText", "TaxA Description");
+		taxB = new TaxB(39, 4000, "Tax After Before", "TaxB SubText", "TaxB Description");
 		
 	}
 	
