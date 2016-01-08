@@ -66,6 +66,7 @@ public class PlayerController {
 	public Player[] getPlayers(){
 		return players;
 	}
+	
 	public void endTurn(){
 		if(currentPlayer <= players.length){			
 			currentPlayer++;			
@@ -77,7 +78,6 @@ public class PlayerController {
 	}
 
 	public Player getNextPlayer() {
-		// TODO Determine next player move code from turnswticher
 		return players[currentPlayer-1];
 	}	
 }
