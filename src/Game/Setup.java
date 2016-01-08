@@ -9,10 +9,9 @@ public class Setup {
 
 	public void runSetup(){
 		
-		GUIController GUIController = new GUIController();
+		GUIManager GUIManager = new GUIManager();
 		FieldController.initializeFieldCreator();
-		GUIController.GUINonoOwnable();
-		GUIController.GUIOwnable();
+		GUIManager.createFields();
 		
 		PlayerController createplayer = new PlayerController();
 		createplayer.createPlayers();
