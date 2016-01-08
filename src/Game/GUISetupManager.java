@@ -13,7 +13,7 @@ public class GUISetupManager {
 
 		// OWNABLE
 
-		for (int ArrayNr = 0; ArrayNr < 39; ArrayNr++) {
+		for (int ArrayNr = 0; ArrayNr < 40; ArrayNr++) {
 
 			if (fieldController.getFieldNumber(ArrayNr) == 2 || fieldController.getFieldNumber(ArrayNr) == 4
 					|| fieldController.getFieldNumber(ArrayNr) == 7 || fieldController.getFieldNumber(ArrayNr) == 9
