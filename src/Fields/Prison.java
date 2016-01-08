@@ -3,7 +3,7 @@ package Fields;
 import Players.Player;
 import Players.PlayerController;
 
-public class Prison extends Jail_Prison_Start{
+public class Prison extends JailPrisonStart{
 		
 	public Prison(int FieldNumberC, String fieldName, String SubTextC){
 		FieldName = fieldName;

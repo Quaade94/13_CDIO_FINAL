@@ -2,7 +2,7 @@ package Fields;
 
 import Players.PlayerController;
 
-public class Jail extends Jail_Prison_Start{
+public class Jail extends JailPrisonStart{
 
 	public Jail(int FieldNumberC, String fieldName, String SubTextC){
 		FieldName = fieldName;

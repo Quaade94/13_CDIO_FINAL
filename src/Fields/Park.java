@@ -2,7 +2,7 @@ package Fields;
 
 import Players.PlayerController;
 
-public class Park extends Park_Chance{
+public class Park extends ParkChance{
 
 	private int Money;
 	

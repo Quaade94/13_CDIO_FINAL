@@ -137,8 +137,8 @@ public class FieldController {
 	}
 	public   String getDesText(int fieldIndex){
 		String DesText = null;
-		if (fields[fieldIndex] instanceof Park_Chance){
-			DesText = ((Park_Chance) fields[fieldIndex]).getDescription();
+		if (fields[fieldIndex] instanceof ParkChance){
+			DesText = ((ParkChance) fields[fieldIndex]).getDescription();
 		}
 		return DesText;
 	}

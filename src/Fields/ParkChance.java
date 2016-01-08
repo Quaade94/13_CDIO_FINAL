@@ -1,6 +1,6 @@
 package Fields;
 
-public abstract class Park_Chance extends NonOwnable{
+public abstract class ParkChance extends NonOwnable{
 
 	protected String Description;
 	

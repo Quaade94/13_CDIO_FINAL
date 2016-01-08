@@ -1,6 +1,6 @@
 package Fields;
 
-public abstract class Tax extends Park_Chance{
+public abstract class Tax extends ParkChance{
 	
 	protected int Tax;
 	

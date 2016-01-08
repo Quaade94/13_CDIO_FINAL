@@ -2,7 +2,7 @@ package Fields;
 
 import Players.PlayerController;
 
-public class Start extends Jail_Prison_Start{
+public class Start extends JailPrisonStart{
 
 	private int StartingMoney;
 
