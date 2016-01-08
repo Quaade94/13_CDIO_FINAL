@@ -145,8 +145,8 @@ public class Creator {
 	
 	private static void createTax(){
 		
-		taxA = new TaxA(4, 4000, "Tax After Start", "TaxA SubText", "TaxA Description");
-		taxB = new TaxB(4, 4000, "Tax After Before", "TaxB SubText", "TaxB Description");
+		taxA = new TaxA(5, 4000, "Tax After Start", "TaxA SubText", "TaxA Description");
+		taxB = new TaxB(39, 4000, "Tax After Before", "TaxB SubText", "TaxB Description");
 		
 	}
 	
