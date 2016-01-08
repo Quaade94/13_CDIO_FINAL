@@ -13,7 +13,7 @@ public class Prison extends Jail_Prison_Start{
 	
 	@Override
 	public void landOnField(){
-		Player jailedPlayer = TurnSwitcher.getPlayerTurn();
+		Player jailedPlayer = TurnSwitcher.getNextPlayer();
 		jailedPlayer.setJail(true);
 	}
 	@Override

@@ -3,7 +3,7 @@ package Game;
 import desktop_resources.GUI;
 import Fields.FieldController;
 
-public class GUIManager {
+public class GUISetupManager {
 
 	public void createFields(){
 

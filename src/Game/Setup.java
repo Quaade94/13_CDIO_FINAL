@@ -10,7 +10,7 @@ public class Setup {
 
 	public void runSetup(){
 		
-		GUIManager GUIManager = new GUIManager();
+		GUISetupManager GUIManager = new GUISetupManager();
 		FieldController.initializeFieldCreator();
 		GUIManager.createFields();
 		

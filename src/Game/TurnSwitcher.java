@@ -4,6 +4,7 @@ import Players.PlayerController;
 import Players.Player;
 
 public class TurnSwitcher {
+	//FIXME static
 	static Player[] players = PlayerController.getPlayers();
 	static int playerSize = players.length;
 	private static int playerTurn = 1;
@@ -18,7 +19,7 @@ public class TurnSwitcher {
 			System.out.println("Fejl i endTurn metode");
 		}
 	}
-	public static Player getPlayerTurn(){
+	public static Player getNextPlayer(){
 		return players[playerTurn-1];
 	}
 }
