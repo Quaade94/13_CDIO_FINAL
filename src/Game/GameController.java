@@ -51,8 +51,9 @@ public class GameController {
 			die.roll();
 			//Setting position
 			newPosition = playerPosition + die.getDiceSum();
-			if(newPosition > 40) newPosition = newPosition-40;
+			if(newPosition >= 40) newPosition = newPosition-40;
 			currentPlayer.setPlace(newPosition);
+			System.out.println("Nye " + newPosition+1);
 			//Communicating with GUI
 			GUI.removeCar(playerPosition+1, currentPlayer.getName());
 			GUI.setCar(newPosition+1, currentPlayer.getName());
