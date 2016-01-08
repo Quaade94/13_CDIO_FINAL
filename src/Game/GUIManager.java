@@ -7,6 +7,8 @@ public class GUIManager {
 
 	public void createFields(){
 
+		//OWNABLE
+		
 		for (int ArrayNr = 0 ; ArrayNr <28 ; ArrayNr++){
 
 			int number = FieldController.getFieldNumber(ArrayNr);
@@ -19,6 +21,9 @@ public class GUIManager {
 			GUI.setDescriptionText(number, FieldController.getName(ArrayNr));
 
 		}
+		
+		//NON-OWNABLE
+		
 		for (int ArrayNr = 29 ; ArrayNr <=33 ; ArrayNr++){
 			int number = FieldController.getFieldNumber(ArrayNr);
 			//Try your luck field
