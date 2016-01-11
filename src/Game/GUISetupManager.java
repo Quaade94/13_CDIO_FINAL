@@ -56,8 +56,8 @@ public class GUISetupManager {
 				
 				int number = fieldController.getFieldNumber(ArrayNr);
 				
-				GUI.setSubText(number, Language.getLang("LUCK"));
-				GUI.setDescriptionText(number, Language.getLang("CARD"));
+				GUI.setSubText(number, fieldController.getSubText(ArrayNr));
+				GUI.setDescriptionText(number, fieldController.getDesText(ArrayNr));
 			}
 			
 			
