@@ -17,6 +17,7 @@ public class Player {
 		place = 0;
 		isJailed = false;
 		fleetOwned = 0;
+		laborOwned = 0;
 	}
 	
 	public Account getAccount(){
