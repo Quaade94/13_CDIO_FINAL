@@ -1,5 +1,6 @@
 package Fields;
 
+import Game.Language;
 import Players.Player;
 import Players.PlayerController;
 import desktop_resources.GUI;
@@ -46,7 +47,7 @@ public class TaxA  extends Tax{
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		Player currentPlayer = playerController.getNextPlayer();
 		int playerBalance;
-		if (GUI.getUserLeftButtonPressed("Choose your pay method:", "10%", "4000")){
+		if (GUI.getUserLeftButtonPressed(""+Language.getLang("PAY"), ""+Language.getLang("10%"), ""+Language.getLang("4000"))){
 			playerBalance = currentPlayer.getAccount().getBalance();
 			currentPlayer.getAccount().updateBalance(-((int)(playerBalance*0.1)));
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
