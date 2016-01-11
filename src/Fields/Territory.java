@@ -1,5 +1,6 @@
 package Fields;
 
+import Game.Language;
 import Players.Player;
 import Players.PlayerController;
 import desktop_resources.GUI;
@@ -43,7 +44,7 @@ public class Territory  extends Ownable{
 		Player currentPlayer = playerController.getNextPlayer();
 		int curRent = 0;
 		if (Owner == null){
-			if (GUI.getUserLeftButtonPressed("Want to buy?", "YES", "NO")){
+			if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){
 				if(currentPlayer.getAccount().getBalance() >= Price){
 					currentPlayer.getAccount().updateBalance(-Price);
 					Owner = currentPlayer;
