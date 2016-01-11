@@ -47,14 +47,13 @@ public class GameController {
 		int position = startPos;
 		while(position != finishPos){
 			GUI.removeCar(position, name);
-			System.out.println("movement motor position = "+position);
 			position++;
 			if(position==41){
 				position=1;
 			}
 			GUI.setCar(position, name);
 			try {
-			    Thread.sleep(100);                 //1000 milliseconds is one second.
+			    Thread.sleep(75);                 //1000 milliseconds is one second.
 			} catch(InterruptedException ex) {
 			    Thread.currentThread().interrupt();
 			}
@@ -64,7 +63,7 @@ public class GameController {
 	}
 
 	private void standardTurn() {
-		System.out.println("Spiller 1 ejer: "+fC.getOwner(16));
+
 		choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("PLEDGE"), Language.getLang("BUYSELL"));
 		
 		if(choice == Language.getLang("ROLL")){
@@ -81,8 +80,6 @@ public class GameController {
 			System.out.println("Nye " + newPosition+1);
 			//Communicating with GUI
 			GameController.movement(playerPosition+1,newPosition+1,currentPlayer.getName());
-//			GUI.removeCar(playerPosition+1, currentPlayer.getName());
-//			GUI.setCar(newPosition+1, currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			//Interacting with the field
 			if(playerPosition != 0){
@@ -98,11 +95,20 @@ public class GameController {
 			//Player wants to pledge properties
 			
 		} else if (choice == Language.getLang("BUYSELL")){
-			fC.setOwner(16, pC.getNextPlayer());
-			System.out.println(fC.getOwner(16));
-			this.choice = GUI.getUserSelection("What do you want to sell?", "Fortryd");
+			String[] names;
+			for (int i=0; i<pC.getPlayers().length; i++){
+				
+//				if (pC.getNextPlayer()==fC.getOwner(i)){
+//					
+//				}
+				
+			}
+			
+			this.choice = GUI.getUserSelection("What do you want to sell?", new String[]{});
 			if (choice == "Fortryd");
 				System.out.println("Fuccka you gaybooi");
+				fC.setOwner(16, pC.getNextPlayer());
+				
 			
 		} else {
 			System.out.println("Fejl i player choice!");
