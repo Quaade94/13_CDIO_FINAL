@@ -1,7 +1,10 @@
 package Fields;
 
+import Game.GameController;
 import Game.Language;
+import Players.Player;
 import Players.PlayerController;
+import desktop_resources.GUI;
 
 public class TryLuck extends ParkChance {
 	
@@ -46,8 +49,47 @@ public class TryLuck extends ParkChance {
 
 	@Override
 	public void landOnField(PlayerController playerController) {
-		// TODO Auto-generated method stub
-		
+		Player currentPlayer = playerController.getNextPlayer();
+		Player allPlayers[] = playerController.getPlayers();
+		FieldController fieldController = new FieldController();
+		GUI.displayChanceCard();
+		String getCard = getChanceMessage();
+		GUI.displayChanceCard(getCard);
+		if (getCard == Language.getLang("CARD1")){
+			GameController.movement(currentPlayer.getPlace()+1, 1, currentPlayer.getName());
+			currentPlayer.setPlace(0);
+			fieldController.landOnField(currentPlayer.getPlace(), playerController);
+		} else if (getCard == Language.getLang("CARD2")){
+			currentPlayer.getAccount().updateBalance(-1000);
+			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+		} else if (getCard == Language.getLang("CARD3")){
+			for (int i = 0; i < allPlayers.length; i++){
+				if (allPlayers[i] != currentPlayer){
+					allPlayers[i].getAccount().updateBalance(-100);
+					currentPlayer.getAccount().updateBalance(100);
+					GUI.setBalance(allPlayers[i].getName(), allPlayers[i].getAccount().getBalance());
+					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+				}
+			}
+		} else if (getCard == Language.getLang("CARD4")){
+			currentPlayer.getAccount().updateBalance(-500);
+			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+		} else if (getCard == Language.getLang("CARD5")){
+			currentPlayer.getAccount().updateBalance(1000);
+			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+		} else if (getCard == Language.getLang("CARD6")){
+			GameController.movement(currentPlayer.getPlace()+1, 24, currentPlayer.getName());
+			currentPlayer.setPlace(23);
+			fieldController.landOnField(currentPlayer.getPlace(), playerController);
+		} else if (getCard == Language.getLang("CARD7")){
+			GameController.movement(currentPlayer.getPlace()+1, 40, currentPlayer.getName());
+			currentPlayer.setPlace(39);
+			fieldController.landOnField(currentPlayer.getPlace(), playerController);
+		} else if (getCard == Language.getLang("CARD8")){
+			GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer.getName());
+			currentPlayer.setPlace(10);
+			currentPlayer.setJail(true);
+		}
 	}
 	
 }
