@@ -58,6 +58,8 @@ public class GameController {
 			GUI.removeCar(playerPosition+1, currentPlayer.getName());
 			GUI.setCar(newPosition+1, currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
+			//Interacting with the field
+			fieldController.landOnField(playerPosition, playerController);
 			playerController.endTurn();
 		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Player wants to buy houses
