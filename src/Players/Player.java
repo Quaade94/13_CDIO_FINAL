@@ -7,6 +7,7 @@ public class Player {
 	private boolean isJailed;
 	private String name;
 	private int fleetOwned;
+	private int laborOwned;
 	
 	/**
 	 * Opretter en spiller, med konto, placering og f�ngselsstatus
@@ -77,12 +78,31 @@ public class Player {
 		String bleh=" "+name+" : "+account;
 		return bleh;
 	}
-	
+	/**
+	 * 
+	 * @return Antallet af fleetfelter spilleren ejer
+	 */
 	public int getFleetOwned(){
 		return fleetOwned;
 	}
+	/**
+	 * Tilføjer 1 til antallet af fleetfelter spilleren ejer
+	 */
 	public void updateFleetOwned(){
 		fleetOwned++;
+	}
+	/**
+	 * 
+	 * @return Antallet af Laborcampfelter spilleren ejer
+	 */
+	public int getLaborOwned(){
+		return laborOwned;
+	}
+	/**
+	 * Tilføjer 1 til antaller af laborcampfelter spilleren ejer
+	 */
+	public void updateLaborOwned(){
+		laborOwned++;
 	}
 
 }

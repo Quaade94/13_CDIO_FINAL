@@ -4,7 +4,7 @@ public class Die {
 
 	private int dice1;
 	private int dice2;
-	private int sum;
+	private static int sum;
 
 	// Rolls the die
 	public void roll() {
@@ -35,7 +35,7 @@ public class Die {
 	 * Get the sum of dice1 and dice2
 	 * @return int
 	 */
-	public int getDiceSum(){		
+	public static int getDiceSum(){		
 		return sum;
 	}
 	

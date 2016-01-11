@@ -1,7 +1,9 @@
 package Fields;
 
+import Game.Die;
 import Players.Player;
 import Players.PlayerController;
+import desktop_resources.GUI;
 
 public class Laborcamp extends Ownable{
 	
@@ -27,7 +29,39 @@ public class Laborcamp extends Ownable{
 	}
 	@Override
 	public void landOnField(PlayerController playerController){
-		
+		Player currentPlayer = playerController.getNextPlayer();
+		int curRent = 0;
+		if (Owner == null){
+			if (GUI.getUserLeftButtonPressed("Want to buy?", "YES", "NO")){
+				if(currentPlayer.getAccount().getBalance() >= Price){
+					currentPlayer.getAccount().updateBalance(-Price);
+					Owner = currentPlayer;
+					currentPlayer.updateLaborOwned();
+					if(currentPlayer.getLaborOwned() == 2){
+						AllOwned = true;
+					}
+					GUI.setOwner(FieldNumber, currentPlayer.getName());
+					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+
+				}// else{
+//					if (GUI.getUserLeftButtonPressed("You can't afford. Want to pledge?", "YES", "NO")){
+//					}
+//				}
+			}
+		} else if (Owner != currentPlayer && Owner != null){
+			curRent = getRent();
+			if (currentPlayer.getAccount().getBalance() >= curRent){
+				currentPlayer.getAccount().updateBalance(-curRent);
+				Owner.getAccount().updateBalance(curRent);
+				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
+			} else{
+				Owner.getAccount().updateBalance(currentPlayer.getAccount().getBalance());
+				currentPlayer.getAccount().updateBalance(-currentPlayer.getAccount().getBalance());
+				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
+			}
+		}
 	}
 	
 	@Override
@@ -40,10 +74,10 @@ public class Laborcamp extends Ownable{
 		
 		int rent = 0;
 		
-		rent = Baserent;
+		rent = Die.getDiceSum() * Baserent;
 		
 		if (AllOwned){
-			rent = Baserent * 2;
+			rent = rent * 2;
 		}
 		return rent;
 	}
