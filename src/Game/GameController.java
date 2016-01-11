@@ -16,21 +16,21 @@ public class GameController {
 	private int newPosition;
 	private Player currentPlayer;
 	Die die = new Die();
-	private PlayerController playerController;
-	private FieldController fieldController;
+	private PlayerController pC;
+	private FieldController fC;
 	
 	
 	public void runGame(){
 		//TODO add comments
 		//Setup Fields
-		fieldController = new FieldController();
+		fC = new FieldController();
 		//Setup GUI - use nice setup delegate
-		new GUISetupManager(fieldController);
+		new GUISetupManager(fC);
 		//Tell playercontroller to setup
-		playerController = new PlayerController();
+		pC = new PlayerController();
 		//GameLoop
-		while(playerController.getPlayers().length>1){
-			currentPlayer = playerController.getNextPlayer();
+		while(pC.getPlayers().length>1){
+			currentPlayer = pC.getNextPlayer();
 			//JailTurn
 			if (currentPlayer.getJailed()){
 				jailTurn();
@@ -44,7 +44,7 @@ public class GameController {
 	}
 
 	private void standardTurn() {
-		System.out.println("Spiller 1 ejer: "+fieldController.getOwner(18));
+		System.out.println("Spiller 1 ejer: "+fC.getOwner(18));
 		choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("PLEDGE"), Language.getLang("BUYSELL"));
 		
 		if(choice == Language.getLang("ROLL")){
@@ -55,7 +55,7 @@ public class GameController {
 			newPosition = playerPosition + die.getDiceSum();
 			if(newPosition >= 40){
 				newPosition = newPosition-40;
-				fieldController.landOnField(0, playerController);
+				fC.landOnField(0, pC);
 			}
 			currentPlayer.setPlace(newPosition);
 			System.out.println("Nye " + newPosition+1);
@@ -65,9 +65,9 @@ public class GameController {
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			//Interacting with the field
 			if(playerPosition != 0){
-				fieldController.landOnField(newPosition, playerController);
+				fC.landOnField(newPosition, pC);
 			}
-			playerController.endTurn();
+			pC.endTurn();
 			
 		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Player wants to buy houses
@@ -77,7 +77,9 @@ public class GameController {
 			//Player wants to pledge properties
 			
 		} else if (choice == Language.getLang("BUYSELL")){
-		
+			this.choice = GUI.getUserSelection("What do you want to sell?", "Fortryd");
+			if (choice == "Fortryd");
+				System.out.println("Fuccka you gaybooi");
 			
 		} else {
 			System.out.println("Fejl i player choice!");
@@ -108,14 +110,14 @@ public class GameController {
 				GUI.removeCar(playerPosition+1, currentPlayer.getName());
 				GUI.setCar(newPosition+1, currentPlayer.getName());
 				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
-				playerController.endTurn();
+				pC.endTurn();
 			}
-			playerController.endTurn();
+			pC.endTurn();
 		}else {
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 			currentPlayer.setJail(false);
-			playerController.endTurn();
+			pC.endTurn();
 		}
 		
 	}
