@@ -11,6 +11,7 @@ public class PlayerController {
 	private int playerAmount;
 	private Player[] players;
 	private int currentPlayer = 1;
+	public String[] names;
 	
 	/**
 	 * Opretter et spillerarray af spillerne
@@ -19,6 +20,7 @@ public class PlayerController {
 	public PlayerController(){
 		playerAmount = GUI.getUserInteger(Language.getLang("PLAYERNO"), 2, 6);
 		players = new Player[playerAmount];
+		names = new String[playerAmount+1];
 		createPlayers();
 		
 	}
@@ -53,6 +55,7 @@ public class PlayerController {
 			Player player = new Player();
 			player.setName(name);
 			players[x] = player;
+			names[x] = players[x].getName();
 			//Creates the player on the board
 			GUI.addPlayer(players[x].getName(), players[x].getAccount().getBalance(), cars[x]);
 			GUI.setCar(players[x].getPlace()+1, players[x].getName());

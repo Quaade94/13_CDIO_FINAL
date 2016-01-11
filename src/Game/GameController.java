@@ -95,21 +95,12 @@ public class GameController {
 			//Player wants to pledge properties
 			
 		} else if (choice == Language.getLang("BUYSELL")){
-			String[] names;
-			for (int i=0; i<pC.getPlayers().length; i++){
-				
-//				if (pC.getNextPlayer()==fC.getOwner(i)){
-//					
-//				}
-				
-			}
-			
-			this.choice = GUI.getUserSelection("What do you want to sell?", new String[]{});
+			pC.names[pC.getPlayers().length] = "Fortryd";
+			this.choice = GUI.getUserSelection("Who do you want to buy from?", pC.names);
 			if (choice == "Fortryd");
 				System.out.println("Fuccka you gaybooi");
-				fC.setOwner(16, pC.getNextPlayer());
+				fC.setOwner(16, pC.getNextPlayer());	
 				
-			
 		} else {
 			System.out.println("Fejl i player choice!");
 		}
