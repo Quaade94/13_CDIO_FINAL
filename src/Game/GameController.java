@@ -65,7 +65,7 @@ public class GameController {
 			GameController.movement(playerPosition+1,newPosition+1,currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			//Interacting with the field
-			if(playerPosition != 0){
+			if(newPosition != 0){
 				fC.landOnField(newPosition, pC, fC);
 			}
 			pC.endTurn();

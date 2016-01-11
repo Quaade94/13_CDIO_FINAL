@@ -9,7 +9,6 @@ import desktop_resources.GUI;
 
 public class TryLuck extends ParkChance {
 	
-	
 	private static String card[] = {Language.getLang("CARD1"),Language.getLang("CARD2"),Language.getLang("CARD3"),Language.getLang("CARD4"),Language.getLang("CARD5"),Language.getLang("CARD6"),Language.getLang("CARD7"),Language.getLang("CARD8")};
 
 	// Messages
@@ -40,8 +39,6 @@ public class TryLuck extends ParkChance {
 		return Description;
 	}
 
-
-
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
@@ -53,8 +50,6 @@ public class TryLuck extends ParkChance {
 		
 		Player currentPlayer = playerController.getNextPlayer();
 		Player allPlayers[] = playerController.getPlayers();
-		
-		
 		
 		GUI.displayChanceCard();
 		String getCard = getChanceMessage();
