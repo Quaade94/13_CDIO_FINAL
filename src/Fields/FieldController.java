@@ -2,6 +2,7 @@ package Fields;
 
 import Players.Player;
 import Players.PlayerController;
+import desktop_resources.GUI;
 
 public class FieldController {
 	

@@ -118,5 +118,6 @@ public class GameController {
 			currentPlayer.setJail(false);
 			playerController.endTurn();
 		}
+		
 	}
 }
