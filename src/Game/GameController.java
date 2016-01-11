@@ -51,7 +51,10 @@ public class GameController {
 			die.roll();
 			//Setting position
 			newPosition = playerPosition + die.getDiceSum();
-			if(newPosition >= 40) newPosition = newPosition-40;
+			if(newPosition >= 40){
+				newPosition = newPosition-40;
+				fieldController.landOnField(1, playerController);
+			}
 			currentPlayer.setPlace(newPosition);
 			System.out.println("Nye " + newPosition+1);
 			//Communicating with GUI
@@ -59,7 +62,9 @@ public class GameController {
 			GUI.setCar(newPosition+1, currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			//Interacting with the field
-			fieldController.landOnField(playerPosition, playerController);
+			if(playerPosition != 1){
+				fieldController.landOnField(playerPosition, playerController);
+			}
 			playerController.endTurn();
 		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Player wants to buy houses
