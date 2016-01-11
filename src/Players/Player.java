@@ -6,6 +6,7 @@ public class Player {
 	private int place;
 	private boolean isJailed;
 	private String name;
+	private int fleetOwned;
 	
 	/**
 	 * Opretter en spiller, med konto, placering og f�ngselsstatus
@@ -14,6 +15,7 @@ public class Player {
 		account = new Account();
 		place = 0;
 		isJailed = false;
+		fleetOwned = 0;
 	}
 	
 	public Account getAccount(){
@@ -74,6 +76,13 @@ public class Player {
 	public String toString(){
 		String bleh=" "+name+" : "+account;
 		return bleh;
+	}
+	
+	public int getFleetOwned(){
+		return fleetOwned;
+	}
+	public void updateFleetOwned(){
+		fleetOwned++;
 	}
 
 }

@@ -2,6 +2,7 @@ package Fields;
 
 import Players.Player;
 import Players.PlayerController;
+import desktop_resources.GUI;
 
 public class Fleet extends Ownable{
 	
@@ -37,7 +38,37 @@ public class Fleet extends Ownable{
 	}
 	@Override
 	public void landOnField(PlayerController playerController){
-		
+		Player currentPlayer = playerController.getNextPlayer();
+		int curRent = 0;
+		if (Owner == null){
+			if (GUI.getUserLeftButtonPressed("Want to buy?", "YES", "NO")){
+				if(currentPlayer.getAccount().getBalance() >= Price){
+					currentPlayer.getAccount().updateBalance(-Price);
+					Owner = currentPlayer;
+					currentPlayer.updateFleetOwned();
+					AmountOwned = currentPlayer.getFleetOwned();
+					GUI.setOwner(FieldNumber, currentPlayer.getName());
+					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+
+				}// else{
+//					if (GUI.getUserLeftButtonPressed("You can't afford. Want to pledge?", "YES", "NO")){
+//					}
+//				}
+			}
+		} else if (Owner != currentPlayer && Owner != null){
+			curRent = getRent();
+			if (currentPlayer.getAccount().getBalance() >= curRent){
+				currentPlayer.getAccount().updateBalance(-curRent);
+				Owner.getAccount().updateBalance(curRent);
+				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
+			} else{
+				Owner.getAccount().updateBalance(currentPlayer.getAccount().getBalance());
+				currentPlayer.getAccount().updateBalance(-currentPlayer.getAccount().getBalance());
+				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
+			}
+		}
 	}
 	
 	@Override
