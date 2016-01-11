@@ -27,7 +27,7 @@ public class FieldController {
 	}
 	
 	public void landOnField(int PlayerPosition, PlayerController playerController){
-		if (fields[PlayerPosition] instanceof Field){
+		if (fields[PlayerPosition - 1] instanceof Field){
 			((Field) fields[PlayerPosition]).landOnField(playerController);
 		}
 	}
