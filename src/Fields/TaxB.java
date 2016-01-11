@@ -1,6 +1,8 @@
 package Fields;
 
+import Players.Player;
 import Players.PlayerController;
+import desktop_resources.GUI;
 
 public class TaxB extends Tax{
 
@@ -42,8 +44,9 @@ public class TaxB extends Tax{
 
 	@Override
 	public void landOnField(PlayerController playerController) {
-		// TODO Auto-generated method stub
-		
+		Player currentPlayer = playerController.getNextPlayer();
+		currentPlayer.getAccount().updateBalance(-1000);
+		GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 	}
 	
 	
