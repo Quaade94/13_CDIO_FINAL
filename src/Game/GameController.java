@@ -65,7 +65,7 @@ public class GameController {
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			//Interacting with the field
 			if(playerPosition != 0){
-				fieldController.landOnField(playerPosition, playerController);
+				fieldController.landOnField(newPosition, playerController);
 			}
 			fieldController.setOwner(18, playerController.getNextPlayer());
 			playerController.endTurn();
@@ -104,12 +104,14 @@ public class GameController {
 				currentPlayer.setJail(false);
 				playerPosition = currentPlayer.getPlace();
 				newPosition = playerPosition + die.getDiceSum();
+				if(newPosition >= 40) newPosition = newPosition-40;
 				currentPlayer.setPlace(newPosition);
 				GUI.removeCar(playerPosition+1, currentPlayer.getName());
 				GUI.setCar(newPosition+1, currentPlayer.getName());
 				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 				playerController.endTurn();
 			}
+			playerController.endTurn();
 		}else {
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
