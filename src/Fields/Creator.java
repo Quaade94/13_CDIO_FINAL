@@ -65,7 +65,8 @@ public class Creator {
 		createTax();
 		
 		Field[] fields = new Field[]{start, roedovrevej, Luck1, hvidovrevej, taxA, gedRos, valbylanggade, Luck2, roskildevej, allegade, jail, frederiksbergalle, squash, bulowsvej, glkongevej, mols, bernstoffsvej,
-				Luck3, hellerupvej, strandvejern, park, oesterbrogade, Luck4, trianglen, groenningen, helHel, bredgade, kgsNytov, cola, oestergade, prison, vimmelskaftet, amagertov, Luck5, nygade, roedPut, Luck6, fredderiksbergade, taxB, raadhuspladsen};
+				Luck3, hellerupvej, strandvejern, park, oesterbrogade, Luck4, trianglen, groenningen, helHel, bredgade, kgsNytov, cola, oestergade, prison, vimmelskaftet, amagertov, Luck5, nygade, 
+				roedPut, Luck6, fredderiksbergade, taxB, raadhuspladsen};
 		
 		return fields;
 	}
