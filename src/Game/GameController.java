@@ -78,11 +78,15 @@ public class GameController {
 			//Player wants to pledge properties
 
 		} else if (choice == Language.getLang("BUYSELL")){
+			//Adds a go back option to the name array 
 			pC.names[pC.getPlayers().length] = "Fortryd";
-			this.choice = GUI.getUserSelection("Who do you want to buy from?", pC.names);
-			if (choice == "Fortryd");
-			System.out.println("Fuccka you gaybooi");
-			fC.setOwner(16, pC.getNextPlayer());	
+			//The player chooses whether he wants to buy or sell
+			boolean buysell = GUI.getUserLeftButtonPressed("Buying or selling?", "buying", "selling");
+			
+				if(buysell)
+					this.choice = GUI.getUserSelection("Who do you want to buy from?", pC.names);
+					System.out.println(choice);
+						
 
 		} else {
 			System.out.println("Fejl i player choice!");
