@@ -33,11 +33,13 @@ public class PlayerController {
 		Car[] cars = CarBuilder.getCar();
 		for (int x = 0; x < playerAmount; x++){
 			String name;
+			String nameWithLowercase;
 			boolean nameExists = false;
 			do{
 				//Checks if the playerss name follows a certain criteria
 				nameExists = false;
-				name = GUI.getUserString(Language.getLang("WHATSNAME"));
+				nameWithLowercase = GUI.getUserString(Language.getLang("WHATSNAME"));
+				name = nameWithLowercase.substring(0, 1).toUpperCase() + nameWithLowercase.substring(1);
 				for(int i = 0; i < x; i++){
 					if(players[i].getName().equals(name)){
 						nameExists = true;
