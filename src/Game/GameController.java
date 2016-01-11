@@ -78,6 +78,9 @@ public class GameController {
 			//Player wants to pledge properties
 
 		} else if (choice == Language.getLang("BUYSELL")){
+			for (int i=0; i<pC.getPlayers().length; i++){
+				
+			}
 			//Adds a go back option to the name array 
 			pC.names[pC.getPlayers().length] = "Fortryd";
 			//The player chooses whether he wants to buy or sell
