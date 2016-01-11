@@ -78,18 +78,31 @@ public class GameController {
 			//Player wants to pledge properties
 
 		} else if (choice == Language.getLang("BUYSELL")){
+			String[] names;
+			names = new String[pC.getPlayers().length];
+			int r = 0;
 			for (int i=0; i<pC.getPlayers().length; i++){
-				
+				if (pC.getPlayers()[r].getName()!=pC.getNextPlayer().getName()){
+					names[i] = pC.getPlayers()[r].getName();
+					r++;
+					}
+				if (pC.getPlayers()[r].getName()==pC.getNextPlayer().getName()){
+					names[i] = pC.getPlayers()[r+1].getName();
+					r++;
+				}
 			}
+		
+		
 			//Adds a go back option to the name array 
-			pC.names[pC.getPlayers().length] = "Fortryd";
+			System.out.println(names[0]);
+			names[pC.getPlayers().length-1] = "Fortryd";
 			//The player chooses whether he wants to buy or sell
 			boolean buysell = GUI.getUserLeftButtonPressed("Buying or selling?", "buying", "selling");
 			
-				if(buysell)
-					this.choice = GUI.getUserSelection("Who do you want to buy from?", pC.names);
+				if(buysell){
+					this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
 					System.out.println(choice);
-						
+		}
 
 		} else {
 			System.out.println("Fejl i player choice!");
@@ -123,6 +136,7 @@ public class GameController {
 				GUI.removeCar(playerPosition+1, currentPlayer.getName());
 				GUI.setCar(newPosition+1, currentPlayer.getName());
 				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
+				fC.landOnField(newPosition, pC, fC);
 				pC.endTurn();
 			}
 			pC.endTurn();
