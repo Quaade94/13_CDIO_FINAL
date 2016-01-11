@@ -67,7 +67,6 @@ public class GameController {
 			if(playerPosition != 0){
 				fieldController.landOnField(newPosition, playerController);
 			}
-			fieldController.setOwner(18, playerController.getNextPlayer());
 			playerController.endTurn();
 			
 		} else if (choice == Language.getLang("BUYHOUSE")){

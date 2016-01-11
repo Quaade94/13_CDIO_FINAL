@@ -55,7 +55,7 @@ public class Territory  extends Ownable{
 //					}
 //				}
 			}
-		} else if (Owner != currentPlayer){
+		} else if (Owner != currentPlayer && Owner != null){
 			curRent = getRent();
 			if (currentPlayer.getAccount().getBalance() >= curRent){
 				currentPlayer.getAccount().updateBalance(-curRent);
