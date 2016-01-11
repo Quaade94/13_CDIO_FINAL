@@ -62,13 +62,11 @@ public class TryLuck extends ParkChance {
 		if (getCard == Language.getLang("CARD1")){
 			GameController.movement(currentPlayer.getPlace()+1, 1, currentPlayer.getName());
 			currentPlayer.setPlace(0);
-			
-			
-
-		
+			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD2")){
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD3")){
 			for (int i = 0; i < allPlayers.length; i++){
 				if (allPlayers[i] != currentPlayer){
@@ -78,24 +76,30 @@ public class TryLuck extends ParkChance {
 					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 				}
 			}
+			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD4")){
 			currentPlayer.getAccount().updateBalance(-500);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD5")){
 			currentPlayer.getAccount().updateBalance(1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD6")){
 			GameController.movement(currentPlayer.getPlace()+1, 24, currentPlayer.getName());
 			currentPlayer.setPlace(23);
 			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
+			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD7")){
 			GameController.movement(currentPlayer.getPlace()+1, 40, currentPlayer.getName());
 			currentPlayer.setPlace(39);
 			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
+			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD8")){
 			GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer.getName());
 			currentPlayer.setPlace(10);
 			currentPlayer.setJail(true);
+			GUI.displayChanceCard();
 		}
 	}
 	

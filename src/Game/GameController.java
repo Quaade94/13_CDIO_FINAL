@@ -57,7 +57,7 @@ public class GameController {
 			newPosition = playerPosition + die.getDiceSum();
 			if(newPosition >= 40){
 				newPosition = newPosition-40;
-				fC.landOnField(0, pC);
+				fC.landOnField(0, pC, fC);
 			}
 			currentPlayer.setPlace(newPosition);
 			System.out.println("Nye " + newPosition+1);
@@ -66,7 +66,7 @@ public class GameController {
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 			//Interacting with the field
 			if(playerPosition != 0){
-				fC.landOnField(newPosition, pC);
+				fC.landOnField(newPosition, pC, fC);
 			}
 			pC.endTurn();
 
