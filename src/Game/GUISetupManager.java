@@ -49,6 +49,21 @@ public class GUISetupManager {
 				GUI.setTitleText(number, fieldController.getName(ArrayNr));
 				GUI.setDescriptionText(number, fieldController.getName(ArrayNr));
 			}
+			if (fieldController.getFieldNumber(ArrayNr) == 3 ||fieldController.getFieldNumber(ArrayNr) == 8
+					|| fieldController.getFieldNumber(ArrayNr) == 18 || fieldController.getFieldNumber(ArrayNr) == 23
+					|| fieldController.getFieldNumber(ArrayNr) == 34 || fieldController.getFieldNumber(ArrayNr) == 37) {
+				// Go to jail field
+				
+				int number = fieldController.getFieldNumber(ArrayNr);
+				
+				GUI.setSubText(number, Language.getLang("LUCK"));
+				GUI.setDescriptionText(number, Language.getLang("CARD"));
+			}
+			
+			
+			
+			
+			
 			
 			if (fieldController.getFieldNumber(ArrayNr) == 31) {
 				// Go to jail field
