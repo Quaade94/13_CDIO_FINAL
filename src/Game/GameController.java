@@ -44,7 +44,7 @@ public class GameController {
 	}
 
 	private void standardTurn() {
-		System.out.println("Spiller 1 ejer: "+fC.getOwner(18));
+		System.out.println("Spiller 1 ejer: "+fC.getOwner(16));
 		choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("PLEDGE"), Language.getLang("BUYSELL"));
 		
 		if(choice == Language.getLang("ROLL")){
@@ -77,6 +77,8 @@ public class GameController {
 			//Player wants to pledge properties
 			
 		} else if (choice == Language.getLang("BUYSELL")){
+			fC.setOwner(16, pC.getNextPlayer());
+			System.out.println(fC.getOwner(16));
 			this.choice = GUI.getUserSelection("What do you want to sell?", "Fortryd");
 			if (choice == "Fortryd");
 				System.out.println("Fuccka you gaybooi");
@@ -84,6 +86,9 @@ public class GameController {
 		} else {
 			System.out.println("Fejl i player choice!");
 		}
+//		for (int i=0; i<40; i++){
+//			fC.getOwner(i);
+//		}
 	}
 
 	private void jailTurn() {
