@@ -2,8 +2,8 @@ package Game;
 
 public class Die {
 
-	private int dice1;
-	private int dice2;
+	private static int dice1;
+	private static int dice2;
 	private static int sum;
 
 	// Rolls the die
@@ -19,7 +19,7 @@ public class Die {
 	 * Gets the number of the first dice rolled
 	 * @return int
 	 */
-	public int getDice1(){		
+	public static int getDice1(){		
 		return dice1;
 	}
 	
@@ -27,7 +27,7 @@ public class Die {
 	 * Gets the number of the second dice rolled
 	 * @return int
 	 */
-	public int getDice2(){		
+	public static int getDice2(){		
 		return dice2;
 	}
 	
