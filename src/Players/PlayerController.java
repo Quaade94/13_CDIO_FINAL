@@ -54,7 +54,7 @@ public class PlayerController {
 			player.setName(name);
 			players[x] = player;
 			//Creates the player on the board
-			GUI.addPlayer(players[x].getName(), players[x].getAccount().getBalance(), cars[x]);
+			GUI.addPlayer(players[x].getName(), 30000, cars[x]);
 			GUI.setCar(players[x].getPlace()+1, players[x].getName());
  		}
 	}

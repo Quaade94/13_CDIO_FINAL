@@ -53,7 +53,7 @@ public class GameController {
 			newPosition = playerPosition + die.getDiceSum();
 			if(newPosition >= 40){
 				newPosition = newPosition-40;
-				fieldController.landOnField(1, playerController);
+				fieldController.landOnField(0, playerController);
 			}
 			currentPlayer.setPlace(newPosition);
 			System.out.println("Nye " + newPosition+1);
