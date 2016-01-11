@@ -44,11 +44,15 @@ public class GameController {
 	}
 	
 	public static void movement(int startPos, int finishPos, String name){
-		int p1 = startPos;
-		while(p1 != finishPos){
-			GUI.removeCar(p1, name);
-			p1++;
-			GUI.setCar(p1, name);
+		int position = startPos;
+		while(position != finishPos){
+			GUI.removeCar(position, name);
+			System.out.println("movement motor position = "+position);
+			position++;
+			if(position==41){
+				position=1;
+			}
+			GUI.setCar(position, name);
 			try {
 			    Thread.sleep(100);                 //1000 milliseconds is one second.
 			} catch(InterruptedException ex) {
