@@ -26,9 +26,9 @@ public class FieldController {
 		return rent;	
 	}
 	
-	public void landOnField(int fieldIndex, PlayerController playerController){
-		if (fields[fieldIndex] instanceof Field){
-			((Field) fields[fieldIndex]).landOnField(playerController);
+	public void landOnField(int PlayerPosition, PlayerController playerController){
+		if (fields[PlayerPosition] instanceof Field){
+			((Field) fields[PlayerPosition]).landOnField(playerController);
 		}
 	}
 	

@@ -1,5 +1,7 @@
 package Fields;
 
+
+import Players.Player;
 import Players.PlayerController;
 
 public class Start extends JailPrisonStart{
@@ -17,6 +19,15 @@ public class Start extends JailPrisonStart{
 	@Override
 	public void landOnField(PlayerController playerController) {
 
+		Player currentPlayer = playerController.getNextPlayer();
+		
+		Player players[] = playerController.getPlayers();
+		
+		for(int i = 0 ; i < players.length ; i++){
+			if (players[i] == currentPlayer){
+				players[i].getAccount().updateBalance(4000);
+			}
+		}		
 	}
 	
 	@Override

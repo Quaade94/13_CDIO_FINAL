@@ -81,4 +81,8 @@ public class PlayerController {
 		System.out.println(players.length);
 		return players[currentPlayer-1];
 	}	
+	
+	
+	
+	
 }
