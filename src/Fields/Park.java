@@ -15,7 +15,7 @@ public class Park extends ParkChance{
 		
 	}
 	@Override
-	public void landOnField(PlayerController playerController) {
+	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		
 	}
 

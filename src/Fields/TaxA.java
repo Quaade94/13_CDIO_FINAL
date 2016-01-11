@@ -43,7 +43,7 @@ public class TaxA  extends Tax{
 	}
 
 	@Override
-	public void landOnField(PlayerController playerController) {
+	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		Player currentPlayer = playerController.getNextPlayer();
 		int playerBalance;
 		if (GUI.getUserLeftButtonPressed("Choose your pay method:", "10%", "4000")){

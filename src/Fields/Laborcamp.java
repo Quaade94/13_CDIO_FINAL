@@ -28,7 +28,7 @@ public class Laborcamp extends Ownable{
 		
 	}
 	@Override
-	public void landOnField(PlayerController playerController){
+	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		Player currentPlayer = playerController.getNextPlayer();
 		int curRent = 0;
 		if (Owner == null){

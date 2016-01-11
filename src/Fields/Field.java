@@ -10,7 +10,7 @@ public abstract class Field {
 	
 	
 	
-	public abstract void landOnField(PlayerController playerController);
+	public abstract void landOnField(PlayerController playerController, FieldController fieldController);
 	
 	/**
 	 * This method will return the Field Number of the object

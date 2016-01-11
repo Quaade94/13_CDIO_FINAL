@@ -2,7 +2,6 @@ package Fields;
 
 import Players.Player;
 import Players.PlayerController;
-import desktop_resources.GUI;
 
 public class FieldController {
 	
@@ -27,9 +26,9 @@ public class FieldController {
 		return rent;	
 	}
 	
-	public void landOnField(int PlayerPosition, PlayerController playerController){
+	public void landOnField(int PlayerPosition, PlayerController playerController, FieldController fieldController){
 		if (fields[PlayerPosition] instanceof Field){
-			((Field) fields[PlayerPosition]).landOnField(playerController);
+			((Field) fields[PlayerPosition]).landOnField(playerController, fieldController);
 		}
 	}
 	

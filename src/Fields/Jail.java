@@ -12,7 +12,7 @@ public class Jail extends JailPrisonStart{
 	
 	
 	@Override
-	public void landOnField(PlayerController playerController) {
+	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		
 	}
 	@Override

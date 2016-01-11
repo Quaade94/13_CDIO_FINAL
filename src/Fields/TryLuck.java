@@ -1,6 +1,7 @@
 package Fields;
 
 import Game.GameController;
+import Fields.FieldController;
 import Game.Language;
 import Players.Player;
 import Players.PlayerController;
@@ -48,17 +49,23 @@ public class TryLuck extends ParkChance {
 	}
 
 	@Override
-	public void landOnField(PlayerController playerController) {
+	public void landOnField(PlayerController playerController, FieldController fieldController) {
+		
 		Player currentPlayer = playerController.getNextPlayer();
 		Player allPlayers[] = playerController.getPlayers();
-		FieldController fieldController = new FieldController();
+		
+		
+		
 		GUI.displayChanceCard();
 		String getCard = getChanceMessage();
 		GUI.displayChanceCard(getCard);
 		if (getCard == Language.getLang("CARD1")){
 			GameController.movement(currentPlayer.getPlace()+1, 1, currentPlayer.getName());
 			currentPlayer.setPlace(0);
-			fieldController.landOnField(currentPlayer.getPlace(), playerController);
+			
+			
+
+		
 		} else if (getCard == Language.getLang("CARD2")){
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
@@ -80,11 +87,11 @@ public class TryLuck extends ParkChance {
 		} else if (getCard == Language.getLang("CARD6")){
 			GameController.movement(currentPlayer.getPlace()+1, 24, currentPlayer.getName());
 			currentPlayer.setPlace(23);
-			fieldController.landOnField(currentPlayer.getPlace(), playerController);
+			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
 		} else if (getCard == Language.getLang("CARD7")){
 			GameController.movement(currentPlayer.getPlace()+1, 40, currentPlayer.getName());
 			currentPlayer.setPlace(39);
-			fieldController.landOnField(currentPlayer.getPlace(), playerController);
+			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
 		} else if (getCard == Language.getLang("CARD8")){
 			GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer.getName());
 			currentPlayer.setPlace(10);
