@@ -18,7 +18,7 @@ public class GameController {
 	Die die = new Die();
 	private PlayerController pC;
 	private FieldController fC;
-
+	private int turns = 0;
 
 	public void runGame(){
 		//TODO add comments
@@ -51,6 +51,15 @@ public class GameController {
 			//Player wants to roll the die
 			playerPosition = currentPlayer.getPlace();
 			die.roll();
+			if(Die.getDice1()==Die.getDice2()){turns++;}
+			if(Die.getDice1()!=Die.getDice2()){turns = 0;}
+			if(turns > 0){GUI.showMessage(Language.getLang("ROLLEDD"));}
+			if(turns==3){
+				GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer.getName());
+				currentPlayer.setPlace(10);
+				currentPlayer.setJail(true);
+				pC.endTurn();
+			}
 			// Creates Dice on GUI
 			GameController.dicePlace(Die.getDice1(), Die.getDice2());
 			//Setting position
@@ -67,7 +76,9 @@ public class GameController {
 			if(newPosition != 0){
 				fC.landOnField(newPosition, pC, fC);
 			}
-			pC.endTurn();
+			if(turns==0){
+				pC.endTurn();
+			}
 
 		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Player wants to buy houses
@@ -100,10 +111,10 @@ public class GameController {
 				if (blue == 2 || purple == 2 || rest == 3){
 					buildable = true;
 				}
-				
+
 			}
 			if (buildable){
-				
+
 			} else {
 				GUI.showMessage("You don't own any properties you can build houses on!");
 			}
@@ -119,7 +130,7 @@ public class GameController {
 				if (pC.getPlayers()[nameAddedToDD].getName()!=pC.getCurrentPlayer().getName()){
 					names[i] = pC.getPlayers()[nameAddedToDD].getName();
 					nameAddedToDD++;
-					}
+				}
 				else {
 					names[i] = pC.getPlayers()[nameAddedToDD+1].getName();
 					nameAddedToDD = nameAddedToDD+2;
@@ -127,44 +138,44 @@ public class GameController {
 			}		
 			//Adds a go back option to the name array 
 			names[pC.getPlayers().length-1] = "Fortryd";
-			
+
 			//The player chooses whether he wants to buy or sell
 			boolean buysell = GUI.getUserLeftButtonPressed("Buying or selling?", "buying", "selling");			
-				if(buysell){
-					this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
-					
-					int theChosenOneBuy = 0;
-					for (int z = 0; z<pC.getPlayers().length; z++){
-						if(choice == pC.getPlayers()[z].getName()){
-							theChosenOneBuy = z;
+			if(buysell){
+				this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
+
+				int theChosenOneBuy = 0;
+				for (int z = 0; z<pC.getPlayers().length; z++){
+					if(choice == pC.getPlayers()[z].getName()){
+						theChosenOneBuy = z;
+					}
+				}
+
+				String[] fields;
+				int lenghtOfOwnedFieldsArray = 0;
+				for (int l=0; l<39; l++){
+					if (fC.getOwner(l)!=null){
+						if (fC.getOwner(l) == pC.getPlayers()[theChosenOneBuy]){
+							lenghtOfOwnedFieldsArray++;
 						}
 					}
-					
-					String[] fields;
-					int lenghtOfOwnedFieldsArray = 0;
-					for (int l=0; l<39; l++){
-						if (fC.getOwner(l)!=null){
-							if (fC.getOwner(l) == pC.getPlayers()[theChosenOneBuy]){
-								lenghtOfOwnedFieldsArray++;
-							}
+				}
+				fields = new String[lenghtOfOwnedFieldsArray+1];
+
+				int q = 0;
+				for (int t=0; t<39; t++){
+					if (fC.getOwner(t)!=null){
+						if (fC.getOwner(t)==pC.getPlayers()[theChosenOneBuy]){
+							fields[q] = fC.getName(t);
+							q++;
 						}
 					}
-					fields = new String[lenghtOfOwnedFieldsArray+1];
-					
-					int q = 0;
-					for (int t=0; t<39; t++){
-						if (fC.getOwner(t)!=null){
-							if (fC.getOwner(t)==pC.getPlayers()[theChosenOneBuy]){
-								fields[q] = fC.getName(t);
-								q++;
-							}
-						}
-					}
-					fields[lenghtOfOwnedFieldsArray] = "Fortryd";					
-					
-					this.choice = GUI.getUserSelection("Which property do you wish to purchase", fields);
-					
-		}
+				}
+				fields[lenghtOfOwnedFieldsArray] = "Fortryd";					
+
+				this.choice = GUI.getUserSelection("Which property do you wish to purchase", fields);
+
+			}
 
 		} else {
 			System.out.println("Fejl i player choice!");
