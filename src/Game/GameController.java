@@ -60,7 +60,6 @@ public class GameController {
 				fC.landOnField(0, pC, fC);
 			}
 			currentPlayer.setPlace(newPosition);
-			System.out.println("Nye " + newPosition+1);
 			//Communicating with GUI
 			GameController.movement(playerPosition+1,newPosition+1,currentPlayer.getName());
 			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
@@ -81,27 +80,25 @@ public class GameController {
 			String[] names;
 			names = new String[pC.getPlayers().length];
 			int r = 0;
-			for (int i=0; i<pC.getPlayers().length; i++){
+			for (int i=0; i<pC.getPlayers().length-1; i++){
 				if (pC.getPlayers()[r].getName()!=pC.getNextPlayer().getName()){
 					names[i] = pC.getPlayers()[r].getName();
 					r++;
 					}
-				if (pC.getPlayers()[r].getName()==pC.getNextPlayer().getName()){
+				else {
 					names[i] = pC.getPlayers()[r+1].getName();
-					r++;
+					r = r+2;
 				}
 			}
 		
 		
 			//Adds a go back option to the name array 
-			System.out.println(names[0]);
 			names[pC.getPlayers().length-1] = "Fortryd";
 			//The player chooses whether he wants to buy or sell
-			boolean buysell = GUI.getUserLeftButtonPressed("Buying or selling?", "buying", "selling");
-			
+			boolean buysell = GUI.getUserLeftButtonPressed("Buying or selling?", "buying", "selling");			
 				if(buysell){
 					this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
-					System.out.println(choice);
+					
 		}
 
 		} else {
