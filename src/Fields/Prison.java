@@ -15,7 +15,7 @@ public class Prison extends JailPrisonStart{
 	
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
-		Player jailedPlayer = playerController.getNextPlayer();
+		Player jailedPlayer = playerController.getCurrentPlayer();
 		jailedPlayer.setJail(true);
 		GameController.movement(jailedPlayer.getPlace()+1, 11, jailedPlayer.getName());
 		jailedPlayer.setPlace(10);

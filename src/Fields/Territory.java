@@ -41,7 +41,7 @@ public class Territory  extends Ownable{
 	}
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
-		Player currentPlayer = playerController.getNextPlayer();
+		Player currentPlayer = playerController.getCurrentPlayer();
 		int curRent = 0;
 		if (Owner == null){
 			if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){

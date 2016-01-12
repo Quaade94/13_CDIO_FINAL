@@ -79,7 +79,7 @@ public class PlayerController {
 		}
 	}
 
-	public Player getNextPlayer() {
+	public Player getCurrentPlayer() {
 		return players[currentPlayer-1];
 	}	
 	

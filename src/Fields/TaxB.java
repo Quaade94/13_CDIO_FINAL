@@ -44,7 +44,7 @@ public class TaxB extends Tax{
 
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
-		Player currentPlayer = playerController.getNextPlayer();
+		Player currentPlayer = playerController.getCurrentPlayer();
 		currentPlayer.getAccount().updateBalance(-1000);
 		GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 	}

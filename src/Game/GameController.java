@@ -30,7 +30,7 @@ public class GameController {
 		pC = new PlayerController();
 		//GameLoop
 		while(pC.getPlayers().length>1){
-			currentPlayer = pC.getNextPlayer();
+			currentPlayer = pC.getCurrentPlayer();
 			//JailTurn
 			if (currentPlayer.getJailed()){
 				jailTurn();
@@ -81,7 +81,7 @@ public class GameController {
 			names = new String[pC.getPlayers().length];
 			int r = 0;
 			for (int i=0; i<pC.getPlayers().length-1; i++){
-				if (pC.getPlayers()[r].getName()!=pC.getNextPlayer().getName()){
+				if (pC.getPlayers()[r].getName()!=pC.getCurrentPlayer().getName()){
 					names[i] = pC.getPlayers()[r].getName();
 					r++;
 					}
@@ -89,15 +89,37 @@ public class GameController {
 					names[i] = pC.getPlayers()[r+1].getName();
 					r = r+2;
 				}
-			}
-		
-		
+			}		
 			//Adds a go back option to the name array 
 			names[pC.getPlayers().length-1] = "Fortryd";
+			
 			//The player chooses whether he wants to buy or sell
 			boolean buysell = GUI.getUserLeftButtonPressed("Buying or selling?", "buying", "selling");			
 				if(buysell){
 					this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
+					
+					String[] fields;
+					int p = 0;
+					for (int l=0; l<39; l++){
+						if (fC.getOwner(l)!=null){
+							if (fC.getOwner(l) != pC.getCurrentPlayer()){
+								
+							}
+						}
+					}
+//					for (int o=0, l = 0; o<39; o++){
+//						if (fC.getOwner(o)!=null){
+//							fields[p]=fC.getName(o);
+//							
+//							if (fC.getOwner(o) == pC.getNextPlayer()){
+//							
+//								
+//								
+//								
+//							}						
+//							
+//						}
+//					}
 					
 		}
 

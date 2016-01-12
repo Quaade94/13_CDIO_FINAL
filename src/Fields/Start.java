@@ -20,7 +20,7 @@ public class Start extends JailPrisonStart{
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
 
-		Player currentPlayer = playerController.getNextPlayer();
+		Player currentPlayer = playerController.getCurrentPlayer();
 		
 		Player players[] = playerController.getPlayers();
 		

@@ -48,7 +48,7 @@ public class TryLuck extends ParkChance {
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		
-		Player currentPlayer = playerController.getNextPlayer();
+		Player currentPlayer = playerController.getCurrentPlayer();
 		Player allPlayers[] = playerController.getPlayers();
 		
 		GUI.displayChanceCard();

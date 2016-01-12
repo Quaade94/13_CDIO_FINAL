@@ -45,7 +45,7 @@ public class TaxA  extends Tax{
 
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
-		Player currentPlayer = playerController.getNextPlayer();
+		Player currentPlayer = playerController.getCurrentPlayer();
 		int playerBalance;
 		if (GUI.getUserLeftButtonPressed(""+Language.getLang("PAY"), ""+Language.getLang("10%"), ""+Language.getLang("4000"))){
 			playerBalance = currentPlayer.getAccount().getBalance();
