@@ -64,20 +64,20 @@ public class GameController {
 				currentPlayer.setJail(true);
 				turns = 0;
 			}else {
-			//Setting position
-			newPosition = playerPosition + die.getDiceSum();
-			if(newPosition >= 40){
-				newPosition = newPosition-40;
-				fC.landOnField(0, pC, fC);
-			}
-			currentPlayer.setPlace(newPosition);
-			//Communicating with GUI
-			GameController.movement(playerPosition+1,newPosition+1,currentPlayer.getName());
-			GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
-			//Interacting with the field
-			if(newPosition != 0){
-				fC.landOnField(newPosition, pC, fC);
-			}}
+				//Setting position
+				newPosition = playerPosition + die.getDiceSum();
+				if(newPosition >= 40){
+					newPosition = newPosition-40;
+					fC.landOnField(0, pC, fC);
+				}
+				currentPlayer.setPlace(newPosition);
+				//Communicating with GUI
+				GameController.movement(playerPosition+1,newPosition+1,currentPlayer.getName());
+				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
+				//Interacting with the field
+				if(newPosition != 0){
+					fC.landOnField(newPosition, pC, fC);
+				}}
 			if(turns==0){
 				pC.endTurn();
 			}
@@ -85,99 +85,115 @@ public class GameController {
 		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Player wants to buy houses
 			String[] territoryColours = currentPlayer.getTerColour();
-			int blue = 0;
-			int purple = 0;
-			int orange = 0;
-			int green = 0;
-			int grey = 0;
-			int red = 0;
-			int white = 0;
-			int yellow = 0;
+			int[] numberTerritories = new int[8];
+			numberTerritories[0] = 0;
+			numberTerritories[1] = 0;
+			numberTerritories[2] = 0;
+			numberTerritories[3] = 0;
+			numberTerritories[4] = 0;
+			numberTerritories[5] = 0;
+			numberTerritories[6] = 0;
+			numberTerritories[7] = 0;
 			boolean buildable = false;
 			for (int i = 0; i < 8; i++){
 				for (int j = 0; j < territoryColours.length; j++){
 					if (i == 0 && territoryColours[j] == "BLUE"){
-						blue++;
+						numberTerritories[0]++;
 					} else if (i == 1 && territoryColours[j] == "ORANGE"){
-						orange++;
+						numberTerritories[1]++;
 					} else if (i == 2 && territoryColours[j] == "GREEN"){
-						green++;
+						numberTerritories[2]++;
 					} else if (i == 3 && territoryColours[j] == "GREY"){
-						grey++;
+						numberTerritories[3]++;
 					} else if (i == 4 && territoryColours[j] == "RED"){
-						red++;
+						numberTerritories[4]++;
 					} else if (i == 5 && territoryColours[j] == "WHITE"){
-						white++;
+						numberTerritories[5]++;
 					} else if (i == 6 && territoryColours[j] == "YELLOW"){
-						yellow++;
+						numberTerritories[6]++;
 					} else if (i == 7 && territoryColours[j] == "Purple"){
-						purple++;
+						numberTerritories[7]++;
 					}
 				}
-				if (blue == 2 || purple == 2 || orange == 3 || green == 3 || grey == 3 || red == 3 || white == 3 || yellow == 3){
+				if (numberTerritories[0] == 2 || numberTerritories[1] == 3 || 
+					numberTerritories[2] == 3 || numberTerritories[3] == 3 || 
+					numberTerritories[4] == 3 || numberTerritories[5] == 3 || 
+					numberTerritories[6] == 3 || numberTerritories[7] == 2){
 					buildable = true;
 				}
-				
+
 			}
 			if (buildable){
 				String[] buildables;
-				int arrayLength = blue + orange + green + grey + red + white + yellow + purple;
-				buildables = new String[arrayLength];
+				int arrayLength = 0;
 				
-					if (blue == 2){
-						buildables = buildablesArray(buildables, 1, 3, 0);
+				for(int i = 0; i < numberTerritories.length; i++){
+					if (i == 1 || i == 7){
+						if (numberTerritories[i] == 2) {
+							arrayLength = arrayLength+2;
+						}
+					}else if (numberTerritories[i] == 3){
+						arrayLength = arrayLength+3;
 					}
-					if (purple == 2){
-						buildables = buildablesArray(buildables, 37, 39, 0);
+				}
+				
+				buildables = new String[arrayLength+1];
+
+				if (numberTerritories[0] == 2){
+					buildables = buildablesArray(buildables, 1, 3, 0);
+				}
+				if (numberTerritories[7] == 2){
+					buildables = buildablesArray(buildables, 37, 39, 0);
+				}
+				if (numberTerritories[1] == 3){
+					buildables = buildablesArray(buildables, 6, 8, 9);
+				}
+				if (numberTerritories[2] == 3){
+					buildables = buildablesArray(buildables, 11, 13, 14);
+				}
+				if (numberTerritories[3] == 3){
+					buildables = buildablesArray(buildables, 16, 18, 19);
+				}
+				if (numberTerritories[4] == 3){
+					buildables = buildablesArray(buildables, 21, 23, 24);
+				}
+				if (numberTerritories[5] == 3){
+					buildables = buildablesArray(buildables, 26, 27, 29);
+				}
+				if (numberTerritories[6] == 3){
+					buildables = buildablesArray(buildables, 31, 32, 34);
+				}
+				buildables[arrayLength] = "Fortryd";
+
+				String playerChoice = GUI.getUserSelection("Choose the property you want to buy house on", buildables);
+				System.out.println("playerChoice: " + playerChoice);
+				int housePrice = 0;
+				int place = 0;
+				for (int i = 0; i < 40; i++){
+					if(fC.getName(i) == playerChoice){
+						System.out.println("i: " + i);
+						place = i;
+						fC.getFieldNumber(i);
+						housePrice = fC.getHousePrice(i);
+						System.out.println("housePrice" + housePrice);
 					}
-					if (orange == 3){
-						buildables = buildablesArray(buildables, 6, 8, 9);
-					}
-					if (green == 3){
-						buildables = buildablesArray(buildables, 11, 13, 14);
-					}
-					if (grey == 3){
-						buildables = buildablesArray(buildables, 16, 18, 19);
-					}
-					if (red == 3){
-						buildables = buildablesArray(buildables, 21, 23, 24);
-					}
-					if (white == 3){
-						buildables = buildablesArray(buildables, 26, 27, 29);
-					}
-					if (yellow == 3){
-						buildables = buildablesArray(buildables, 31, 32, 34);
-					}
-					
-					String playerChoice = GUI.getUserSelection("Choose the property you want to buy house on", buildables);
-					System.out.println("playerChoice: " + playerChoice);
-					int housePrice = 0;
-					int place = 0;
-					for (int i = 0; i < 39; i++){
-						if(fC.getName(i) == playerChoice){
-							System.out.println("i: " + i);
-							place = i;
-							fC.getFieldNumber(i);
-							housePrice = fC.getHousePrice(i);
-							System.out.println("housePrice" + housePrice);
+				}
+				if (housePrice <= currentPlayer.getAccount().getBalance()){
+					if (fC.getHouseAmount(place) <= 5){
+						currentPlayer.getAccount().updateBalance(-housePrice);
+						GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+						fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
+						System.out.println("getHouseAmount: " + fC.getHouseAmount(place));
+						if(fC.getHouseAmount(place) == 5){
+							GUI.setHotel(place+1, true);
+						} else{
+							GUI.setHouses(place+1, fC.getHouseAmount(place));
 						}
 					}
-					if (housePrice <= currentPlayer.getAccount().getBalance()){
-						if (fC.getHouseAmount(place) <= 5){
-							currentPlayer.getAccount().updateBalance(-housePrice);
-							GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-							fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
-							System.out.println("getHouseAmount: " + fC.getHouseAmount(place));
-							if(fC.getHouseAmount(place) == 5){
-								GUI.setHotel(place+1, true);
-							} else{
-								GUI.setHouses(place+1, fC.getHouseAmount(place));
-							}
-						}
-					} else {
-						GUI.showMessage("You can't afford any houses on this property");
-					}
-					
+				} else {
+					GUI.showMessage("You can't afford any houses on this property");
+				}
+
 			} else {
 				GUI.showMessage("You don't own any properties you can build houses on!");
 			}
@@ -250,7 +266,7 @@ public class GameController {
 						}
 
 						int buyersPrice = GUI.getUserInteger("What would you pay for it?");
-						boolean yesno = GUI.getUserLeftButtonPressed("Do "+pC.getPlayers()[theChosenOneBuy].getName()+" want to sell "+fC.getName(fieldPurchase)+ " for the price of "+buyersPrice  , "Yes", "No");
+						boolean yesno = GUI.getUserLeftButtonPressed("Does "+pC.getPlayers()[theChosenOneBuy].getName()+" agree to selling "+fC.getName(fieldPurchase)+ " for the price of "+buyersPrice + ",-" , "Yes", "No");
 						if(yesno){
 							pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
 							pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
@@ -269,7 +285,7 @@ public class GameController {
 			else{
 				String[] fieldsSell;
 				int lenghtOfOwnedFieldsArray = 0;
-				for (int l=0; l<39; l++){
+				for (int l=0; l<40; l++){
 					if (fC.getOwner(l)!=null){
 						if (fC.getOwner(l) == pC.getCurrentPlayer()){
 							lenghtOfOwnedFieldsArray++;
@@ -315,8 +331,8 @@ public class GameController {
 							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
 							GUI.setBalance(pC.getPlayers()[theChosenOneSell].getName(), pC.getPlayers()[theChosenOneSell].getAccount().getBalance());
 							fC.setOwner(fieldSell, pC.getPlayers()[theChosenOneSell]);
-							currentPlayer.addTerColour(fC.getColour(fieldSell));
-							pC.getPlayers()[theChosenOneSell].removeTerColour(fC.getColour(fieldSell));
+							pC.getPlayers()[theChosenOneSell].addTerColour(fC.getColour(fieldSell));
+							currentPlayer.removeTerColour(fC.getColour(fieldSell));
 							GUI.removeOwner(fieldSell+1);
 							GUI.setOwner(fieldSell+1, pC.getPlayers()[theChosenOneSell].getName());
 						}
@@ -324,10 +340,10 @@ public class GameController {
 					}
 
 				}
-			
 
 
-		}
+
+			}
 
 		} else {
 			System.out.println("Fejl i player choice!");
