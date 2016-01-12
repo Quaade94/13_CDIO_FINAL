@@ -17,11 +17,12 @@ public class Territory  extends Ownable{
 	
 	private int HousePrice;
 	
+	private String colour;
 	
 	// Other values
 	private int HouseAmount;
 	
-	public Territory (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int RentT4C, int RentT5C, int HousePriceC, int PledgingValueC, int FieldNumberC, String NameC){
+	public Territory (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int RentT4C, int RentT5C, int HousePriceC, int PledgingValueC, int FieldNumberC, String colourC, String NameC){
 		
 		Price = PriceC;
 		RentT0 = RentT0C;
@@ -37,6 +38,7 @@ public class Territory  extends Ownable{
 		
 		Owner = null;
 		HouseAmount = 0;
+		colour = colourC;
 		
 	}
 	@Override
