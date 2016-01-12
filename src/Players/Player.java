@@ -117,10 +117,22 @@ public class Player {
 	/**
 	 * Indsætter farven af en grund i et array for spilleren
 	 */
-	public void updateTerColour(String colour){
+	public void addTerColour(String colour){
 		for (int i = 0; i < territoryColours.length; i++){
 			if (territoryColours[i] == null){
 				territoryColours[i] = colour;
+				break;
+			}
+		}
+	}
+	/**
+	 * Fjerner en farve af en grund i et array for spilleren
+	 * @param colour
+	 */
+	public void removeTerColour(String colour){
+		for (int i = 0; i < territoryColours.length; i++){
+			if (territoryColours[i] == colour){
+				territoryColours[i] = null;
 				break;
 			}
 		}

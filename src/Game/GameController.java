@@ -143,7 +143,7 @@ public class GameController {
 						buildables = buildablesArray(buildables, 21, 23, 24);
 					}
 					if (white == 3){
-						buildables = buildablesArray(buildables, 26, 28, 29);
+						buildables = buildablesArray(buildables, 26, 27, 29);
 					}
 					if (yellow == 3){
 						buildables = buildablesArray(buildables, 31, 32, 34);
@@ -156,16 +156,23 @@ public class GameController {
 					for (int i = 0; i < 39; i++){
 						if(fC.getName(i) == playerChoice){
 							System.out.println("i: " + i);
+							place = i;
 							fC.getFieldNumber(i);
 							housePrice = fC.getHousePrice(i);
+							System.out.println("housePrice" + housePrice);
 						}
 					}
 					if (housePrice <= currentPlayer.getAccount().getBalance()){
-						fC.setHouseAmount(place, fC.getHouseAmount(place));
-						if(fC.getHouseAmount(place) >= 5){
-							GUI.setHotel(place, true);
-						} else {
-							GUI.setHouses(place+1, fC.getHouseAmount(place));
+						if (fC.getHouseAmount(place) <= 5){
+							currentPlayer.getAccount().updateBalance(-housePrice);
+							GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+							fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
+							System.out.println("getHouseAmount: " + fC.getHouseAmount(place));
+							if(fC.getHouseAmount(place) == 5){
+								GUI.setHotel(place+1, true);
+							} else{
+								GUI.setHouses(place+1, fC.getHouseAmount(place));
+							}
 						}
 					} else {
 						GUI.showMessage("You can't afford any houses on this property");
@@ -249,7 +256,9 @@ public class GameController {
 							pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
 							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
 							GUI.setBalance(pC.getPlayers()[theChosenOneBuy].getName(), pC.getPlayers()[theChosenOneBuy].getAccount().getBalance());
-							fC.setOwner(fieldPurchase, pC.getPlayers()[theChosenOneBuy]);
+							fC.setOwner(fieldPurchase, currentPlayer);
+							currentPlayer.addTerColour(fC.getColour(fieldPurchase));
+							pC.getPlayers()[theChosenOneBuy].removeTerColour(fC.getColour(fieldPurchase));
 							GUI.removeOwner(fieldPurchase+1);
 							GUI.setOwner(fieldPurchase+1, pC.getCurrentPlayer().getName());
 						}
@@ -306,6 +315,8 @@ public class GameController {
 							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
 							GUI.setBalance(pC.getPlayers()[theChosenOneSell].getName(), pC.getPlayers()[theChosenOneSell].getAccount().getBalance());
 							fC.setOwner(fieldSell, pC.getPlayers()[theChosenOneSell]);
+							currentPlayer.addTerColour(fC.getColour(fieldSell));
+							pC.getPlayers()[theChosenOneSell].removeTerColour(fC.getColour(fieldSell));
 							GUI.removeOwner(fieldSell+1);
 							GUI.setOwner(fieldSell+1, pC.getPlayers()[theChosenOneSell].getName());
 						}

@@ -169,9 +169,15 @@ public class FieldController {
 	}
 	
 	
+	//Territory colour
 	
-	
-	
+	public String getColour(int fieldIndex){
+		String colour = "";
+		if (fields[fieldIndex] instanceof Territory){
+			colour = ((Territory) fields[fieldIndex]).getColour();
+		}
+		return colour;
+	}
 	
 	
 	
