@@ -21,7 +21,7 @@ public class Territory  extends Ownable{
 	// Other values
 	private int HouseAmount;
 	
-	public Territory (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int RentT4C, int RentT5C, int HousePriceC, int PledgingValueC, int FieldNumberC, String NameC){
+	public Territory (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int RentT4C, int RentT5C, int HousePriceC, int PledgingValueC, int FieldNumberC, String Farve, String NameC){
 		
 		Price = PriceC;
 		RentT0 = RentT0C;
