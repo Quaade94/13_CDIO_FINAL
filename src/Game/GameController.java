@@ -146,14 +146,16 @@ public class GameController {
 						buildables = buildablesArray(buildables, 26, 28, 29);
 					}
 					if (yellow == 3){
-						buildables = buildablesArray(buildables, 31, 33, 34);
+						buildables = buildablesArray(buildables, 31, 32, 34);
 					}
 					
 					String playerChoice = GUI.getUserSelection("Choose the property you want to buy house on", buildables);
+					System.out.println("playerChoice: " + playerChoice);
 					int housePrice = 0;
 					int place = 0;
 					for (int i = 0; i < 39; i++){
 						if(fC.getName(i) == playerChoice){
+							System.out.println("i: " + i);
 							fC.getFieldNumber(i);
 							housePrice = fC.getHousePrice(i);
 						}
