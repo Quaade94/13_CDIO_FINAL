@@ -31,13 +31,11 @@ public class PlayerController {
 		Car[] cars = CarBuilder.getCar();
 		for (int x = 0; x < playerAmount; x++){
 			String name;
-			String nameWithLowercase;
 			boolean nameExists = false;
 			do{
 				//Checks if the playerss name follows a certain criteria
 				nameExists = false;
-				nameWithLowercase = GUI.getUserString(Language.getLang("WHATSNAME"));
-				name = nameWithLowercase.substring(0, 1).toUpperCase() + nameWithLowercase.substring(1);
+				name = GUI.getUserString(Language.getLang("WHATSNAME"));
 				for(int i = 0; i < x; i++){
 					if(players[i].getName().equals(name)){
 						nameExists = true;
@@ -50,6 +48,8 @@ public class PlayerController {
 				}
 		
 			}while(nameExists);
+			//Makes the first letter in the name uppercase
+			name = name.substring(0, 1).toUpperCase() + name.substring(1);
 			
 			//Creates the player and puts him into an array
 			Player player = new Player();
