@@ -71,7 +71,42 @@ public class GameController {
 
 		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Player wants to buy houses
-			GUI.getUserSelection(Language.getLang("HOUSECHOICE"), "y0uR muM!?!");
+			String[] territoryColours = currentPlayer.getTerColour();
+			int blue = 0;
+			int purple = 0;
+			int rest;
+			boolean buildable = false;
+			for (int i = 0; i < 8; i++){
+				rest = 0;
+				for (int j = 0; j < territoryColours.length; j++){
+					if (i == 0 && territoryColours[j] == "BLUE"){
+						blue++;
+					} else if (i == 1 && territoryColours[j] == "ORANGE"){
+						rest++;
+					} else if (i == 2 && territoryColours[j] == "GREEN"){
+						rest++;
+					} else if (i == 3 && territoryColours[j] == "GRAY"){
+						rest++;
+					} else if (i == 4 && territoryColours[j] == "RED"){
+						rest++;
+					} else if (i == 5 && territoryColours[j] == "WHITE"){
+						rest++;
+					} else if (i == 6 && territoryColours[j] == "YELLOW"){
+						rest++;
+					} else if (i == 7 && territoryColours[j] == "Purple"){
+						purple++;
+					}
+				}
+				if (blue == 2 || purple == 2 || rest == 3){
+					buildable = true;
+				}
+				
+			}
+			if (buildable){
+				
+			} else {
+				GUI.showMessage("You don't own any properties you can build houses on!");
+			}
 
 		} else if (choice == Language.getLang("PLEDGE")){
 			//Player wants to pledge properties

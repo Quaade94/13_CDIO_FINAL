@@ -119,7 +119,10 @@ public class Player {
 	 */
 	public void updateTerColour(String colour){
 		for (int i = 0; i < territoryColours.length; i++){
-			territoryColours[i] = colour;
+			if (territoryColours[i] == null){
+				territoryColours[i] = colour;
+				break;
+			}
 		}
 	}
 

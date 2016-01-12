@@ -49,6 +49,7 @@ public class Territory  extends Ownable{
 			if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){
 				if(currentPlayer.getAccount().getBalance() >= Price){
 					currentPlayer.getAccount().updateBalance(-Price);
+					currentPlayer.updateTerColour(colour);
 					Owner = currentPlayer;
 					GUI.setOwner(FieldNumber, currentPlayer.getName());
 					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
