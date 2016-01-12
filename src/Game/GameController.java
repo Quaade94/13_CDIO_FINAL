@@ -333,6 +333,8 @@ public class GameController {
 			gotLoose = false;
 			while(chances > 0){
 				die.roll();
+				// Creates Dice on GUI
+				GameController.dicePlace(Die.getDice1(), Die.getDice2());
 				if(die.getDice1() == die.getDice2()){
 					gotLoose = true;
 					chances = 0;
