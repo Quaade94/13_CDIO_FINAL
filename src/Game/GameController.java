@@ -79,15 +79,15 @@ public class GameController {
 		} else if (choice == Language.getLang("BUYSELL")){
 			String[] names;
 			names = new String[pC.getPlayers().length];
-			int r = 0;
+			int nameAddedToDD = 0;
 			for (int i=0; i<pC.getPlayers().length-1; i++){
-				if (pC.getPlayers()[r].getName()!=pC.getCurrentPlayer().getName()){
-					names[i] = pC.getPlayers()[r].getName();
-					r++;
+				if (pC.getPlayers()[nameAddedToDD].getName()!=pC.getCurrentPlayer().getName()){
+					names[i] = pC.getPlayers()[nameAddedToDD].getName();
+					nameAddedToDD++;
 					}
 				else {
-					names[i] = pC.getPlayers()[r+1].getName();
-					r = r+2;
+					names[i] = pC.getPlayers()[nameAddedToDD+1].getName();
+					nameAddedToDD = nameAddedToDD+2;
 				}
 			}		
 			//Adds a go back option to the name array 
@@ -98,28 +98,36 @@ public class GameController {
 				if(buysell){
 					this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
 					
+					int theChosenOneBuy = 0;
+					for (int z = 0; z<pC.getPlayers().length; z++){
+						if(choice == pC.getPlayers()[z].getName()){
+							theChosenOneBuy = z;
+						}
+					}
+					
 					String[] fields;
-					int p = 0;
+					int lenghtOfOwnedFieldsArray = 0;
 					for (int l=0; l<39; l++){
 						if (fC.getOwner(l)!=null){
-							if (fC.getOwner(l) != pC.getCurrentPlayer()){
-								
+							if (fC.getOwner(l) == pC.getPlayers()[theChosenOneBuy]){
+								lenghtOfOwnedFieldsArray++;
 							}
 						}
 					}
-//					for (int o=0, l = 0; o<39; o++){
-//						if (fC.getOwner(o)!=null){
-//							fields[p]=fC.getName(o);
-//							
-//							if (fC.getOwner(o) == pC.getNextPlayer()){
-//							
-//								
-//								
-//								
-//							}						
-//							
-//						}
-//					}
+					fields = new String[lenghtOfOwnedFieldsArray+1];
+					
+					int q = 0;
+					for (int t=0; t<39; t++){
+						if (fC.getOwner(t)!=null){
+							if (fC.getOwner(t)==pC.getPlayers()[theChosenOneBuy]){
+								fields[q] = fC.getName(t);
+								q++;
+							}
+						}
+					}
+					fields[lenghtOfOwnedFieldsArray] = "Fortryd";					
+					
+					this.choice = GUI.getUserSelection("Which property do you wish to purchase", fields);
 					
 		}
 
