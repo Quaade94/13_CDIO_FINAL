@@ -189,7 +189,7 @@ public class GameController {
 					names[i] = pC.getPlayers()[nameAddedToDD+1].getName();
 					nameAddedToDD = nameAddedToDD+2;
 				}
-			}		
+			}	
 			//Adds a go back option to the name array 
 			names[pC.getPlayers().length-1] = "Fortryd";
 
@@ -198,38 +198,123 @@ public class GameController {
 			if(buysell){
 				this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
 
-				int theChosenOneBuy = 0;
-				for (int z = 0; z<pC.getPlayers().length; z++){
-					if(choice == pC.getPlayers()[z].getName()){
-						theChosenOneBuy = z;
+				if (choice != "Fortryd"){
+
+					int theChosenOneBuy = 0;
+					for (int z = 0; z<pC.getPlayers().length; z++){
+						if(choice == pC.getPlayers()[z].getName()){
+							theChosenOneBuy = z;
+						}
+					}
+
+					String[] fieldsBuy;
+					int lenghtOfOwnedFieldsArray = 0;
+					for (int l=0; l<=39; l++){
+						if (fC.getOwner(l)!=null){
+							if (fC.getOwner(l) == pC.getPlayers()[theChosenOneBuy]){
+								lenghtOfOwnedFieldsArray++;
+							}
+						}
+					}
+					fieldsBuy = new String[lenghtOfOwnedFieldsArray+1];
+
+					int q = 0;
+					for (int t=0; t<=39; t++){
+						if (fC.getOwner(t)!=null){
+							if (fC.getOwner(t)==pC.getPlayers()[theChosenOneBuy]){
+								fieldsBuy[q] = fC.getName(t);
+								q++;
+							}
+						}
+					}
+					fieldsBuy[lenghtOfOwnedFieldsArray] = "Fortryd";					
+
+					this.choice = GUI.getUserSelection("Which property do you wish to purchase", fieldsBuy);
+
+					if (choice != "Fortryd"){
+
+						int fieldPurchase = 0;
+						for (int p = 0; p<=39; p++){
+							if(choice == fC.getName(p)){
+								fieldPurchase = p;
+							}
+						}
+
+						int buyersPrice = GUI.getUserInteger("What would you pay for it?");
+						boolean yesno = GUI.getUserLeftButtonPressed("Do "+pC.getPlayers()[theChosenOneBuy].getName()+" want to sell "+fC.getName(fieldPurchase)+ " for the price of "+buyersPrice  , "Yes", "No");
+						if(yesno){
+							pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
+							pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
+							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+							GUI.setBalance(pC.getPlayers()[theChosenOneBuy].getName(), pC.getPlayers()[theChosenOneBuy].getAccount().getBalance());
+							fC.setOwner(fieldPurchase, pC.getPlayers()[theChosenOneBuy]);
+							GUI.removeOwner(fieldPurchase+1);
+							GUI.setOwner(fieldPurchase+1, pC.getCurrentPlayer().getName());
+						}
 					}
 				}
 
-				String[] fields;
+			}
+			else{
+				String[] fieldsSell;
 				int lenghtOfOwnedFieldsArray = 0;
 				for (int l=0; l<39; l++){
 					if (fC.getOwner(l)!=null){
-						if (fC.getOwner(l) == pC.getPlayers()[theChosenOneBuy]){
+						if (fC.getOwner(l) == pC.getCurrentPlayer()){
 							lenghtOfOwnedFieldsArray++;
 						}
 					}
 				}
-				fields = new String[lenghtOfOwnedFieldsArray+1];
+				fieldsSell = new String[lenghtOfOwnedFieldsArray+1];
 
 				int q = 0;
-				for (int t=0; t<39; t++){
+				for (int t=0; t<=39; t++){
 					if (fC.getOwner(t)!=null){
-						if (fC.getOwner(t)==pC.getPlayers()[theChosenOneBuy]){
-							fields[q] = fC.getName(t);
+						if (fC.getOwner(t) == pC.getCurrentPlayer()){
+							fieldsSell[q] = fC.getName(t);
 							q++;
 						}
 					}
 				}
-				fields[lenghtOfOwnedFieldsArray] = "Fortryd";					
+				fieldsSell[lenghtOfOwnedFieldsArray] = "Fortryd";
 
-				this.choice = GUI.getUserSelection("Which property do you wish to purchase", fields);
+				this.choice = GUI.getUserSelection("What do you want to sell?", fieldsSell);	
 
-			}
+				if (choice != "Fortryd"){
+					int fieldSell = 0;
+					for (int p = 0; p<=39; p++){
+						if(choice == fC.getName(p)){
+							fieldSell = p;
+						}
+					}
+					this.choice = GUI.getUserSelection("Who do you want to sell to?", names);
+
+					if (choice != "Fortryd"){
+						int theChosenOneSell = 0;
+						for (int z = 0; z<pC.getPlayers().length; z++){
+							if(choice == pC.getPlayers()[z].getName()){
+								theChosenOneSell = z;
+							}
+						}
+						int sellPrice = GUI.getUserInteger("What do you want to sell it for?");
+						boolean yesno = GUI.getUserLeftButtonPressed(pC.getPlayers()[theChosenOneSell].getName()+" , do you want to buy "+fC.getName(fieldSell)+" for "+sellPrice, "Yes", "No");
+						if (yesno){
+							pC.getCurrentPlayer().getAccount().updateBalance(sellPrice);
+							pC.getPlayers()[theChosenOneSell].getAccount().updateBalance(-sellPrice);
+							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+							GUI.setBalance(pC.getPlayers()[theChosenOneSell].getName(), pC.getPlayers()[theChosenOneSell].getAccount().getBalance());
+							fC.setOwner(fieldSell, pC.getPlayers()[theChosenOneSell]);
+							GUI.removeOwner(fieldSell+1);
+							GUI.setOwner(fieldSell+1, pC.getPlayers()[theChosenOneSell].getName());
+						}
+
+					}
+
+				}
+			
+
+
+		}
 
 		} else {
 			System.out.println("Fejl i player choice!");
