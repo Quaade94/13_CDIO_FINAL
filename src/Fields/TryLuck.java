@@ -128,7 +128,18 @@ public class TryLuck extends ParkChance {
 			currentPlayer.getAccount().updateBalance(1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 			GUI.displayChanceCard();
-		}
+		} else if (getCard == Language.getLang("CARD14")){
+			GUI.showMessage(Language.getLang("CARD14"));
+			int goToFleet = 0;
+			if(currentPlayer.getPlace()+1 == 37 || currentPlayer.getPlace()+1 == 3 ){goToFleet = 6;}
+			if(currentPlayer.getPlace()+1 == 8 ){goToFleet = 16;}
+			if(currentPlayer.getPlace()+1 == 18 || currentPlayer.getPlace()+1 == 23 ){goToFleet = 26;}
+			if(currentPlayer.getPlace()+1 == 34 ){goToFleet = 36;}
+			else{System.out.println("Something went wrong in Class: TryLuck with 'CARD14'");}
+			GameController.movement(currentPlayer.getPlace()+1, goToFleet, currentPlayer.getName());
+			currentPlayer.setPlace(goToFleet+1);
+			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
+			GUI.displayChanceCard();
 	}
-
+	}
 }
