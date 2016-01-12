@@ -113,6 +113,21 @@ public class TryLuck extends ParkChance {
 			GameController.movement(currentPlayer.getPlace()+1, (currentPlayer.getPlace()+1)-3, currentPlayer.getName());
 			currentPlayer.setPlace(currentPlayer.getPlace()-3);
 			GUI.displayChanceCard();
+		} else if (getCard == Language.getLang("CARD11")){
+			GUI.showMessage(Language.getLang("CARD11"));
+			currentPlayer.getAccount().updateBalance(1000);
+			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+			GUI.displayChanceCard();
+		} else if (getCard == Language.getLang("CARD12")){
+			GUI.showMessage(Language.getLang("CARD12"));
+			currentPlayer.getAccount().updateBalance(1000);
+			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+			GUI.displayChanceCard();
+		} else if (getCard == Language.getLang("CARD13")){
+			GUI.showMessage(Language.getLang("CARD13"));
+			currentPlayer.getAccount().updateBalance(1000);
+			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+			GUI.displayChanceCard();
 		}
 	}
 
