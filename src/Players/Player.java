@@ -8,6 +8,7 @@ public class Player {
 	private String name;
 	private int fleetOwned;
 	private int laborOwned;
+	private String[] territoryColours;
 	
 	/**
 	 * Opretter en spiller, med konto, placering og f�ngselsstatus
@@ -18,6 +19,7 @@ public class Player {
 		isJailed = false;
 		fleetOwned = 0;
 		laborOwned = 0;
+		territoryColours = new String[22];
 	}
 	
 	public Account getAccount(){
@@ -104,6 +106,21 @@ public class Player {
 	 */
 	public void updateLaborOwned(){
 		laborOwned++;
+	}
+	/**
+	 * 
+	 * @return Ét array med farverne på de grunde spilleren ejer
+	 */
+	public String[] getTerColour(){
+		return territoryColours;
+	}
+	/**
+	 * Indsætter farven af en grund i et array for spilleren
+	 */
+	public void updateTerColour(String colour){
+		for (int i = 0; i < territoryColours.length; i++){
+			territoryColours[i] = colour;
+		}
 	}
 
 }
