@@ -111,7 +111,7 @@ public class GameController {
 						numberTerritories[5]++;
 					} else if (i == 6 && territoryColours[j] == "YELLOW"){
 						numberTerritories[6]++;
-					} else if (i == 7 && territoryColours[j] == "Purple"){
+					} else if (i == 7 && territoryColours[j] == "PURPLE"){
 						numberTerritories[7]++;
 					}
 				}
@@ -128,7 +128,7 @@ public class GameController {
 				int arrayLength = 0;
 				
 				for(int i = 0; i < numberTerritories.length; i++){
-					if (i == 1 || i == 7){
+					if (i == 0 || i == 7){
 						if (numberTerritories[i] == 2) {
 							arrayLength = arrayLength+2;
 						}
