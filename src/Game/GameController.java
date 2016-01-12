@@ -51,17 +51,19 @@ public class GameController {
 			//Player wants to roll the die
 			playerPosition = currentPlayer.getPlace();
 			die.roll();
+			// Creates Dice on GUI
+			GameController.dicePlace(Die.getDice1(), Die.getDice2());
+			//Extra turn on identical faces // also jail on 3rd identical faces
 			if(Die.getDice1()==Die.getDice2()){turns++;}
 			if(Die.getDice1()!=Die.getDice2()){turns = 0;}
-			if(turns > 0){GUI.showMessage(Language.getLang("ROLLEDD"));}
+			if(turns == 1 || turns == 2){GUI.showMessage(Language.getLang("ROLLEDD"));}
 			if(turns==3){
+				GUI.showMessage(Language.getLang("ROLLEDJ"));
 				GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer.getName());
 				currentPlayer.setPlace(10);
 				currentPlayer.setJail(true);
-				pC.endTurn();
-			}
-			// Creates Dice on GUI
-			GameController.dicePlace(Die.getDice1(), Die.getDice2());
+				turns = 0;
+			}else {
 			//Setting position
 			newPosition = playerPosition + die.getDiceSum();
 			if(newPosition >= 40){
@@ -75,7 +77,7 @@ public class GameController {
 			//Interacting with the field
 			if(newPosition != 0){
 				fC.landOnField(newPosition, pC, fC);
-			}
+			}}
 			if(turns==0){
 				pC.endTurn();
 			}
