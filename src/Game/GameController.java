@@ -15,16 +15,16 @@ public class GameController {
 	private int playerPosition;
 	private int newPosition;
 	private Player currentPlayer;
-	Die die = new Die();
 	private PlayerController pC;
 	private FieldController fC;
 	private int turns = 0;
-
+	
+	Die die = new Die();
+	
 	public void runGame(){
-		//TODO add comments
 		//Setup Fields
 		fC = new FieldController();
-		//Setup GUI - use nice setup delegate
+		//Setup GUI
 		new GUISetupManager(fC);
 		//Tell playercontroller to setup
 		pC = new PlayerController();
@@ -43,11 +43,11 @@ public class GameController {
 	}
 
 	private void standardTurn() {
-
+		//Asks the player what they want to do in beginning of their turn
 		choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("PLEDGE"), Language.getLang("BUYSELL"));
 
+		//Player wants to roll the die
 		if(choice == Language.getLang("ROLL")){
-			//Player wants to roll the die
 			playerPosition = currentPlayer.getPlace();
 			die.roll();
 			// Creates Dice on GUI
@@ -81,8 +81,9 @@ public class GameController {
 				pC.endTurn();
 			}
 
+		//Player wants to buy houses
 		} else if (choice == Language.getLang("BUYHOUSE")){
-			//Player wants to buy houses
+			//Puts the different colored ownable fields in to an array
 			String[] territoryColours = currentPlayer.getTerColour();
 			int[] numberTerritories = new int[8];
 			numberTerritories[0] = 0;
@@ -122,6 +123,7 @@ public class GameController {
 				}
 
 			}
+			//Puts the buildable territories for the current player into an array
 			if (buildable){
 				String[] buildables;
 				int arrayLength = 0;
@@ -164,18 +166,19 @@ public class GameController {
 				}
 				buildables[arrayLength] = Language.getLang("CANCEL");
 
+				//Asks the player which property they want to buy houses on
 				String playerChoice = GUI.getUserSelection(Language.getLang("CHOOSEPROPERTYBUY"), buildables);
 		
 				int housePrice = 0;
 				int place = 0;
 				for (int i = 0; i < 40; i++){
 					if(fC.getName(i) == playerChoice){
-						System.out.println("i: " + i);
 						place = i;
 						fC.getFieldNumber(i);
 						housePrice = fC.getHousePrice(i);
 					}
 				}
+				//Checks if the player can afford the house
 				if (housePrice <= currentPlayer.getAccount().getBalance()){
 					if (fC.getHouseAmount(place) <= 5){
 						currentPlayer.getAccount().updateBalance(-housePrice);
@@ -192,10 +195,13 @@ public class GameController {
 				}
 
 			} else {
+				//If the player doesnt have any buildable territories
 				GUI.showMessage(Language.getLang("NOBUILDABLES"));
 			}
-
+			
+		//If the player wants to buy or sell properties to other players
 		} else if (choice == Language.getLang("BUYSELL")){
+			//Creates an array of the playernames
 			String[] names;
 			names = new String[pC.getPlayers().length];
 			int nameAddedToDD = 0;
@@ -214,7 +220,10 @@ public class GameController {
 
 			//The player chooses whether he wants to buy or sell
 			boolean buysell = GUI.getUserLeftButtonPressed(Language.getLang("BUYSELLBUTTON"), Language.getLang("BUY"), Language.getLang("SELL"));			
+			
+			//If the player wants to buy a property from another player
 			if(buysell){
+				//The player choses who he wants to buy from
 				this.choice = GUI.getUserSelection(Language.getLang("WHOBUY"), names);
 
 				if (choice != Language.getLang("CANCEL")){
@@ -225,6 +234,7 @@ public class GameController {
 						}
 					}
 
+					//Creates an array of the fields the player can buy from the player he chose 
 					String[] fieldsBuy;
 					int lenghtOfOwnedFieldsArray = 0;
 					for (int l=0; l<=39; l++){
@@ -246,7 +256,8 @@ public class GameController {
 						}
 					}
 					fieldsBuy[lenghtOfOwnedFieldsArray] = Language.getLang("CANCEL");					
-
+					
+					//Asks the player which field he wants to buy
 					this.choice = GUI.getUserSelection(Language.getLang("WHICHBUY"), fieldsBuy);
 
 					if (choice != Language.getLang("CANCEL")){
@@ -258,7 +269,9 @@ public class GameController {
 							}
 						}
 
+						//Asks the player what he wants to buy it for
 						int buyersPrice = GUI.getUserInteger(Language.getLang("WHATBUYPRICE"));
+						//Asks the chosen owner of the property if he wants sell his property
 						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTSELL"),pC.getPlayers()[theChosenOneBuy].getName(),fC.getName(fieldPurchase),buyersPrice), Language.getLang("YES"), Language.getLang("NO"));
 						if(yesno){
 							pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
@@ -276,6 +289,7 @@ public class GameController {
 
 			}
 			else{
+				//Creates an array of the players sellable fields
 				String[] fieldsSell;
 				int lenghtOfOwnedFieldsArray = 0;
 				for (int l=0; l<40; l++){
@@ -298,6 +312,7 @@ public class GameController {
 				}
 				fieldsSell[lenghtOfOwnedFieldsArray] = Language.getLang("CANCEL");
 
+				//Asks the player which field he wants to sell 
 				this.choice = GUI.getUserSelection(Language.getLang("WHICHSELL"), fieldsSell);	
 
 				if (choice != Language.getLang("CANCEL")){
@@ -307,6 +322,8 @@ public class GameController {
 							fieldSell = p;
 						}
 					}
+					
+					//Asks the player who he wants to sell his property to
 					this.choice = GUI.getUserSelection(Language.getLang("WHOSELL"), names);
 
 					if (choice != Language.getLang("CANCEL")){
@@ -316,6 +333,7 @@ public class GameController {
 								theChosenOneSell = z;
 							}
 						}
+						//Asks the player what amount he wants to sell his property for
 						int sellPrice = GUI.getUserInteger(Language.getLang("WHATSELLPRICE"));
 						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTBUY"), pC.getPlayers()[theChosenOneSell].getName(),fC.getName(fieldSell),sellPrice),Language.getLang("YES"), Language.getLang("NO"));
 						if (yesno){
@@ -333,21 +351,18 @@ public class GameController {
 					}
 
 				}
-
-
-
 			}
 
 		} else {
 			System.out.println("Fejl i player choice!");
 		}
-		//		for (int i=0; i<40; i++){
-		//			fC.getOwner(i);
-		//		}
 	}
 
+	//This turn is run, when the player is in jail
 	private void jailTurn() {
+		//Asks the player if he wants to roll or pay to get out
 		choiceJail = GUI.getUserLeftButtonPressed(Language.getLang("ROLLPAY"), Language.getLang("ROLL"), Language.getLang("PAY"));
+		//If the player chose roll
 		if(choiceJail){
 			chances = 3;
 			gotLoose = false;
@@ -363,6 +378,7 @@ public class GameController {
 					GUI.showMessage(Language.getLang("ROLLED")+ " " + die.getDiceSum());
 				}
 			}
+			//If the player got out
 			if(gotLoose){
 				currentPlayer.setJail(false);
 				playerPosition = currentPlayer.getPlace();
@@ -376,6 +392,7 @@ public class GameController {
 				pC.endTurn();
 			}
 			pC.endTurn();
+		//If the player decided to pay
 		}else {
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
@@ -383,6 +400,7 @@ public class GameController {
 			pC.endTurn();
 		}
 	}
+	
 	//makes the cars move from field to field
 	public static void movement(int startPos, int finishPos, String name){
 		int position = startPos;
@@ -394,7 +412,7 @@ public class GameController {
 			}
 			GUI.setCar(position, name);
 			try {
-				Thread.sleep(75);                 //1000 milliseconds is one second.
+				Thread.sleep(75);                 //75 milliseconds is one second.
 			} catch(InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
@@ -402,6 +420,7 @@ public class GameController {
 
 		return;
 	}
+	
 	//Sets the GUI dice randomly within a specific area
 	public static void dicePlace(int dice1, int dice2){
 		int diceplacex1 = (int)(Math.random()*3+4);
@@ -412,6 +431,7 @@ public class GameController {
 		while(diceplacey1 == diceplacey2){diceplacey2 =(int)(Math.random()*2+2);}
 		GUI.setDice(dice1, diceplacex1, diceplacey1, dice2, diceplacex2, diceplacey2);
 	}
+	
 	public String[] buildablesArray(String[] array, int index1, int index2, int index3){
 		for (int i = 0; i < array.length; i++){
 			if(array[i] == null){
