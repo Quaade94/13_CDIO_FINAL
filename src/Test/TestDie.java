@@ -15,9 +15,6 @@ public class TestDie extends Die{
 	@Override
 	public void roll() {
 
-			dice1 = 3;
-			dice2 = 3;
-
 			sum = dice1 + dice2;
 	}
 	public static int getDiceSum(){		

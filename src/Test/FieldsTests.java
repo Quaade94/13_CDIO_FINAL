@@ -78,4 +78,12 @@ public class FieldsTests {
 		
 		assertEquals(expectedMoney, actualMoney);
 	}
+	@Test
+	public void testTaxA(){
+		Player currentPlayer = pC.getCurrentPlayer();
+		currentPlayer.setPlace(2);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		
+	}
 }
