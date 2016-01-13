@@ -51,9 +51,13 @@ public class GameController {
 				System.out.println("Fejl i jailcheck!");
 			}
 		}
+		public void winCondition(){
+			GUI.showMessage("WIN");
+			System.exit(0);
+		}
 	}
 
-	public void winCondition(){
+	public void checkBankrupcy(){
 		Player[] players = pC.getPlayers();
 		for(int i=0 ; i < players.length; i++){
 			if(players[i].getAccount().getBalance() < 0){
