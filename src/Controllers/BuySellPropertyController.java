@@ -4,7 +4,6 @@ import Players.PlayerController;
 import desktop_resources.GUI;
 import Fields.FieldController;
 import Game.Die;
-import Game.GameController;
 import Game.Language;
 
 public class BuySellPropertyController {

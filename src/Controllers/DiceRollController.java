@@ -31,14 +31,14 @@ public class DiceRollController {
 				turns = 0;
 			}else {
 				//Setting position
-				newPosition = playerPosition + die.getDiceSum();
+				newPosition = playerPosition + Die.getDiceSum();
 				if(newPosition >= 40){
 					newPosition = newPosition-40;
 				}
 				pC.getCurrentPlayer().setPlace(newPosition);
 				//Communicating with GUI
 				GameController.movement(playerPosition+1,newPosition+1,pC.getCurrentPlayer());
-				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
+				GUI.showMessage(Language.getLang("ROLLED") + " " + Die.getDiceSum());
 				//Interacting with the field
 				if(newPosition != 0){
 					fC.landOnField(newPosition, pC, fC);
