@@ -178,8 +178,11 @@ public class Territory  extends Ownable{
 		if (HouseAmount < 0){
 			HouseAmount = HouseAmount - 1;
 			Owner.getAccount().updateBalance((HousePrice / 2));
-		}
+		}	
+	}
 	
+	public void resetHouses(){
+		HouseAmount = 0;
 	}
 	
 	/**

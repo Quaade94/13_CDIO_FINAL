@@ -115,6 +115,16 @@ public class FieldController {
 	}
 	
 	/**
+	 *  This method will remove all houses from a field objekt, with no safety precautions, so these will need to be implementet around this method 
+	 * @param fieldIndex
+	 */
+	public void resetHouses(int fieldIndex){
+		if (fields[fieldIndex] instanceof Territory){
+			((Territory) fields[fieldIndex]).resetHouses();
+		}
+	}
+	
+	/**
 	 *  This method will remove a house from the field, and in turn give half of the price of the house to the players account
 	 *   But if there are no houses on the field this method will not do anything
 	 * @param playerController So the method can update a players balance
