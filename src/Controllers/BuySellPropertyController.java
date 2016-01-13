@@ -80,19 +80,26 @@ public class BuySellPropertyController {
 
 					//Asks the player what he wants to buy it for
 					int buyersPrice = GUI.getUserInteger(Language.getLang("WHATBUYPRICE"));
-					//Asks the chosen owner of the property if he wants sell his property
-					boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTSELL"),pC.getPlayers()[theChosenOneBuy].getName(),fC.getName(fieldPurchase),buyersPrice), Language.getLang("YES"), Language.getLang("NO"));
-					if(yesno){
-						pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
-						pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
-						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
-						GUI.setBalance(pC.getPlayers()[theChosenOneBuy].getName(), pC.getPlayers()[theChosenOneBuy].getAccount().getBalance());
-						fC.setOwner(fieldPurchase, pC.getCurrentPlayer());
-						pC.getCurrentPlayer().addTerColour(fC.getColour(fieldPurchase));
-						pC.getPlayers()[theChosenOneBuy].removeTerColour(fC.getColour(fieldPurchase));
-						GUI.removeOwner(fieldPurchase+1);
-						GUI.setOwner(fieldPurchase+1, pC.getCurrentPlayer().getName());
+					//Checks if the player can afford it
+					if(pC.getCurrentPlayer().getAccount().getBalance() >= buyersPrice){
+						
+						//Asks the chosen owner of the property if he wants sell his property
+						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTSELL"),pC.getPlayers()[theChosenOneBuy].getName(),fC.getName(fieldPurchase),buyersPrice), Language.getLang("YES"), Language.getLang("NO"));
+						if(yesno){
+							pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
+							pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
+							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+							GUI.setBalance(pC.getPlayers()[theChosenOneBuy].getName(), pC.getPlayers()[theChosenOneBuy].getAccount().getBalance());
+							fC.setOwner(fieldPurchase, pC.getCurrentPlayer());
+							pC.getCurrentPlayer().addTerColour(fC.getColour(fieldPurchase));
+							pC.getPlayers()[theChosenOneBuy].removeTerColour(fC.getColour(fieldPurchase));
+							GUI.removeOwner(fieldPurchase+1);
+							GUI.setOwner(fieldPurchase+1, pC.getCurrentPlayer().getName());
+						}
+					}else{
+						GUI.getUserButtonPressed(Language.getLang("CANTAFFORD"), Language.getLang("OK"));
 					}
+
 				}
 			}
 
@@ -144,18 +151,23 @@ public class BuySellPropertyController {
 					}
 					//Asks the player what amount he wants to sell his property for
 					int sellPrice = GUI.getUserInteger(Language.getLang("WHATSELLPRICE"));
-					boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTBUY"), pC.getPlayers()[theChosenOneSell].getName(),fC.getName(fieldSell),sellPrice),Language.getLang("YES"), Language.getLang("NO"));
-					if (yesno){
-						pC.getCurrentPlayer().getAccount().updateBalance(sellPrice);
-						pC.getPlayers()[theChosenOneSell].getAccount().updateBalance(-sellPrice);
-						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
-						GUI.setBalance(pC.getPlayers()[theChosenOneSell].getName(), pC.getPlayers()[theChosenOneSell].getAccount().getBalance());
-						fC.setOwner(fieldSell, pC.getPlayers()[theChosenOneSell]);
-						pC.getPlayers()[theChosenOneSell].addTerColour(fC.getColour(fieldSell));
-						pC.getCurrentPlayer().removeTerColour(fC.getColour(fieldSell));
-						GUI.removeOwner(fieldSell+1);
-						GUI.setOwner(fieldSell+1, pC.getPlayers()[theChosenOneSell].getName());
+					if (pC.getPlayers()[theChosenOneSell].getAccount().getBalance() >= sellPrice){
+						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTBUY"), pC.getPlayers()[theChosenOneSell].getName(),fC.getName(fieldSell),sellPrice),Language.getLang("YES"), Language.getLang("NO"));
+						if (yesno){
+							pC.getCurrentPlayer().getAccount().updateBalance(sellPrice);
+							pC.getPlayers()[theChosenOneSell].getAccount().updateBalance(-sellPrice);
+							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+							GUI.setBalance(pC.getPlayers()[theChosenOneSell].getName(), pC.getPlayers()[theChosenOneSell].getAccount().getBalance());
+							fC.setOwner(fieldSell, pC.getPlayers()[theChosenOneSell]);
+							pC.getPlayers()[theChosenOneSell].addTerColour(fC.getColour(fieldSell));
+							pC.getCurrentPlayer().removeTerColour(fC.getColour(fieldSell));
+							GUI.removeOwner(fieldSell+1);
+							GUI.setOwner(fieldSell+1, pC.getPlayers()[theChosenOneSell].getName());
+						}
+					}else{
+						GUI.getUserButtonPressed(Language.getLang("CANTAFFORDOFFER"), Language.getLang("OK"));
 					}
+
 
 				}
 
