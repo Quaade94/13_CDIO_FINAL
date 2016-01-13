@@ -19,7 +19,7 @@ public class GameController {
 	private PlayerController pC;
 	private FieldController fC;
 	private BuyHouseController bhC;
-	private BuySellPropertyController bspC;
+	private BuySellPropertyController bspC; 
 	private DiceRollController dC;
 	private GameController gC;
 
@@ -136,15 +136,11 @@ public class GameController {
 	}
 
 	//makes the cars move from field to field
-	public static void movement(int startPos, int finishPos, Player currentPlayer){
+	public static void movement(int startPos, int finishPos, String name){
 		int position = startPos;
-		String name = currentPlayer.getName();
 		while(position != finishPos){
 			GUI.removeCar(position, name);
 			position++;
-			if(position == 2){
-				currentPlayer.getAccount().updateBalance(4000);
-			}
 			if(position==41){
 				position=1;
 			}
@@ -155,6 +151,7 @@ public class GameController {
 				Thread.currentThread().interrupt();
 			}
 		}
+
 		return;
 	}
 
