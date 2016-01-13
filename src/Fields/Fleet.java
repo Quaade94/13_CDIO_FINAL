@@ -60,6 +60,7 @@ public class Fleet extends Ownable{
 //				}
 			}
 		} else if (Owner != currentPlayer && Owner != null){
+			AmountOwned = Owner.getFleetOwned();
 			curRent = getRent();
 			if (currentPlayer.getAccount().getBalance() >= curRent){
 				currentPlayer.getAccount().updateBalance(-curRent);
