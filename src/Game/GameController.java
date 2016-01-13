@@ -153,7 +153,7 @@ public class GameController {
 	}
 
 	//makes the cars move from field to field
-	public static void movement(int startPos, int finishPos, Player currentPlayer){
+	public static void movement(int startPos, int finishPos, Player currentPlayer, FieldController fC, PlayerController pC){
 		int position = startPos;
 		String name = currentPlayer.getName();
 		while(position != finishPos){
@@ -161,8 +161,7 @@ public class GameController {
 			position++;
 			if(position==41){
 				position=1;
-				currentPlayer.getAccount().updateBalance(4000);
-				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance() + 4000);
+				fC.landOnField(0, pC, fC);
 			}
 			GUI.setCar(position, name);
 			try {
