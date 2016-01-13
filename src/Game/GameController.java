@@ -50,6 +50,7 @@ public class GameController {
 			} else{
 				System.out.println("Fejl i jailcheck!");
 			}
+			checkBankrupcy();
 		}
 		winCondition();
 	}
