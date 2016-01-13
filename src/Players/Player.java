@@ -9,6 +9,7 @@ public class Player {
 	private int fleetOwned;
 	private int laborOwned;
 	private String[] territoryColours;
+	private boolean isBankcupt;
 	
 	/**
 	 * Opretter en spiller, med konto, placering og f�ngselsstatus
@@ -20,6 +21,7 @@ public class Player {
 		fleetOwned = 0;
 		laborOwned = 0;
 		territoryColours = new String[22];
+		isBankcupt = false;
 	}
 	
 	public Account getAccount(){
@@ -136,6 +138,21 @@ public class Player {
 				break;
 			}
 		}
+	}
+	
+	/**
+	 * This method will set the atribut isBanckrupt in the Player obkect to true... 
+	 *  NB - There is no way to set it to false again later, so use with care.
+	 */
+	public void setPlayerToIsBankcupt(){
+		isBankcupt = true;
+	}
+	/**
+	 *  This method will return the value of isBanckrupt atribut of the Player object.
+	 * @return the value of isBanckrupt atribut of the Player object.
+	 */
+	public boolean isPlayerBanckrupt(){
+		return isBankcupt;
 	}
 
 }
