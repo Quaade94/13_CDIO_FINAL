@@ -25,7 +25,7 @@ public class DiceRollController {
 			if(turns == 1 || turns == 2){GUI.showMessage(Language.getLang("ROLLEDD"));}
 			if(turns==3){
 				GUI.showMessage(Language.getLang("ROLLEDJ"));
-				GameController.movement(pC.getCurrentPlayer().getPlace()+1, 11, pC.getCurrentPlayer().getName());
+				GameController.movement(pC.getCurrentPlayer().getPlace()+1, 11, pC.getCurrentPlayer());
 				pC.getCurrentPlayer().setPlace(10);
 				pC.getCurrentPlayer().setJail(true);
 				turns = 0;
@@ -34,11 +34,10 @@ public class DiceRollController {
 				newPosition = playerPosition + die.getDiceSum();
 				if(newPosition >= 40){
 					newPosition = newPosition-40;
-					fC.landOnField(0, pC, fC);
 				}
 				pC.getCurrentPlayer().setPlace(newPosition);
 				//Communicating with GUI
-				GameController.movement(playerPosition+1,newPosition+1,pC.getCurrentPlayer().getName());
+				GameController.movement(playerPosition+1,newPosition+1,pC.getCurrentPlayer());
 				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
 				//Interacting with the field
 				if(newPosition != 0){

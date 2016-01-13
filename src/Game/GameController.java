@@ -136,11 +136,15 @@ public class GameController {
 	}
 
 	//makes the cars move from field to field
-	public static void movement(int startPos, int finishPos, String name){
+	public static void movement(int startPos, int finishPos, Player currentPlayer){
 		int position = startPos;
+		String name = currentPlayer.getName();
 		while(position != finishPos){
 			GUI.removeCar(position, name);
 			position++;
+			if(position == 2){
+				currentPlayer.getAccount().updateBalance(4000);
+			}
 			if(position==41){
 				position=1;
 			}
@@ -151,7 +155,6 @@ public class GameController {
 				Thread.currentThread().interrupt();
 			}
 		}
-
 		return;
 	}
 
