@@ -140,7 +140,6 @@ public class TryLuck extends ParkChance {
 			else{System.out.println("Something went wrong in Class: TryLuck with 'CARD14'");}
 			GameController.movement(currentPlayer.getPlace()+1, goToFleet, currentPlayer, fieldController, playerController);
 			currentPlayer.setPlace(goToFleet-1);
-			fieldController.setLuckFleetBonus(currentPlayer.getPlace(), true);
 			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
 			GUI.displayChanceCard();
 	}
