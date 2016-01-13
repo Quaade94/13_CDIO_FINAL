@@ -55,7 +55,7 @@ public class GameController {
 		winCondition();
 	}
 	public void winCondition(){
-		GUI.showMessage("WIN");
+		GUI.showMessage(pC.getCurrentPlayer().getName()+" "+"WIN");
 		System.exit(0);
 	}
 	public void checkBankrupcy(){
