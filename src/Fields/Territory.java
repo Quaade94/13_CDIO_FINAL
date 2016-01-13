@@ -54,10 +54,9 @@ public class Territory  extends Ownable{
 					GUI.setOwner(FieldNumber, currentPlayer.getName());
 					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 
-				}// else{
-//					if (GUI.getUserLeftButtonPressed("You can't afford. Want to pledge?", "YES", "NO")){
-//					}
-//				}
+				} else{
+					GUI.showMessage("You can't afford it");
+				}
 			}
 		} else if (Owner != currentPlayer && Owner != null){
 			curRent = getRent();
