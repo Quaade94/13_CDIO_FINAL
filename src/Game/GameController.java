@@ -61,7 +61,7 @@ public class GameController {
 	public void checkBankrupcy(){
 		for(int i=0 ; i < pC.getPlayers().length; i++){
 			if(pC.getPlayers()[i].getAccount().getBalance() < 0){
-				GUI.showMessage(pC.getPlayers()[i].getName() + Language.getLang("DEATH"));
+				GUI.showMessage(pC.getPlayers()[i].getName() + " "+Language.getLang("DEATH"));
 				GUI.removeCar(pC.getPlayers()[i].getPlace(), pC.getPlayers()[i].getName());
 				for(int j = 0 ; j < 39 ; j++){
 					if(fC.getOwner(j) == pC.getPlayers()[i]){
@@ -78,11 +78,11 @@ public class GameController {
 			}
 		
 		//Checks if the game has ended
-		for(int y=0, dead = 0; y < pC.getPlayers().length ; y++){
+		for(int y=0, bankrupt = 0; y < pC.getPlayers().length ; y++){
 			if(pC.getPlayers()[y].getAccount().getBalance() < 0){
-				dead++;
+				bankrupt++;
 			}
-			if (dead == pC.getPlayers().length-pC.getPlayers().length+1){
+			if (bankrupt == pC.getPlayers().length-pC.getPlayers().length+1){
 				gameLoop = false;
 			}
 		}
@@ -162,7 +162,7 @@ public class GameController {
 			position++;
 			if(position==41){
 				position=1;
-				fC.landOnField(0, pC, fC);
+				if(!(currentPlayer.getJailed())) fC.landOnField(0, pC, fC);
 			}
 			GUI.setCar(position, name);
 			try {
