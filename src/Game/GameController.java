@@ -39,7 +39,6 @@ public class GameController {
 			} else{
 				System.out.println("Fejl i jailcheck!");
 			}
-
 		}
 	}
 
@@ -163,10 +162,10 @@ public class GameController {
 				if (numberTerritories[6] == 3){
 					buildables = buildablesArray(buildables, 31, 32, 34);
 				}
-				buildables[arrayLength] = "Fortryd";
+				buildables[arrayLength] = Language.getLang("CANCEL");
 
-				String playerChoice = GUI.getUserSelection("Choose the property you want to buy house on", buildables);
-				System.out.println("playerChoice: " + playerChoice);
+				String playerChoice = GUI.getUserSelection(Language.getLang("CHOOSEPROPERTYBUY"), buildables);
+		
 				int housePrice = 0;
 				int place = 0;
 				for (int i = 0; i < 40; i++){
@@ -175,7 +174,6 @@ public class GameController {
 						place = i;
 						fC.getFieldNumber(i);
 						housePrice = fC.getHousePrice(i);
-						System.out.println("housePrice" + housePrice);
 					}
 				}
 				if (housePrice <= currentPlayer.getAccount().getBalance()){
@@ -183,7 +181,6 @@ public class GameController {
 						currentPlayer.getAccount().updateBalance(-housePrice);
 						GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 						fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
-						System.out.println("getHouseAmount: " + fC.getHouseAmount(place));
 						if(fC.getHouseAmount(place) == 5){
 							GUI.setHotel(place+1, true);
 						} else{
@@ -191,15 +188,12 @@ public class GameController {
 						}
 					}
 				} else {
-					GUI.showMessage("You can't afford any houses on this property");
+					GUI.showMessage(Language.getLang("CANTAFFORDHOUSE"));
 				}
 
 			} else {
-				GUI.showMessage("You don't own any properties you can build houses on!");
+				GUI.showMessage(Language.getLang("NOBUILDABLES"));
 			}
-
-		} else if (choice == Language.getLang("PLEDGE")){
-			//Player wants to pledge properties
 
 		} else if (choice == Language.getLang("BUYSELL")){
 			String[] names;
@@ -216,15 +210,14 @@ public class GameController {
 				}
 			}	
 			//Adds a go back option to the name array 
-			names[pC.getPlayers().length-1] = "Fortryd";
+			names[pC.getPlayers().length-1] = Language.getLang("CANCEL");
 
 			//The player chooses whether he wants to buy or sell
-			boolean buysell = GUI.getUserLeftButtonPressed("Buying or selling?", "buying", "selling");			
+			boolean buysell = GUI.getUserLeftButtonPressed(Language.getLang("BUYSELLBUTTON"), Language.getLang("BUY"), Language.getLang("SELL"));			
 			if(buysell){
-				this.choice = GUI.getUserSelection("Who do you want to buy from?", names);
+				this.choice = GUI.getUserSelection(Language.getLang("WHOBUY"), names);
 
-				if (choice != "Fortryd"){
-
+				if (choice != Language.getLang("CANCEL")){
 					int theChosenOneBuy = 0;
 					for (int z = 0; z<pC.getPlayers().length; z++){
 						if(choice == pC.getPlayers()[z].getName()){
@@ -252,11 +245,11 @@ public class GameController {
 							}
 						}
 					}
-					fieldsBuy[lenghtOfOwnedFieldsArray] = "Fortryd";					
+					fieldsBuy[lenghtOfOwnedFieldsArray] = Language.getLang("CANCEL");					
 
-					this.choice = GUI.getUserSelection("Which property do you wish to purchase", fieldsBuy);
+					this.choice = GUI.getUserSelection(Language.getLang("WHICHBUY"), fieldsBuy);
 
-					if (choice != "Fortryd"){
+					if (choice != Language.getLang("CANCEL")){
 
 						int fieldPurchase = 0;
 						for (int p = 0; p<=39; p++){
@@ -265,8 +258,8 @@ public class GameController {
 							}
 						}
 
-						int buyersPrice = GUI.getUserInteger("What would you pay for it?");
-						boolean yesno = GUI.getUserLeftButtonPressed("Does "+pC.getPlayers()[theChosenOneBuy].getName()+" agree to selling "+fC.getName(fieldPurchase)+ " for the price of "+buyersPrice + ",-" , "Yes", "No");
+						int buyersPrice = GUI.getUserInteger(Language.getLang("WHATBUYPRICE"));
+						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTSELL"),pC.getPlayers()[theChosenOneBuy].getName(),fC.getName(fieldPurchase),buyersPrice), Language.getLang("YES"), Language.getLang("NO"));
 						if(yesno){
 							pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
 							pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
@@ -303,28 +296,28 @@ public class GameController {
 						}
 					}
 				}
-				fieldsSell[lenghtOfOwnedFieldsArray] = "Fortryd";
+				fieldsSell[lenghtOfOwnedFieldsArray] = Language.getLang("CANCEL");
 
-				this.choice = GUI.getUserSelection("What do you want to sell?", fieldsSell);	
+				this.choice = GUI.getUserSelection(Language.getLang("WHICHSELL"), fieldsSell);	
 
-				if (choice != "Fortryd"){
+				if (choice != Language.getLang("CANCEL")){
 					int fieldSell = 0;
 					for (int p = 0; p<=39; p++){
 						if(choice == fC.getName(p)){
 							fieldSell = p;
 						}
 					}
-					this.choice = GUI.getUserSelection("Who do you want to sell to?", names);
+					this.choice = GUI.getUserSelection(Language.getLang("WHOSELL"), names);
 
-					if (choice != "Fortryd"){
+					if (choice != Language.getLang("CANCEL")){
 						int theChosenOneSell = 0;
 						for (int z = 0; z<pC.getPlayers().length; z++){
 							if(choice == pC.getPlayers()[z].getName()){
 								theChosenOneSell = z;
 							}
 						}
-						int sellPrice = GUI.getUserInteger("What do you want to sell it for?");
-						boolean yesno = GUI.getUserLeftButtonPressed(pC.getPlayers()[theChosenOneSell].getName()+" , do you want to buy "+fC.getName(fieldSell)+" for "+sellPrice, "Yes", "No");
+						int sellPrice = GUI.getUserInteger(Language.getLang("WHATSELLPRICE"));
+						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTBUY"), pC.getPlayers()[theChosenOneSell].getName(),fC.getName(fieldSell),sellPrice),Language.getLang("YES"), Language.getLang("NO"));
 						if (yesno){
 							pC.getCurrentPlayer().getAccount().updateBalance(sellPrice);
 							pC.getPlayers()[theChosenOneSell].getAccount().updateBalance(-sellPrice);
