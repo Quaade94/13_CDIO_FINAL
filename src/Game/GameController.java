@@ -176,7 +176,13 @@ public class GameController {
 						//Asks the player what he wants to buy it for
 						int buyersPrice = GUI.getUserInteger(Language.getLang("WHATBUYPRICE"));
 						//Asks the chosen owner of the property if he wants sell his property
-						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTSELL"),pC.getPlayers()[theChosenOneBuy].getName(),fC.getName(fieldPurchase),buyersPrice), Language.getLang("YES"), Language.getLang("NO"));
+						
+						String beskedA = Language.getLang("DOWANTSELL");
+						String player = pC.getPlayers()[theChosenOneBuy].getName();
+						String fieldPlace = fC.getName(fieldPurchase);
+						String message = (String.format(beskedA,player,fieldPlace,buyersPrice));
+						
+						boolean yesno = GUI.getUserLeftButtonPressed((message), Language.getLang("YES"), Language.getLang("NO"));
 						if(yesno){
 							pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
 							pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
@@ -191,6 +197,8 @@ public class GameController {
 					}
 				}
 
+
+				
 			}
 			else{
 				//Creates an array of the players sellable fields
