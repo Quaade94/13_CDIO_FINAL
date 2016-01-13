@@ -165,14 +165,11 @@ public class FieldController {
 		}
 		return DesText;
 	}
-//	public void setLuckFleetBonus(int PlayerPosition, boolean doublefleet){
-//		boolean LuckDoubleFleet;
-//		if (fields[fieldIndex] instanceof Fleet){
-//			
-//		}
-//		
-//		LuckDoubleFleet = doublefleet;
-//	}
+	public void setLuckFleetBonus(int fieldIndex, boolean doublefleet){
+		if (fields[fieldIndex] instanceof Fleet){
+			((Fleet) fields[fieldIndex]).setLuckFleetBonus(doublefleet);	
+		}
+	}
 
 	
 	

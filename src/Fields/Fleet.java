@@ -15,7 +15,7 @@ public class Fleet extends Ownable{
 	private int RentT1;
 	private int RentT2;
 	private int RentT3;
-	private boolean LuckDoubleFleet;
+	private boolean LuckDoubleFleet = false;
 	
 	
 	// Other values
@@ -37,7 +37,7 @@ public class Fleet extends Ownable{
 		
 		Owner = null;
 		AmountOwned = 0;
-		LuckDoubleFleet = false;
+		
 		
 	}
 	@Override
@@ -111,6 +111,7 @@ public class Fleet extends Ownable{
 		if (LuckDoubleFleet){
 			rent = rent*2;
 		}
+		LuckDoubleFleet = false;
 		
 		return rent;
 	}

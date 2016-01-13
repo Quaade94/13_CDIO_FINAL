@@ -90,7 +90,7 @@ public class Creator {
 		// Red Fields
 		oesterbrogade = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 2200, 22, "RED", "Østerbrogade");
 		trianglen = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 2200, 24, "RED", "Trianglen");
-		groenningen = new Territory(3800, 400, 2000, 6000, 15000, 18500, 2200, 3000, 2400, 25, "RED", "Grønningen");
+		groenningen = new Territory(4800, 400, 2000, 6000, 15000, 18500, 2200, 3000, 2400, 25, "RED", "Grønningen");
 		// White Fields
 		bredgade = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 27, "WHITE", "Bredgade");
 		kgsNytov = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 28, "WHITE", "Kgs. Nytov");
