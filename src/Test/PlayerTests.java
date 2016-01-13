@@ -23,7 +23,7 @@ public class PlayerTests {
 	
 	//Player Position tests
 	@Test
-	public void playerPositionTestMin(){
+	public void testPlayerPositionMin(){
 		Player currentPlayer = pC.getCurrentPlayer();
 		int playerPosition = currentPlayer.getPlace();
 		int newPosition;
@@ -40,7 +40,7 @@ public class PlayerTests {
 		
 	}
 	@Test
-	public void playerPositionTestMax(){
+	public void testPlayerPositionMax(){
 		Player currentPlayer = pC.getCurrentPlayer();
 		currentPlayer.setPlace(33);
 		int playerPosition = currentPlayer.getPlace();
@@ -58,7 +58,7 @@ public class PlayerTests {
 		
 	}
 	@Test
-	public void playerPositionTestPassStart(){
+	public void testPlayerPositionPassStart(){
 		Player currentPlayer = pC.getCurrentPlayer();
 		currentPlayer.setPlace(35);
 		int playerPosition = currentPlayer.getPlace();
@@ -78,7 +78,7 @@ public class PlayerTests {
 	}
 	//AccountTests
 	@Test
-	public void playerAccountTest(){
+	public void testPlayerAccount(){
 		Player[] players = pC.getPlayers();
 		Player currentPlayer = pC.getCurrentPlayer();
 		Player otherPlayer = null;

@@ -90,7 +90,7 @@ public class FieldsTests {
 		
 		
 		assertTrue(expectedBalance1 == actualBalance || expectedBalance2 == actualBalance);
-	}*/
+	}
 	@Test
 	public void testTaxB(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -101,6 +101,30 @@ public class FieldsTests {
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
 		assertEquals(expectedBalance, actualBalance);
+	}*/
+	@Test
+	public void testLaborCamp(){
+		Player[] players = pC.getPlayers();
+		Player currentPlayer = pC.getCurrentPlayer();
+		Player otherPlayer = null;
+		for (int i = 0; i < players.length; i++){
+			if (players[i] != currentPlayer){
+				otherPlayer = players[i];
+				break;
+			}
+		}
+		currentPlayer.setPlace(6);
+		TestDie die = new TestDie(3, 3);
+		die.roll();
+		
+		currentPlayer.setPlace(currentPlayer.getPlace()+TestDie.getDiceSum());
+		fC.setOwner(currentPlayer.getPlace(), otherPlayer);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		System.out.println("LaborCamp: " + currentPlayer.getAccount().getBalance());
+		
+		int expectedBalance = 29400;
+		int actualBalance = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedBalance, actualBalance);
 	}
-	
 }
