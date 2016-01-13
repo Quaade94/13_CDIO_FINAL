@@ -51,24 +51,24 @@ public class GameController {
 				System.out.println("Fejl i jailcheck!");
 			}
 		}
-		public void winCondition(){
-			GUI.showMessage("WIN");
-			System.exit(0);
-		}
+		winCondition();
 	}
-
+	public void winCondition(){
+		GUI.showMessage("WIN");
+		System.exit(0);
+	}
 	public void checkBankrupcy(){
-		Player[] players = pC.getPlayers();
-		for(int i=0 ; i < players.length; i++){
-			if(players[i].getAccount().getBalance() < 0){
-				GUI.showMessage(players[i].getName() + Language.getLang("DEATH"));
-				GUI.removeCar(players[i].getPlace(), players[i].getName());
+		for(int i=0 ; i < pC.getPlayers().length; i++){
+			if(pC.getPlayers()[i].getAccount().getBalance() < 0){
+				GUI.showMessage(pC.getPlayers()[i].getName() + Language.getLang("DEATH"));
+				GUI.removeCar(pC.getPlayers()[i].getPlace(), pC.getPlayers()[i].getName());
 				for(int j = 0 ; j < 39 ; j++){
-					if(fC.getOwner(j) == players[i]){
+					if(fC.getOwner(j) == pC.getPlayers()[i]){
 						fC.resetOwner(j);
 						GUI.removeOwner(j+1);
 						fC.resetHouses(j);
-						
+						GUI.setHouses(j+1, 0);
+						GUI.setHotel(j+1, false);
 					}
 					
 						
@@ -77,11 +77,11 @@ public class GameController {
 			}
 		
 		//Checks if the game has ended
-		for(int y=0, dead = 0; y < players.length ; y++){
-			if(players[y].getAccount().getBalance() < 0){
+		for(int y=0, dead = 0; y < pC.getPlayers().length ; y++){
+			if(pC.getPlayers()[y].getAccount().getBalance() < 0){
 				dead++;
 			}
-			if (dead == players.length-players.length+1){
+			if (dead == pC.getPlayers().length-pC.getPlayers().length+1){
 				gameLoop = false;
 			}
 		}
@@ -153,11 +153,15 @@ public class GameController {
 	}
 
 	//makes the cars move from field to field
-	public static void movement(int startPos, int finishPos, String name){
+	public static void movement(int startPos, int finishPos, Player currentPlayer){
 		int position = startPos;
+		String name = currentPlayer.getName();
 		while(position != finishPos){
 			GUI.removeCar(position, name);
 			position++;
+			if(position == 2){
+				currentPlayer.getAccount().updateBalance(4000);
+			}
 			if(position==41){
 				position=1;
 			}
