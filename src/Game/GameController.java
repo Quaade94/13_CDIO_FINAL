@@ -159,11 +159,10 @@ public class GameController {
 		while(position != finishPos){
 			GUI.removeCar(position, name);
 			position++;
-			if(position == 2){
-				currentPlayer.getAccount().updateBalance(4000);
-			}
 			if(position==41){
 				position=1;
+				currentPlayer.getAccount().updateBalance(4000);
+				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance() + 4000);
 			}
 			GUI.setCar(position, name);
 			try {
