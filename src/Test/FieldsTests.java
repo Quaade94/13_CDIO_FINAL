@@ -67,4 +67,15 @@ public class FieldsTests {
 		
 		assertEquals(expectedJailStatus, actualJailStatus);
 	}
+	@Test
+	public void testStart(){
+		Player currentPlayer = pC.getCurrentPlayer();
+		currentPlayer.setPlace(0);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		int expectedMoney = 34000;
+		int actualMoney = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedMoney, actualMoney);
+	}
 }
