@@ -18,9 +18,9 @@ public class GameController {
 	private PlayerController pC;
 	private FieldController fC;
 	private int turns = 0;
-	
+
 	Die die = new Die();
-	
+
 	public void runGame(){
 		//Setup Fields
 		fC = new FieldController();
@@ -38,6 +38,24 @@ public class GameController {
 				standardTurn();
 			} else{
 				System.out.println("Fejl i jailcheck!");
+			}
+		}
+	}
+
+	public void winCondition(){
+		Player[] players = pC.getPlayers();
+		for(int i=0 ; i < players.length; i++){
+			if(players[i].getAccount().getBalance() < 0){
+				GUI.showMessage(players[i].getName() + Language.getLang("DEATH"));
+				GUI.removeCar(players[i].getPlace(), players[i].getName());
+				for(int j = 0 ; j < 39 ; j++){
+					if(fC.getOwner(j) == players[i]){
+						fC.resetOwner(j);
+						GUI.removeOwner(j+1);
+						fC.resetHouses(j);
+					}
+				}
+
 			}
 		}
 	}
@@ -81,7 +99,7 @@ public class GameController {
 				pC.endTurn();
 			}
 
-		//Player wants to buy houses
+			//Player wants to buy houses
 		} else if (choice == Language.getLang("BUYHOUSE")){
 			//Puts the different colored ownable fields in to an array
 			String[] territoryColours = currentPlayer.getTerColour();
@@ -116,9 +134,9 @@ public class GameController {
 					}
 				}
 				if (numberTerritories[0] == 2 || numberTerritories[1] == 3 || 
-					numberTerritories[2] == 3 || numberTerritories[3] == 3 || 
-					numberTerritories[4] == 3 || numberTerritories[5] == 3 || 
-					numberTerritories[6] == 3 || numberTerritories[7] == 2){
+						numberTerritories[2] == 3 || numberTerritories[3] == 3 || 
+						numberTerritories[4] == 3 || numberTerritories[5] == 3 || 
+						numberTerritories[6] == 3 || numberTerritories[7] == 2){
 					buildable = true;
 				}
 
@@ -127,7 +145,7 @@ public class GameController {
 			if (buildable){
 				String[] buildables;
 				int arrayLength = 0;
-				
+
 				for(int i = 0; i < numberTerritories.length; i++){
 					if (i == 0 || i == 7){
 						if (numberTerritories[i] == 2) {
@@ -137,7 +155,7 @@ public class GameController {
 						arrayLength = arrayLength+3;
 					}
 				}
-				
+
 				buildables = new String[arrayLength+1];
 
 				if (numberTerritories[0] == 2){
@@ -168,7 +186,7 @@ public class GameController {
 
 				//Asks the player which property they want to buy houses on
 				String playerChoice = GUI.getUserSelection(Language.getLang("CHOOSEPROPERTYBUY"), buildables);
-		
+
 				int housePrice = 0;
 				int place = 0;
 				for (int i = 0; i < 40; i++){
@@ -198,8 +216,8 @@ public class GameController {
 				//If the player doesnt have any buildable territories
 				GUI.showMessage(Language.getLang("NOBUILDABLES"));
 			}
-			
-		//If the player wants to buy or sell properties to other players
+
+			//If the player wants to buy or sell properties to other players
 		} else if (choice == Language.getLang("BUYSELL")){
 			//Creates an array of the playernames
 			String[] names;
@@ -220,7 +238,7 @@ public class GameController {
 
 			//The player chooses whether he wants to buy or sell
 			boolean buysell = GUI.getUserLeftButtonPressed(Language.getLang("BUYSELLBUTTON"), Language.getLang("BUY"), Language.getLang("SELL"));			
-			
+
 			//If the player wants to buy a property from another player
 			if(buysell){
 				//The player choses who he wants to buy from
@@ -256,7 +274,7 @@ public class GameController {
 						}
 					}
 					fieldsBuy[lenghtOfOwnedFieldsArray] = Language.getLang("CANCEL");					
-					
+
 					//Asks the player which field he wants to buy
 					this.choice = GUI.getUserSelection(Language.getLang("WHICHBUY"), fieldsBuy);
 
@@ -322,7 +340,7 @@ public class GameController {
 							fieldSell = p;
 						}
 					}
-					
+
 					//Asks the player who he wants to sell his property to
 					this.choice = GUI.getUserSelection(Language.getLang("WHOSELL"), names);
 
@@ -392,7 +410,7 @@ public class GameController {
 				pC.endTurn();
 			}
 			pC.endTurn();
-		//If the player decided to pay
+			//If the player decided to pay
 		}else {
 			currentPlayer.getAccount().updateBalance(-1000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
@@ -400,7 +418,7 @@ public class GameController {
 			pC.endTurn();
 		}
 	}
-	
+
 	//makes the cars move from field to field
 	public static void movement(int startPos, int finishPos, String name){
 		int position = startPos;
@@ -420,7 +438,7 @@ public class GameController {
 
 		return;
 	}
-	
+
 	//Sets the GUI dice randomly within a specific area
 	public static void dicePlace(int dice1, int dice2){
 		int diceplacex1 = (int)(Math.random()*3+4);
@@ -431,7 +449,7 @@ public class GameController {
 		while(diceplacey1 == diceplacey2){diceplacey2 =(int)(Math.random()*2+2);}
 		GUI.setDice(dice1, diceplacex1, diceplacey1, dice2, diceplacex2, diceplacey2);
 	}
-	
+
 	public String[] buildablesArray(String[] array, int index1, int index2, int index3){
 		for (int i = 0; i < array.length; i++){
 			if(array[i] == null){
