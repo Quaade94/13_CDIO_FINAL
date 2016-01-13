@@ -9,7 +9,7 @@ import desktop_resources.GUI;
 
 public class TryLuck extends ParkChance {
 
-	private static String card[] = {Language.getLang("CARD1"),Language.getLang("CARD2"),Language.getLang("CARD3"),Language.getLang("CARD4"),Language.getLang("CARD5"),Language.getLang("CARD6"),Language.getLang("CARD7"),Language.getLang("CARD8")};
+	private static String card[] = {Language.getLang("CARD1"),Language.getLang("CARD2"),Language.getLang("CARD3"),Language.getLang("CARD4"),Language.getLang("CARD5"),Language.getLang("CARD6"),Language.getLang("CARD7"),Language.getLang("CARD8"),Language.getLang("CARD9"),Language.getLang("CARD10"),Language.getLang("CARD11"),Language.getLang("CARD12"),Language.getLang("CARD13"),Language.getLang("CARD14")};
 
 	// Messages
 
@@ -28,7 +28,9 @@ public class TryLuck extends ParkChance {
 	}
 
 	public String getChanceMessage(){	
-		return card[((int) (Math.random() * card.length))];
+//		return card[((int) (Math.random() * card.length))];
+		return card[13];
+
 	}
 	@Override
 	public String getSubText(){
@@ -132,12 +134,12 @@ public class TryLuck extends ParkChance {
 			GUI.showMessage(Language.getLang("CARD14"));
 			int goToFleet = 0;
 			if(currentPlayer.getPlace()+1 == 37 || currentPlayer.getPlace()+1 == 3 ){goToFleet = 6;}
-			if(currentPlayer.getPlace()+1 == 8 ){goToFleet = 16;}
-			if(currentPlayer.getPlace()+1 == 18 || currentPlayer.getPlace()+1 == 23 ){goToFleet = 26;}
-			if(currentPlayer.getPlace()+1 == 34 ){goToFleet = 36;}
+			else if(currentPlayer.getPlace()+1 == 8 ){goToFleet = 16;}
+			else if(currentPlayer.getPlace()+1 == 18 || currentPlayer.getPlace()+1 == 23 ){goToFleet = 26;}
+			else if(currentPlayer.getPlace()+1 == 34 ){goToFleet = 36;}
 			else{System.out.println("Something went wrong in Class: TryLuck with 'CARD14'");}
 			GameController.movement(currentPlayer.getPlace()+1, goToFleet, currentPlayer.getName());
-			currentPlayer.setPlace(goToFleet+1);
+			currentPlayer.setPlace(goToFleet-1);
 			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
 			GUI.displayChanceCard();
 	}
