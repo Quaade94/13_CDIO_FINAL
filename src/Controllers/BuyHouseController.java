@@ -47,8 +47,8 @@ public class BuyHouseController {
 					numberTerritories[6] == 3 || numberTerritories[7] == 2){
 				buildable = true;
 			}
-
 		}
+		
 		//Puts the buildable territories for the current player into an array
 		if (buildable){
 			String[] buildables;
@@ -104,6 +104,7 @@ public class BuyHouseController {
 					housePrice = fC.getHousePrice(i);
 				}
 			}
+			
 			//Checks if the player can afford the house
 			if (housePrice <= pC.getCurrentPlayer().getAccount().getBalance()){
 				if (fC.getHouseAmount(place) <= 5){

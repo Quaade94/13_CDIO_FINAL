@@ -53,7 +53,7 @@ public class BuySellPropertyController {
 					}
 				}
 				fieldsBuy = new String[lenghtOfOwnedFieldsArray+1];
-
+				
 				int q = 0;
 				for (int t=0; t<=39; t++){
 					if (fC.getOwner(t)!=null){
@@ -67,9 +67,7 @@ public class BuySellPropertyController {
 
 				//Asks the player which field he wants to buy
 				playerChoice = GUI.getUserSelection(Language.getLang("WHICHBUY"), fieldsBuy);
-
 				if (playerChoice != Language.getLang("CANCEL")){
-
 					int fieldPurchase = 0;
 					for (int p = 0; p<=39; p++){
 						if(playerChoice == fC.getName(p)){
@@ -102,8 +100,7 @@ public class BuySellPropertyController {
 				}
 			}
 
-		}
-		else{
+		}else{
 			//Creates an array of the players sellable fields
 			String[] fieldsSell;
 			int lenghtOfOwnedFieldsArray = 0;
@@ -115,7 +112,6 @@ public class BuySellPropertyController {
 				}
 			}
 			fieldsSell = new String[lenghtOfOwnedFieldsArray+1];
-
 			int q = 0;
 			for (int t=0; t<=39; t++){
 				if (fC.getOwner(t)!=null){
@@ -129,7 +125,6 @@ public class BuySellPropertyController {
 
 			//Asks the player which field he wants to sell 
 			String playerChoice = GUI.getUserSelection(Language.getLang("WHICHSELL"), fieldsSell);	
-
 			if (playerChoice != Language.getLang("CANCEL")){
 				int fieldSell = 0;
 				for (int p = 0; p<=39; p++){
@@ -140,7 +135,6 @@ public class BuySellPropertyController {
 
 				//Asks the player who he wants to sell his property to
 				playerChoice = GUI.getUserSelection(Language.getLang("WHOSELL"), names);
-
 				if (playerChoice != Language.getLang("CANCEL")){
 					int theChosenOneSell = 0;
 					for (int z = 0; z<pC.getPlayers().length; z++){
@@ -148,6 +142,7 @@ public class BuySellPropertyController {
 							theChosenOneSell = z;
 						}
 					}
+					
 					//Asks the player what amount he wants to sell his property for
 					int sellPrice = GUI.getUserInteger(Language.getLang("WHATSELLPRICE"));
 					if (pC.getPlayers()[theChosenOneSell].getAccount().getBalance() >= sellPrice){
@@ -166,10 +161,7 @@ public class BuySellPropertyController {
 					}else{
 						GUI.getUserButtonPressed(Language.getLang("CANTAFFORDOFFER"), Language.getLang("OK"));
 					}
-
-
 				}
-
 			}
 		}
 	}
