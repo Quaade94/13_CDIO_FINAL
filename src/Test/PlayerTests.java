@@ -78,7 +78,7 @@ public class PlayerTests {
 	}
 	//AccountTests
 	@Test
-	public void playerAccountTestPay(){
+	public void playerAccountTest(){
 		Player[] players = pC.getPlayers();
 		Player currentPlayer = pC.getCurrentPlayer();
 		Player otherPlayer = null;
@@ -90,23 +90,19 @@ public class PlayerTests {
 		}
 
 		int payAmount = 1500;
-		int currentMoney = currentPlayer.getAccount().getBalance();
-		int newMoney = currentMoney-payAmount;
-		currentPlayer.getAccount().updateBalance(-newMoney);
-		otherPlayer.getAccount().updateBalance(newMoney);
+		currentPlayer.getAccount().updateBalance(-payAmount);
+		otherPlayer.getAccount().updateBalance(payAmount);
 		
 		int expectedNewBalanceCP = 28500;
 		int expectedNewBalanceOP = 31500;
 		int actualNewBalanceCP = currentPlayer.getAccount().getBalance();
 		int actualNewBalanceOP = otherPlayer.getAccount().getBalance();
+		System.out.println("CP: " + actualNewBalanceCP);
+		System.out.println("OP: " + actualNewBalanceOP);
 		
 		assertEquals(expectedNewBalanceCP, actualNewBalanceCP);
 		assertEquals(expectedNewBalanceOP, actualNewBalanceOP);
 
-	}
-	@Test
-	public void playerAccountTestRecieve(){
-		
 	}
 	
 }
