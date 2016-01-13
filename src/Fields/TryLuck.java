@@ -101,9 +101,9 @@ public class TryLuck extends ParkChance {
 			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD8")){
 			GUI.showMessage(Language.getLang("CARD8"));
-			GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer.getName());
-			currentPlayer.setPlace(10);
 			currentPlayer.setJail(true);
+			currentPlayer.setPlace(10);
+			GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer.getName());
 			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD9")){
 			GUI.showMessage(Language.getLang("CARD9"));
@@ -140,6 +140,7 @@ public class TryLuck extends ParkChance {
 			else{System.out.println("Something went wrong in Class: TryLuck with 'CARD14'");}
 			GameController.movement(currentPlayer.getPlace()+1, goToFleet, currentPlayer.getName());
 			currentPlayer.setPlace(goToFleet-1);
+			fieldController.setLuckFleetBonus(currentPlayer.getPlace(), true);
 			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
 			GUI.displayChanceCard();
 	}
