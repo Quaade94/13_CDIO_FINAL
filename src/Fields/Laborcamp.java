@@ -52,7 +52,7 @@ public class Laborcamp extends Ownable{
 				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
 			} else{
 				Owner.getAccount().updateBalance(currentPlayer.getAccount().getBalance());
-				currentPlayer.getAccount().updateBalance(-currentPlayer.getAccount().getBalance());
+				currentPlayer.getAccount().updateBalance(-currentPlayer.getAccount().getBalance()+1);
 				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
 			}

@@ -22,6 +22,7 @@ public class GameController {
 	private BuySellPropertyController bspC; 
 	private DiceRollController dC;
 	private GameController gC;
+	private boolean gameLoop = true;
 
 	Die die = new Die();
 
@@ -39,7 +40,7 @@ public class GameController {
 		//Tell playercontroller to setup
 		pC = new PlayerController();
 		//GameLoop
-		while(pC.getPlayers().length>1){
+		while(gameLoop){
 			currentPlayer = pC.getCurrentPlayer();
 			//JailTurn
 			if (currentPlayer.getJailed()){
@@ -63,12 +64,24 @@ public class GameController {
 						fC.resetOwner(j);
 						GUI.removeOwner(j+1);
 						fC.resetHouses(j);
+						
+					}
+					
+						
 					}
 				}
-
+			}
+		
+		//Checks if the game has ended
+		for(int y=0, dead = 0; y < players.length ; y++){
+			if(players[y].getAccount().getBalance() < 0){
+				dead++;
+			}
+			if (dead == players.length-players.length+1){
+				gameLoop = false;
 			}
 		}
-	}
+}
 	
 
 	private void standardTurn() {

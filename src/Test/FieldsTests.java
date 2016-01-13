@@ -126,7 +126,7 @@ public class FieldsTests {
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
 		assertEquals(expectedBalance, actualBalance);
-	}*/
+	}
 	@Test
 	public void testLaborCampOwn2(){
 		Player[] players = pC.getPlayers();
@@ -147,18 +147,65 @@ public class FieldsTests {
 		currentPlayer.setPlace(28);
 		fC.landOnField(currentPlayer.getPlace(), pC, fC);
 
-		System.out.println("LaborOwn: " + currentPlayer.getLaborOwned());
-		System.out.println(currentPlayer.getName());
 		pC.endTurn();
 		currentPlayer = pC.getCurrentPlayer();
-		System.out.println(currentPlayer.getName());
 		
 		currentPlayer.setPlace(12);
 		fC.landOnField(currentPlayer.getPlace(), pC, fC);
-		System.out.println("LaborCamp: " + currentPlayer.getAccount().getBalance());
-		System.out.println("Die: " +  Die.getDiceSum());
 		
 		int expectedBalance = 30000-Die.getDiceSum()*200;
+		int actualBalance = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedBalance, actualBalance);
+	}
+	@Test
+	public void testFleetOwn1(){
+		Player[] players = pC.getPlayers();
+		Player currentPlayer = pC.getCurrentPlayer();
+		Player otherPlayer = null;
+		for (int i = 0; i < players.length; i++){
+			if (players[i] != currentPlayer){
+				otherPlayer = players[i];
+				break;
+			}
+		}
+		
+		fC.setOwner(5, otherPlayer);
+		otherPlayer.updateFleetOwned();
+		
+		currentPlayer.setPlace(5);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		int expectedBalance = 29500;
+		int actualBalance = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedBalance, actualBalance);
+	}*/
+	@Test
+	public void testFleetOwnAll(){
+		Player[] players = pC.getPlayers();
+		Player currentPlayer = pC.getCurrentPlayer();
+		Player otherPlayer = null;
+		for (int i = 0; i < players.length; i++){
+			if (players[i] != currentPlayer){
+				otherPlayer = players[i];
+				break;
+			}
+		}
+		
+		fC.setOwner(5, otherPlayer);
+		otherPlayer.updateFleetOwned();
+		fC.setOwner(15, otherPlayer);
+		otherPlayer.updateFleetOwned();
+		fC.setOwner(25, otherPlayer);
+		otherPlayer.updateFleetOwned();
+		fC.setOwner(35, otherPlayer);
+		otherPlayer.updateFleetOwned();
+		
+		currentPlayer.setPlace(5);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		int expectedBalance = 26000;
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
 		assertEquals(expectedBalance, actualBalance);
