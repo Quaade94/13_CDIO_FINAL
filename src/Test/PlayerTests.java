@@ -13,7 +13,7 @@ public class PlayerTests {
 	
 	GameController gC = new GameController();
 	PlayerController pC = new PlayerController();
-	TestDie die = new TestDie();
+	TestDie die = new TestDie(3, 3);
 	
 //	@Test
 //	public void playerTests() {

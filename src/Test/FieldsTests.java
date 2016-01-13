@@ -1,0 +1,70 @@
+package Test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import Game.GameController;
+import Players.PlayerController;
+import Fields.FieldController;
+import Players.Player;
+import Test.TestDie;
+
+public class FieldsTests {
+	
+	GameController gC = new GameController();
+	PlayerController pC = new PlayerController();
+	FieldController fC = new FieldController();
+	
+	@Test
+	public void testTerritoryNotOwned(){
+		Player currentPlayer = pC.getCurrentPlayer();
+		int playerPosition = currentPlayer.getPlace();
+		TestDie die = new TestDie(2, 1);
+		die.roll();
+		
+		int newPosition = playerPosition+TestDie.getDiceSum();
+		currentPlayer.setPlace(newPosition);
+		
+		Player expectedOwner = null;
+		Player actualOwner = fC.getOwner(newPosition);
+		
+		assertEquals(expectedOwner, actualOwner);
+		
+	}
+	@Test
+	public void testTerritoryOwned(){
+		Player currentPlayer = pC.getCurrentPlayer();
+		int playerPosition = currentPlayer.getPlace();
+		TestDie die = new TestDie(2, 1);
+		die.roll();
+		
+		int newPosition = playerPosition+TestDie.getDiceSum();
+		currentPlayer.setPlace(newPosition);
+		
+		fC.setOwner(newPosition, currentPlayer);
+		
+		Player expectedOwner = currentPlayer;
+		Player actualOwner = fC.getOwner(newPosition);
+		
+		assertEquals(expectedOwner, actualOwner);
+
+	}
+	@Test
+	public void testPlayerJailedAndPlace(){
+		Player currentPlayer = pC.getCurrentPlayer();
+		currentPlayer.setPlace(30);
+		int playerPosition = currentPlayer.getPlace();
+		fC.landOnField(playerPosition, pC, fC);
+		
+		int expectedPlace = 10;
+		int actualPlace = currentPlayer.getPlace();
+		
+		assertEquals(expectedPlace, actualPlace);
+		
+		boolean expectedJailStatus = true;
+		boolean actualJailStatus = currentPlayer.getJailed();
+		
+		assertEquals(expectedJailStatus, actualJailStatus);
+	}
+}
