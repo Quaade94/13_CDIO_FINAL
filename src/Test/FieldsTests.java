@@ -15,7 +15,7 @@ public class FieldsTests {
 	GameController gC = new GameController();
 	PlayerController pC = new PlayerController();
 	FieldController fC = new FieldController();
-	
+	/*
 	@Test
 	public void testTerritoryNotOwned(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -81,9 +81,26 @@ public class FieldsTests {
 	@Test
 	public void testTaxA(){
 		Player currentPlayer = pC.getCurrentPlayer();
-		currentPlayer.setPlace(2);
+		currentPlayer.setPlace(4);
 		fC.landOnField(currentPlayer.getPlace(), pC, fC);
 		
+		int expectedBalance1 = 30000 - (int)(30000 * 0.1);
+		int expectedBalance2 = 26000;
+		int actualBalance = currentPlayer.getAccount().getBalance();
 		
+		
+		assertTrue(expectedBalance1 == actualBalance || expectedBalance2 == actualBalance);
+	}*/
+	@Test
+	public void testTaxB(){
+		Player currentPlayer = pC.getCurrentPlayer();
+		currentPlayer.setPlace(38);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		int expectedBalance = 29000;
+		int actualBalance = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedBalance, actualBalance);
 	}
+	
 }
