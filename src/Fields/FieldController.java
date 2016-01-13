@@ -114,6 +114,19 @@ public class FieldController {
 		return rent;	
 	}
 	
+	/**
+	 *  This method will remove a house from the field, and in turn give half of the price of the house to the players account
+	 *   But if there are no houses on the field this method will not do anything
+	 * @param playerController So the method can update a players balance
+	 * @param fieldIndex The numberd field that the method will be sent to
+	 */
+	public void sellHouse(PlayerController playerController, int fieldIndex){
+		
+		if (fields[fieldIndex] instanceof Territory){
+			((Territory) fields[fieldIndex]).sellHouse(playerController);
+		}
+		
+	}
 	
 	//  ChanceCards / Jails
 

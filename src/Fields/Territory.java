@@ -133,6 +133,7 @@ public class Territory  extends Ownable{
 	public int getHousePrice(){
 		return HousePrice;
 	}
+	
 	@Override
 	public int getPledgingValue(){
 		return PledgingValue;
@@ -165,6 +166,22 @@ public class Territory  extends Ownable{
 	public void setHouseAmount(int HousesM){
 		HouseAmount = HousesM;
 	}
+	
+	/**
+	 *  This method will remove a house from the field, and in turn give half of the price of the house to the players account
+	 *   But if there are no houses on the field this method will not do anything
+	 * @param playerController So the method can update a players balance
+	 */
+	
+	public void sellHouse(PlayerController playerController){
+
+		if (HouseAmount < 0){
+			HouseAmount = HouseAmount - 1;
+			Owner.getAccount().updateBalance((HousePrice / 2));
+		}
+	
+	}
+	
 	/**
 	 *  This method will return the amount of houses that is in the desired object
 	 * @return An integer with the amount of houses in the object
