@@ -9,6 +9,7 @@ import Players.PlayerController;
 import Fields.FieldController;
 import Players.Player;
 import Test.TestDie;
+import Game.Die;
 
 public class FieldsTests {
 	
@@ -101,9 +102,9 @@ public class FieldsTests {
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
 		assertEquals(expectedBalance, actualBalance);
-	}*/
+	}
 	@Test
-	public void testLaborCamp(){
+	public void testLaborCampOwn1(){
 		Player[] players = pC.getPlayers();
 		Player currentPlayer = pC.getCurrentPlayer();
 		Player otherPlayer = null;
@@ -113,16 +114,51 @@ public class FieldsTests {
 				break;
 			}
 		}
-		currentPlayer.setPlace(6);
-		TestDie die = new TestDie(3, 3);
+		Die die = new Die();
 		die.roll();
 		
-		currentPlayer.setPlace(currentPlayer.getPlace()+TestDie.getDiceSum());
+		currentPlayer.setPlace(12);
 		fC.setOwner(currentPlayer.getPlace(), otherPlayer);
 		fC.landOnField(currentPlayer.getPlace(), pC, fC);
 		System.out.println("LaborCamp: " + currentPlayer.getAccount().getBalance());
 		
-		int expectedBalance = 29400;
+		int expectedBalance = 30000-Die.getDiceSum()*100;
+		int actualBalance = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedBalance, actualBalance);
+	}*/
+	@Test
+	public void testLaborCampOwn2(){
+		Player[] players = pC.getPlayers();
+		Player currentPlayer = pC.getCurrentPlayer();
+		Player otherPlayer = null;
+		for (int i = 0; i < players.length; i++){
+			if (players[i] != currentPlayer){
+				otherPlayer = players[i];
+				break;
+			}
+		}
+
+		Die die = new Die();
+		die.roll();
+		
+		currentPlayer.setPlace(12);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		currentPlayer.setPlace(28);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+
+		System.out.println("LaborOwn: " + currentPlayer.getLaborOwned());
+		System.out.println(currentPlayer.getName());
+		pC.endTurn();
+		currentPlayer = pC.getCurrentPlayer();
+		System.out.println(currentPlayer.getName());
+		
+		currentPlayer.setPlace(12);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		System.out.println("LaborCamp: " + currentPlayer.getAccount().getBalance());
+		System.out.println("Die: " +  Die.getDiceSum());
+		
+		int expectedBalance = 30000-Die.getDiceSum()*200;
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
 		assertEquals(expectedBalance, actualBalance);

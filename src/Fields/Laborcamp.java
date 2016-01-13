@@ -12,8 +12,6 @@ public class Laborcamp extends Ownable{
 	private int Baserent;
 	
 	// Other values
-
-	private boolean AllOwned;
 	
 	
 	public Laborcamp (int PriceC, int BaserentC, int FieldNumberC, int PledgingValue, String NameC){
@@ -25,7 +23,6 @@ public class Laborcamp extends Ownable{
 		FieldName = NameC;
 		
 		Owner = null;
-		AllOwned = false;
 		
 	}
 	@Override
@@ -38,9 +35,6 @@ public class Laborcamp extends Ownable{
 					currentPlayer.getAccount().updateBalance(-Price);
 					Owner = currentPlayer;
 					currentPlayer.updateLaborOwned();
-					if(currentPlayer.getLaborOwned() == 2){
-						AllOwned = true;
-					}
 					GUI.setOwner(FieldNumber, currentPlayer.getName());
 					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 
@@ -76,8 +70,8 @@ public class Laborcamp extends Ownable{
 		int rent = 0;
 		
 		rent = Die.getDiceSum() * Baserent;
-		
-		if (AllOwned){
+
+		if (Owner.getLaborOwned() == 2){
 			rent = rent * 2;
 		}
 		return rent;
