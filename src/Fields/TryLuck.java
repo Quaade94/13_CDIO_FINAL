@@ -109,10 +109,10 @@ public class TryLuck extends ParkChance {
 			currentPlayer.getAccount().updateBalance(-3000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 			GUI.displayChanceCard();
-		} else	if (getCard == Language.getLang("CARD10")){
+		} else if (getCard == Language.getLang("CARD10")){
 			GUI.showMessage(Language.getLang("CARD10"));
-			GameController.movement(currentPlayer.getPlace()+1, (currentPlayer.getPlace()+1)-3, currentPlayer, fieldController, playerController);
-			currentPlayer.setPlace(currentPlayer.getPlace()-3);
+			currentPlayer.getAccount().updateBalance(1000);
+			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD11")){
 			GUI.showMessage(Language.getLang("CARD11"));
@@ -126,11 +126,6 @@ public class TryLuck extends ParkChance {
 			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD13")){
 			GUI.showMessage(Language.getLang("CARD13"));
-			currentPlayer.getAccount().updateBalance(1000);
-			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-			GUI.displayChanceCard();
-		} else if (getCard == Language.getLang("CARD14")){
-			GUI.showMessage(Language.getLang("CARD14"));
 			int goToFleet = 0;
 			if(currentPlayer.getPlace()+1 == 37 || currentPlayer.getPlace()+1 == 3 ){goToFleet = 6;}
 			else if(currentPlayer.getPlace()+1 == 8 ){goToFleet = 16;}
