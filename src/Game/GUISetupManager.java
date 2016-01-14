@@ -9,10 +9,13 @@ public class GUISetupManager {
 		createFields(fieldController);
 	}
 
+	/**
+	 * Creates the field objects and the fields on the GUI
+	 * @param fieldController
+	 */
 	public void createFields(FieldController fieldController) {
 
 		// OWNABLE
-
 		for (int ArrayNr = 0; ArrayNr < 40; ArrayNr++) {
 
 				if (fieldController.getFieldNumber(ArrayNr) == 2 || fieldController.getFieldNumber(ArrayNr) == 4

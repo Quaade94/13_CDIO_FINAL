@@ -6,7 +6,9 @@ public class Die {
 	private static int dice2;
 	private static int sum;
 
-	// Rolls the die
+	/**
+	 * Rolls the dice
+	 */
 	public void roll() {
 
 			dice1 = (int) (Math.random() * 6) + 1;
@@ -37,6 +39,5 @@ public class Die {
 	 */
 	public static int getDiceSum(){		
 		return sum;
-	}
-	
+	}	
 }

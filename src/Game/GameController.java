@@ -26,6 +26,7 @@ public class GameController {
 	Die die = new Die();
 
 	public void runGame(){
+
 		//Setup Fields
 		fC = new FieldController();
 		//Setup GUI
@@ -38,10 +39,11 @@ public class GameController {
 		dC = new DiceRollController();
 		//Tell playercontroller to setup
 		pC = new PlayerController();
+
 		//GameLoop
 		while(gameLoop){
 			currentPlayer = pC.getCurrentPlayer();
-			//JailTurn
+			//Checks if the player is in jail and he should have a jail turn
 			if (currentPlayer.getJailed()){
 				jailTurn();
 			} else if (!(currentPlayer.getJailed())){
@@ -53,10 +55,12 @@ public class GameController {
 		}
 		winCondition();
 	}
+
 	public void winCondition(){
 		GUI.showMessage(pC.getCurrentPlayer().getName()+" "+ Language.getLang("WIN"));
 		System.exit(0);
 	}
+
 	public void checkBankrupcy(){
 		for(int i=0 ; i < pC.getPlayers().length; i++){
 			if(pC.getPlayers()[i].getAccount().getBalance() < 0){
@@ -69,13 +73,11 @@ public class GameController {
 						fC.resetHouses(j);
 						GUI.setHouses(j+1, 0);
 						GUI.setHotel(j+1, false);
-					}
-					
-						
-					}
+					}				
 				}
 			}
-		
+		}
+
 		//Checks if the game has ended
 		for(int y=0, bankrupt = 0; y < pC.getPlayers().length ; y++){
 			if(pC.getPlayers()[y].getAccount().getBalance() < 0){
@@ -85,9 +87,9 @@ public class GameController {
 				gameLoop = false;
 			}
 		}
-}
-	
+	}
 
+	//This is run when the player is not in jail
 	private void standardTurn() {
 		//Asks the player what they want to do in beginning of their turn
 		choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("BUYSELL"));
@@ -163,7 +165,7 @@ public class GameController {
 			}
 			GUI.setCar(startPos, currentPlayer.getName());
 			try {
-				Thread.sleep(75);                 //75 milliseconds is one second.
+				Thread.sleep(75);                 //1000 milliseconds is one second.
 			} catch(InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}

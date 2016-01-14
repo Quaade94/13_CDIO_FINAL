@@ -9,10 +9,10 @@ public class Player {
 	private int fleetOwned;
 	private int laborOwned;
 	private String[] territoryColours;
-	private boolean isBankcupt;
+	private boolean isBankrupt;
 	
 	/**
-	 * Opretter en spiller, med konto, placering og f�ngselsstatus
+	 * Creates a plater with an account, a place, prisonstatus and his owned fields(0 in the beginning)
 	 */
 	public Player(){
 		account = new Account();
@@ -21,115 +21,110 @@ public class Player {
 		fleetOwned = 0;
 		laborOwned = 0;
 		territoryColours = new String[22];
-		isBankcupt = false;
+		isBankrupt = false;
 	}
 	
+	/**
+	 * A method to get the players account
+	 * @return The players account
+	 */
 	public Account getAccount(){
 		return account;
 	}
 	
 	/**
-	 * S�tter spillerens navn
-	 * @param name Spillerens �nskede navn
+	 * Sets the name of the player
+	 * @param name 
 	 */
 	public void setName(String name){
 		this.name=name;
 	}
 	
 	/**
-	 * Returnerer spillerens navn
-	 * @return Spillerens navn
+	 * Returns the players name
+	 * @return The players name
 	 */
 	public String getName(){
 		return name;
 	}
 	
 	/**
-	 * Returnerer hvorvidt spilleren er i f�ngsel (true = ja)
-	 * @return spillerens f�ngselsstatus
+	 * Returns whether or not the player is in jail
+	 * @return The players prison status (return = in jail)
 	 */
 	public boolean getJailed(){
 		return isJailed;
 	}
 	
 	/**
-	 * S�tter spillerens f�ngselsstatus
-	 * @param jail True = i f�ngsel
+	 * Changes the players prison status
+	 * @param jail = true means the player is in jail
 	 */
 	public void setJail(boolean jail){
 		isJailed=jail;
 	}
 	
 	/**
-	 * F�r spillerens position p� spillepladen
-	 * @return spillerens position
+	 * Gets the players position
+	 * @return The players position
 	 */
 	public int getPlace(){
 		return place;
 	}
 	
 	/**
-	 * S�tter spillerens position
-	 * @param nextPlace
+	 * Sets the players next position
+	 * @param nextPlace The players next position
 	 */
 	public void setPlace(int nextPlace){
 		place = nextPlace;
 	}
-	
+
 	/**
-	 * Udskriver spillerens navn og konto
-	 */
-	public String toString(){
-		String bleh=" "+name+" : "+account;
-		return bleh;
-	}
-	/**
-	 * 
-	 * @return Antallet af fleetfelter spilleren ejer
+	 * @return The amount of fleetOwned by the player
 	 */
 	public int getFleetOwned(){
 		return fleetOwned;
 	}
 	/**
-	 * Tilføjer 1 til antallet af fleetfelter spilleren ejer
+	 * Adds to the amount of fleetOwned by 1
 	 */
 	public void updateFleetOwned(){
 		fleetOwned++;
 	}
 	/**
-	 * Reducerer antallet af fleets owned med 1
+	 * Reduces the number of fleetOwned by 1
 	 */
 	public void reduceFleetOwned(){
 		fleetOwned--;
 	}
 	/**
 	 * 
-	 * @return Antallet af Laborcampfelter spilleren ejer
+	 * @return The amount of laborOwned by the player
 	 */
 	public int getLaborOwned(){
 		return laborOwned;
 	}
 	/**
-	 * Tilføjer 1 til antaller af laborcampfelter spilleren ejer
+	 * Adds to the amount of laborOwned by 1
 	 */
 	public void updateLaborOwned(){
 		laborOwned++;
 	}
 	/**
-	 * Reducerer antallet af laborOwned med 1
+	 * Reduces the number of LaberOwned by 1
 	 */
 	public void reduceLaborOwned(){
 		laborOwned--;
 	}
 	/**
-	 * 
-	 * @return Ét array med farverne på de grunde spilleren ejer
+	 * @return An array of the owned colours for the player
 	 */
 	public String[] getTerColour(){
 		return territoryColours;
 	}
 	/**
-	 * Indsætter farven af en grund i et array for spilleren
+	 * Puts the colour of a property in an array, for the players
 	 */
 	public void addTerColour(String colour){
 		for (int i = 0; i < territoryColours.length; i++){
@@ -140,8 +135,8 @@ public class Player {
 		}
 	}
 	/**
-	 * Fjerner en farve af en grund i et array for spilleren
-	 * @param colour
+	 * Removes a color of a property in an array, for the player
+	 * @param colour The colour that's going to be removed
 	 */
 	public void removeTerColour(String colour){
 		for (int i = 0; i < territoryColours.length; i++){
@@ -157,14 +152,14 @@ public class Player {
 	 *  NB - There is no way to set it to false again later, so use with care.
 	 */
 	public void setPlayerToIsBankcupt(){
-		isBankcupt = true;
+		isBankrupt = true;
 	}
 	/**
-	 *  This method will return the value of isBanckrupt atribut of the Player object.
-	 * @return the value of isBanckrupt atribut of the Player object.
+	 *  This method will return the value of isBanckrupt atribute of the Player object.
+	 * @return the value of isBanckrupt atribute of the Player object.
 	 */
 	public boolean isPlayerBanckrupt(){
-		return isBankcupt;
+		return isBankrupt;
 	}
 
 }

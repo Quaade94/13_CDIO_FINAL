@@ -18,8 +18,7 @@ public class PlayerController {
 	public PlayerController(){
 		playerAmount = GUI.getUserInteger(Language.getLang("PLAYERNO"), 2, 6);
 		players = new Player[playerAmount];
-		createPlayers();
-		
+		createPlayers();		
 	}
 	
 	/**
@@ -68,6 +67,9 @@ public class PlayerController {
 		return players;
 	}
 	
+	/**
+	 * Ends the turn for the current player and makes the next one currentPlayer
+	 */
 	public void endTurn(){
 		if(currentPlayer < players.length){			
 			currentPlayer++;			
@@ -78,6 +80,10 @@ public class PlayerController {
 		}
 	}
 
+	/**
+	 * A method to get the current player
+	 * @return The player who has his turn
+	 */
 	public Player getCurrentPlayer() {
 		return players[currentPlayer-1];
 	}	

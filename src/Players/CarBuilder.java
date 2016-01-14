@@ -6,8 +6,6 @@ import desktop_codebehind.Car;
 
 public class CarBuilder {
 	
-//	Car[] cars = CarBuilder.getCars();
-	
 	public static Car[] getCar(){
 		
 		Car car1 = new Car.Builder()
