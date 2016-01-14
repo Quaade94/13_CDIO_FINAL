@@ -99,7 +99,7 @@ public class GameController {
 
 			//Player wants to buy houses
 		} else if (choice == Language.getLang("BUYHOUSE")){
-			bhC.buyHouseOption(fC, pC, die);
+			bhC.buyHouseOption(fC, pC);
 
 			//If the player wants to buy or sell properties to other players
 		} else if (choice == Language.getLang("BUYSELL")){

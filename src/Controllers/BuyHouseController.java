@@ -1,5 +1,6 @@
 package Controllers;
 
+import Fields.Field;
 import Fields.FieldController;
 import Game.Die;
 import Game.Language;
@@ -9,7 +10,7 @@ import Players.PlayerController;
 
 public class BuyHouseController {
 
-	public void buyHouseOption(FieldController fC, PlayerController pC, Die die) {
+	public void buyHouseOption(FieldController fC, PlayerController pC) {
 		//Puts the different colored ownable fields in to an array
 		String[] territoryColours = pC.getCurrentPlayer().getTerColour();
 		int[] numberTerritories = new int[8];
@@ -126,6 +127,35 @@ public class BuyHouseController {
 			GUI.showMessage(Language.getLang("NOBUILDABLES"));
 		}
 	}
+	
+	public void sellHouseOption(FieldController fC, PlayerController pC) {
+		
+		int amountOfHouses = 0;
+		for (int i = 0 ; i < 40; i++){
+			if (fC.getOwner(i) == pC.getCurrentPlayer()){
+				if (fC.getHouseAmount(i) > 0){
+					amountOfHouses++;
+				}
+			}
+		Field[] fieldsWithHousesArray;	
+		fieldsWithHousesArray = new Field[amountOfHouses];
+			 
+			
+			
+			
+			
+		}
+
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
 	
 	public String[] buildablesArray(String[] array, int index1, int index2, int index3, FieldController fC){
 		for (int i = 0; i < array.length; i++){
