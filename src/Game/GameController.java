@@ -155,16 +155,14 @@ public class GameController {
 
 	//makes the cars move from field to field
 	public static void movement(int startPos, int finishPos, Player currentPlayer, FieldController fC, PlayerController pC){
-		int position = startPos;
-		String name = currentPlayer.getName();
-		while(position != finishPos){
-			GUI.removeCar(position, name);
-			position++;
-			if(position==41){
-				position=1;
+		while(startPos != finishPos){
+			GUI.removeCar(startPos, currentPlayer.getName());
+			startPos++;
+			if(startPos==41){
+				startPos=1;
 				if(!(currentPlayer.getJailed())) fC.landOnField(0, pC, fC);
 			}
-			GUI.setCar(position, name);
+			GUI.setCar(startPos, currentPlayer.getName());
 			try {
 				Thread.sleep(75);                 //75 milliseconds is one second.
 			} catch(InterruptedException ex) {
