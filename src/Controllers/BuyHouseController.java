@@ -105,7 +105,7 @@ public class BuyHouseController {
 			//Checks if the player can afford the house
 			if(GUI.getUserLeftButtonPressed(Language.getLang("SURE") + " " + housePrice + ",-", Language.getLang("YES"), Language.getLang("NO"))){
 				if (housePrice <= pC.getCurrentPlayer().getAccount().getBalance()){
-					if (fC.getHouseAmount(place) <= 5){
+					if (fC.getHouseAmount(place) < 5){
 						pC.getCurrentPlayer().getAccount().updateBalance(-housePrice);
 						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
 						fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
@@ -114,6 +114,8 @@ public class BuyHouseController {
 						} else{
 							GUI.setHouses(place+1, fC.getHouseAmount(place));
 						}
+					}else{
+						GUI.showMessage(Language.getLang("NOMOREHOUSE"));
 					}
 				} else {
 					GUI.showMessage(Language.getLang("CANTAFFORDHOUSE"));
