@@ -3,7 +3,7 @@ package Fields;
 import Game.Language;
 
 public class Creator {
-	
+
 	static Territory roedovrevej;
 	static Territory hvidovrevej;
 	static Territory valbylanggade;
@@ -26,35 +26,35 @@ public class Creator {
 	static Territory nygade;
 	static Territory fredderiksbergade;
 	static Territory raadhuspladsen;
-	
+
 	static Fleet roedPut;
 	static Fleet helHel;
 	static Fleet gedRos;
 	static Fleet mols;
-	
-	static Laborcamp squash;
-	static Laborcamp cola;
-	
+
+	static Laborcamp tuborg;
+	static Laborcamp carlsberg;
+
 	static TryLuck Luck1;
 	static TryLuck Luck2;
 	static TryLuck Luck3;
 	static TryLuck Luck4;
 	static TryLuck Luck5;
 	static TryLuck Luck6;
-	
+
 	static Prison prison;
 	static Jail jail;
-	
+
 	static Start start;
-	
+
 	static Park park;
-	
+
 	static TaxA taxA;
 	static TaxB taxB;
-	
+
 	//Factory method for board
 	public Field[] createFields(){
-		
+
 		createTerritory();
 		createFleet();
 		createLaborcamp();
@@ -63,14 +63,17 @@ public class Creator {
 		createStart();
 		createPark();
 		createTax();
-		
-		Field[] fields = new Field[]{start, roedovrevej, Luck1, hvidovrevej, taxA, gedRos, valbylanggade, Luck2, roskildevej, allegade, jail, frederiksbergalle, squash, bulowsvej, glkongevej, mols, bernstoffsvej,
-				Luck3, hellerupvej, strandvejern, park, oesterbrogade, Luck4, trianglen, groenningen, helHel, bredgade, kgsNytov, cola, oestergade, prison, vimmelskaftet, amagertov, Luck5, nygade, 
+
+		Field[] fields = new Field[]{start, roedovrevej, Luck1, hvidovrevej, taxA, gedRos, valbylanggade, Luck2, roskildevej, allegade, jail, frederiksbergalle, tuborg, bulowsvej, glkongevej, mols, bernstoffsvej,
+				Luck3, hellerupvej, strandvejern, park, oesterbrogade, Luck4, trianglen, groenningen, helHel, bredgade, kgsNytov, carlsberg, oestergade, prison, vimmelskaftet, amagertov, Luck5, nygade, 
 				roedPut, Luck6, fredderiksbergade, taxB, raadhuspladsen};
-		
+
 		return fields;
 	}
-	
+
+	/**
+	 * Creates all the territory objects
+	 */
 	private static void createTerritory(){
 		// Blue Fields
 		roedovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 600, 2, "BLUE", "Rødovrevej");
@@ -102,56 +105,70 @@ public class Creator {
 		// Purple Fields
 		fredderiksbergade = new Territory(7000, 700, 3500, 10000, 22000, 26000, 30000, 4000, 3500, 38, "PURPLE", "Frederiksberg- gade");
 		raadhuspladsen = new Territory(8000, 1000, 4000, 12000, 28000, 34000, 40000, 4000, 4000, 40, "PURPLE", "Rådhusplad- sen");
-
 	}
 
+	/**
+	 * Creates all the fleet objects
+	 */
 	private static void createFleet(){
-		
+
 		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 36, "Rød - Putt");
 		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 26, "Hel - Hel");
 		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 6, "Ged - Ros");
-		mols= new Fleet(4000, 500, 1000, 2000, 4000, 2000, 16, "Mols-Linjen");
-		
+		mols= new Fleet(4000, 500, 1000, 2000, 4000, 2000, 16, "Mols-Linjen");		
 	}
+
+	/**
+	 * Creates all the laborcamp objects
+	 */
 	private static void createLaborcamp(){
-		
-		squash = new Laborcamp(3000, 100, 13, 1500, "Squash");
-		cola = new Laborcamp(3000, 100, 29, 1500, "CocaCola");
-		
+
+		tuborg = new Laborcamp(3000, 100, 13, 1500, "Tuborg");
+		carlsberg = new Laborcamp(3000, 100, 29, 1500, "Carlsberg");	
 	}
-	
+
+	/**
+	 * Creataes all the chance card objects
+	 */
 	private static void createChanceCard(){
-		
+
 		Luck1 = new TryLuck(3, Language.getLang("LUCK"),Language.getLang("CARD"));
 		Luck2 = new TryLuck(8, Language.getLang("LUCK"),Language.getLang("CARD"));
 		Luck3 = new TryLuck(18, Language.getLang("LUCK"),Language.getLang("CARD"));
 		Luck4 = new TryLuck(23, Language.getLang("LUCK"),Language.getLang("CARD"));
 		Luck5 = new TryLuck(34, Language.getLang("LUCK"),Language.getLang("CARD"));
-		Luck6 = new TryLuck(37, Language.getLang("LUCK"),Language.getLang("CARD"));
-		
+		Luck6 = new TryLuck(37, Language.getLang("LUCK"),Language.getLang("CARD"));		
 	}
+
+	/**
+	 * Creates all the prison objects
+	 */
 	private static void createJail(){
 		prison = new Prison(31, "Jail", "PrisonSubText");
 		jail = new Jail(11, "Jail", "JailSubText");
-		
+
 	}
-	
+
+	/**
+	 * Creates the start object
+	 */
 	private static void createStart(){
 		start = new Start(1, 4000, "Start", "StartSubText");
 	}
-	
+
+	/**
+	 * Creates the park object
+	 */
 	private static void createPark(){
 		park = new Park(21, "ParkName", "ParkSubText", "ParkDescription");
 	}
-	
+
+	/**
+	 * Creates all the tax objects
+	 */
 	private static void createTax(){
-		
+
 		taxA = new TaxA(5, 4000, "Tax After Start", "TaxA SubText", "TaxA Description");
-		taxB = new TaxB(39, 4000, "Tax After Before", "TaxB SubText", "TaxB Description");
-		
-	}
-	
-	
-	
-	
+		taxB = new TaxB(39, 4000, "Tax After Before", "TaxB SubText", "TaxB Description");	
+	}	
 }
