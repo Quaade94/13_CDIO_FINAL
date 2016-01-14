@@ -24,9 +24,9 @@ public class DiceRollController {
 			if(Die.getDice1()!=Die.getDice2()){turns = 0;}
 			if(turns==3){
 				GUI.showMessage(Language.getLang("ROLLEDJ"));
+				pC.getCurrentPlayer().setJail(true);
 				GameController.movement(pC.getCurrentPlayer().getPlace()+1, 11, pC.getCurrentPlayer(), fC, pC);
 				pC.getCurrentPlayer().setPlace(10);
-				pC.getCurrentPlayer().setJail(true);
 				turns = 0;
 			}else {
 				//Setting position
