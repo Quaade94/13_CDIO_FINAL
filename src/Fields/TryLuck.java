@@ -100,8 +100,8 @@ public class TryLuck extends ParkChance {
 		} else if (getCard == Language.getLang("CARD8")){
 			GUI.showMessage(Language.getLang("CARD8"));
 			currentPlayer.setJail(true);
-			currentPlayer.setPlace(10);
 			GameController.movement(currentPlayer.getPlace()+1, 11, currentPlayer, fieldController, playerController);
+			currentPlayer.setPlace(10);
 			GUI.displayChanceCard();
 		} else if (getCard == Language.getLang("CARD9")){
 			GUI.showMessage(Language.getLang("CARD9"));
