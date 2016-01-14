@@ -175,7 +175,7 @@ public class BuyHouseController {
 					} 
 				}
 			}else{
-				GUI.showMessage("Sorry, you dont have any houses/hotels which you can sell");
+				GUI.showMessage(Language.getLang("NOPROPSELL"));
 			}
 		} 
 	}
