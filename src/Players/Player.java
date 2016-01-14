@@ -97,6 +97,12 @@ public class Player {
 		fleetOwned++;
 	}
 	/**
+	 * Reducerer antallet af fleets owned med 1
+	 */
+	public void reduceFleetOwned(){
+		fleetOwned--;
+	}
+	/**
 	 * 
 	 * @return Antallet af Laborcampfelter spilleren ejer
 	 */
@@ -108,6 +114,12 @@ public class Player {
 	 */
 	public void updateLaborOwned(){
 		laborOwned++;
+	}
+	/**
+	 * Reducerer antallet af laborOwned med 1
+	 */
+	public void reduceLaborOwned(){
+		laborOwned--;
 	}
 	/**
 	 * 

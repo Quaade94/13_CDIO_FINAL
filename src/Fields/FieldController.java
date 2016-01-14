@@ -203,7 +203,17 @@ public class FieldController {
 		return colour;
 	}
 	
-	
+	public String getField(int fieldIndex){
+		String type = "";
+		if (fields[fieldIndex] instanceof Fleet){
+			type = "Fleet";
+		}else if (fields[fieldIndex] instanceof Territory){
+			type = "Territory";
+		} else if (fields[fieldIndex] instanceof Laborcamp){
+			type = "Laborcamp";
+		}
+		return type;
+	}
 	
 	
 

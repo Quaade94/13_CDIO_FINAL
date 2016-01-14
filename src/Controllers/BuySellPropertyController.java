@@ -3,6 +3,7 @@ package Controllers;
 import Players.PlayerController;
 import desktop_resources.GUI;
 import Fields.FieldController;
+import Fields.Fleet;
 import Game.Die;
 import Game.Language;
 
@@ -88,8 +89,16 @@ public class BuySellPropertyController {
 							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
 							GUI.setBalance(pC.getPlayers()[theChosenOneBuy].getName(), pC.getPlayers()[theChosenOneBuy].getAccount().getBalance());
 							fC.setOwner(fieldPurchase, pC.getCurrentPlayer());
-							pC.getCurrentPlayer().addTerColour(fC.getColour(fieldPurchase));
-							pC.getPlayers()[theChosenOneBuy].removeTerColour(fC.getColour(fieldPurchase));
+							if (fC.getField(fieldPurchase) == "Fleet"){
+								pC.getCurrentPlayer().updateFleetOwned();
+								pC.getPlayers()[theChosenOneBuy].reduceFleetOwned();
+							} else if (fC.getField(fieldPurchase) == "Territory"){
+								pC.getCurrentPlayer().addTerColour(fC.getColour(fieldPurchase));
+								pC.getPlayers()[theChosenOneBuy].removeTerColour(fC.getColour(fieldPurchase));
+							} else if (fC.getField(fieldPurchase) == "Laborcamp"){
+								pC.getCurrentPlayer().updateLaborOwned();
+								pC.getPlayers()[theChosenOneBuy].reduceLaborOwned();
+							}
 							GUI.removeOwner(fieldPurchase+1);
 							GUI.setOwner(fieldPurchase+1, pC.getCurrentPlayer().getName());
 						}
@@ -155,6 +164,16 @@ public class BuySellPropertyController {
 							fC.setOwner(fieldSell, pC.getPlayers()[theChosenOneSell]);
 							pC.getPlayers()[theChosenOneSell].addTerColour(fC.getColour(fieldSell));
 							pC.getCurrentPlayer().removeTerColour(fC.getColour(fieldSell));
+							if (fC.getField(fieldSell) == "Fleet"){
+								pC.getPlayers()[theChosenOneSell].updateFleetOwned();
+								pC.getCurrentPlayer().reduceFleetOwned();
+							} else if (fC.getField(fieldSell) == "Territory"){
+								pC.getPlayers()[theChosenOneSell].addTerColour(fC.getColour(fieldSell));
+								pC.getCurrentPlayer().removeTerColour(fC.getColour(fieldSell));
+							} else if (fC.getField(fieldSell) == "Laborcamp"){
+								pC.getPlayers()[theChosenOneSell].updateLaborOwned();
+								pC.getCurrentPlayer().reduceLaborOwned();
+							}
 							GUI.removeOwner(fieldSell+1);
 							GUI.setOwner(fieldSell+1, pC.getPlayers()[theChosenOneSell].getName());
 						}
