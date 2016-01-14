@@ -28,8 +28,7 @@ public class TryLuck extends ParkChance {
 	}
 
 	public String getChanceMessage(){	
-//		return card[((int) (Math.random() * card.length))];
-		return card[13];
+		return card[((int) (Math.random() * card.length))];
 
 	}
 	@Override
