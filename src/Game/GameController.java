@@ -44,7 +44,6 @@ public class GameController {
 		pC = new PlayerController();
 
 		//GameLoop
-		winCondition();
 		while(gameLoop){
 			currentPlayer = pC.getCurrentPlayer();
 			//Checks if the player is in jail and he should have a jail turn
