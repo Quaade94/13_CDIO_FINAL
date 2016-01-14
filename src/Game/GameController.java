@@ -4,6 +4,9 @@ import desktop_resources.GUI;
 import Players.PlayerController;
 import Players.Player;
 import Fields.FieldController;
+
+import javax.swing.JOptionPane;
+
 import Controllers.BuyHouseController;
 import Controllers.BuySellPropertyController;
 import Controllers.DiceRollController;
@@ -58,6 +61,8 @@ public class GameController {
 
 	public void winCondition(){
 		GUI.showMessage(pC.getCurrentPlayer().getName()+" "+ Language.getLang("WIN"));
+		GUI.close();
+		JOptionPane.showMessageDialog(null,Language.getLang("THANK"));
 		System.exit(0);
 	}
 
