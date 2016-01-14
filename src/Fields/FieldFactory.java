@@ -2,7 +2,7 @@ package Fields;
 
 import Game.Language;
 
-public class Creator {
+public class FieldFactory {
 
 	static Territory roedovrevej;
 	static Territory hvidovrevej;

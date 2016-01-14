@@ -97,7 +97,7 @@ public class GameController {
 		if(!pC.getCurrentPlayer().isPlayerBanckrupt()){
 
 			//Asks the player what they want to do in beginning of their turn
-			choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("BUYSELL"));
+			choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYSELLHOUSE"), Language.getLang("BUYSELL"));
 
 			//Player wants to roll the die
 			if(choice == Language.getLang("ROLL")){

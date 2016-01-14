@@ -11,7 +11,7 @@ public class FieldController {
 		initializeFieldCreator();
 	}
 	public void initializeFieldCreator(){
-		Creator factory = new Creator();
+		FieldFactory factory = new FieldFactory();
 		fields = factory.createFields();
 	}
 	

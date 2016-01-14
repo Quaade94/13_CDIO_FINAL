@@ -147,27 +147,33 @@ public class BuyHouseController {
 			if(amountOfHouses > 0){
 
 				String[] fieldsWithHousesArray;	
-				fieldsWithHousesArray = new String[amountOfHouses];
+				fieldsWithHousesArray = new String[amountOfHouses+1];
 				for (int i = 0, k = 0 ; i < 39; i++){
-					if (fC.getOwner(i) == pC.getCurrentPlayer()){	
-						fieldsWithHousesArray[k] = fC.getName(i);
+					if (fC.getOwner(i) == pC.getCurrentPlayer()){
+						if (fC.getHouseAmount(i) > 0){
+							fieldsWithHousesArray[k] = fC.getName(i);
+							k++;
+						}
 					} 
 				}
+				fieldsWithHousesArray[amountOfHouses] = Language.getLang("CANCEL");
 
 				String playerChoice = GUI.getUserSelection(Language.getLang("CHOOSEPROPERTYBUY"), fieldsWithHousesArray);
 
-				int fieldIndex = 0;
-				for (int i = 0 ; i < 39; i++){ 
-					if (fC.getName(i) == playerChoice){
-						fieldIndex = (fC.getFieldNumber(i) - 1);
+				if(playerChoice != Language.getLang("CANCEL")){
+					int fieldIndex = 0;
+					for (int i = 0 ; i < 39; i++){ 
+						if (fC.getName(i) == playerChoice){
+							fieldIndex = (fC.getFieldNumber(i) - 1);
+						} 
 					} 
-				} 
-				boolean sure = GUI.getUserLeftButtonPressed(Language.getLang("SURESELL") + fC.getName(fieldIndex) + Language.getLang("ANDGAIN") + (fC.getHousePrice(fieldIndex) / 2) + ",-", Language.getLang("YES"), Language.getLang("NO"));
-				if(sure){
-						fC.sellHouse(pC, fieldIndex);
-						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
-						GUI.setHouses(fieldIndex+1, fC.getHouseAmount(fieldIndex));
-				} 
+					boolean sure = GUI.getUserLeftButtonPressed(Language.getLang("SURESELL") + fC.getName(fieldIndex) + Language.getLang("ANDGAIN") + (fC.getHousePrice(fieldIndex) / 2) + ",-", Language.getLang("YES"), Language.getLang("NO"));
+					if(sure){
+							fC.sellHouse(pC, fieldIndex);
+							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+							GUI.setHouses(fieldIndex+1, fC.getHouseAmount(fieldIndex));
+					} 
+				}
 			}else{
 				GUI.showMessage("Sorry, you dont have any houses/hotels which you can sell");
 			}
