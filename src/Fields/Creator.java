@@ -146,7 +146,6 @@ public class Creator {
 	private static void createJail(){
 		prison = new Prison(31, "Jail", "PrisonSubText");
 		jail = new Jail(11, "Jail", "JailSubText");
-
 	}
 
 	/**
