@@ -3,7 +3,6 @@ package Controllers;
 import Players.PlayerController;
 import desktop_resources.GUI;
 import Fields.FieldController;
-import Fields.Fleet;
 import Game.Die;
 import Game.Language;
 
@@ -124,33 +123,31 @@ public class BuySellPropertyController {
 					}
 				}
 			}
-			
-			//Makes sure the player can't sell properties with houses 
-			if(houseTrue){
-				GUI.showMessage(Language.getLang("CANTSELLWITHHOUSES"));
-			}else{
-				fieldsSell = new String[lenghtOfOwnedFieldsArray+1];
-				int q = 0;
-				for (int t=0; t<=39; t++){
-					if (fC.getOwner(t)!=null){
-						if (fC.getOwner(t) == pC.getCurrentPlayer()){
-							fieldsSell[q] = fC.getName(t);
-							q++;
-						}
+			fieldsSell = new String[lenghtOfOwnedFieldsArray+1];
+			int q = 0;
+			for (int t=0; t<=39; t++){
+				if (fC.getOwner(t)!=null){
+					if (fC.getOwner(t) == pC.getCurrentPlayer()){
+						fieldsSell[q] = fC.getName(t);
+						q++;
 					}
 				}
-				fieldsSell[lenghtOfOwnedFieldsArray] = Language.getLang("CANCEL");
+			}
+			fieldsSell[lenghtOfOwnedFieldsArray] = Language.getLang("CANCEL");
 
-				//Asks the player which field he wants to sell 
-				String playerChoice = GUI.getUserSelection(Language.getLang("WHICHSELL"), fieldsSell);	
-				if (playerChoice != Language.getLang("CANCEL")){
-					int fieldSell = 0;
-					for (int p = 0; p<=39; p++){
-						if(playerChoice == fC.getName(p)){
-							fieldSell = p;
-						}
+			//Asks the player which field he wants to sell 
+			String playerChoice = GUI.getUserSelection(Language.getLang("WHICHSELL"), fieldsSell);	
+			if (playerChoice != Language.getLang("CANCEL")){
+				int fieldSell = 0;
+				for (int p = 0; p<=39; p++){
+					if(playerChoice == fC.getName(p)){
+						fieldSell = p;
 					}
+				}
+				if(fC.getHouseAmount(fieldSell) > 0){
+					GUI.showMessage(Language.getLang("CANTSELLWITHHOUSES"));
 
+				}else{
 					//Asks the player who he wants to sell his property to
 					playerChoice = GUI.getUserSelection(Language.getLang("WHOSELL"), names);
 					if (playerChoice != Language.getLang("CANCEL")){
