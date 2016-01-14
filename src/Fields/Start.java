@@ -22,15 +22,8 @@ public class Start extends JailPrisonStart{
 
 		Player currentPlayer = playerController.getCurrentPlayer();
 		
-		Player players[] = playerController.getPlayers();
-		
-		for(int i = 0 ; i < players.length ; i++){
-			if (players[i] == currentPlayer){
-				players[i].getAccount().updateBalance(4000);
-				GUI.setBalance(currentPlayer.getName(), players[i].getAccount().getBalance());
-				System.out.println(players[i].toString());
-			}
-		}		
+		currentPlayer.getAccount().updateBalance(4000);
+		GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());		
 	}
 	
 	@Override
