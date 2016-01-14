@@ -1,8 +1,6 @@
 package Controllers;
 
-import Fields.Field;
 import Fields.FieldController;
-import Game.Die;
 import Game.Language;
 import desktop_resources.GUI;
 
@@ -98,7 +96,6 @@ public class BuyHouseController {
 			for (int i = 0; i < 40; i++){
 				if(fC.getName(i) == playerChoice){
 					place = i;
-					fC.getFieldNumber(i);
 					housePrice = fC.getHousePrice(i);
 				}
 			}
@@ -131,30 +128,59 @@ public class BuyHouseController {
 	public void sellHouseOption(FieldController fC, PlayerController pC) {
 		
 		int amountOfHouses = 0;
+		
 		for (int i = 0 ; i < 40; i++){
+			
 			if (fC.getOwner(i) == pC.getCurrentPlayer()){
 				if (fC.getHouseAmount(i) > 0){
 					amountOfHouses++;
-				}
-			}
-		Field[] fieldsWithHousesArray;	
-		fieldsWithHousesArray = new Field[amountOfHouses];
-			 
+				} // end if
+			} // end if
+		} // end for
+		String[] fieldsWithHousesArray;	
+		fieldsWithHousesArray = new String[amountOfHouses];
+		for (int i = 0, k = 0 ; i < 40; i++){
 			
-			
-			
-			
-		}
+			if (fC.getOwner(i) == pC.getCurrentPlayer()){	
+				fieldsWithHousesArray[k] = fC.getName(i);
+				
+			} // end if
+		} // end for
 
+		String playerChoice = GUI.getUserSelection(Language.getLang("CHOOSEPROPERTYBUY"), fieldsWithHousesArray);
+
+		int fieldIndex = 0;
 		
+		for (int i = 0 ; i < 40; i++){ 
+			
+			if (fC.getName(i) == playerChoice){
+				
+				fieldIndex = (fC.getFieldNumber(i) - 1);
+				
+			} // end if
+		} // end for
+
+		if(GUI.getUserLeftButtonPressed(Language.getLang("SURESELL") + fC.getName(fieldIndex) + Language.getLang("ANDGAIN") + (fC.getHousePrice(fieldIndex) / 2) + ",-", Language.getLang("YES"), Language.getLang("NO"))){
+			
+			if (fC.getHouseAmount(fieldIndex) > 0){
+			
+			fC.sellHouse(pC, fieldIndex);
+			
+			GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+			
+			GUI.setHouses(fieldIndex+1, fC.getHouseAmount(fieldIndex));
+			} // end if
+			
+			if (fC.getHouseAmount(fieldIndex) == 0){
+			
+				GUI.showMessage(Language.getLang("NOHOUSES"));
+				System.out.println("Burde ikke vises ( BuyHouseController - sellHouseOption");
+			
+			} // end if
+			
+		} // end if
 		
-		
-		
-		
-		
-		
-		
-	}
+	} // end Method
 
 	
 	public String[] buildablesArray(String[] array, int index1, int index2, int index3, FieldController fC){
