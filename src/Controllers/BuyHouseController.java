@@ -129,7 +129,7 @@ public class BuyHouseController {
 		
 		int amountOfHouses = 0;
 		
-		for (int i = 0 ; i < 40; i++){
+		for (int i = 0 ; i < 39; i++){
 			
 			if (fC.getOwner(i) == pC.getCurrentPlayer()){
 				if (fC.getHouseAmount(i) > 0){
@@ -139,7 +139,7 @@ public class BuyHouseController {
 		} // end for
 		String[] fieldsWithHousesArray;	
 		fieldsWithHousesArray = new String[amountOfHouses];
-		for (int i = 0, k = 0 ; i < 40; i++){
+		for (int i = 0, k = 0 ; i < 39; i++){
 			
 			if (fC.getOwner(i) == pC.getCurrentPlayer()){	
 				fieldsWithHousesArray[k] = fC.getName(i);
@@ -151,7 +151,7 @@ public class BuyHouseController {
 
 		int fieldIndex = 0;
 		
-		for (int i = 0 ; i < 40; i++){ 
+		for (int i = 0 ; i < 39; i++){ 
 			
 			if (fC.getName(i) == playerChoice){
 				
