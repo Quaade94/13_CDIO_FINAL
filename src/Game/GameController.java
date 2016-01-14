@@ -154,22 +154,17 @@ public class GameController {
 	}
 
 	//makes the cars move from field to field
-	public static void movement(boolean BackwDirection, int startPos, int finishPos, Player currentPlayer, FieldController fC, PlayerController pC){
-		while(startPos != finishPos){
-			GUI.removeCar(startPos, currentPlayer.getName());
-			if(!BackwDirection){
-				startPos++;
-			}
-			if(BackwDirection){
-				startPos--;
-			}
-			if(startPos==41){
-				startPos=1;
+	public static void movement(int startPos, int finishPos, Player currentPlayer, FieldController fC, PlayerController pC){
+		int position = startPos;
+		String name = currentPlayer.getName();
+		while(position != finishPos){
+			GUI.removeCar(position, name);
+			position++;
+			if(position==41){
+				position=1;
 				if(!(currentPlayer.getJailed())) fC.landOnField(0, pC, fC);
 			}
-			if(startPos==0){
-				startPos=40;
-			GUI.setCar(startPos, currentPlayer.getName());
+			GUI.setCar(position, name);
 			try {
 				Thread.sleep(75);                 //75 milliseconds is one second.
 			} catch(InterruptedException ex) {
@@ -178,7 +173,6 @@ public class GameController {
 		}
 
 		return;
-		}
 	}
 
 	//Sets the GUI dice randomly within a specific area
