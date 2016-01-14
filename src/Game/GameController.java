@@ -64,15 +64,18 @@ public class GameController {
 	public void checkBankrupcy(){
 		for(int i=0 ; i < pC.getPlayers().length; i++){
 			if(pC.getPlayers()[i].getAccount().getBalance() < 0){
-				GUI.showMessage(pC.getPlayers()[i].getName() + " "+Language.getLang("DEATH"));
-				GUI.removeCar(pC.getPlayers()[i].getPlace(), pC.getPlayers()[i].getName());
-				for(int j = 0 ; j < 39 ; j++){
-					if(fC.getOwner(j) == pC.getPlayers()[i]){
-						fC.resetOwner(j);
-						GUI.removeOwner(j+1);
-						fC.resetHouses(j);
-						GUI.setHouses(j+1, 0);
-						GUI.setHotel(j+1, false);
+				if(pC.getPlayers()[i].isPlayerBanckrupt() == false){
+					GUI.showMessage(pC.getPlayers()[i].getName() + " "+Language.getLang("DEATH"));
+					GUI.removeCar(pC.getPlayers()[i].getPlace()+1, pC.getPlayers()[i].getName());
+					for(int j = 0 ; j < 39 ; j++){
+						if(fC.getOwner(j) == pC.getPlayers()[i]){
+							fC.resetOwner(j);
+							GUI.removeOwner(j+1);
+							fC.resetHouses(j);
+							GUI.setHouses(j+1, 0);
+							GUI.setHotel(j+1, false);
+							pC.getPlayers()[i].setPlayerToIsBankcupt();
+						}
 					}				
 				}
 			}
@@ -91,23 +94,26 @@ public class GameController {
 
 	//This is run when the player is not in jail
 	private void standardTurn() {
-		//Asks the player what they want to do in beginning of their turn
-		choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("BUYSELL"));
+		if(!pC.getCurrentPlayer().isPlayerBanckrupt()){
 
-		//Player wants to roll the die
-		if(choice == Language.getLang("ROLL")){
-			dC.rollOption(fC, pC, die);
+			//Asks the player what they want to do in beginning of their turn
+			choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYHOUSE"), Language.getLang("BUYSELL"));
 
-			//Player wants to buy houses
-		} else if (choice == Language.getLang("BUYHOUSE")){
-			bhC.buyHouseOption(fC, pC);
+			//Player wants to roll the die
+			if(choice == Language.getLang("ROLL")){
+				dC.rollOption(fC, pC, die);
 
-			//If the player wants to buy or sell properties to other players
-		} else if (choice == Language.getLang("BUYSELL")){
-			bspC.buysellOption(fC, pC, die);
+				//Player wants to buy houses
+			} else if (choice == Language.getLang("BUYHOUSE")){
+				bhC.buyHouseOption(fC, pC);
 
-		} else {
-			System.out.println("Fejl i player choice!");
+				//If the player wants to buy or sell properties to other players
+			} else if (choice == Language.getLang("BUYSELL")){
+				bspC.buysellOption(fC, pC, die);
+
+			} else {
+				System.out.println("Fejl i player choice!");
+			}
 		}
 	}
 

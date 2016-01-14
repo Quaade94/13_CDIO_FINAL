@@ -67,7 +67,7 @@ public class TryLuck extends ParkChance {
 		} else if (getCard == Language.getLang("CARD3")){
 			GUI.showMessage(Language.getLang("CARD3"));
 			for (int i = 0; i < allPlayers.length; i++){
-				if (allPlayers[i] != currentPlayer){
+				if (allPlayers[i] != currentPlayer && allPlayers[i].isPlayerBanckrupt() == false){
 					allPlayers[i].getAccount().updateBalance(-100);
 					currentPlayer.getAccount().updateBalance(100);
 					GUI.setBalance(allPlayers[i].getName(), allPlayers[i].getAccount().getBalance());
