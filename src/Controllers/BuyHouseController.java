@@ -8,9 +8,6 @@ import desktop_resources.GUI;
 import Players.PlayerController;
 
 public class BuyHouseController {
-	
-	PlayerController pC;
-	FieldController fC;
 
 	public void buyHouseOption(FieldController fC, PlayerController pC, Die die) {
 		//Puts the different colored ownable fields in to an array
@@ -67,28 +64,28 @@ public class BuyHouseController {
 			buildables = new String[arrayLength+1];
 
 			if (numberTerritories[0] == 2){
-				buildables = buildablesArray(buildables, 1, 3, 0);
+				buildables = buildablesArray(buildables, 1, 3, 0, fC);
 			}
 			if (numberTerritories[7] == 2){
-				buildables = buildablesArray(buildables, 37, 39, 0);
+				buildables = buildablesArray(buildables, 37, 39, 0, fC);
 			}
 			if (numberTerritories[1] == 3){
-				buildables = buildablesArray(buildables, 6, 8, 9);
+				buildables = buildablesArray(buildables, 6, 8, 9, fC);
 			}
 			if (numberTerritories[2] == 3){
-				buildables = buildablesArray(buildables, 11, 13, 14);
+				buildables = buildablesArray(buildables, 11, 13, 14, fC);
 			}
 			if (numberTerritories[3] == 3){
-				buildables = buildablesArray(buildables, 16, 18, 19);
+				buildables = buildablesArray(buildables, 16, 18, 19, fC);
 			}
 			if (numberTerritories[4] == 3){
-				buildables = buildablesArray(buildables, 21, 23, 24);
+				buildables = buildablesArray(buildables, 21, 23, 24, fC);
 			}
 			if (numberTerritories[5] == 3){
-				buildables = buildablesArray(buildables, 26, 27, 29);
+				buildables = buildablesArray(buildables, 26, 27, 29, fC);
 			}
 			if (numberTerritories[6] == 3){
-				buildables = buildablesArray(buildables, 31, 32, 34);
+				buildables = buildablesArray(buildables, 31, 32, 34, fC);
 			}
 			buildables[arrayLength] = Language.getLang("CANCEL");
 
@@ -127,7 +124,7 @@ public class BuyHouseController {
 		}
 	}
 	
-	public String[] buildablesArray(String[] array, int index1, int index2, int index3){
+	public String[] buildablesArray(String[] array, int index1, int index2, int index3, FieldController fC){
 		for (int i = 0; i < array.length; i++){
 			if(array[i] == null){
 				array[i] = fC.getName(index1);
