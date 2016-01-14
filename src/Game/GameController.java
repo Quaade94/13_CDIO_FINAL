@@ -82,7 +82,7 @@ public class GameController {
 			if(pC.getPlayers()[y].getAccount().getBalance() < 0){
 				bankrupt++;
 			}
-			if (bankrupt == pC.getPlayers().length-pC.getPlayers().length+1){
+			if (bankrupt == pC.getPlayers().length - 1){
 				gameLoop = false;
 			}
 		}
