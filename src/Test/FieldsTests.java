@@ -16,7 +16,7 @@ public class FieldsTests {
 	GameController gC = new GameController();
 	PlayerController pC = new PlayerController();
 	FieldController fC = new FieldController();
-	/*
+	
 	@Test
 	public void testTerritoryNotOwned(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -180,7 +180,7 @@ public class FieldsTests {
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
 		assertEquals(expectedBalance, actualBalance);
-	}*/
+	}
 	@Test
 	public void testFleetOwnAll(){
 		Player[] players = pC.getPlayers();

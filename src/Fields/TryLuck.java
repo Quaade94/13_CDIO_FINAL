@@ -29,7 +29,6 @@ public class TryLuck extends ParkChance {
 
 	public String getChanceMessage(){	
 		return card[((int) (Math.random() * card.length))];
-
 	}
 	@Override
 	public String getSubText(){
@@ -127,11 +126,17 @@ public class TryLuck extends ParkChance {
 		} else if (getCard == Language.getLang("CARD13")){
 			GUI.showMessage(Language.getLang("CARD13"));
 			int goToFleet = 0;
-			if(currentPlayer.getPlace()+1 == 37 || currentPlayer.getPlace()+1 == 3 ){goToFleet = 6;}
-			else if(currentPlayer.getPlace()+1 == 8 ){goToFleet = 16;}
-			else if(currentPlayer.getPlace()+1 == 18 || currentPlayer.getPlace()+1 == 23 ){goToFleet = 26;}
-			else if(currentPlayer.getPlace()+1 == 34 ){goToFleet = 36;}
-			else{System.out.println("Something went wrong in Class: TryLuck with 'CARD14'");}
+			if(currentPlayer.getPlace()+1 == 37 || currentPlayer.getPlace()+1 == 3 ){
+				goToFleet = 6;
+			}else if(currentPlayer.getPlace()+1 == 8 ){
+				goToFleet = 16;
+			}else if(currentPlayer.getPlace()+1 == 18 || currentPlayer.getPlace()+1 == 23 ){
+				goToFleet = 26;
+			}else if(currentPlayer.getPlace()+1 == 34 ){
+				goToFleet = 36;
+			}else{
+				System.out.println("Something went wrong in Class: TryLuck with 'CARD14'");
+			}
 			GameController.movement(currentPlayer.getPlace()+1, goToFleet, currentPlayer, fieldController, playerController);
 			currentPlayer.setPlace(goToFleet-1);
 			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
