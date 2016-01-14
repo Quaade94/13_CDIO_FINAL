@@ -103,21 +103,22 @@ public class BuyHouseController {
 			}
 			
 			//Checks if the player can afford the house
-			if (housePrice <= pC.getCurrentPlayer().getAccount().getBalance()){
-				if (fC.getHouseAmount(place) <= 5){
-					pC.getCurrentPlayer().getAccount().updateBalance(-housePrice);
-					GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
-					fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
-					if(fC.getHouseAmount(place) == 5){
-						GUI.setHotel(place+1, true);
-					} else{
-						GUI.setHouses(place+1, fC.getHouseAmount(place));
+			if(GUI.getUserLeftButtonPressed(Language.getLang("SURE") + " " + housePrice + ",-", Language.getLang("YES"), Language.getLang("NO"))){
+				if (housePrice <= pC.getCurrentPlayer().getAccount().getBalance()){
+					if (fC.getHouseAmount(place) <= 5){
+						pC.getCurrentPlayer().getAccount().updateBalance(-housePrice);
+						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+						fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
+						if(fC.getHouseAmount(place) == 5){
+							GUI.setHotel(place+1, true);
+						} else{
+							GUI.setHouses(place+1, fC.getHouseAmount(place));
+						}
 					}
+				} else {
+					GUI.showMessage(Language.getLang("CANTAFFORDHOUSE"));
 				}
-			} else {
-				GUI.showMessage(Language.getLang("CANTAFFORDHOUSE"));
 			}
-
 		} else {
 			//If the player doesnt have any buildable territories
 			GUI.showMessage(Language.getLang("NOBUILDABLES"));
