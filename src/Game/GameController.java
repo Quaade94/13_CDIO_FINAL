@@ -21,7 +21,6 @@ public class GameController {
 	private BuyHouseController bhC;
 	private BuySellPropertyController bspC; 
 	private DiceRollController dC;
-	private GameController gC;
 	private boolean gameLoop = true;
 
 	Die die = new Die();
