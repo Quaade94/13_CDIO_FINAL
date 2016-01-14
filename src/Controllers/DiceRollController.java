@@ -22,7 +22,6 @@ public class DiceRollController {
 			//Extra turn on identical faces // also jail on 3rd identical faces
 			if(Die.getDice1()==Die.getDice2()){turns++;}
 			if(Die.getDice1()!=Die.getDice2()){turns = 0;}
-			if(turns == 1 || turns == 2){GUI.showMessage(Language.getLang("ROLLEDD"));}
 			if(turns==3){
 				GUI.showMessage(Language.getLang("ROLLEDJ"));
 				GameController.movement(pC.getCurrentPlayer().getPlace()+1, 11, pC.getCurrentPlayer(), fC, pC);
@@ -43,6 +42,7 @@ public class DiceRollController {
 				if(newPosition != 0){
 					fC.landOnField(newPosition, pC, fC);
 				}}
+			if(turns == 1 || turns == 2){GUI.showMessage(Language.getLang("ROLLEDD"));}
 			if(turns==0){
 				pC.endTurn();
 			}
