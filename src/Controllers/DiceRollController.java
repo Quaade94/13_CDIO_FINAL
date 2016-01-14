@@ -14,6 +14,12 @@ public class DiceRollController {
 	private int newPosition;
 	private int turns = 0;
 
+	/**
+	 * This option is for when the player decides to roll the dice
+	 * @param fC FieldController
+	 * @param pC PlayerController
+	 * @param die Die
+	 */
 	public void rollOption(FieldController fC, PlayerController pC, Die die){
 			playerPosition = pC.getCurrentPlayer().getPlace();
 			die.roll();

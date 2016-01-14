@@ -7,17 +7,19 @@ public class FieldController {
 	
 	private Field[] fields;
 	
+	/**
+	 * Initializes the fields in the FieldFactory when the FieldController's constructer is called
+	 */
 	public FieldController(){
-		initializeFieldCreator();
-	}
-	public void initializeFieldCreator(){
 		FieldFactory factory = new FieldFactory();
 		fields = factory.createFields();
 	}
 	
-
-//	Comments
-	
+	/**
+	 * Gets the number of the field gameboard
+	 * @param fieldIndex The number of the field in the field array
+	 * @return The fields number on the gameboard
+	 */
 	public int getFieldNumber(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof Field){
@@ -26,14 +28,23 @@ public class FieldController {
 		return rent;	
 	}
 	
+	/**
+	 * A method used when the player lands on a field
+	 * @param PlayerPosition The players position
+	 * @param playerController
+	 * @param fieldController
+	 */
 	public void landOnField(int PlayerPosition, PlayerController playerController, FieldController fieldController){
 		if (fields[PlayerPosition] instanceof Field){
 			((Field) fields[PlayerPosition]).landOnField(playerController, fieldController);
 		}
 	}
 	
-//	Nearly Commen
-	
+	/**
+	 * Get the name of the field
+	 * @param fieldIndex The number of the field in the field array
+	 * @return The name of said field
+	 */
 	public String getName(int fieldIndex){
 		String name = null;
 		if (fields[fieldIndex] instanceof Field){
@@ -45,7 +56,11 @@ public class FieldController {
 	
 //	Price / Rent / PledgingValue
 	
-	
+	/**
+	 * Gets the price of the field
+	 * @param fieldIndex The number of the field in the field array
+	 * @return The price of said field
+	 */
 	public int getPrice(int fieldIndex){
 		int price = -1;
 		if (fields[fieldIndex] instanceof Ownable){
@@ -53,6 +68,12 @@ public class FieldController {
 		}
 		return price;	
 	}
+	
+	/**
+	 * Gets the rent on the field
+	 * @param fieldIndex The number of the field in the field array
+	 * @return The rent of said field
+	 */
 	public int getRent(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof Ownable){
@@ -60,23 +81,19 @@ public class FieldController {
 		}
 		return rent;	
 	}
-	public int getPledgingValue(int fieldIndex){
-		int rent = -1;
-		if (fields[fieldIndex] instanceof Ownable){
-			rent = ((Ownable) fields[fieldIndex]).getPledgingValue();
-		}
-		return rent;	
-	}
-	
-	
-//	Owners
-	
-	
+
+	/**
+	 * Sets the owner to a field
+	 * @param fieldIndex The number of the field in the field array
+	 * @param Owner The player who's going to be the owner
+	 */
 	public void setOwner(int fieldIndex, Player Owner){
 		if (fields[fieldIndex] instanceof Ownable){
 			((Ownable) fields[fieldIndex]).setOwner(Owner);
 		}
 	}
+	
+//	**************************HER ER JEG NÅET TIL - LUKAS*************************************************************************************
 	public Player getOwner(int fieldIndex){
 		Player Owner = null;
 		if (fields[fieldIndex] instanceof Ownable){

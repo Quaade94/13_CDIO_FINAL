@@ -109,13 +109,16 @@ public class BuyHouseController {
 				//Checks if the player can afford the house
 				if(GUI.getUserLeftButtonPressed(Language.getLang("SURE") + " " + housePrice + ",-", Language.getLang("YES"), Language.getLang("NO"))){
 
+					//Checks if the player can afford the house
 					if (housePrice <= pC.getCurrentPlayer().getAccount().getBalance()){
 
+						//Checks of the player already have the maximum amount of houses
 						if (fC.getHouseAmount(place) < 5){
 							pC.getCurrentPlayer().getAccount().updateBalance(-housePrice);
 							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
 							fC.setHouseAmount(place, fC.getHouseAmount(place)+1);
 
+							//Sets a hotel, if there is already a house
 							if(fC.getHouseAmount(place) == 5){
 								GUI.setHotel(place+1, true);
 							} else{
@@ -146,6 +149,7 @@ public class BuyHouseController {
 
 			if(amountOfHouses > 0){
 
+				//Creates an array of fieldnames with sellable houses
 				String[] fieldsWithHousesArray;	
 				fieldsWithHousesArray = new String[amountOfHouses+1];
 				for (int i = 0, k = 0 ; i < 39; i++){
@@ -156,9 +160,11 @@ public class BuyHouseController {
 						}
 					} 
 				}
+				//Adds a go back option
 				fieldsWithHousesArray[amountOfHouses] = Language.getLang("CANCEL");
 
-				String playerChoice = GUI.getUserSelection(Language.getLang("CHOOSEPROPERTYBUY"), fieldsWithHousesArray);
+				//Asks the player which property he wants to sell
+				String playerChoice = GUI.getUserSelection(Language.getLang("CHOOSEPROPERTYSELL"), fieldsWithHousesArray);
 
 				if(playerChoice != Language.getLang("CANCEL")){
 					int fieldIndex = 0;
@@ -167,19 +173,22 @@ public class BuyHouseController {
 							fieldIndex = (fC.getFieldNumber(i) - 1);
 						} 
 					} 
+					//Asks if the player is sure he wants to sell it
 					boolean sure = GUI.getUserLeftButtonPressed(Language.getLang("SURESELL") + fC.getName(fieldIndex) + Language.getLang("ANDGAIN") + (fC.getHousePrice(fieldIndex) / 2) + ",-", Language.getLang("YES"), Language.getLang("NO"));
 					if(sure){
-							fC.sellHouse(pC, fieldIndex);
-							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
-							GUI.setHouses(fieldIndex+1, fC.getHouseAmount(fieldIndex));
+						fC.sellHouse(pC, fieldIndex);
+						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+						GUI.setHouses(fieldIndex+1, fC.getHouseAmount(fieldIndex));
 					} 
 				}
 			}else{
+				//If the property have no houses to sell
 				GUI.showMessage(Language.getLang("NOPROPSELL"));
 			}
 		} 
 	}
 
+	//Creates an array of buildable fields
 	public String[] buildablesArray(String[] array, int index1, int index2, int index3, FieldController fC){
 		for (int i = 0; i < array.length; i++){
 			if(array[i] == null){
