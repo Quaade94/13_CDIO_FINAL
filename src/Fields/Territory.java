@@ -173,8 +173,7 @@ public class Territory  extends Ownable{
 	 */
 	
 	public void sellHouse(PlayerController playerController){
-
-		if (HouseAmount <= 0){
+		if (HouseAmount > 0){
 			HouseAmount = HouseAmount - 1;
 			Owner.getAccount().updateBalance((HousePrice / 2));
 		}	
