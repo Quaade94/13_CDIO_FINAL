@@ -114,7 +114,7 @@ public class GameController {
 
 				//If the player wants to buy or sell properties to other players
 			} else if (choice == Language.getLang("BUYSELL")){
-				bspC.buysellOption(fC, pC, die);
+				bspC.buysellOption(fC, pC);
 
 			} else {
 				System.out.println("Fejl i player choice!");
