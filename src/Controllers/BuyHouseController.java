@@ -11,7 +11,7 @@ public class BuyHouseController {
 	public void buyHouseOption(FieldController fC, PlayerController pC) {
 
 		//Asks the player wether he wants to sell or buy houses
-		boolean buysell = (GUI.getUserLeftButtonPressed(Language.getLang("BUYSELLHOUSE"), Language.getLang("BUY"), Language.getLang("SELL")));
+		boolean buysell = (GUI.getUserLeftButtonPressed("Do you wish to buy or sell houses", Language.getLang("BUY"), Language.getLang("SELL")));
 
 		//Buying
 		if(buysell){
@@ -106,9 +106,8 @@ public class BuyHouseController {
 					}
 				}
 
-				//Asks if the player wants to buy it
-				Boolean sureBuy = GUI.getUserLeftButtonPressed(String.format(Language.getLang("SURE"), housePrice), Language.getLang("YES"), Language.getLang("NO"));
-				if(sureBuy){
+				//Checks if the player can afford the house
+				if(GUI.getUserLeftButtonPressed(Language.getLang("SURE") + " " + housePrice + ",-", Language.getLang("YES"), Language.getLang("NO"))){
 
 					//Checks if the player can afford the house
 					if (housePrice <= pC.getCurrentPlayer().getAccount().getBalance()){
@@ -175,7 +174,7 @@ public class BuyHouseController {
 						} 
 					} 
 					//Asks if the player is sure he wants to sell it
-					boolean sure = GUI.getUserLeftButtonPressed(String.format(Language.getLang("SURESELL"), fC.getName(fieldIndex), (fC.getHousePrice(fieldIndex) / 2)), Language.getLang("YES"), Language.getLang("NO"));
+					boolean sure = GUI.getUserLeftButtonPressed(Language.getLang("SURESELL") + fC.getName(fieldIndex) + Language.getLang("ANDGAIN") + (fC.getHousePrice(fieldIndex) / 2) + ",-", Language.getLang("YES"), Language.getLang("NO"));
 					if(sure){
 						fC.sellHouse(pC, fieldIndex);
 						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
@@ -190,7 +189,7 @@ public class BuyHouseController {
 	}
 
 	//Creates an array of buildable fields
-	public String[] buildablesArray(String[] array, int index1, int index2, int index3, FieldController fC){
+	private String[] buildablesArray(String[] array, int index1, int index2, int index3, FieldController fC){
 		for (int i = 0; i < array.length; i++){
 			if(array[i] == null){
 				array[i] = fC.getName(index1);
