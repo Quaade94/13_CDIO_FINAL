@@ -170,8 +170,6 @@ public class BuySellPropertyController {
 								GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
 								GUI.setBalance(pC.getPlayers()[theChosenOneSell].getName(), pC.getPlayers()[theChosenOneSell].getAccount().getBalance());
 								fC.setOwner(fieldSell, pC.getPlayers()[theChosenOneSell]);
-								pC.getPlayers()[theChosenOneSell].addTerColour(fC.getColour(fieldSell));
-								pC.getCurrentPlayer().removeTerColour(fC.getColour(fieldSell));
 								//Updates the both parties fleetOwned
 								if (fC.getField(fieldSell) == "Fleet"){
 									pC.getPlayers()[theChosenOneSell].updateFleetOwned();
