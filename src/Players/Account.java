@@ -2,7 +2,7 @@ package Players;
 
 public class Account {
 
-	private int balance = 0000;
+	private int balance = 30000;
 	
 	/**
 	 * opretter en konto for spilleren
