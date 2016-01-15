@@ -7,6 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Game.GameController;
+import Players.Player;
 import Players.PlayerController;
 import Fields.FieldController;
 
@@ -52,8 +53,8 @@ public class TestHouse {
 	
 	
 	@Test
-	public void testSetHouseTrue() {
-		//Cheks if the setHouse method works
+	//Tests if the setHouse method works
+	public void testSetHouse() {
 		fC.setHouseAmount(39, 1);
 		
 		int expectedHouseAmount = 1;
@@ -63,12 +64,74 @@ public class TestHouse {
 	}
 	
 	@Test
+	//Tests if the house price is correct (in this case for rådhuspladsen)
 	public void testBuyHouse(){
-	
-		fC.setOwner(39, pC.getCurrentPlayer());
-		fC.setOwner(37, pC.getCurrentPlayer());
 		
-		assertEquals(expectedHouseAmount, actualHouseAmount);
+		int expectedHousePrice = 4000;
+		int actualHousePrice = fC.getHousePrice(39);
+		
+		assertEquals(expectedHousePrice, actualHousePrice);
 	}
+	
+	@Test
+	//Tests the rent after one house is on the property
+	public void testRentWith1House(){
+		
+		Player currentPlayer = pC.getCurrentPlayer();
+		fC.setOwner(39, currentPlayer);
+		fC.setHouseAmount(39, 1);
+		
+		pC.endTurn();
+		
+		currentPlayer = pC.getCurrentPlayer();
+		
+		currentPlayer.setPlace(39);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		int expectedBalanceSecond = 30000-fC.getRent(39);
+		int actualBalanceSecond = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedBalanceSecond, actualBalanceSecond);
+	}
+	
+	@Test
+	//Test the rent after 5 houses is on the property
+	public void testRentWith5Houses(){
 
+		Player currentPlayer = pC.getCurrentPlayer();
+		fC.setOwner(39, currentPlayer);
+		fC.setHouseAmount(39, 5);
+		
+		pC.endTurn();
+		
+		currentPlayer = pC.getCurrentPlayer();
+		
+		//The player who will land on the field gets 20000 extra, since the rent is 40000 for a hotel on field 39, and the player starts with 30000
+		currentPlayer.getAccount().updateBalance(20000);
+		
+		currentPlayer.setPlace(39);
+		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		int expectedBalanceSecond = 50000-fC.getRent(39);
+		int actualBalanceSecond = pC.getPlayers()[1].getAccount().getBalance();
+		
+		assertEquals(expectedBalanceSecond, actualBalanceSecond);
+	}
+	
+	@Test
+	//Test if the price is right for selling a house
+	public void testSellableHouse(){
+		
+		Player currentPlayer = pC.getCurrentPlayer();
+		fC.setOwner(39, currentPlayer);
+		fC.setHouseAmount(39, 1);
+		
+		fC.sellHouse(pC, 39);
+		
+		int expectedBalance = 30000+2000;
+		int actualBalance = currentPlayer.getAccount().getBalance();
+		
+		assertEquals(expectedBalance, actualBalance);
+	}
+	
 }
