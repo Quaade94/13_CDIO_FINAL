@@ -10,22 +10,22 @@ public class Jail extends NonOwnable{
 		SubText = SubTextC;
 	}
 	
-	
 	@Override
-	public void landOnField(PlayerController playerController, FieldController fieldController) {
-		
+	public void landOnField(PlayerController playerController, FieldController fieldController) {	
 	}
+	
 	@Override
 	public int getFieldNumber() {
 		return FieldNumber;
 	}
+	
 	@Override
 	public String getName() {
 		return FieldName;
 	}
+	
 	@Override
 	public String getSubText() {
 		return SubText;
 	}
-
 }

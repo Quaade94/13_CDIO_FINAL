@@ -19,7 +19,6 @@ public class Territory  extends Ownable{
 	
 	private String colour;
 	
-	// Other values
 	private int HouseAmount;
 	
 	public Territory (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int RentT4C, int RentT5C, int HousePriceC, int FieldNumberC, String colourC, String NameC){
@@ -40,6 +39,7 @@ public class Territory  extends Ownable{
 		colour = colourC;
 		
 	}
+	
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		Player currentPlayer = playerController.getCurrentPlayer();
@@ -72,6 +72,7 @@ public class Territory  extends Ownable{
 			}
 		}
 	}
+	
 	@Override
 	public int getPrice(){
 		return Price;
@@ -103,23 +104,26 @@ public class Territory  extends Ownable{
 		return rent;
 	}
 	
-	// Private rent methods
-	
 	private int getRentT0(){
 		return RentT0;
 	}
+	
 	private int getRentT1(){
 		return RentT1;
 	}
+	
 	private int getRentT2(){
 		return RentT2;
 	}
+	
 	private int getRentT3(){
 		return RentT3;
 	}
+	
 	private int getRentT4(){
 		return RentT4;
 	}
+	
 	private int getRentT5(){
 		return RentT5;
 	}
@@ -157,6 +161,7 @@ public class Territory  extends Ownable{
 	public void resetOwner(){
 		Owner = null;
 	}
+	
 	/**
 	 *  This method will set the amount of houses in the object
 	 * @param HousesM : The amount of houses that you want to be set in the object
@@ -170,7 +175,6 @@ public class Territory  extends Ownable{
 	 *   But if there are no houses on the field this method will not do anything
 	 * @param playerController So the method can update a players balance
 	 */
-	
 	public void sellHouse(PlayerController playerController){
 		if (HouseAmount > 0){
 			HouseAmount = HouseAmount - 1;
@@ -189,6 +193,7 @@ public class Territory  extends Ownable{
 	public int getHouseAmount(){
 		return HouseAmount;
 	}
+	
 	public String getColour(){
 		return colour;
 	}

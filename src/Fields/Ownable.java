@@ -4,12 +4,8 @@ import Players.Player;
 
 public abstract class Ownable  extends Field{
 	
-	
-	// Created when the constructor is called
 	protected int Price;
 	protected int PledgingValue;
-	
-	// Set later
 	
 	protected Player Owner;
 	

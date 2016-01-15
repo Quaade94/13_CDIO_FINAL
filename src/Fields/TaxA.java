@@ -13,20 +13,18 @@ public class TaxA  extends Tax{
 		FieldName = NameC;
 		SubText = SubTextC;
 		Description = DescriptioC;
-		Tax = TaxC;
-		
+		Tax = TaxC;	
 	}
 
 	@Override
 	public int payTax() {
 		return Tax;
 	}
+	
 	@Override
 	public String getDescription() {
 		return Description;
 	}
-
-
 
 	@Override
 	public int getFieldNumber() {
@@ -54,9 +52,7 @@ public class TaxA  extends Tax{
 		} else {
 			currentPlayer.getAccount().updateBalance(-4000);
 			GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-
 		}
 	}
-	
-	
+		
 }

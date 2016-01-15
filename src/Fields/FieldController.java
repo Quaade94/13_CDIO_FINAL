@@ -4,9 +4,9 @@ import Players.Player;
 import Players.PlayerController;
 
 public class FieldController {
-	
+
 	private Field[] fields;
-	
+
 	/**
 	 * Initializes the fields in the FieldFactory when the FieldController's constructer is called
 	 */
@@ -14,7 +14,7 @@ public class FieldController {
 		FieldFactory factory = new FieldFactory();
 		fields = factory.createFields();
 	}
-	
+
 	/**
 	 * Gets the number of the field gameboard
 	 * @param fieldIndex The number of the field in the field array
@@ -27,7 +27,7 @@ public class FieldController {
 		}
 		return rent;	
 	}
-	
+
 	/**
 	 * A method used when the player lands on a field
 	 * @param PlayerPosition The players position
@@ -39,7 +39,7 @@ public class FieldController {
 			((Field) fields[PlayerPosition]).landOnField(playerController, fieldController);
 		}
 	}
-	
+
 	/**
 	 * Get the name of the field
 	 * @param fieldIndex The number of the field in the field array
@@ -52,10 +52,10 @@ public class FieldController {
 		}
 		return name;	
 	}
-	
-	
-//	Price / Rent / PledgingValue
-	
+
+
+	//	Price / Rent / PledgingValue
+
 	/**
 	 * Gets the price of the field
 	 * @param fieldIndex The number of the field in the field array
@@ -68,7 +68,7 @@ public class FieldController {
 		}
 		return price;	
 	}
-	
+
 	/**
 	 * Gets the rent on the field
 	 * @param fieldIndex The number of the field in the field array
@@ -92,7 +92,7 @@ public class FieldController {
 			((Ownable) fields[fieldIndex]).setOwner(Owner);
 		}
 	}
-	
+
 	/**
 	 * Gets the owner of a certain field
 	 * @param fieldIndex The number of the field in the field array 
@@ -105,7 +105,7 @@ public class FieldController {
 		}
 		return Owner;	
 	}
-	
+
 	/**
 	 * Resets the owner of a field
 	 * @param fieldIndex The number of the field in the field array
@@ -126,7 +126,7 @@ public class FieldController {
 			((Territory) fields[fieldIndex]).setHouseAmount(AmountOfHouses);
 		}
 	}
-	
+
 	/**
 	 * Gets the amount of houses placed on the field
 	 * @param fieldIndex The number of the field in the field array
@@ -139,7 +139,7 @@ public class FieldController {
 		}
 		return AmountOfHouses;	
 	}
-	
+
 	/**
 	 * Gets the price of building a house on a property
 	 * @param fieldIndex The number of the field in the field array
@@ -152,7 +152,7 @@ public class FieldController {
 		}
 		return rent;	
 	}
-	
+
 	/**
 	 *  This method will remove all houses from a field objekt, with no safety precautions, 
 	 *  so these will need to be implementet around this method 
@@ -163,7 +163,7 @@ public class FieldController {
 			((Territory) fields[fieldIndex]).resetHouses();
 		}
 	}
-	
+
 	/**
 	 *  This method will remove a house from the field, and in turn give half of the price of the house to the players account
 	 *   But if there are no houses on the field this method will do nothing
@@ -171,7 +171,7 @@ public class FieldController {
 	 * @param fieldIndex The number of the field in the field array
 	 */
 	public void sellHouse(PlayerController playerController, int fieldIndex){
-		
+
 		if (fields[fieldIndex] instanceof Territory){
 			((Territory) fields[fieldIndex]).sellHouse(playerController);
 		}	
@@ -189,7 +189,7 @@ public class FieldController {
 		}
 		return Message;
 	}
-	
+
 	/**
 	 * Gets the subtext of the non-ownable fields
 	 * @param fieldIndex The number of the field in the field array
@@ -205,7 +205,7 @@ public class FieldController {
 		}
 		return SubText;
 	}
-	
+
 	/**
 	 * Gets the description of the Park and Chance fields
 	 * @param fieldIndex
@@ -231,7 +231,7 @@ public class FieldController {
 		}
 		return StartMoney;
 	}
-	
+
 	/**
 	 * Gets the pay of the tax fields
 	 * @param fieldIndex The number of the field in the field array
@@ -244,7 +244,7 @@ public class FieldController {
 		}
 		return Tax;
 	}
-	
+
 	/**
 	 * Gets the color of a field (The different categories of ownable fields on which you can build houses
 	 * @param fieldIndex The number of the field in the field array
@@ -257,7 +257,7 @@ public class FieldController {
 		}
 		return colour;
 	}
-	
+
 	/**
 	 * A method to get the type of field (Fleet, Territory or Laborcamp)
 	 * @param fieldIndex The number of the field in the field array

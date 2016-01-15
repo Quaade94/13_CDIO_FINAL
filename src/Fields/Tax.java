@@ -6,5 +6,4 @@ public abstract class Tax extends ParkChance{
 	
 	public abstract int payTax();
 	
-
 }

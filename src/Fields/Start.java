@@ -1,6 +1,5 @@
 package Fields;
 
-
 import Players.Player;
 import Players.PlayerController;
 import desktop_resources.GUI;
@@ -28,7 +27,6 @@ public class Start extends NonOwnable{
 	
 	@Override
 	public int getFieldNumber() {
-
 		return FieldNumber;
 	}
 	
@@ -45,5 +43,4 @@ public class Start extends NonOwnable{
 	public String getSubText() {
 		return SubText;
 	}
-
 }

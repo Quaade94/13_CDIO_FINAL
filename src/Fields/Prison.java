@@ -9,8 +9,7 @@ public class Prison extends NonOwnable{
 	public Prison(int FieldNumberC, String fieldName, String SubTextC){
 		FieldName = fieldName;
 		FieldNumber = FieldNumberC;
-		SubText = SubTextC;
-		
+		SubText = SubTextC;	
 	}
 	
 	@Override
@@ -20,17 +19,19 @@ public class Prison extends NonOwnable{
 		GameController.movement(jailedPlayer.getPlace()+1, 11, jailedPlayer, fieldController, playerController);
 		jailedPlayer.setPlace(10);
 	}
+	
 	@Override
 	public String getName(){
 		return FieldName;
 	}
+	
 	@Override
 	public int getFieldNumber(){
 		return FieldNumber;
 	}
+	
 	@Override
 	public String getSubText(){
 		return SubText;
-	}
-	
+	}	
 }

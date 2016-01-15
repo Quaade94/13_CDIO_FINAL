@@ -11,15 +11,12 @@ public class TryLuck extends ParkChance {
 
 	private static String card[] = {Language.getLang("CARD1"),Language.getLang("CARD2"),Language.getLang("CARD3"),Language.getLang("CARD4"),Language.getLang("CARD5"),Language.getLang("CARD6"),Language.getLang("CARD7"),Language.getLang("CARD8"),Language.getLang("CARD9"),Language.getLang("CARD10"),Language.getLang("CARD11"),Language.getLang("CARD12"),Language.getLang("CARD13")};
 
-	// Messages
-
 	public TryLuck(int FieldNumberC, String SubC, String DesC){
 
 		FieldNumber = FieldNumberC;
 
 		SubText = SubC;
 		Description = DesC;
-
 	}
 
 	@Override
@@ -30,10 +27,12 @@ public class TryLuck extends ParkChance {
 	public String getChanceMessage(){	
 		return card[((int) (Math.random() * card.length))];
 	}
+
 	@Override
 	public String getSubText(){
 		return SubText;
 	}
+
 	@Override
 	public String getDescription(){
 		return Description;
@@ -41,7 +40,6 @@ public class TryLuck extends ParkChance {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -135,12 +133,12 @@ public class TryLuck extends ParkChance {
 			}else if(currentPlayer.getPlace()+1 == 34 ){
 				goToFleet = 36;
 			}else{
-				System.out.println("Something went wrong in Class: TryLuck with 'CARD14'");
+				System.out.println("Something went wrong in Class: TryLuck");
 			}
 			GameController.movement(currentPlayer.getPlace()+1, goToFleet, currentPlayer, fieldController, playerController);
 			currentPlayer.setPlace(goToFleet-1);
 			fieldController.landOnField(currentPlayer.getPlace(), playerController, fieldController);
 			GUI.displayChanceCard();
-	}
+		}
 	}
 }
