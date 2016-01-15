@@ -10,8 +10,8 @@ public class BuyHouseController {
 
 	public void buyHouseOption(FieldController fC, PlayerController pC) {
 
-		//Asks the player wether he wants to sell or buy houses
-		boolean buysell = (GUI.getUserLeftButtonPressed("Do you wish to buy or sell houses", Language.getLang("BUY"), Language.getLang("SELL")));
+		//Asks the player whether he wants to sell or buy houses
+		boolean buysell = (GUI.getUserLeftButtonPressed(Language.getLang("BUYSELLHOUSE"), Language.getLang("BUY"), Language.getLang("SELL")));
 
 		//Buying
 		if(buysell){

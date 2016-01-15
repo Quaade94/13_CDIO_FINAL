@@ -29,7 +29,7 @@ public class FieldsTests {
 	@Before 
 	public void resetBalance(){
 		//Resets the players balance
-		pC.getCurrentPlayer().getAccount().resetBalance();
+		
 		
 		//Resets the fields ownership to null
 		for (int i = 0 ; i <= 39 ; i++){
@@ -38,7 +38,7 @@ public class FieldsTests {
 			}
 		}
 		
-		//Resets the players position to 0 (start) and resets their jail status
+		//Resets the players position to 0 (start) and resets their jail status and balance
 		for (int i = 0 ; i < pC.getPlayers().length ; i++){
 			if (pC.getPlayers()[i].getPlace()!=0){
 				pC.getPlayers()[i].setPlace(0);
@@ -46,6 +46,7 @@ public class FieldsTests {
 			if (pC.getPlayers()[i].getJailed()==true){
 				pC.getPlayers()[i].setJail(false);
 			}
+			pC.getPlayers()[i].getAccount().resetBalance();
 		}
 	}
 
@@ -176,17 +177,26 @@ public class FieldsTests {
 
 		Die die = new Die();
 		die.roll();
+		System.out.println(Die.getDiceSum());
+		System.out.println("1 " +currentPlayer.getAccount().getBalance());
 		
 		currentPlayer.setPlace(12);
 		fC.landOnField(currentPlayer.getPlace(), pC, fC);
 		currentPlayer.setPlace(28);
 		fC.landOnField(currentPlayer.getPlace(), pC, fC);
-
+		
+		System.out.println("2 " +currentPlayer.getAccount().getBalance());
+		
 		pC.endTurn();
 		currentPlayer = pC.getCurrentPlayer();
 		
+		System.out.println("3 " +currentPlayer.getAccount().getBalance());
+		
 		currentPlayer.setPlace(12);
 		fC.landOnField(currentPlayer.getPlace(), pC, fC);
+		
+		System.out.println("4 " +currentPlayer.getAccount().getBalance());
+		System.out.println(Die.getDiceSum());
 		
 		int expectedBalance = 30000-Die.getDiceSum()*200;
 		int actualBalance = currentPlayer.getAccount().getBalance();

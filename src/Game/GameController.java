@@ -110,7 +110,7 @@ public class GameController {
 				dC.rollOption(fC, pC, die);
 
 				//Player wants to buy houses
-			} else if (choice == Language.getLang("BUYSELLHOUSE")){
+			} else if (choice == Language.getLang("BUYSELLHOUSEOPTION")){
 				bhC.buyHouseOption(fC, pC);
 
 				//If the player wants to buy or sell properties to other players
