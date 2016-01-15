@@ -5,6 +5,7 @@ import Players.Player;
 public abstract class Ownable  extends Field{
 	
 	protected int Price;
+	protected OwnableController oC = new OwnableController();
 	
 	protected Player Owner;
 	

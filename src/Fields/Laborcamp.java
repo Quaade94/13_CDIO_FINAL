@@ -1,10 +1,8 @@
 package Fields;
 
 import Game.Die;
-import Game.Language;
 import Players.Player;
 import Players.PlayerController;
-import desktop_resources.GUI;
 
 public class Laborcamp extends Ownable{
 
@@ -26,31 +24,10 @@ public class Laborcamp extends Ownable{
 		Player currentPlayer = playerController.getCurrentPlayer();
 		int curRent = 0;
 		if (Owner == null){
-			if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){
-				if(currentPlayer.getAccount().getBalance() >= Price){
-					currentPlayer.getAccount().updateBalance(-Price);
-					Owner = currentPlayer;
-					currentPlayer.updateLaborOwned();
-					GUI.setOwner(FieldNumber, currentPlayer.getName());
-					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-
-				} else{
-					GUI.showMessage("You can't afford it");
-				}
-			}
+			Owner = oC.laborCampNotOwned(currentPlayer, Price, Owner, FieldNumber);
 		} else if (Owner != currentPlayer && Owner != null){
 			curRent = getRent();
-			if (currentPlayer.getAccount().getBalance() >= curRent){
-				currentPlayer.getAccount().updateBalance(-curRent);
-				Owner.getAccount().updateBalance(curRent);
-				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
-			} else{
-				Owner.getAccount().updateBalance(currentPlayer.getAccount().getBalance());
-				currentPlayer.getAccount().updateBalance(-(currentPlayer.getAccount().getBalance()+1));
-				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
-			}
+			oC.laborCampOwned(currentPlayer, Owner, curRent);
 		}
 	}
 

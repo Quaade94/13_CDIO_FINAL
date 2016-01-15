@@ -1,9 +1,7 @@
 package Fields;
 
-import Game.Language;
 import Players.Player;
 import Players.PlayerController;
-import desktop_resources.GUI;
 
 public class Territory  extends Ownable{
 
@@ -45,31 +43,10 @@ public class Territory  extends Ownable{
 		Player currentPlayer = playerController.getCurrentPlayer();
 		int curRent = 0;
 		if (Owner == null){
-			if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){
-				if(currentPlayer.getAccount().getBalance() >= Price){
-					currentPlayer.getAccount().updateBalance(-Price);
-					currentPlayer.addTerColour(colour);
-					Owner = currentPlayer;
-					GUI.setOwner(FieldNumber, currentPlayer.getName());
-					GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-
-				} else{
-					GUI.showMessage("You can't afford it");
-				}
-			}
+			Owner = oC.territoryNotOwned(Price, currentPlayer, colour, Owner, FieldNumber);
 		} else if (Owner != currentPlayer && Owner != null){
 			curRent = getRent();
-			if (currentPlayer.getAccount().getBalance() >= curRent){
-				currentPlayer.getAccount().updateBalance(-curRent);
-				Owner.getAccount().updateBalance(curRent);
-				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
-			} else{
-				Owner.getAccount().updateBalance(currentPlayer.getAccount().getBalance());
-				currentPlayer.getAccount().updateBalance(-(currentPlayer.getAccount().getBalance()+1));
-				GUI.setBalance(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
-				GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
-			}
+			oC.territoryOwned(currentPlayer, curRent, Owner);
 		}
 	}
 	
