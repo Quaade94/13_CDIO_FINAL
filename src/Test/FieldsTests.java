@@ -61,10 +61,9 @@ public class FieldsTests {
 		int newPosition = playerPosition+TestDie.getDiceSum();
 		currentPlayer.setPlace(newPosition);
 		
-		Player expectedOwner = null;
 		Player actualOwner = fC.getOwner(newPosition);
 		
-		assertEquals(expectedOwner, actualOwner);	
+		assertNull(actualOwner);	
 	}
 	
 	@Test
@@ -245,5 +244,23 @@ public class FieldsTests {
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
 		assertEquals(expectedBalance, actualBalance);
+	}
+	
+	@Test
+	public void testFieldPrice(){
+		
+		int expectedFieldPrice = 8000;
+		int actualFieldPrice = fC.getPrice(39);
+		
+		assertEquals(expectedFieldPrice, actualFieldPrice);
+	}
+	
+	@Test
+	public void testFieldRent(){
+		
+		int expectedFieldRent = 1000;
+		int actualFieldRent = fC.getRent(39);
+		
+		assertEquals(expectedFieldRent, actualFieldRent);
 	}
 }
