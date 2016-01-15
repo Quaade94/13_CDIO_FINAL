@@ -10,18 +10,11 @@ import Players.Player;
 import Test.TestDie;
 
 public class PlayerTests {
-	
+
 	GameController gC = new GameController();
 	PlayerController pC = new PlayerController();
 	TestDie die = new TestDie(3, 3);
-	
-//	@Test
-//	public void playerTests() {
-//		gC.runGame();
-//		fail("Not yet implemented");
-//	}
-	
-	//Player Position tests
+
 	@Test
 	public void testPlayerPositionMin(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -32,13 +25,13 @@ public class PlayerTests {
 		currentPlayer.setPlace(newPosition);
 		System.out.println(newPosition);
 		System.out.println(TestDie.getDiceSum());
-		
+
 		int expectedNewPosition = 6;
 		int actualNewPosition = currentPlayer.getPlace();
-		
+
 		assertEquals(expectedNewPosition, actualNewPosition);
-		
 	}
+
 	@Test
 	public void testPlayerPositionMax(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -50,13 +43,13 @@ public class PlayerTests {
 		currentPlayer.setPlace(newPosition);
 		System.out.println(newPosition);
 		System.out.println(TestDie.getDiceSum());
-		
+
 		int expectedNewPosition = 39;
 		int actualNewPosition = currentPlayer.getPlace();
-		
+
 		assertEquals(expectedNewPosition, actualNewPosition);
-		
 	}
+
 	@Test
 	public void testPlayerPositionPassStart(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -69,13 +62,13 @@ public class PlayerTests {
 		currentPlayer.setPlace(newPosition);
 		System.out.println(newPosition);
 		System.out.println(TestDie.getDiceSum());
-		
+
 		int expectedNewPosition = 1;
 		int actualNewPosition = currentPlayer.getPlace();
-		
+
 		assertEquals(expectedNewPosition, actualNewPosition);
-		
 	}
+
 	//AccountTests
 	@Test
 	public void testPlayerAccount(){
@@ -92,17 +85,15 @@ public class PlayerTests {
 		int payAmount = 1500;
 		currentPlayer.getAccount().updateBalance(-payAmount);
 		otherPlayer.getAccount().updateBalance(payAmount);
-		
+
 		int expectedNewBalanceCP = 28500;
 		int expectedNewBalanceOP = 31500;
 		int actualNewBalanceCP = currentPlayer.getAccount().getBalance();
 		int actualNewBalanceOP = otherPlayer.getAccount().getBalance();
 		System.out.println("CP: " + actualNewBalanceCP);
 		System.out.println("OP: " + actualNewBalanceOP);
-		
+
 		assertEquals(expectedNewBalanceCP, actualNewBalanceCP);
 		assertEquals(expectedNewBalanceOP, actualNewBalanceOP);
-
-	}
-	
+	}	
 }

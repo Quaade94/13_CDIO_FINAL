@@ -30,9 +30,9 @@ public class FieldsTests {
 		Player expectedOwner = null;
 		Player actualOwner = fC.getOwner(newPosition);
 		
-		assertEquals(expectedOwner, actualOwner);
-		
+		assertEquals(expectedOwner, actualOwner);	
 	}
+	
 	@Test
 	public void testTerritoryOwned(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -49,8 +49,8 @@ public class FieldsTests {
 		Player actualOwner = fC.getOwner(newPosition);
 		
 		assertEquals(expectedOwner, actualOwner);
-
 	}
+	
 	@Test
 	public void testPlayerJailedAndPlace(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -68,6 +68,7 @@ public class FieldsTests {
 		
 		assertEquals(expectedJailStatus, actualJailStatus);
 	}
+	
 	@Test
 	public void testStart(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -79,6 +80,7 @@ public class FieldsTests {
 		
 		assertEquals(expectedMoney, actualMoney);
 	}
+	
 	@Test
 	public void testTaxA(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -89,9 +91,9 @@ public class FieldsTests {
 		int expectedBalance2 = 26000;
 		int actualBalance = currentPlayer.getAccount().getBalance();
 		
-		
 		assertTrue(expectedBalance1 == actualBalance || expectedBalance2 == actualBalance);
 	}
+	
 	@Test
 	public void testTaxB(){
 		Player currentPlayer = pC.getCurrentPlayer();
@@ -103,6 +105,7 @@ public class FieldsTests {
 		
 		assertEquals(expectedBalance, actualBalance);
 	}
+	
 	@Test
 	public void testLaborCampOwn1(){
 		Player[] players = pC.getPlayers();
@@ -127,6 +130,7 @@ public class FieldsTests {
 		
 		assertEquals(expectedBalance, actualBalance);
 	}
+	
 	@Test
 	public void testLaborCampOwn2(){
 		Player[] players = pC.getPlayers();
@@ -181,6 +185,7 @@ public class FieldsTests {
 		
 		assertEquals(expectedBalance, actualBalance);
 	}
+	
 	@Test
 	public void testFleetOwnAll(){
 		Player[] players = pC.getPlayers();
