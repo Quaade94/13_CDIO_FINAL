@@ -83,7 +83,6 @@ public class GameController {
 							fC.resetHouses(j);
 							GUI.setHouses(j+1, 0);
 							GUI.setHotel(j+1, false);
-
 						}
 					}				
 				}

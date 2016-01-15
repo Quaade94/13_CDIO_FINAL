@@ -53,9 +53,7 @@ public class TestHouse {
 	
 	@Test
 	public void testSetHouseTrue() {
-		//Tests if houses can be put on a property, where the player owns all the colors
-		fC.setOwner(39, pC.getCurrentPlayer());
-		fC.setOwner(37, pC.getCurrentPlayer());
+		//Checks if you can put houses in the program
 		
 		fC.setHouseAmount(39, 1);
 		
@@ -73,7 +71,7 @@ public class TestHouse {
 		int expectedHouseAmount = -1;
 		int actualHouseAmount = fC.getHouseAmount(39);
 		
-		assert
+		assertEquals(expectedHouseAmount, actualHouseAmount);
 	}
 
 }
