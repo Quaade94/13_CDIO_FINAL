@@ -111,11 +111,6 @@ public class Fleet extends Ownable{
 	}
 	
 	@Override
-	public int getPledgingValue() {
-		return PledgingValue;
-	}
-	
-	@Override
 	public String getName() {
 		return FieldName;
 	}

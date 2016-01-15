@@ -18,12 +18,6 @@ public abstract class Ownable  extends Field{
 	public abstract int getRent();
 	
 	/**
-	 * This method will return the Pledging Value of the object
-	 * @return the Pledging Value of the object
-	 */
-	public abstract int getPledgingValue();
-	
-	/**
 	 * This method will set the Owner of the object
 	 * @param Owner The Player that you want to set as Owner of the object
 	 */

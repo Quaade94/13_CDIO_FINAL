@@ -70,11 +70,6 @@ public class Laborcamp extends Ownable{
 	}
 
 	@Override
-	public int getPledgingValue(){
-		return PledgingValue;
-	}
-
-	@Override
 	public int getFieldNumber(){
 		return FieldNumber;
 	}

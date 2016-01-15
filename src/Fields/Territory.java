@@ -135,11 +135,7 @@ public class Territory  extends Ownable{
 	public int getHousePrice(){
 		return HousePrice;
 	}
-	
-	@Override
-	public int getPledgingValue(){
-		return PledgingValue;
-	}
+
 	@Override
 	public int getFieldNumber(){
 		return FieldNumber;
