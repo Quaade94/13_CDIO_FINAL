@@ -106,8 +106,8 @@ public class BuyHouseController {
 					}
 				}
 
-				//Checks if the player can afford the house
-				if(GUI.getUserLeftButtonPressed(Language.getLang("SURE") + " " + housePrice + ",-", Language.getLang("YES"), Language.getLang("NO"))){
+				//Asks if the player is sure he wants to buy
+				if(GUI.getUserLeftButtonPressed((String.format(Language.getLang("SURE") , housePrice)), Language.getLang("YES"), Language.getLang("NO"))){
 
 					//Checks if the player can afford the house
 					if (housePrice <= pC.getCurrentPlayer().getAccount().getBalance()){
