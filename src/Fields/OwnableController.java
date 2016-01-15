@@ -6,7 +6,15 @@ import Players.Player;
 import Players.PlayerController;
 
 public class OwnableController {
-
+/**
+ * This method is for when a player lands on a territory field that is not owned
+ * @param Price
+ * @param currentPlayer
+ * @param colour
+ * @param Owner
+ * @param FieldNumber
+ * @return
+ */
 	public Player territoryNotOwned(int Price, Player currentPlayer, String colour, Player Owner, int FieldNumber){
 		if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){
 			if(currentPlayer.getAccount().getBalance() >= Price){
@@ -22,6 +30,12 @@ public class OwnableController {
 		}
 		return Owner;
 	}
+	/**
+	 * This method is for when a player lands on a territory field that is owned
+	 * @param currentPlayer
+	 * @param curRent
+	 * @param Owner
+	 */
 	public void territoryOwned(Player currentPlayer, int curRent, Player Owner){
 		if (currentPlayer.getAccount().getBalance() >= curRent){
 			currentPlayer.getAccount().updateBalance(-curRent);
@@ -35,6 +49,14 @@ public class OwnableController {
 			GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
 		}
 	}
+/**
+ * This method is for when a player lands on a fleet field that is not owned
+ * @param Owner
+ * @param Price
+ * @param FieldNumber
+ * @param pC
+ * @return
+ */
 	public Player fleetNotOwned(Player Owner, int Price, int FieldNumber, PlayerController pC){
 		Player currentPlayer = pC.getCurrentPlayer();
 		if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){
@@ -51,6 +73,12 @@ public class OwnableController {
 		}
 		return Owner;
 	}
+	/**
+	 * This method is for when a player lands on a fleet field that is owned
+	 * @param Owner
+	 * @param currentPlayer
+	 * @param curRent
+	 */
 	public void fleetOwned(Player Owner, Player currentPlayer, int curRent){
 		if (currentPlayer.getAccount().getBalance() >= curRent){
 			currentPlayer.getAccount().updateBalance(-curRent);
@@ -64,6 +92,14 @@ public class OwnableController {
 			GUI.setBalance(Owner.getName(), Owner.getAccount().getBalance());
 		}
 	}
+	/**
+	 * This method is for when a player lands on a laborcamp field that is not owned
+	 * @param currentPlayer
+	 * @param Price
+	 * @param Owner
+	 * @param FieldNumber
+	 * @return
+	 */
 	public Player laborCampNotOwned(Player currentPlayer, int Price, Player Owner, int FieldNumber){
 		if (GUI.getUserLeftButtonPressed(""+Language.getLang("CHOOSE"), ""+Language.getLang("YES"), ""+Language.getLang("NO"))){
 			if(currentPlayer.getAccount().getBalance() >= Price){
@@ -79,6 +115,12 @@ public class OwnableController {
 		}
 		return Owner;
 	}
+/**
+ * This method is for when a player lands on a laborcamp field that is owned
+ * @param currentPlayer
+ * @param Owner
+ * @param curRent
+ */
 	public void laborCampOwned(Player currentPlayer, Player Owner, int curRent){
 		if (currentPlayer.getAccount().getBalance() >= curRent){
 			currentPlayer.getAccount().updateBalance(-curRent);

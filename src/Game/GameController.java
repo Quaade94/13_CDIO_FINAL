@@ -46,7 +46,7 @@ public class GameController {
 		//GameLoop
 		while(gameLoop){
 			currentPlayer = pC.getCurrentPlayer();
-			if(currentPlayer.isPlayerBanckrupt()){
+			if(currentPlayer.isPlayerBankrupt()){
 				pC.endTurn();
 			}
 			//Checks if the player is in jail and he should have a jail turn
@@ -72,10 +72,10 @@ public class GameController {
 	public void checkBankrupcy(){
 		for(int i=0 ; i < pC.getPlayers().length; i++){
 			if(pC.getPlayers()[i].getAccount().getBalance() < 0){
-				if(pC.getPlayers()[i].isPlayerBanckrupt() == false){
+				if(pC.getPlayers()[i].isPlayerBankrupt() == false){
 					GUI.showMessage(pC.getPlayers()[i].getName() + " "+Language.getLang("DEATH"));
 					GUI.removeCar(pC.getPlayers()[i].getPlace()+1, pC.getPlayers()[i].getName());
-					pC.getPlayers()[i].setPlayerToIsBankcupt();
+					pC.getPlayers()[i].setPlayerToIsBankrupt();
 					for(int j = 0 ; j < 39 ; j++){
 						if(fC.getOwner(j) == pC.getPlayers()[i]){
 							fC.resetOwner(j);
@@ -102,7 +102,7 @@ public class GameController {
 
 	//This is run when the player is not in jail
 	private void standardTurn() {
-		if(!pC.getCurrentPlayer().isPlayerBanckrupt()){
+		if(!pC.getCurrentPlayer().isPlayerBankrupt()){
 
 			//Asks the player what they want to do in beginning of their turn
 			choice = GUI.getUserSelection(pC.getCurrentPlayer().getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYSELLHOUSEOPTION"), Language.getLang("BUYSELL"));
