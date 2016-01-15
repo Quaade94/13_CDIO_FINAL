@@ -8,7 +8,7 @@ import Game.Language;
 
 public class BuySellPropertyController {
 
-	public void buysellOption(FieldController fC, PlayerController pC, Die die){
+	public void buysellOption(FieldController fC, PlayerController pC){
 		//Creates an array of the playernames
 		String[] names;
 		names = new String[pC.getPlayers().length];
