@@ -49,7 +49,7 @@ public class DiceRollController {
 					fC.landOnField(newPosition, pC, fC);
 				}}
 			if(turns == 1 || turns == 2){GUI.showMessage(Language.getLang("ROLLEDD"));}
-			if(turns==0|| pC.getCurrentPlayer().getAccount().getBalance()<0){
+			if(turns==0){
 				pC.endTurn();
 			}
 		}
