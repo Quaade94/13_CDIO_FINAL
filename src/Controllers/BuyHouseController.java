@@ -174,7 +174,7 @@ public class BuyHouseController {
 						} 
 					} 
 					//Asks if the player is sure he wants to sell it
-					boolean sure = GUI.getUserLeftButtonPressed(Language.getLang("SURESELL") + fC.getName(fieldIndex) + Language.getLang("ANDGAIN") + (fC.getHousePrice(fieldIndex) / 2) + ",-", Language.getLang("YES"), Language.getLang("NO"));
+					boolean sure = GUI.getUserLeftButtonPressed((String.format(Language.getLang("SURESELL"), fC.getName(fieldIndex),fC.getHousePrice(fieldIndex) / 2)), Language.getLang("YES"), Language.getLang("NO"));
 					if(sure){
 						fC.sellHouse(pC, fieldIndex);
 						GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
