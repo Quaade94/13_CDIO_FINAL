@@ -48,7 +48,13 @@ public class DiceRollController {
 				if(newPosition != 0){
 					fC.landOnField(newPosition, pC, fC);
 				}}
-			if(turns == 1 || turns == 2 && pC.getCurrentPlayer().getJailed()==false){GUI.showMessage(Language.getLang("ROLLEDD"));}
+			if(turns == 1 || turns == 2 && pC.getCurrentPlayer().getJailed()==false){
+if(pC.getCurrentPlayer().getJailed()==false){
+					
+				}
+				GUI.showMessage(Language.getLang("ROLLEDD"));
+				}
+
 			if(turns==0){
 				pC.endTurn();
 			}
