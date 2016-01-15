@@ -14,7 +14,7 @@ public class Laborcamp extends Ownable{
 	// Other values
 	
 	
-	public Laborcamp (int PriceC, int BaserentC, int FieldNumberC, int PledgingValue, String NameC){
+	public Laborcamp (int PriceC, int BaserentC, int FieldNumberC, String NameC){
 		
 		Price = PriceC;
 		Baserent = BaserentC;

@@ -76,35 +76,35 @@ public class FieldFactory {
 	 */
 	private static void createTerritory(){
 		// Blue Fields
-		roedovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 600, 2, "BLUE", "Rødovrevej");
-		hvidovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 600, 4, "BLUE", "Hvidovrevej");
+		roedovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 2, "BLUE", "Rødovrevej");
+		hvidovrevej = new Territory(1200, 50, 250, 750, 2250, 4000, 6000, 1000, 4, "BLUE", "Hvidovrevej");
 		// Orange Fields		
-		valbylanggade = new Territory(2000, 100, 600, 1800, 5400, 8000, 11000, 1000, 1000, 7, "ORANGE", "Valbylanggade");
-		roskildevej = new Territory(2000, 100, 600, 1800, 5400, 8000, 11000, 1000, 1000, 9, "ORANGE", "Roskildevej");
-		allegade = new Territory(2400, 150, 600, 1800, 5400, 8000, 11000, 1000, 1000, 10, "ORANGE", "Allegade");
+		valbylanggade = new Territory(2000, 100, 600, 1800, 5400, 8000, 11000, 1000, 7, "ORANGE", "Valbylanggade");
+		roskildevej = new Territory(2000, 100, 600, 1800, 5400, 8000, 11000, 1000, 9, "ORANGE", "Roskildevej");
+		allegade = new Territory(2400, 150, 600, 1800, 5400, 8000, 11000, 1000, 10, "ORANGE", "Allegade");
 		// Green Fields
-		frederiksbergalle = new Territory(2800, 200, 1000, 3000, 9000, 12500, 15000, 2000, 1400, 12, "GREEN", "Frederiksberg Allé");
-		bulowsvej = new Territory(2800, 200, 1000, 3000, 9000, 12500, 15000, 2000, 1400, 14, "GREEN", "Bülowsvej");
-		glkongevej = new Territory(3200, 250, 1250, 3750, 10000, 14000, 18000, 2000, 1600, 15, "GREEN", "Gl. Kongevej");
+		frederiksbergalle = new Territory(2800, 200, 1000, 3000, 9000, 12500, 15000, 2000, 12, "GREEN", "Frederiksberg Allé");
+		bulowsvej = new Territory(2800, 200, 1000, 3000, 9000, 12500, 15000, 2000, 14, "GREEN", "Bülowsvej");
+		glkongevej = new Territory(3200, 250, 1250, 3750, 10000, 14000, 18000, 2000, 15, "GREEN", "Gl. Kongevej");
 		// Gray Fields
-		bernstoffsvej = new Territory(3600, 300, 1400, 4000, 11000, 15000, 19000, 2000, 1800, 17, "GREY", "Bernstoffsvej");
-		hellerupvej = new Territory(3600, 300, 1400, 4000, 11000, 15000, 19000, 2000, 1800, 19, "GREY", "Hellerupvej");
-		strandvejern = new Territory(4000, 350, 1600, 4400, 12000, 16000, 20000, 2000, 2000, 20, "GREY", "Strandvejen");
+		bernstoffsvej = new Territory(3600, 300, 1400, 4000, 11000, 15000, 19000, 2000, 17, "GREY", "Bernstoffsvej");
+		hellerupvej = new Territory(3600, 300, 1400, 4000, 11000, 15000, 19000, 2000, 19, "GREY", "Hellerupvej");
+		strandvejern = new Territory(4000, 350, 1600, 4400, 12000, 16000, 20000, 2000, 20, "GREY", "Strandvejen");
 		// Red Fields
-		oesterbrogade = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 2200, 22, "RED", "Østerbrogade");
-		trianglen = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 2200, 24, "RED", "Trianglen");
-		groenningen = new Territory(4800, 400, 2000, 6000, 15000, 18500, 2200, 3000, 2400, 25, "RED", "Grønningen");
+		oesterbrogade = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 22, "RED", "Østerbrogade");
+		trianglen = new Territory(4400, 350, 1800, 5000, 14000, 17500, 21000, 3000, 24, "RED", "Trianglen");
+		groenningen = new Territory(4800, 400, 2000, 6000, 15000, 18500, 2200, 3000, 25, "RED", "Grønningen");
 		// White Fields
-		bredgade = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 27, "WHITE", "Bredgade");
-		kgsNytov = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 2600, 28, "WHITE", "Kgs. Nytov");
-		oestergade = new Territory(5600, 500, 2400, 7200, 17000, 20500, 24000, 3000, 2800, 30, "WHITE", "Østergade");
+		bredgade = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 27, "WHITE", "Bredgade");
+		kgsNytov = new Territory(5200, 450, 2200, 6600, 16000, 19500, 23000, 3000, 28, "WHITE", "Kgs. Nytov");
+		oestergade = new Territory(5600, 500, 2400, 7200, 17000, 20500, 24000, 3000, 30, "WHITE", "Østergade");
 		// Yellow Fields
-		vimmelskaftet = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 3000, 32, "YELLOW", "Vimmelskaftet");
-		amagertov = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 3000, 33, "YELLOW", "Amagertov");
-		nygade = new Territory(6400, 600, 3000, 9000, 20000, 24000, 28000, 4000, 3200, 35, "YELLOW", "Nygade");
+		vimmelskaftet = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 32, "YELLOW", "Vimmelskaftet");
+		amagertov = new Territory(6000, 550, 2600, 7800, 18000, 22000, 25000, 4000, 33, "YELLOW", "Amagertov");
+		nygade = new Territory(6400, 600, 3000, 9000, 20000, 24000, 28000, 4000, 35, "YELLOW", "Nygade");
 		// Purple Fields
-		fredderiksbergade = new Territory(7000, 700, 3500, 10000, 22000, 26000, 30000, 4000, 3500, 38, "PURPLE", "Frederiksberg- gade");
-		raadhuspladsen = new Territory(8000, 1000, 4000, 12000, 28000, 34000, 40000, 4000, 4000, 40, "PURPLE", "Rådhusplad- sen");
+		fredderiksbergade = new Territory(7000, 700, 3500, 10000, 22000, 26000, 30000, 4000, 38, "PURPLE", "Frederiksberg- gade");
+		raadhuspladsen = new Territory(8000, 1000, 4000, 12000, 28000, 34000, 40000, 4000, 40, "PURPLE", "Rådhusplad- sen");
 	}
 
 	/**
@@ -112,10 +112,10 @@ public class FieldFactory {
 	 */
 	private static void createFleet(){
 
-		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 36, "Rød - Putt");
-		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 26, "Hel - Hel");
-		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 2000, 6, "Ged - Ros");
-		mols= new Fleet(4000, 500, 1000, 2000, 4000, 2000, 16, "Mols-Linjen");		
+		roedPut = new Fleet(4000, 500, 1000, 2000, 4000, 36, "Rød - Putt");
+		helHel = new Fleet(4000, 500, 1000, 2000, 4000, 26, "Hel - Hel");
+		gedRos = new Fleet(4000, 500, 1000, 2000, 4000, 6, "Ged - Ros");
+		mols= new Fleet(4000, 500, 1000, 2000, 4000, 16, "Mols-Linjen");		
 	}
 
 	/**
@@ -123,8 +123,8 @@ public class FieldFactory {
 	 */
 	private static void createLaborcamp(){
 
-		tuborg = new Laborcamp(3000, 100, 13, 1500, "Tuborg");
-		carlsberg = new Laborcamp(3000, 100, 29, 1500, "Carlsberg");	
+		tuborg = new Laborcamp(3000, 100, 13, "Tuborg");
+		carlsberg = new Laborcamp(3000, 100, 29, "Carlsberg");	
 	}
 
 	/**

@@ -4,7 +4,7 @@ import Game.GameController;
 import Players.Player;
 import Players.PlayerController;
 
-public class Prison extends JailPrisonStart{
+public class Prison extends NonOwnable{
 		
 	public Prison(int FieldNumberC, String fieldName, String SubTextC){
 		FieldName = fieldName;

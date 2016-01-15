@@ -93,7 +93,11 @@ public class FieldController {
 		}
 	}
 	
-//	**************************HER ER JEG NÅET TIL - LUKAS*************************************************************************************
+	/**
+	 * Gets the owner of a certain field
+	 * @param fieldIndex The number of the field in the field array 
+	 * @return A player
+	 */
 	public Player getOwner(int fieldIndex){
 		Player Owner = null;
 		if (fields[fieldIndex] instanceof Ownable){
@@ -101,21 +105,33 @@ public class FieldController {
 		}
 		return Owner;	
 	}
+	
+	/**
+	 * Resets the owner of a field
+	 * @param fieldIndex The number of the field in the field array
+	 */
 	public void resetOwner(int fieldIndex){
 		if (fields[fieldIndex] instanceof Ownable){
 			((Ownable) fields[fieldIndex]).resetOwner();
 		}
 	}
-	
-	
-//	Houses
-	
-	
+
+	/**
+	 * Sets an amount of houses on a field
+	 * @param fieldIndex The number of the field in the field array
+	 * @param AmountOfHouses The amount of houses wishing to be placed
+	 */
 	public void setHouseAmount(int fieldIndex, int AmountOfHouses){
 		if (fields[fieldIndex] instanceof Territory){
 			((Territory) fields[fieldIndex]).setHouseAmount(AmountOfHouses);
 		}
 	}
+	
+	/**
+	 * Gets the amount of houses placed on the field
+	 * @param fieldIndex The number of the field in the field array
+	 * @return The house amount (int)
+	 */
 	public int getHouseAmount(int fieldIndex){
 		int AmountOfHouses = -1;
 		if (fields[fieldIndex] instanceof Territory){
@@ -123,6 +139,12 @@ public class FieldController {
 		}
 		return AmountOfHouses;	
 	}
+	
+	/**
+	 * Gets the price of building a house on a property
+	 * @param fieldIndex The number of the field in the field array
+	 * @return The price (int)
+	 */
 	public int getHousePrice(int fieldIndex){
 		int rent = -1;
 		if (fields[fieldIndex] instanceof Territory){
@@ -132,7 +154,8 @@ public class FieldController {
 	}
 	
 	/**
-	 *  This method will remove all houses from a field objekt, with no safety precautions, so these will need to be implementet around this method 
+	 *  This method will remove all houses from a field objekt, with no safety precautions, 
+	 *  so these will need to be implementet around this method 
 	 * @param fieldIndex
 	 */
 	public void resetHouses(int fieldIndex){
@@ -143,21 +166,22 @@ public class FieldController {
 	
 	/**
 	 *  This method will remove a house from the field, and in turn give half of the price of the house to the players account
-	 *   But if there are no houses on the field this method will not do anything
+	 *   But if there are no houses on the field this method will do nothing
 	 * @param playerController So the method can update a players balance
-	 * @param fieldIndex The numberd field that the method will be sent to
+	 * @param fieldIndex The number of the field in the field array
 	 */
 	public void sellHouse(PlayerController playerController, int fieldIndex){
 		
 		if (fields[fieldIndex] instanceof Territory){
 			((Territory) fields[fieldIndex]).sellHouse(playerController);
-		}
-		
+		}	
 	}
-	
-	//  ChanceCards / Jails
 
-	
+	/**
+	 * Gets a chance card message to the user in form of a string
+	 * @param fieldIndex The number of the field in the field array
+	 * @return String
+	 */
 	public String getChanceMessage(int fieldIndex){
 		String Message = null;
 		if (fields[fieldIndex] instanceof TryLuck){
@@ -165,6 +189,12 @@ public class FieldController {
 		}
 		return Message;
 	}
+	
+	/**
+	 * Gets the subtext of the non-ownable fields
+	 * @param fieldIndex The number of the field in the field array
+	 * @return String
+	 */
 	public String getSubText(int fieldIndex){
 		String SubText = null;
 		if (fields[fieldIndex] instanceof NonOwnable){
@@ -175,6 +205,12 @@ public class FieldController {
 		}
 		return SubText;
 	}
+	
+	/**
+	 * Gets the description of the Park and Chance fields
+	 * @param fieldIndex
+	 * @return
+	 */
 	public String getDesText(int fieldIndex){
 		String DesText = null;
 		if (fields[fieldIndex] instanceof ParkChance){
@@ -183,12 +219,11 @@ public class FieldController {
 		return DesText;
 	}
 
-	
-	
-	
-//	Start
-	
-	
+	/**
+	 * Gets the money the player receives from passing start
+	 * @param fieldIndex The number of the field in the field array
+	 * @return int
+	 */
 	public int getStartMoney(int fieldIndex){
 		int StartMoney = -1;
 		if (fields[fieldIndex] instanceof Start){
@@ -197,10 +232,11 @@ public class FieldController {
 		return StartMoney;
 	}
 	
-	
-//	Tax
-	
-	
+	/**
+	 * Gets the pay of the tax fields
+	 * @param fieldIndex The number of the field in the field array
+	 * @return int
+	 */
 	public int pay(int fieldIndex){
 		int Tax = -1;
 		if (fields[fieldIndex] instanceof Tax){
@@ -209,9 +245,11 @@ public class FieldController {
 		return Tax;
 	}
 	
-	
-	//Territory colour
-	
+	/**
+	 * Gets the color of a field (The different categories of ownable fields on which you can build houses
+	 * @param fieldIndex The number of the field in the field array
+	 * @return int
+	 */
 	public String getColour(int fieldIndex){
 		String colour = "";
 		if (fields[fieldIndex] instanceof Territory){
@@ -220,6 +258,11 @@ public class FieldController {
 		return colour;
 	}
 	
+	/**
+	 * A method to get the type of field (Fleet, Territory or Laborcamp)
+	 * @param fieldIndex The number of the field in the field array
+	 * @return String
+	 */
 	public String getField(int fieldIndex){
 		String type = "";
 		if (fields[fieldIndex] instanceof Fleet){
@@ -231,8 +274,4 @@ public class FieldController {
 		}
 		return type;
 	}
-	
-	
-
-	
 }

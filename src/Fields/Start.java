@@ -5,7 +5,7 @@ import Players.Player;
 import Players.PlayerController;
 import desktop_resources.GUI;
 
-public class Start extends JailPrisonStart{
+public class Start extends NonOwnable{
 
 	private int StartingMoney;
 

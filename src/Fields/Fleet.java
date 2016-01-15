@@ -16,13 +16,9 @@ public class Fleet extends Ownable{
 	private int RentT2;
 	private int RentT3;
 	
-	
-	
-	// Other values
-	
 	private int AmountOwned;
 	
-	public Fleet (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int PledgingValueC, int FieldNumberC, String NameC){
+	public Fleet (int PriceC, int RentT0C, int RentT1C, int RentT2C, int RentT3C, int FieldNumberC, String NameC){
 		
 		Price = PriceC;
 		RentT0 = RentT0C;
@@ -30,16 +26,14 @@ public class Fleet extends Ownable{
 		RentT2 = RentT2C;
 		RentT3 = RentT3C;
 		
-		PledgingValue = PledgingValueC;
 		FieldNumber = FieldNumberC;
 		
 		FieldName = NameC;
 		
 		Owner = null;
-		AmountOwned = 0;
-		
-		
+		AmountOwned = 0;		
 	}
+	
 	@Override
 	public void landOnField(PlayerController playerController, FieldController fieldController) {
 		Player currentPlayer = playerController.getCurrentPlayer();
