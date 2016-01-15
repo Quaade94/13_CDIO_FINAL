@@ -2,6 +2,8 @@ package Test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Game.GameController;
@@ -13,9 +15,40 @@ import Game.Die;
 
 public class FieldsTests {
 	
-	GameController gC = new GameController();
-	PlayerController pC = new PlayerController();
-	FieldController fC = new FieldController();
+	static FieldController fC;
+	static PlayerController pC;
+	static GameController gC;
+	
+	@BeforeClass
+	public static void init(){
+		gC = new GameController();
+		pC = new PlayerController();
+		fC = new FieldController();
+	}
+	
+	@Before 
+	public void resetBalance(){
+		//Resets the players balance
+		pC.getCurrentPlayer().getAccount().resetBalance();
+		
+		//Resets the fields ownership to null
+		for (int i = 0 ; i <= 39 ; i++){
+			if (fC.getOwner(i)!=null){
+				fC.resetOwner(i);
+			}
+		}
+		
+		//Resets the players position to 0 (start) and resets their jail status
+		for (int i = 0 ; i < pC.getPlayers().length ; i++){
+			if (pC.getPlayers()[i].getPlace()!=0){
+				pC.getPlayers()[i].setPlace(0);
+			}
+			if (pC.getPlayers()[i].getJailed()==true){
+				pC.getPlayers()[i].setJail(false);
+			}
+		}
+	}
+
 	
 	@Test
 	public void testTerritoryNotOwned(){
@@ -135,10 +168,8 @@ public class FieldsTests {
 	public void testLaborCampOwn2(){
 		Player[] players = pC.getPlayers();
 		Player currentPlayer = pC.getCurrentPlayer();
-		Player otherPlayer = null;
 		for (int i = 0; i < players.length; i++){
 			if (players[i] != currentPlayer){
-				otherPlayer = players[i];
 				break;
 			}
 		}

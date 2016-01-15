@@ -3,26 +3,34 @@ package Players;
 public class Account {
 
 	private int balance = 30000;
+	private int balanceReset = balance;
 	
 	/**
-	 * opretter en konto for spilleren
+	 * Creates an account for the player
 	 */
 	public Account(){
 	}
 	
 	/**
-	 * Opdaterer en spillers penge
-	 * @param exxxtra M�ngden den skal opdateres med (bem�rk det g�res ved +=
+	 * Updates the players money (by addition)
+	 * @param update The amount of money you want to add (+)
 	 */
-	public void updateBalance(int eXxxtra){
-		this.balance += eXxxtra;
+	public void updateBalance(int update){
+		this.balance += update;
 	}
 	
 	/**
-	 * Giver en kontos balance
-	 * @return Balancen p� kontoen
+	 * Gets the players balance
+	 * @return int
 	 */
 	public int getBalance(){
 		return this.balance;
+	}
+	
+	/**
+	 * Resets the players balance
+	 */
+	public void resetBalance(){
+		balance = balanceReset;
 	}
 }
