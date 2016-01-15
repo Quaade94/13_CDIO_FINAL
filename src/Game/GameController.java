@@ -46,6 +46,9 @@ public class GameController {
 		//GameLoop
 		while(gameLoop){
 			currentPlayer = pC.getCurrentPlayer();
+			if(currentPlayer.isPlayerBanckrupt()){
+				pC.endTurn();
+			}
 			//Checks if the player is in jail and he should have a jail turn
 			if (currentPlayer.getJailed()){
 				jailTurn();
@@ -103,7 +106,7 @@ public class GameController {
 		if(!pC.getCurrentPlayer().isPlayerBanckrupt()){
 
 			//Asks the player what they want to do in beginning of their turn
-			choice = GUI.getUserSelection(currentPlayer.getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYSELLHOUSE"), Language.getLang("BUYSELL"));
+			choice = GUI.getUserSelection(pC.getCurrentPlayer().getName() + Language.getLang("STURN"), Language.getLang("ROLL"), Language.getLang("BUYSELLHOUSE"), Language.getLang("BUYSELL"));
 
 			//Player wants to roll the die
 			if(choice == Language.getLang("ROLL")){
