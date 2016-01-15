@@ -152,8 +152,7 @@ public class GameController {
 				int newPosition = playerPosition + Die.getDiceSum();
 				if(newPosition >= 40) newPosition = newPosition-40;
 				currentPlayer.setPlace(newPosition);
-				GUI.removeCar(playerPosition+1, currentPlayer.getName());
-				GUI.setCar(newPosition+1, currentPlayer.getName());
+				movement(playerPosition+1, newPosition+1, currentPlayer, fC, pC);
 				GUI.showMessage(Language.getLang("ROLLED") + " " + Die.getDiceSum());
 				fC.landOnField(newPosition, pC, fC);
 				pC.endTurn();
