@@ -13,7 +13,7 @@ public class Die {
 
 			dice1 = (int) (Math.random() * 6) + 1;
 			dice2 = (int) (Math.random() * 6) + 1;
-dice1=dice2;
+
 			sum = dice1 + dice2;
 	}
 	

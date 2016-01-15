@@ -46,6 +46,9 @@ public class GameController {
 		//GameLoop
 		while(gameLoop){
 			currentPlayer = pC.getCurrentPlayer();
+			if(currentPlayer.getAccount().getBalance() < 0){
+				pC.endTurn();
+			}
 			//Checks if the player is in jail and he should have a jail turn
 			if (currentPlayer.getJailed()){
 				jailTurn();
@@ -72,6 +75,7 @@ public class GameController {
 				if(pC.getPlayers()[i].isPlayerBanckrupt() == false){
 					GUI.showMessage(pC.getPlayers()[i].getName() + " "+Language.getLang("DEATH"));
 					GUI.removeCar(pC.getPlayers()[i].getPlace()+1, pC.getPlayers()[i].getName());
+					pC.getPlayers()[i].setPlayerToIsBankcupt();
 					for(int j = 0 ; j < 39 ; j++){
 						if(fC.getOwner(j) == pC.getPlayers()[i]){
 							fC.resetOwner(j);
@@ -79,9 +83,6 @@ public class GameController {
 							fC.resetHouses(j);
 							GUI.setHouses(j+1, 0);
 							GUI.setHotel(j+1, false);
-							System.out.println(pC.getPlayers()[i].isPlayerBanckrupt());
-							pC.getPlayers()[i].setPlayerToIsBankcupt();
-							System.out.println("name: " +  pC.getPlayers()[i].getName() +" Balance: " + pC.getPlayers()[i].getAccount().getBalance() +" Jailed = "+ pC.getPlayers()[i].isPlayerBanckrupt());
 
 						}
 					}				
