@@ -79,7 +79,10 @@ public class GameController {
 							fC.resetHouses(j);
 							GUI.setHouses(j+1, 0);
 							GUI.setHotel(j+1, false);
+							System.out.println(pC.getPlayers()[i].isPlayerBanckrupt());
 							pC.getPlayers()[i].setPlayerToIsBankcupt();
+							System.out.println("name: " +  pC.getPlayers()[i].getName() +" Balance: " + pC.getPlayers()[i].getAccount().getBalance() +" Jailed = "+ pC.getPlayers()[i].isPlayerBanckrupt());
+
 						}
 					}				
 				}
