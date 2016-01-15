@@ -137,24 +137,24 @@ public class GameController {
 				die.roll();
 				// Creates Dice on GUI
 				GameController.dicePlace(Die.getDice1(), Die.getDice2());
-				if(die.getDice1() == die.getDice2()){
+				if(Die.getDice1() == Die.getDice2()){
 					gotLoose = true;
 					chances = 0;
-				}else if(die.getDice1() != die.getDice2()){
+				}else if(Die.getDice1() != Die.getDice2()){
 					chances--;
-					GUI.showMessage(Language.getLang("ROLLED")+ " " + die.getDiceSum());
+					GUI.showMessage(Language.getLang("ROLLED")+ " " + Die.getDiceSum());
 				}
 			}
 			//If the player got out
 			if(gotLoose){
 				currentPlayer.setJail(false);
 				int playerPosition = currentPlayer.getPlace();
-				int newPosition = playerPosition + die.getDiceSum();
+				int newPosition = playerPosition + Die.getDiceSum();
 				if(newPosition >= 40) newPosition = newPosition-40;
 				currentPlayer.setPlace(newPosition);
 				GUI.removeCar(playerPosition+1, currentPlayer.getName());
 				GUI.setCar(newPosition+1, currentPlayer.getName());
-				GUI.showMessage(Language.getLang("ROLLED") + " " + die.getDiceSum());
+				GUI.showMessage(Language.getLang("ROLLED") + " " + Die.getDiceSum());
 				fC.landOnField(newPosition, pC, fC);
 				pC.endTurn();
 			}
