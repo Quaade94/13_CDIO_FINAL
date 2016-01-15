@@ -135,7 +135,7 @@ public class Player {
 		}
 	}
 	/**
-	 * Removes a color of a property in an array, for the player
+	 * Removes a colour of a property in an array, for the player
 	 * @param colour The colour that's going to be removed
 	 */
 	public void removeTerColour(String colour){
@@ -148,17 +148,17 @@ public class Player {
 	}
 	
 	/**
-	 * This method will set the atribut isBanckrupt in the Player obkect to true... 
-	 *  NB - There is no way to set it to false again later, so use with care.
+	 * This method will set the attribute isBankrupt in the Player object to true... 
+	 * 
 	 */
-	public void setPlayerToIsBankcupt(){
+	public void setPlayerToIsBankrupt(){
 		isBankrupt = true;
 	}
 	/**
-	 *  This method will return the value of isBanckrupt atribute of the Player object.
-	 * @return the value of isBanckrupt atribute of the Player object.
+	 *  This method will return the value of isBankrupt attribute of the Player object.
+	 * @return the value of isBankrupt attribute of the Player object.
 	 */
-	public boolean isPlayerBanckrupt(){
+	public boolean isPlayerBankrupt(){
 		return isBankrupt;
 	}
 
