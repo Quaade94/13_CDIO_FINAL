@@ -46,9 +46,6 @@ public class GameController {
 		//GameLoop
 		while(gameLoop){
 			currentPlayer = pC.getCurrentPlayer();
-			if(currentPlayer.getAccount().getBalance() < 0){
-				pC.endTurn();
-			}
 			//Checks if the player is in jail and he should have a jail turn
 			if (currentPlayer.getJailed()){
 				jailTurn();

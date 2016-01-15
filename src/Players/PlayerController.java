@@ -75,7 +75,7 @@ public class PlayerController {
 			currentPlayer++;			
 		}else if(currentPlayer >= players.length){	
 			currentPlayer = 1;
-		} else{
+		}else{
 			System.out.println("Fejl i endTurn metode");
 		}
 	}
