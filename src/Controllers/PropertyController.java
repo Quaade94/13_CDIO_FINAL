@@ -5,7 +5,7 @@ import desktop_resources.GUI;
 import Fields.FieldController;
 import Game.Language;
 
-public class BuySellPropertyController {
+public class PropertyController {
 
 	public void buysellOption(FieldController fC, PlayerController pC){
 		//Creates an array of the playernames
@@ -67,46 +67,51 @@ public class BuySellPropertyController {
 				//Asks the player which field he wants to buy
 				playerChoice = GUI.getUserSelection(Language.getLang("WHICHBUY"), fieldsBuy);
 				if (playerChoice != Language.getLang("CANCEL")){
-					int fieldPurchase = 0;
+
+					int fieldBuy = 0;
 					for (int p = 0; p<=39; p++){
 						if(playerChoice == fC.getName(p)){
-							fieldPurchase = p;
+							fieldBuy = p;
 						}
 					}
 
-					//Asks the player what he wants to buy it for
-					int buyersPrice = GUI.getUserInteger(Language.getLang("WHATBUYPRICE"));
-					//Checks if the player can afford it
-					if(pC.getCurrentPlayer().getAccount().getBalance() >= buyersPrice){
-
-						//Asks the chosen owner of the property if he wants sell his property
-						boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTSELL"),pC.getPlayers()[theChosenOneBuy].getName(),fC.getName(fieldPurchase),buyersPrice), Language.getLang("YES"), Language.getLang("NO"));
-						if(yesno){
-							pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
-							pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
-							GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
-							GUI.setBalance(pC.getPlayers()[theChosenOneBuy].getName(), pC.getPlayers()[theChosenOneBuy].getAccount().getBalance());
-							fC.setOwner(fieldPurchase, pC.getCurrentPlayer());
-							//Updates the both parties fleetOwned
-							if (fC.getField(fieldPurchase) == "Fleet"){
-								pC.getCurrentPlayer().updateFleetOwned();
-								pC.getPlayers()[theChosenOneBuy].reduceFleetOwned();
-							//Updates the both parties territoryOwned
-							} else if (fC.getField(fieldPurchase) == "Territory"){
-								pC.getCurrentPlayer().addTerColour(fC.getColour(fieldPurchase));
-								pC.getPlayers()[theChosenOneBuy].removeTerColour(fC.getColour(fieldPurchase));
-							//Updates the both parties laborcampOwned
-							} else if (fC.getField(fieldPurchase) == "Laborcamp"){
-								pC.getCurrentPlayer().updateLaborOwned();
-								pC.getPlayers()[theChosenOneBuy].reduceLaborOwned();
-							}
-							GUI.removeOwner(fieldPurchase+1);
-							GUI.setOwner(fieldPurchase+1, pC.getCurrentPlayer().getName());
-						}
+					if(fC.getHouseAmount(fieldBuy) > 0){
+						GUI.showMessage(Language.getLang("CANTBUYWITHHOUSES"));
 					}else{
-						GUI.getUserButtonPressed(Language.getLang("CANTAFFORD"), Language.getLang("OK"));
-					}
 
+						//Asks the player what he wants to buy it for
+						int buyersPrice = GUI.getUserInteger(Language.getLang("WHATBUYPRICE"));
+						//Checks if the player can afford it
+						if(pC.getCurrentPlayer().getAccount().getBalance() >= buyersPrice){
+
+							//Asks the chosen owner of the property if he wants sell his property
+							boolean yesno = GUI.getUserLeftButtonPressed(String.format(Language.getLang("DOWANTSELL"),pC.getPlayers()[theChosenOneBuy].getName(),fC.getName(fieldBuy),buyersPrice), Language.getLang("YES"), Language.getLang("NO"));
+							if(yesno){
+								pC.getCurrentPlayer().getAccount().updateBalance(-buyersPrice);
+								pC.getPlayers()[theChosenOneBuy].getAccount().updateBalance(buyersPrice);
+								GUI.setBalance(pC.getCurrentPlayer().getName(), pC.getCurrentPlayer().getAccount().getBalance());
+								GUI.setBalance(pC.getPlayers()[theChosenOneBuy].getName(), pC.getPlayers()[theChosenOneBuy].getAccount().getBalance());
+								fC.setOwner(fieldBuy, pC.getCurrentPlayer());
+								//Updates the both parties fleetOwned
+								if (fC.getField(fieldBuy) == "Fleet"){
+									pC.getCurrentPlayer().updateFleetOwned();
+									pC.getPlayers()[theChosenOneBuy].reduceFleetOwned();
+									//Updates the both parties territoryOwned
+								} else if (fC.getField(fieldBuy) == "Territory"){
+									pC.getCurrentPlayer().addTerColour(fC.getColour(fieldBuy));
+									pC.getPlayers()[theChosenOneBuy].removeTerColour(fC.getColour(fieldBuy));
+									//Updates the both parties laborcampOwned
+								} else if (fC.getField(fieldBuy) == "Laborcamp"){
+									pC.getCurrentPlayer().updateLaborOwned();
+									pC.getPlayers()[theChosenOneBuy].reduceLaborOwned();
+								}
+								GUI.removeOwner(fieldBuy+1);
+								GUI.setOwner(fieldBuy+1, pC.getCurrentPlayer().getName());
+							}
+						}else{
+							GUI.getUserButtonPressed(Language.getLang("CANTAFFORD"), Language.getLang("OK"));
+						}
+					}
 				}
 			}
 
@@ -173,11 +178,11 @@ public class BuySellPropertyController {
 								if (fC.getField(fieldSell) == "Fleet"){
 									pC.getPlayers()[theChosenOneSell].updateFleetOwned();
 									pC.getCurrentPlayer().reduceFleetOwned();
-								//Updates the both parties territoryOwned
+									//Updates the both parties territoryOwned
 								} else if (fC.getField(fieldSell) == "Territory"){
 									pC.getPlayers()[theChosenOneSell].addTerColour(fC.getColour(fieldSell));
 									pC.getCurrentPlayer().removeTerColour(fC.getColour(fieldSell));
-								//Updates the both parties laborcampOwned
+									//Updates the both parties laborcampOwned
 								} else if (fC.getField(fieldSell) == "Laborcamp"){
 									pC.getPlayers()[theChosenOneSell].updateLaborOwned();
 									pC.getCurrentPlayer().reduceLaborOwned();

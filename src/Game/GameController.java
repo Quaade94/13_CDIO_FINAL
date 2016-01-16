@@ -7,8 +7,8 @@ import Fields.FieldController;
 
 import javax.swing.JOptionPane;
 
-import Controllers.BuyHouseController;
-import Controllers.BuySellPropertyController;
+import Controllers.HouseController;
+import Controllers.PropertyController;
 import Controllers.DiceRollController;
 import Game.Language;
 
@@ -21,8 +21,8 @@ public class GameController {
 	private Player currentPlayer;
 	private PlayerController pC;
 	private FieldController fC;
-	private BuyHouseController bhC;
-	private BuySellPropertyController bspC; 
+	private HouseController bhC;
+	private PropertyController bspC; 
 	private DiceRollController dC;
 	private boolean gameLoop = true;
 
@@ -35,9 +35,9 @@ public class GameController {
 		//Setup GUI
 		new GUISetupManager(fC);
 		//Setup buy sell house option
-		bhC = new BuyHouseController();
+		bhC = new HouseController();
 		//Setup buy sell property option
-		bspC = new BuySellPropertyController();
+		bspC = new PropertyController();
 		//Setup dice roll option
 		dC = new DiceRollController();
 		//Tell playercontroller to setup

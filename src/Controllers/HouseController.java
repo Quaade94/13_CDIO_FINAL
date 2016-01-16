@@ -6,7 +6,7 @@ import desktop_resources.GUI;
 
 import Players.PlayerController;
 
-public class BuyHouseController {
+public class HouseController {
 
 	public void buyHouseOption(FieldController fC, PlayerController pC) {
 
