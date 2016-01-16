@@ -2,28 +2,68 @@ package Test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import Fields.FieldController;
 import Game.GameController;
 import Players.PlayerController;
 import Players.Player;
 import Test.TestDie;
 
 public class PlayerTests {
-
-	GameController gC = new GameController();
-	PlayerController pC = new PlayerController();
+	
+	static FieldController fC;
+	static PlayerController pC;
+	static GameController gC;
+	
+	@BeforeClass
+	public static void init(){
+		gC = new GameController();
+		pC = new PlayerController();
+		fC = new FieldController();
+	}
+	
 	TestDie die = new TestDie(3, 3);
+	
+	@Before 
+	public void resetPlayer(){
+		//Resets the player to initial values
+		
+		
+		//Resets the fields ownership to null
+		for (int i = 0 ; i <= 39 ; i++){
+			if (fC.getOwner(i)!=null){
+				fC.resetOwner(i);
+			}
+			if (fC.getHouseAmount(i)>0){
+				fC.resetHouses(i);
+			}
+		}
+		
+		//Resets the players position to 0 (start) and resets their jail status and balance
+		for (int i = 0 ; i < pC.getPlayers().length ; i++){
+			if (pC.getPlayers()[i].getPlace()!=0){
+				pC.getPlayers()[i].setPlace(0);
+			}
+			if (pC.getPlayers()[i].getJailed()==true){
+				pC.getPlayers()[i].setJail(false);
+			}
+			pC.getPlayers()[i].getAccount().resetBalance();
+		}
+	}
 
 	@Test
 	public void testPlayerPositionMin(){
 		Player currentPlayer = pC.getCurrentPlayer();
 		int playerPosition = currentPlayer.getPlace();
+		System.out.println(currentPlayer.getPlace());
 		int newPosition;
 		die.roll();
+		System.out.println(TestDie.getDiceSum());
 		newPosition = playerPosition + TestDie.getDiceSum();
 		currentPlayer.setPlace(newPosition);
-		System.out.println(newPosition);
 		System.out.println(TestDie.getDiceSum());
 
 		int expectedNewPosition = 6;
@@ -41,8 +81,6 @@ public class PlayerTests {
 		die.roll();
 		newPosition = playerPosition + TestDie.getDiceSum();
 		currentPlayer.setPlace(newPosition);
-		System.out.println(newPosition);
-		System.out.println(TestDie.getDiceSum());
 
 		int expectedNewPosition = 39;
 		int actualNewPosition = currentPlayer.getPlace();
@@ -60,8 +98,6 @@ public class PlayerTests {
 		newPosition = playerPosition + TestDie.getDiceSum();
 		if (newPosition >= 40) newPosition = newPosition-40;
 		currentPlayer.setPlace(newPosition);
-		System.out.println(newPosition);
-		System.out.println(TestDie.getDiceSum());
 
 		int expectedNewPosition = 1;
 		int actualNewPosition = currentPlayer.getPlace();
@@ -90,8 +126,6 @@ public class PlayerTests {
 		int expectedNewBalanceOP = 31500;
 		int actualNewBalanceCP = currentPlayer.getAccount().getBalance();
 		int actualNewBalanceOP = otherPlayer.getAccount().getBalance();
-		System.out.println("CP: " + actualNewBalanceCP);
-		System.out.println("OP: " + actualNewBalanceOP);
 
 		assertEquals(expectedNewBalanceCP, actualNewBalanceCP);
 		assertEquals(expectedNewBalanceOP, actualNewBalanceOP);
