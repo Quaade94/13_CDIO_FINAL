@@ -25,8 +25,8 @@ public class TestHouse {
 	}
 	
 	@Before 
-	public void resetBalance(){
-		//Resets the players balance
+	public void resetPlayer(){
+		//Resets the player to initial values
 		
 		
 		//Resets the fields ownership to null
